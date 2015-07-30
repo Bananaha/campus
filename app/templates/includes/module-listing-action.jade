@@ -1,0 +1,40 @@
+.table-container.shadowl1
+    h2 Liste des actions de formation
+        span 
+    ul.table-module
+        li.table-header
+            .icone
+            .icone
+            .icone
+            .icone
+            .icone.last
+            .column-border
+                | Intitulé
+            .column-short.column-border
+                | Nature
+            .column-short
+                | N° Action
+        li.table-body
+            .icone
+                button.button--plus(type="button"  title="Nouvelle session")
+            // mettre condition : si session non archivée dans action vert si vide bleu
+            .icone
+                button.button--folder(type="button") 
+            .icone
+                button.button--pen(type="button"  title="Modifier")
+            // Empêcher la suppression si archives existantes ou sessions ouvertes
+            .icone
+                button.button--bin(type="button"  title="Supprimer")
+            // Empêcher l'archivage si sessions ouvertes
+            .icone.last
+                button.button--archive(type="button"  title="Archiver")
+            .column-border
+                a FI-Hello world !
+            .column-short.column-border
+                a Employeur
+            .column-short
+                a 007
+                
+                    
+                
+                

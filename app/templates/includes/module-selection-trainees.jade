@@ -1,0 +1,42 @@
+h2 Sélection des stagiaires et formateurs
+.table-container
+    ul.table-module
+        li.table-header
+            .icone
+            div Nom
+            div Prénom
+            .column-short Contrat
+            div Emploi
+            .column-short text de sortie
+            
+        li.table-body
+            .icone
+                button.button--user-plus(type="button"  title="Ajouter")
+            div
+            div
+            .column-short
+            div
+            .column-short
+h2 Stagiaires et formateurs assignés à la formation
+.table-container
+    ul.table-module
+        li.table-header
+            .icone
+            div Nom
+            div Prénom
+            .column-short Contrat
+            div Emploi
+            .column-short text de sortie
+            .column-short Formateur
+        li.table-body
+            .icone
+                button.button--user-less(type="button"  title="Supprimer")
+            div
+            div
+            .column-short
+            div
+            .column-short
+            .column-short(title="Formateur")
+                input(type="checkbox"  name=""  checked="unchecked")
+include module-submit
+            

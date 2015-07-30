@@ -1,0 +1,144 @@
+form
+    .grid.pop-in-container
+        h2.col-1 Cr&#233;ation d"une session CIF "nom de l"action"
+        .col-1-3.group      
+            input(type="number" required)
+            span.bar
+            label Matricule
+        .col-1-3.group      
+            input(type="text" required)
+            span.bar
+            label Nom
+        .col-1-3.group      
+            input(type="text" required)
+            span.bar
+            label Pr&#233;nom
+        .col-1-3.group      
+            input(type="text" required)
+            span.bar
+            label text de la demande
+        .col-1-3.group      
+            input(type="text" required)
+            span.bar
+            label text butoir
+        .col-1-3.group
+            select(name="completPartiel")
+                option(value="value1") --Tps complet/Tps partiel--
+                option(value="value2") Temps complet
+                option(value="value3") Temps partiel
+        .col-1-3.group
+            select(name="completPartiel")
+                option(value="value1") --Validation--
+                option(value="value2") Certifiante
+                option(value="value3") Qualifiante
+                option(value="value3") Dipl&#244;mante
+        .col-2-3.group      
+            textarea(name='textarea', rows='2' required)
+            span.bar
+            label Pr&#233;cisez :
+        .col-1-3.group      
+            input(type="number" required)
+            span.bar
+            label Dur&#233;e (heures) :
+        .col-1-3.group      
+            input(type="number" required)
+            span.bar
+            label Dur&#233;e (mois) :
+        .col-1-3.group      
+            input(type="number" required)
+            span.bar
+            label Nb heures/mois :
+        .col-1-2.group      
+            input(type="text" required)
+            span.bar
+            label text de d&#233;but :
+        .col-1-2.group      
+            input(type="text" required)
+            span.bar
+            label text de fin :
+        include module-submit
+        // Module de validation
+    .pop-in-container.grid
+        h2.col-1 Validation du CIF
+        .col-1-2
+            select(name="visaEmployeur") 
+                option(value="value1") --Employeur--
+                option(value="value2") En cours
+                option(value="value3") Accept&#233;e
+                option(value="value4") Refus&#233;e
+                option(value="value5") Report&#233;e
+        .col-1-2.group      
+            input(type="text" required)
+            span.bar
+            label text de validation
+        .col-1.group      
+            textarea(name='textarea', rows='2' required)
+            span.bar
+            label Motif de refus ou de report
+        .col-1-2
+            select(name="visaFongecif")
+                option(value="value1") --FONGECIF--
+                option(value="value2") En cours
+                option(value="value3") Accept&#233;e
+                option(value="value4") Refus&#233;e
+                option(value="value5") Report&#233;e
+        .col-1-2.group      
+            input(type="text" required)
+            span.bar
+            label text de validation
+        .col-1.group      
+            textarea(name='textarea', rows='2' required)
+            span.bar
+            label Motif de refus ou de report
+        include module-submit
+    .pop-in-container.grid
+        h2.col-1 Prise en charge du FONGECIF
+        .col-1-2.group      
+            input(type="text" required)
+            span.bar
+            label Dur&#233;e de la formation th&#233;orique
+        .col-1-2
+            select(name="visaFongecif") 
+                option(value="value1") --Reprise du poste pendant la formation--
+                option(value="value2") Oui
+                option(value="value3") Non
+        .col-1.group      
+            input(type="text" required)
+            span.bar
+            label Prise en charge salariale
+        include module-submit
+        // Module de suivi du financement
+    .pop-in-container.grid
+        h2.col-1 Suivi du financement
+        div
+            table
+                tr
+                    th
+                        | Mois
+                    th
+                        |  Ann&#233;e
+                    th
+                        |  Nb hres pr&#233;sence
+                    th
+                        |  Salaire brut vers&#233;
+                    th
+                        |  Montant encaiss&#233; Fongecif
+                    th
+                        |  text paiement
+                tr
+                    td
+                        | Mois x
+                    td
+                        | Ann&#233;e x
+                    td
+                        input(type="number", name="", placeholder="0")
+                        p hrs
+                    td
+                        input(type="number", name="", placeholder="0.00")
+                        p &#8364;
+                    td
+                        input(type="number", name="", placeholder="0.00")
+                        p &#8364;
+                    td
+                        input(type="text", name="", placeholder="")
+        include module-submit

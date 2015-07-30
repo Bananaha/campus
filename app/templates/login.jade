@@ -1,0 +1,23 @@
+extends layouts/head.jade
+
+block variables
+
+    - bodyClass = "body-login"
+
+block layoutContent
+
+    div.login
+        div.inner
+            h1 
+                | b2s
+                span Campus
+                
+            form(action="" onsubmit="checkMail()")
+                fieldset
+                    input(type="text" id="name" name="userMail" placeholder="adresse mail ou nom d'utilisateur")
+                    input(type="password" name="userPassword" placeholder="mot de passe")
+                input.submit(type="submit" value="Connexion" href="home.html")
+            
+            a(href="#") Mot de passe oublié ? 
+        
+

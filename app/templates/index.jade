@@ -1,0 +1,23 @@
+extends layouts/main.jade
+
+block content
+
+  .page--container
+    .grid--pad
+        .col-1-2
+          .block
+            include includes/module-last-sessions
+        .col-1-2
+          .block
+            include includes/module-suivi-budget-global
+        .col-1-2
+          .block
+            include includes/module-indicateurs
+        .col-1-2
+          .block
+            include includes/module-reportings
+        .col-1
+          .block
+            include includes/module-documentation
+
+

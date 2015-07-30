@@ -1,0 +1,25 @@
+.table-container.shadowl1
+    h2 Liste des accompagnements
+        span 
+    ul.table-module
+        li.table-header
+            .icone
+            .icone
+            .icone.last
+            .column-border
+                | Intitulé
+            .column-short
+                | N° Action
+        li.table-body
+            .icone
+                button.button--pen(type="button"  title="Modifier")
+            // Empêcher la suppression si archives existantes ou sessions ouvertes
+            .icone
+                button.button--bin(type="button"  title="Supprimer")
+            // Empêcher l'archivage si sessions ouvertes
+            .icone.last
+                button.button--archive(type="button"  title="Archiver")
+            .column-border
+                a FI-Hello world !
+            .column-short
+                a 007

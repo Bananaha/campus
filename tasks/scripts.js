@@ -1,0 +1,49 @@
+var path = require('path'),
+    gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    plumber = require('gulp-plumber'),
+    sourcemaps = require('gulp-sourcemaps'),
+    gIf = require('gulp-if'),
+    eslint = require('gulp-eslint'),
+    uglify = require('gulp-uglify'),
+    fs = require('fs'),
+
+    config = require('./config.js'),
+    paths = config.paths;
+
+function getScriptsFromJade() {
+    var jadeSrc = path.join(paths.appBase, 'templates', 'includes', 'scripts.jade'),
+        fileContent = fs.readFileSync(jadeSrc, 'UTF-8'),
+        SCRIPTS_REGEX = /script\(.*?src="(.*)".*?\)/mg,
+        match,
+        files = [];
+
+    while (match = SCRIPTS_REGEX.exec(fileContent)) {
+        files.push(match[1]);
+    }
+
+    return files.map(function (scriptSrc) {
+        return path.join(paths.appBase, scriptSrc);
+    });
+}
+
+function isAppScript(file) {
+    return file.path.indexOf('bower_components') < 0;
+}
+
+gulp.task('lint', function () {
+    return gulp.src(getScriptsFromJade())
+        .pipe(gIf(isAppScript, eslint())) // Exclude bower_components from linting
+        .pipe(eslint.format())
+        .pipe(gIf(config.prod, eslint.failOnError()));
+});
+
+gulp.task('scripts', ['lint'], function () {
+    return gulp.src(getScriptsFromJade())
+        .pipe(plumber(config.plumber))
+        .pipe(sourcemaps.init())
+        .pipe(concat(config.scriptName))
+        .pipe(gIf(config.prod, uglify()))
+        .pipe(gIf(!config.prod, sourcemaps.write()))
+        .pipe(gulp.dest(path.join(paths.dist, 'scripts')));
+});
