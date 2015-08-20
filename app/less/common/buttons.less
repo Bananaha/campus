@@ -1,0 +1,29 @@
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.btn {
+    transition: backgorund-color .3s ease-out;
+    color: #FFF;
+    background-color: @button-background;
+    border-radius: 3px;
+    padding: @u-small @u-medium;
+
+    &:hover,
+    &:focus {
+        background-color: @button-background-hover;
+    }
+}
+
+.btnIcon {
+    transition: color .3s ease-out;
+    color: @button-background;
+    
+    &:hover,
+    &:focus {
+        color: @button-background-hover;
+    }  
+}

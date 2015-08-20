@@ -1,22 +1,21 @@
 extends layouts/main.jade
 
 block content
-    .page--container
-        include includes/module-filter-tools
-       
-        include includes/module-listing-action
+    include includes/modules/module-filter-tools
+   
+    include includes/modules/module-listing-action
+
+    include includes/modules/module-listing-session-employeur
+
+    include includes/modules/module-listing-session-cpf
+
+    include includes/modules/module-listing-session-cif
     
-        include includes/module-listing-session-employeur
-    
-        include includes/module-listing-session-cpf
-    
-        include includes/module-listing-session-cif
-        
-        include includes/module-new-action
-    
-        include includes/module-new-session-employeur
-    
-        include includes/module-new-session-cpf
-    
-        include includes/module-new-session-cif
+    include includes/modules/module-new-action
+
+    include includes/modules/module-new-session-employeur
+
+    include includes/modules/module-new-session-cpf
+
+    include includes/modules/module-new-session-cif
         

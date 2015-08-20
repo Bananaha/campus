@@ -1,0 +1,48 @@
+.nav {
+    position: absolute;
+    top: @size-header;
+    left: 0;
+    bottom: 0;
+    width: @size-nav;
+    padding-top: @u-medium;
+    z-index: @z-nav;
+
+    &::before {
+        content: "";
+        background-color: @color-gray-25;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: @size-nav;
+        position: fixed;
+        background: @color-gray-25;
+    }
+}
+
+.nav-list {
+    position: relative;
+}
+
+.nav-link {
+    transition: none;
+    display: block;
+    line-height: 48px;
+    color: #FFF;
+    padding-left: @u-medium;
+    font-weight: 400;
+
+    &:hover {
+        transition: background-color .3s ease-out, color .3s ease-out;
+        background: @button-background-hover;
+    }
+
+    &.active,
+    &.active:hover {
+        background-color: @button-background;
+        cursor: default;
+    }
+}
+
+.nav-sublist {
+    display: none;
+}

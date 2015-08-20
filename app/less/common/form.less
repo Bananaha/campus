@@ -1,0 +1,121 @@
+::-webkit-texttime-edit-year-field:not([aria-valuenow]),
+::-webkit-texttime-edit-month-field:not([aria-valuenow]),
+::-webkit-texttime-edit-day-field:not([aria-valuenow]),
+::-webkit-texttime-edit-date:not([aria-valuenow]){
+    color: transparent;
+}
+
+input,
+select,
+ {
+	border: 1px solid @color-gg-indigo-lighter;
+    line-height: @u-medium;
+    padding-left: @u-base;
+        
+    &:focus {
+    	outline: 0;
+    }
+    &[type="search"]:focus {
+        background-color: @background-focus-color;
+    }
+}
+
+select {
+    padding: 0 @u-medium 0 @u-base;
+    padding-right: @u-medium;
+    height: @u-medium;
+    border: 1px solid #FFF;
+    border-bottom: 1px solid @color-black;
+    border-radius: 3px;
+	box-sizing: border-box;
+	color: @text-color;
+	font-size: 16px;
+	width: 212px;
+	
+	&:focus {
+	    font-size: 14px;
+	}
+}
+
+.group { 
+    position: relative; 
+    margin-bottom: @u-medium;
+
+    input {
+        height: @u-medium;
+        font-size: 14px;
+        padding: 0 @u-base;
+        display: block;
+        width: 212px;
+        border: none;
+        border-bottom: 1px solid @color-black;
+        box-sizing: border-box;
+    }   
+
+    textarea {
+        border: none;
+        border-bottom: 1px solid @color-black;
+        width: 100%;
+        box-sizing: border-box;
+        resize: none;
+    }    
+    
+    textarea, 
+    input {
+        
+        &:focus { 
+            outline: none;
+            border-bottom: none;
+        }
+    
+        &:focus ~ label,
+        &:valid ~ label {
+            top: -16px;
+            font-size: 14px;
+            color: @color-gg-light--green-standard;
+        }
+    
+        &:focus ~ .bar:before, 
+        &:focus ~ .bar:after {
+            width: 50%;
+        }
+    }
+    
+    .bar {
+        position: relative;
+        display: block;
+        width: 100%;
+        box-sizing: content; 
+
+        &:before, 
+        &:after {
+            content:'';
+            height: 2px; 
+            width: 0;
+            bottom: 1px; 
+            position:absolute;
+            background: @color-gg-light--green-standard; 
+            transition:0.2s ease all; 
+            -moz-transition:0.2s ease all; 
+            -webkit-transition:0.2s ease all;
+            }
+    
+        &:before {
+            left:50%;
+        }
+    
+        &:after {
+            right:50%; 
+        }
+    }
+    
+    label {
+        color: @text-color; 
+        font-size: 16px;
+        position: absolute;
+        pointer-events: none;
+        left: @u-base;
+        top: @u-base;
+        transition: 0.25s linear; 
+    }
+}

@@ -1,0 +1,29 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  
+  &.show {
+    display: block;
+  }
+}
+
+.modal-background {
+  background: rgba(255, 255, 255, .5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-container {
+  background: #FFF;
+  position: relative;
+  margin: 24px auto;
+  width: 600px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+}

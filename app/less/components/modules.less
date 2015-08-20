@@ -1,3 +1,50 @@
 .module--cta-container {
     text-align: right;
 }
+
+.block {
+	.card;
+	position: relative;
+	padding: @u-small;
+	height: 150px;
+	
+	h2 {
+	    margin-bottom: @u-small;
+	    padding: 0;
+	}
+	a, 
+	p, 
+	div {
+		display: block;
+		height: 30px;
+	}
+	.module--cta-container {
+	    position: absolute;
+	    right: @u-small;
+	    bottom: @u-small;
+	}
+}
+/*
+//uniquement sur home
+.date-indicator {
+	position: absolute;
+	height: 30px;
+	top: 10px;
+	text-align: center;
+	display: block;
+	float: right;
+	right: 10px;
+	margin: 0;
+	border: none;
+	font-size: 14px;
+	border: 1px solid #EEE;
+}
+//uniquement sur home
+.reporting-list {
+        width: 85%;
+        margin-top: 10px;
+        position: absolute;
+        bottom: @u-large;
+        left: @u-small;
+}
+*/

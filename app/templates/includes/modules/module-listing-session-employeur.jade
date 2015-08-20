@@ -1,24 +1,25 @@
-.table-container.shadowl1
+.table-container
     h2 
         | Nom de l'action
     ul.table-module
         li.table-header
             .icone
             .icone
+            .icone
             .icone.last
             div
-                | Nom
+                | Date de début
             div
-                | Prénom
+                | Auteur
             .column-short
-                | Date butoir
-            .column-short
-                | Avis Empl.
+                | Durée
             // Barre de progression à chaque ligne
             .icone
             .column-short
                 | N° Session
         li.table-body
+            .icone
+                button.button--user-plus(type="button"  title="Ajouter des participants")
             .icone
                 button.button--pen(type="button"  title="Modifier")
             .icone
@@ -27,14 +28,12 @@
             .icone.last
                 button.button--archive(type="button"  title="Archiver")
             div
-                a Dupont
-            div
-                a Martin
-            div
                 a 01/01/2020
             div
-                a OUI
+                a A.Genthner
+            div
+                a 7 hrs
             div
                 a 
             div
-                a 000001
+                a 0000003
