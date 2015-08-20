@@ -1,29 +1,66 @@
-.module--cta-container {
-    text-align: right;
+.module-title {
+	color: @color-purple-dark;
+	font-size: 1.8rem;
+	font-weight: 300;
+	margin-bottom: @u-small;
+	line-height: 1;
 }
 
-.block {
+.module-list-item {
 	.card;
+	padding: 0 @u-base;
 	position: relative;
-	padding: @u-small;
-	height: 150px;
 	
-	h2 {
-	    margin-bottom: @u-small;
-	    padding: 0;
-	}
-	a, 
-	p, 
-	div {
-		display: block;
-		height: 30px;
-	}
-	.module--cta-container {
-	    position: absolute;
-	    right: @u-small;
-	    bottom: @u-small;
+	+ .module-list-item {
+		margin-top: @u-base; 
 	}
 }
+
+.module-list-icon {
+	.fa-icon;
+	position: relative;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: @color-gray-97;
+	width: 48px;
+	height: 48px;
+	color: @color-main;
+	line-height: 48px;
+	text-align: center;
+	font-size: 2.6rem;
+	
+	.session & {
+		.fa-graduation-cap;
+	}
+}
+
+.module-list-icon + .module-list-label {
+	margin-left: 48px + @u-base;
+}
+
+.module-list-label {
+	display: block;
+	line-height: 48px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.module-list-link {
+	.mixin_silentLink;
+}
+
+.module-cta {
+	text-align: right;
+	margin-top: @u-small;
+}
+
+.module-card {
+	.card;
+	padding: @u-small;
+}
+
 /*
 //uniquement sur home
 .date-indicator {

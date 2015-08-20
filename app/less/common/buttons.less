@@ -10,7 +10,7 @@ button {
     color: #FFF;
     background-color: @button-background;
     border-radius: 3px;
-    padding: @u-small @u-medium;
+    padding: @u-base @u-small;
 
     &:hover,
     &:focus {
@@ -27,3 +27,88 @@ button {
         color: @button-background-hover;
     }  
 }
+
+// TODO: REFACTOR
+.mixin_iconSetting  {
+    .fa-icon;
+    width: 30px;
+    height: 20px;
+    border: none;
+    transition: all .3s linear;
+    color: lighten(#000, 45%);
+    cursor: pointer;
+}
+
+
+.button--bin {
+    .fa-trash-o;
+    .mixin_iconSetting;
+    
+    &:hover {
+        color: red;
+    }
+}
+
+.button--pen {
+    .fa-pencil;
+    .mixin_iconSetting;
+    
+    &:hover {
+        //color: @color-orange-corporate;
+    }
+}
+
+.button--archive {
+    .fa-archive;
+    .mixin_iconSetting;
+    
+    &:hover {
+        //color: @color-blue-light-corporate;
+    }
+}
+
+.button--folder {
+    .fa-folder;
+    .mixin_iconSetting;
+    
+    &:hover {
+        //color: @color-blue-dark-corporate;
+    }
+}
+
+.button--plus {
+    .fa-plus;
+    .mixin_iconSetting;
+    
+    &:hover {
+        //color: @color-green-corporate;
+    }
+}
+
+.button--user-plus {
+    .fa-user-plus;
+    .mixin_iconSetting;
+    
+    &:hover {
+        //color: @color-green-corporate;
+    }
+}
+
+.button--user-less {
+    .fa-user-times;
+    .mixin_iconSetting;
+    
+    &:hover {
+        //color: red;
+    }
+}
+
+.button--user {
+    .fa-user;
+    .mixin_iconSetting;
+    
+    &:hover {
+        //color: @color-green-corporate;
+    }
+}
+

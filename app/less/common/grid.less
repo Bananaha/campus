@@ -1,25 +1,25 @@
 @col-spacing: @u-medium;
 
 .grid {
-    .clear-fix;
+    .mixin_clearfix;
     display: block;
 
     [class*='col-'] {
         float: left;
         box-sizing: border-box;
     }
-}
 
-.grid--pad {
-    .grid;
-    margin-left: -@col-spacing;
+    &.pad {
+        margin-left: -@col-spacing;
 
-    [class*='col-'] {
-        padding-left: @col-spacing;
-        padding-bottom: @col-spacing;
-        position: relative;
+        [class*='col-'] {
+            padding-left: @col-spacing;
+            padding-bottom: @col-spacing;
+            position: relative;
+        }
     }
 }
+
 
 .col- {
     &1 {

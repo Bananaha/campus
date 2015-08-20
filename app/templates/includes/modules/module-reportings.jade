@@ -1,15 +1,21 @@
-h2 Reportings
-form
-    .group      
-            input(type="text" required)
-            span.bar
-            label Date de début
-    .group      
-            input(type="text" required)
-            span.bar
-            label Date de fin
-    select.reporting-list
-            option(value='value1')
-            option(value='value2')
-    .module--cta-container
-        button.btn Ok
+h2.module-title Générer un reporting
+.module-card
+    form.grid.pad
+        .col-1
+            - var options = ['Nombre de formations continues', 'Nombre de sessions ouvertes', 'Budget dépensé en formation']
+            +form-underlined("Type")
+                select.reporting-list
+                    each opt in options
+                        option(value=opt)= opt
+        
+        .col-1-2
+            +form-underlined("Du")
+                input(type="text" required)
+                
+        .col-1-2
+            +form-underlined("au")
+                input(type="text" required)
+        
+        
+        .module-cta
+            button.btn Générer

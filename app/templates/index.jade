@@ -2,21 +2,16 @@ extends layouts/main.jade
 
 block content
 
-  .grid--pad
+  .grid.pad
       .col-1-2
-        .block
           include includes/modules/module-last-sessions
       .col-1-2
-        .block
-          include includes/modules/module-suivi-budget-global
-      .col-1-2
-        .block
-          include includes/modules/module-indicateurs
-      .col-1-2
-        .block
           include includes/modules/module-reportings
+      .col-2-3
+          include includes/modules/module-suivi-budget-global
+      .col-1-3
+          include includes/modules/module-indicateurs
       .col-1
-        .block
           include includes/modules/module-documentation
 
 

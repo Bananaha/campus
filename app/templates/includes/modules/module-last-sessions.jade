@@ -1,9 +1,13 @@
-h2 Vos derni&egrave;res sessions
-div
-    div sessions
-    div sessions
-    div sessions
-    div sessions
+h2.module-title Vos dernières sessions
+
+- var sessions = ['FC_ORANGE_REGLES_DES_CLIENTS BNP PARIBAS', 'FC_SFR Business Team_temps fort Novembre 2014', 'RAN_SFR BT_Campagne THD']
+
+ul.module-list
+    each session in sessions
+        li.module-list-item.session
+            a(href="#").module-list-link
+                span.module-list-icon
+                span.module-list-label= session
     
-.module--cta-container
+.module-cta
     button.btn Voir tout

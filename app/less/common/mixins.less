@@ -1,93 +1,9 @@
-.clear-fix {
+.mixin_clearfix {
     
     &::after,
     &::before {
         content: "";
         clear: both;
         display: table;
-    }
-}
-
-.icone-setting  {
-    .fa-icon;
-    width: 30px;
-    height: 20px;
-    border: none;
-    background-color: @background-module;
-    transition: all .3s linear;
-    color: lighten(#000, 45%);
-    cursor: pointer;
-}
-
-
-.button--bin {
-    .fa-trash-o;
-    .icone-setting;
-    
-    &:hover {
-        color: red;
-    }
-}
-
-.button--pen {
-    .fa-pencil;
-    .icone-setting;
-    
-    &:hover {
-        color: @color-orange-corporate;
-    }
-}
-
-.button--archive {
-    .fa-archive;
-    .icone-setting;
-    
-    &:hover {
-        color: @color-blue-light-corporate;
-    }
-}
-
-.button--folder {
-    .fa-folder;
-    .icone-setting;
-    
-    &:hover {
-        color: @color-blue-dark-corporate;
-    }
-}
-
-.button--plus {
-    .fa-plus;
-    .icone-setting;
-    
-    &:hover {
-        color: @color-green-corporate;
-    }
-}
-
-.button--user-plus {
-    .fa-user-plus;
-    .icone-setting;
-    
-    &:hover {
-        color: @color-green-corporate;
-    }
-}
-
-.button--user-less {
-    .fa-user-times;
-    .icone-setting;
-    
-    &:hover {
-        color: red;
-    }
-}
-
-.button--user {
-    .fa-user;
-    .icone-setting;
-    
-    &:hover {
-        color: @color-green-corporate;
     }
 }

@@ -1,18 +1,39 @@
-html, 
-body {
-    height: 100%;
+html {
+    /* set base font-size to equiv "10px", which is adapted to rem unit */
+    font-size: 62.5%;
+    /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
+    /* thanks to @guardian, @victorbritopro and @eQRoeil */
+    font-size: ~'calc(1em * .625)';
+    /* disallow text zooming on orientation change (non standard property) */
+    text-size-adjust: 100%;
 }
 
 body {
-    position: relative;
-    font-family: 'Roboto';
-	font-size: 14px;
-	background-color: @background-page;
-	color: @text-color;
+	background-color: @color-body-background;
+	color: @color-text;
+    font-family: "Roboto";
+    font-weight: 300;
+    font-size: 1.4rem;
 }
 
 a {
     text-decoration: none;
+    color: @color-link;
+
+    &:hover,
+    &:focus {
+        color: @color-link-hover;
+        text-decoration: underline;
+    }
+}
+
+.mixin_silentLink(@color:@color-text) {
+    &,
+    &:hover,
+    &:focus {
+        color: @color;
+        text-decoration: none;
+    }
 }
 
 h2 {
