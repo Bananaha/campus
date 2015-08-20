@@ -1,0 +1,88 @@
+.graph-vbars {
+	position: relative;
+	border-bottom: 3px solid @color-gray-95;
+	margin-bottom: @u-medium;
+}
+
+.graph-vbars-col {
+	display: inline-block;
+	background: @color-gray-95;
+	width: 48px;
+	height: 135px;
+	
+	span {
+		content: "";
+		position: absolute;
+		width: 48px;
+		bottom: 0;
+	}
+
+	+ .graph-vbars-col {
+		margin-left: @u-base;
+	}
+
+	&.color-green span {
+		background-color: @color-green;
+	}
+
+	&.color-red span {
+		background-color: @color-red;
+	}
+
+	&.color-yellow span {
+		background-color: @color-yellow;
+	}
+
+	&.color-blue span {
+		background-color: @color-blue;
+	}
+
+	&.color-purple span {
+		background-color: @color-purple;
+	}
+}
+
+.graph-vbars-legend {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	li {
+		color: @color-gray-42;
+		font-size: 1.2rem;
+		line-height: @u-small;
+
+		+ li {
+			margin-top: @u-base;
+		}
+
+		&::before {
+			content: "";
+			width: @u-small;
+			height: @u-small;
+			display: inline-block;
+			margin-right: @u-base;
+			float: left;
+		}
+
+		&.color-green::before {
+			background-color: @color-green;
+		}
+
+		&.color-red::before {
+			background-color: @color-red;
+		}
+
+		&.color-yellow::before {
+			background-color: @color-yellow;
+		}
+
+		&.color-blue::before {
+			background-color: @color-blue;
+		}
+
+		&.color-purple::before {
+			background-color: @color-purple;
+		}
+	}
+}

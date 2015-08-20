@@ -1,5 +1,5 @@
 .nav {
-    position: absolute;
+    position: fixed;
     top: @size-header;
     left: 0;
     bottom: 0;
@@ -24,6 +24,7 @@
 }
 
 .nav-link {
+    .mixin_silentLink(#FFF);
     transition: none;
     display: block;
     line-height: 48px;
@@ -31,7 +32,8 @@
     padding-left: @u-medium;
     font-weight: 400;
 
-    &:hover {
+    &:hover,
+    &:focus {
         transition: background-color .3s ease-out, color .3s ease-out;
         background: @button-background-hover;
     }

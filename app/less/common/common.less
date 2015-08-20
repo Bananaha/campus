@@ -27,6 +27,17 @@ a {
     }
 }
 
+b,
+strong {
+    color: @color-purple-dark;
+    font-weight: 400;
+    font-size: 1.8em;
+}
+
+.fontSmall {
+    font-size: .6em;
+}
+
 .mixin_silentLink(@color:@color-text) {
     &,
     &:hover,
@@ -47,5 +58,6 @@ h2 {
 
 .view {
     margin-left: @size-nav;
-    padding: @u-medium;
+    padding: (@u-medium + @size-header) @u-medium @u-medium;
+
 }
