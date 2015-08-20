@@ -1,7 +1,13 @@
 h2 Reportings
 form
-    input(type='text')
-    input(type='text')
+    .group      
+            input(type="text" required)
+            span.bar
+            label Date de début
+    .group      
+            input(type="text" required)
+            span.bar
+            label Date de fin
     select.reporting-list
             option(value='value1')
             option(value='value2')
