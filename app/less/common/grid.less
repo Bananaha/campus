@@ -4,7 +4,7 @@
     .mixin_clearfix;
     display: block;
 
-    [class*='col-'] {
+    > [class*='col-'] {
         float: left;
         box-sizing: border-box;
     }
@@ -12,10 +12,14 @@
     &.pad {
         margin-left: -@col-spacing;
 
-        [class*='col-'] {
+        > [class*='col-'] {
             padding-left: @col-spacing;
             padding-bottom: @col-spacing;
             position: relative;
+        }
+
+        &.noSpacing > [class*='col-'] {
+            padding-bottom: 0;
         }
     }
 }

@@ -30,12 +30,11 @@ a {
 b,
 strong {
     color: @color-purple-dark;
-    font-weight: 400;
-    font-size: 1.8em;
+    font-weight: 500;
 }
 
 .fontSmall {
-    font-size: .6em;
+    font-size: .8em;
 }
 
 .mixin_silentLink(@color:@color-text) {
@@ -61,3 +60,24 @@ h2 {
     padding: (@u-medium + @size-header) @u-medium @u-medium;
 
 }
+
+// COLORS
+
+.mixin_color(@colorName, @color) {
+    .fontColor@{colorName} {
+        color: @color;
+    }
+
+    .bgColor@{colorName} {
+        background-color: @color
+    }
+}
+
+// can't use directly "green" or "red"... as colorName
+// being understood by less as HEX colors code
+// Has to prefix it with "-" darling :)
+.mixin_color(-green, @color-green);
+.mixin_color(-red, @color-red);
+.mixin_color(-yellow, @color-yellow);
+.mixin_color(-blue, @color-blue);
+.mixin_color(-purple, @color-purple);

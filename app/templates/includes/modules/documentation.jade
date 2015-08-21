@@ -1,0 +1,23 @@
+.module-documentation
+
+    h2.module-title Documentation
+
+    - var docs = []
+    - docs.push("Information sur les dispositifs de formation")
+    - docs.push("Livret d'information")
+    - docs.push("Guide d'utilisation")
+    - docs.push("Lorem ipsum ut eu ut")
+    - docs.push("Conditions de prise en charge")
+    - docs.push("Information sur les dispositifs de formation")
+
+
+        ul.module-list.grid.pad.noSpacing
+            each doc in docs
+                li.col-1-2
+                    .module-list-item.doc
+                        a(href="#").module-list-link
+                            span.module-list-icon
+                            span.module-list-label= doc
+            
+    .module-cta
+        button.btn Voir tout

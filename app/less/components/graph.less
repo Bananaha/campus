@@ -1,44 +1,75 @@
+@graphVbars-colWidth: 48px;
+@graphVbars-labelSize: 48px;
+@graphVbars-colSpacing: @u-base;
 .graph-vbars {
 	position: relative;
 	border-bottom: 3px solid @color-gray-95;
 	margin-bottom: @u-medium;
 }
 
-.graph-vbars-col {
+.graph-vbars-cols {
+	.mixin_clearfix;
+	margin-right: 100px;
+	margin-left: -@graphVbars-colSpacing;
+	max-width: 280px;
+}
+
+.graph-vbars-colGroup {
+	position: relative;
+	float: left;
 	display: inline-block;
-	background: @color-gray-95;
-	width: 48px;
-	height: 135px;
-	
-	span {
+	width: @graphVbars-colWidth;
+	height: 150px;
+	padding-left: @graphVbars-colSpacing;
+	box-sizing: border-box;
+
+	&::before {
 		content: "";
 		position: absolute;
-		width: 48px;
+		display: block;
+		left: @graphVbars-colSpacing;
+		top: 0;
 		bottom: 0;
+		right: 0;
+		background-color: @color-gray-95;
 	}
+}
 
-	+ .graph-vbars-col {
-		margin-left: @u-base;
+.graph-vbars-label {
+	transition: all .2s ease-out;
+	opacity: 0;
+	position: absolute;
+	border-radius: 50% 50% 50% 0;
+	transform: rotate(-45deg);
+	bottom: 100%;
+	width: @graphVbars-labelSize;
+	height: @graphVbars-labelSize;
+	line-height: @graphVbars-colWidth + 12;
+	text-align: center;
+	color: #FFF;
+	margin-bottom: 0;
+	left: 50%;
+	margin-left: -@graphVbars-labelSize/2;
+
+	span {
+		display: inline-block;
+		font-size: 1.2rem;
+		line-height: 1.2rem;
+		transform: rotate(45deg);
 	}
+}
 
-	&.color-green span {
-		background-color: @color-green;
-	}
+.graph-vbars-col {
+	position: absolute;
+	left: @graphVbars-colSpacing;
+	right: 0;
+	bottom: 0;
 
-	&.color-red span {
-		background-color: @color-red;
-	}
-
-	&.color-yellow span {
-		background-color: @color-yellow;
-	}
-
-	&.color-blue span {
-		background-color: @color-blue;
-	}
-
-	&.color-purple span {
-		background-color: @color-purple;
+	&:hover {
+		.graph-vbars-label {
+			opacity: 1;
+			margin-bottom: @u-small;
+		}
 	}
 }
 
@@ -55,34 +86,13 @@
 		+ li {
 			margin-top: @u-base;
 		}
-
-		&::before {
-			content: "";
-			width: @u-small;
-			height: @u-small;
-			display: inline-block;
-			margin-right: @u-base;
-			float: left;
-		}
-
-		&.color-green::before {
-			background-color: @color-green;
-		}
-
-		&.color-red::before {
-			background-color: @color-red;
-		}
-
-		&.color-yellow::before {
-			background-color: @color-yellow;
-		}
-
-		&.color-blue::before {
-			background-color: @color-blue;
-		}
-
-		&.color-purple::before {
-			background-color: @color-purple;
-		}
 	}
+}
+
+.graph-vbars-legend-color {
+	width: @u-small;
+	height: @u-small;
+	display: inline-block;
+	margin-right: @u-base;
+	float: left;
 }

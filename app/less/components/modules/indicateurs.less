@@ -1,0 +1,43 @@
+.module-indicateurs-item {
+	.card;
+	position: relative;
+	padding: @u-small @u-small @u-small 70px;
+
+	&::before {
+		.fa-icon;
+		color: @color-purple-dark;
+		font-size: 3.8rem;
+		position: absolute;
+		left: 0;
+		width: 70px;
+		text-align: center;
+		line-height: 0;
+		top: 50%;
+	}
+
+	&.formation {
+		.fa-graduation-cap;
+	}
+
+	&.employes {
+		.fa-users;
+	}
+
+	&.heures {
+		.fa-clock-o;
+
+		&::before {
+			font-size: 4.4rem;
+		}
+	}
+
+	+ .module-indicateurs-item {
+		margin-top: @u-small;
+	}
+
+	b {
+		font-size: 2.4rem;
+		display: block;
+		margin-bottom: @u-base;
+	}
+}
