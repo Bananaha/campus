@@ -56,6 +56,18 @@
     position: absolute;
     right: @u-base;
     border-top: 3px solid @header-top-color;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    margin-top: 15px;
+
+    &.show {
+        transition: margin-top .2s ease-out, opacity .2s ease-out;
+        opacity: 1;
+        height: auto;
+        width: auto;
+        margin-top: 0;
+    }
 
     &::before {
         content: "";
@@ -73,7 +85,6 @@
         border-width: 0 6px 8px 6px;
         border-color: transparent transparent @header-top-color transparent;
     }
-
 }
 
 .header-menu-item + .header-menu-item {
