@@ -17,6 +17,7 @@ body {
 }
 
 a {
+    transition: color .3s ease-out;
     text-decoration: none;
     color: @color-link;
 
@@ -24,6 +25,16 @@ a {
     &:focus {
         color: @color-link-hover;
         text-decoration: underline;
+    }
+
+    &.menuLink {
+        color: @color-text;
+
+        &:hover,
+        &:focus {
+            color: @color-link-hover;
+            text-decoration: none;
+        }
     }
 }
 

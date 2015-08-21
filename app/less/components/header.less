@@ -26,14 +26,18 @@
     box-sizing: border-box;
     font-size: 18px;
     font-family: "EurostileLTStd";
-    color: #FFF;
     margin: 0;
     background-color: @color-main;
     white-space: nowrap;
     text-align: center;
+
+    a {
+        .mixin_silentLink(#FFF);
+    }
 }
 
 .header-menu {
+    position: relative;
     text-align: right;
 }
 
@@ -44,4 +48,66 @@
     font-size: 2rem;
     width: 48px;
     height: 48px;
+}
+
+.header-menu-box {
+    @header-top-color: @color-gray-35;
+    .card;
+    position: absolute;
+    right: @u-base;
+    border-top: 3px solid @header-top-color;
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        right: @u-small;
+        bottom: 100%;
+    }
+
+    &::before {
+        margin-bottom: 3px;
+        border-width: 0 6px 8px 6px;
+        border-color: transparent transparent @header-top-color transparent;
+    }
+
+}
+
+.header-menu-item + .header-menu-item {
+    border-top: 1px solid @color-gray-91;
+}
+
+.header-menu-link {
+    position: relative;
+    line-height: 60px;
+    padding: 0 @u-large 0 60px;
+    display: block;
+
+    &::before {
+        .fa-icon;
+        transition: color .3s ease-out;
+        color: @color-link;
+        font-size: 3rem;
+        position: absolute;
+        width: 60px;
+        text-align: center;
+        line-height: 0;
+        top: 50%;
+        left: 0;
+    }
+
+    &:hover::before {
+        color: @color-link-hover;
+    }
+
+    &.account {
+        .fa-cog;
+    }
+
+    &.logout {
+        .fa-sign-out;
+    }
 }
