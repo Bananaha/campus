@@ -1,4 +1,4 @@
-(function (global) {
+(function (global, u) {
 
     'use strict';
 
@@ -31,4 +31,4 @@
         removeClass(modal, 'show');
     }
     */
-}(window));
+}(window, window.utils));

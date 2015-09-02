@@ -16,7 +16,7 @@
         while (!parent.matches(selector) && parent.tagName !== 'BODY') {
             parent = parent.parentNode;
         }
-        return parent;
+        return parent.tagName === 'BODY' ? null : parent;
     }
 
     function addClass(element, className) {

@@ -2,6 +2,8 @@
 
     'use strict';
 
+    return;
+
     var toggler = '[data-toggle]',
         toggleClass = 'show';
 
