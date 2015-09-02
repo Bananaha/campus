@@ -1,16 +1,18 @@
-h2.module-title Vos dernières sessions
+.module-lastSessions
 
-- var sessions = []
-- sessions.push('FC_ORANGE_REGLES_DES_CLIENTS BNP PARIBAS')
-- sessions.push('FC_SFR Business Team_temps fort Novembre 2014')
-- sessions.push('RAN_SFR BT_Campagne THD')
+    h2.module-title Vos dernières sessions
 
-ul.module-list
-    each session in sessions
+    ul.module-list
+        // template: lastSessions
+        // datas: lastSessions
+        
+    .module-cta
+        button.btn Voir tout
+
+    script(data-name="lastSessions" type="text/x-handlebars-template")
+        | {{#each this}}
         li.module-list-item.session
-            a(href="#").module-list-link
-                span.module-list-icon
-                span.module-list-label= session
-    
-.module-cta
-    button.btn Voir tout
+                a(href="{{link}}").module-list-link
+                    span.module-list-icon
+                    span.module-list-label {{title}}
+        | {{/each}}

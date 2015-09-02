@@ -46,7 +46,6 @@
         return toggle ? addClass(element, className) : removeClass(element, className);
     }
 
-
     global.utils = {
         selectEl: selectEl,
         getDataAttribute: getDataAttribute,
