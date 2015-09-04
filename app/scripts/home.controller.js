@@ -15,5 +15,18 @@ angular.module('campus.app').controller('homeController',
 			"title": "RAN_SFR BT_Campagne THD",
 			"link": "#"
 		}];
+
+		$scope.reporting = {
+			options: [{
+				label: 'Nombre de formations continues',
+				id: 'formationsContinues'
+			}, {
+				label: 'Nombre de sessions ouvertes',
+				id: 'sessionsOuvertes'
+			}, {
+				label: 'Budget dépensé en formation',
+				id: 'budgetDepenseFormation'
+			}]
+		};
         
     });

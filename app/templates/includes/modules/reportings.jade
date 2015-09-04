@@ -2,15 +2,19 @@ h2.module-title Générer un reporting
 .module-card
     form.grid.pad
         .col-1
-            - var options = ['Nombre de formations continues', 'Nombre de sessions ouvertes', 'Budget dépensé en formation']
             +form-underlined("Type")
-                select.reporting-list
-                    each opt in options
-                        option(value=opt)= opt
+                select.reporting-list(ng-options="option.label for option in reporting.options" ng-model="reporting.selected")
         
         .col-1-2
             +form-underlined("Du")
-                input(type="text" required)
+                p {{reporting.from}}
+                input(type="text" 
+                    datepicker-popup="dd-MM-yyyy"
+                    ng-model="reporting.from"
+                    is-open="false"
+                    ng-required="true"
+                    close-text="Close")
+                button(type="button" ng-click="open($event)") open
                 
         .col-1-2
             +form-underlined("au")

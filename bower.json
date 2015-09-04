@@ -12,10 +12,10 @@
   ],
   "devDependencies": {
     "angular-messages": "~1.4.1",
-    "angular-modal-service": "~0.6.6",
     "angular-route": "~1.4.3",
     "angular": "~1.4.5",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "angular-bootstrap": "~0.13.4"
   },
   "dependencies": {}
 }
