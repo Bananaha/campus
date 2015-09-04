@@ -1,0 +1,12 @@
+{
+    "dev": {
+        "config": {
+            "quotationUrl": "/quotation"
+        }
+    },
+    "prod": {
+        "config": {
+            "quotationUrl": "/quotation"
+        }
+    }
+}

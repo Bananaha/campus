@@ -19,8 +19,10 @@ html.not-ie.no-js(lang="fr")
     link(rel='stylesheet', href='styles/main.css')
     link(rel='apple-touch-icon', href='assets/images/favicons/apple-touch-icon.png')
 
-  body(class=bodyClass)
-  
+  body(class=bodyClass
+       ng-app="campus.app",
+       ng-controller="AppController as App")
+    
     block layoutContent
     
     include ../includes/scripts

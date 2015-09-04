@@ -1,17 +1,26 @@
-(function (global, u) {
+'use strict';
 
-    'use strict';
+/**
+ * Main module of the application.
+ */
+angular.module('campus.app', [
+        'ngRoute',
+        'ngMessages',
+        'angularModalService'
+    ])
+    .config(function(
+            $routeProvider
+        ) {
 
-    var basePath = 'assets/json/',
-        settings = {
-            services: {
-                lastSessions: basePath + 'last-sessions.json'
-            }
-        };
+            var basePath = '';
 
-    global.api = {
-        settings: settings,
-        modules: {}
-    };
-   
-}(window, window.utils));
+            $routeProvider.
+                when('/home', {
+                    templateUrl: basePath + 'home.html',
+                    controller: 'homeController'
+                }).
+                otherwise({
+                    redirectTo: '/home'
+                });
+        }
+    );

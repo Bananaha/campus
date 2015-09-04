@@ -9,9 +9,13 @@ module.exports = {
     
     scriptName: 'app.js',
 
+    moduleName: 'campus.app',
+    env: 'dev',
+    appConfPath: 'config/appConfig.json',
+
     paths: {
         appBase: appBase,
         dist: 'dist',
-        styles: path.join(appBase, 'less/main.less')
+        styles: path.join(appBase, 'less/main.less'),
     }
 };

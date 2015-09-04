@@ -7,9 +7,27 @@ var path = require('path'),
     eslint = require('gulp-eslint'),
     uglify = require('gulp-uglify'),
     fs = require('fs'),
-
+    lazypipe = require('lazypipe'),
+    ngAnnotate = require('gulp-ng-annotate'),
+    ngConfig = require('gulp-ng-config'),
+    ngTemplateCache = require('gulp-angular-templatecache');
+    jade = require('gulp-jade'),
     config = require('./config.js'),
     paths = config.paths;
+
+var compileAngularTemplate = lazypipe()
+    .pipe(jade, {
+        pretty: false
+    })
+    .pipe(ngTemplateCache, {
+        module: config.moduleName
+    }),
+    generateAngularConstants = lazypipe()
+    .pipe(ngConfig, config.moduleName, {
+        createModule: false,
+        environment: config.env
+    });
+
 
 function getScriptsFromJade() {
     var jadeSrc = path.join(paths.appBase, 'templates', 'includes', 'scripts.jade'),
@@ -39,8 +57,16 @@ gulp.task('lint', function () {
 });
 
 gulp.task('scripts', ['lint'], function () {
-    return gulp.src(getScriptsFromJade())
+    return gulp.src(
+            getScriptsFromJade()
+            .concat(config.appConfPath)
+            .concat(path.join(paths.appBase, 'templates', 'partials', '*.jade'))
+        )
         .pipe(plumber(config.plumber))
+        // Config
+        .pipe(gIf(/.*\.json/, generateAngularConstants()))
+        // Optim jade -> html -> js: less http requests
+        .pipe(gIf(/.*\.jade$/, compileAngularTemplate()))
         .pipe(sourcemaps.init())
         .pipe(concat(config.scriptName))
         .pipe(gIf(config.prod, uglify()))

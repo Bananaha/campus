@@ -3,16 +3,10 @@
     h2.module-title Vos dernières sessions
 
     ul.module-list
-        // template: lastSessions
-        // datas: lastSessions
+        li.module-list-item.session(ng-repeat="session in lastSessions")
+            a(href="{{session.link}}").module-list-link
+                span.module-list-icon
+                span.module-list-label {{session.title}}
         
     .module-cta
         button.btn Voir tout
-
-    script(data-name="lastSessions" type="text/x-handlebars-template")
-        | {{#each this}}
-        li.module-list-item.session
-                a(href="{{link}}").module-list-link
-                    span.module-list-icon
-                    span.module-list-label {{title}}
-        | {{/each}}
