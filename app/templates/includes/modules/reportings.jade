@@ -7,18 +7,24 @@ h2.module-title Générer un reporting
         
         .col-1-2
             +form-underlined("Du")
-                p {{reporting.from}}
-                input(type="text" 
-                    datepicker-popup="dd-MM-yyyy"
-                    ng-model="reporting.from"
-                    is-open="false"
-                    ng-required="true"
-                    close-text="Close")
-                button(type="button" ng-click="open($event)") open
+                - var opt = {}
+                - opt.ngModel = "reporting.from.value"
+                - opt.isOpen = "reporting.from.opened"
+                - opt.maxDate = "reporting.to.value"
+                - opt.required = "true"
+                - opt.name = "from"
+                +datePicker(opt)
                 
         .col-1-2
             +form-underlined("au")
-                input(type="text" required)
+                - var opt = {}
+                - opt.ngModel = "reporting.to.value"
+                - opt.isOpen = "reporting.to.opened"
+                - opt.maxDate = "reporting.to.maxDate"
+                - opt.minDate = "reporting.from.value"
+                - opt.required = "true"
+                - opt.name = "to"
+                +datePicker(opt)
         
         
         .module-cta

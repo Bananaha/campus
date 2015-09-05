@@ -6,7 +6,7 @@
 angular.module('campus.app', [
         'ngRoute',
         'ngMessages',
-        'ui.bootstrap.tpls'
+        'ui.bootstrap'
     ])
     .config(function(
             $routeProvider

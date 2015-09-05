@@ -26,7 +26,19 @@ angular.module('campus.app').controller('homeController',
 			}, {
 				label: 'Budget dépensé en formation',
 				id: 'budgetDepenseFormation'
-			}]
+			}],
+			from: {
+				value: new Date(),
+				opened: true
+			},
+			to: {
+				value: new Date(),
+				maxDate: new Date(),
+				opened: false
+			}
 		};
-        
+
+		$scope.open = function(name) {
+			$scope.reporting[name].opened = true;
+		}        
     });
