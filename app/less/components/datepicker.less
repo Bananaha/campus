@@ -1,26 +1,64 @@
 input.datepicker + .dropdown-menu {
 	.card;
-	padding: @u-base;
 	position: absolute;
 	z-index: @z-datepicker;
 }
 
 [datepicker] {
+	@cellpadding: 2px;
 	text-align: center;
+	width: (28px + 2 * @cellpadding) * 8;
+	padding: 0 @u-small;
+	position: relative;
+
+	&::before {
+		content: "";
+		background-color: @color-gray-25;
+		position: absolute;
+		top: 0;
+		height: 43px + 2 * @cellpadding;
+		width: 100%;
+		left: 0;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	td,
+	th {
+		padding: @cellpadding;
+	}
 
 	thead {
 
 		.btn,
 		strong {
+			transition: color .2s ease-out;
 			background: none;
 			font-weight: 500;
+			color: #FFF;
+		}
+
+		strong {
 			color: inherit;
 		}
+
+		.btn {
+			position: relative;
+
+			&:hover,
+			&:focus {
+				color: @color-main;
+			}
+		}
+
+		
 
 		button.pull-left,
 		button.pull-right {
 			.fa-icon;
-			width: 38px;
+			width: 28px;
 
 			&::before {
 				font-size: 2.8rem;
@@ -53,24 +91,84 @@ input.datepicker + .dropdown-menu {
 		tr:last-child {
 
 			th {
-				padding-top: @u-small;
+				padding: @u-small 0;
 				font-size: 1.2rem;
+				color: @color-text-light;
 			}
 		}
 	}
 
 	tbody {
+		@size: 28px;
+
+		td {
+			width: @size;
+			height: @size;
+			vertical-align: middle;
+		}
+
+		.h6 {
+			font-size: 1rem;
+			color: @color-text-light;
+		}
 
 		button {
+			transition: color .3s ease-out;
+			position: relative;
 			background: none;
 			padding: @u-base;
-			font-size: 1.2rem;
-			color: @color-text-light;
+			font-size: 1.1rem;
+			color: @color-text;
 			border-radius: 50%;
+			width: @size;
+			height: @size;
+			box-sizing: border-box;
+
+			span {
+				position: relative;
+				line-height: 0;
+
+				&.text-muted {
+					cursor: default;
+					position: absolute;
+					display: block;
+					background: #FFF;
+					color: @color-text-lighter;
+					line-height: @size+2;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					font-size: .8em;
+				}
+			}
+
+			&.active {
+				font-weight: 600;
+				color: @color-main;
+			}
+
+			&::before {
+				transition: transform .2s ease-out;
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: @color-main;
+				transform: scale(0);
+				border-radius: 50%;
+			}
 
 			&:hover,
 			&:focus {
 				color: #FFF;
+				background: none;
+
+				&::before {
+					transform: scale(1);
+				}
 			}
 		}
 	}
