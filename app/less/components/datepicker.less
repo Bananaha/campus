@@ -2,6 +2,12 @@ input.datepicker + .dropdown-menu {
 	.card;
 	position: absolute;
 	z-index: @z-datepicker;
+
+	> li + li {
+		.mixin_clearfix;
+		padding-bottom: @u-base !important;
+		background-color: @color-gray-91; 
+	}
 }
 
 [datepicker] {
@@ -10,6 +16,7 @@ input.datepicker + .dropdown-menu {
 	width: (28px + 2 * @cellpadding) * 8;
 	padding: 0 @u-small;
 	position: relative;
+	
 
 	&::before {
 		content: "";
@@ -23,6 +30,15 @@ input.datepicker + .dropdown-menu {
 
 	&:focus {
 		outline: none;
+	}
+
+	table {
+		border-bottom: 3px solid transparent;
+
+		&:focus {
+			outline: none;
+			border-bottom-color: @color-main;
+		}
 	}
 
 	td,
@@ -127,25 +143,36 @@ input.datepicker + .dropdown-menu {
 			span {
 				position: relative;
 				line-height: 0;
+			}
 
-				&.text-muted {
-					cursor: default;
-					position: absolute;
-					display: block;
-					background: #FFF;
-					color: @color-text-lighter;
-					line-height: @size+2;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					font-size: .8em;
-				}
+			&[disabled] span,
+			span.text-muted {
+				cursor: default;
+				position: absolute;
+				display: block;
+				background: #FFF;
+				color: @color-text-lighter;
+				line-height: @size+2;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				font-size: .8em;
 			}
 
 			&.active {
 				font-weight: 600;
 				color: @color-main;
+
+				&:hover,
+				&:focus {
+					color: @color-main;
+
+					&::before {
+						display: none;
+					}
+
+				}
 			}
 
 			&::before {

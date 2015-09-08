@@ -28,12 +28,11 @@ angular.module('campus.app').controller('homeController',
 				id: 'budgetDepenseFormation'
 			}],
 			from: {
-				value: new Date(),
+				value: null,
 				opened: true
 			},
 			to: {
-				value: new Date(),
-				maxDate: new Date(),
+				value: null,
 				opened: false
 			}
 		};
