@@ -2,16 +2,20 @@ var path = require('path'),
     gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     jade = require('gulp-jade'),
-
+    htmlReplace = require('gulp-html-replace'),
     config = require('./config.js');
 
 gulp.task('views', function () {
     return gulp.src([
-            path.join(config.paths.appBase, 'templates', '*.jade')
+            path.join(config.paths.appBase, '*.jade')
         ])
         .pipe(plumber(config.plumber))
         .pipe(jade({
             pretty: true
+        }))
+        .pipe(htmlReplace({
+            js: 'scripts/' + config.scriptName,
+            keepBlockTags: true
         }))
         .pipe(gulp.dest(config.paths.dist));
 });

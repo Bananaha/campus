@@ -1,0 +1,204 @@
+input.datepicker + .dropdown-menu {
+	.card;
+	position: absolute;
+	z-index: @z-datepicker;
+
+	> li + li {
+		.mixin_clearfix;
+		padding-bottom: @u-base !important;
+		background-color: @color-gray-91; 
+	}
+}
+
+[datepicker] {
+	@cellpadding: 2px;
+	text-align: center;
+	width: (28px + 2 * @cellpadding) * 8;
+	padding: 0 @u-small;
+	position: relative;
+	
+
+	&::before {
+		content: "";
+		background-color: @color-gray-25;
+		position: absolute;
+		top: 0;
+		height: 43px + 2 * @cellpadding;
+		width: 100%;
+		left: 0;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	table {
+		border-bottom: 3px solid transparent;
+
+		&:focus {
+			outline: none;
+			border-bottom-color: @color-main;
+		}
+	}
+
+	td,
+	th {
+		padding: @cellpadding;
+	}
+
+	thead {
+
+		.btn,
+		strong {
+			transition: color .2s ease-out;
+			background: none;
+			font-weight: 500;
+			color: #FFF;
+		}
+
+		strong {
+			color: inherit;
+		}
+
+		.btn {
+			position: relative;
+
+			&:hover,
+			&:focus {
+				color: @color-main;
+			}
+		}
+
+		
+
+		button.pull-left,
+		button.pull-right {
+			.fa-icon;
+			width: 28px;
+
+			&::before {
+				font-size: 2.8rem;
+			}
+		}
+
+		button.pull-left {
+			.fa-angle-left;
+
+		}
+
+		button.pull-right {
+			.fa-angle-right;
+		}
+
+		tr:first-child {
+			background-color: @color-gray-25;
+
+			button {
+				padding: 0;
+				line-height: 38px;
+				color: @color-gray-91;
+			}
+
+			th {
+				vertical-align: top;
+			}
+		}
+
+		tr:last-child {
+
+			th {
+				padding: @u-small 0;
+				font-size: 1.2rem;
+				color: @color-text-light;
+			}
+		}
+	}
+
+	tbody {
+		@size: 28px;
+
+		td {
+			width: @size;
+			height: @size;
+			vertical-align: middle;
+		}
+
+		.h6 {
+			font-size: 1rem;
+			color: @color-text-light;
+		}
+
+		button {
+			transition: color .3s ease-out;
+			position: relative;
+			background: none;
+			padding: @u-base;
+			font-size: 1.1rem;
+			color: @color-text;
+			border-radius: 50%;
+			width: @size;
+			height: @size;
+			box-sizing: border-box;
+
+			span {
+				position: relative;
+				line-height: 0;
+			}
+
+			&[disabled] span,
+			span.text-muted {
+				cursor: default;
+				position: absolute;
+				display: block;
+				background: #FFF;
+				color: @color-text-lighter;
+				line-height: @size+2;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				font-size: .8em;
+			}
+
+			&.active {
+				font-weight: 600;
+				color: @color-main;
+
+				&:hover,
+				&:focus {
+					color: @color-main;
+
+					&::before {
+						display: none;
+					}
+
+				}
+			}
+
+			&::before {
+				transition: transform .2s ease-out;
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: @color-main;
+				transform: scale(0);
+				border-radius: 50%;
+			}
+
+			&:hover,
+			&:focus {
+				color: #FFF;
+				background: none;
+
+				&::before {
+					transform: scale(1);
+				}
+			}
+		}
+	}
+
+
+}

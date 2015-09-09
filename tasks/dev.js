@@ -31,8 +31,9 @@ gulp.task('watch', function () {
     var frequentChangesOpts = { interval: 500 },
         infrequentChangesOpts = { interval: 2000 };
 
-    gulp.watch(path.join(paths.appBase, '**', '*.jade'), ['views']);
-    gulp.watch(path.join(paths.appBase, 'less/**/*.less'), infrequentChangesOpts, ['styles']);
+    gulp.watch(path.join(paths.appBase, '**', '*.jade'), ['views', 'scripts']);
+    gulp.watch(path.join(paths.appBase, 'templates', 'partials', '*.jade'), ['scripts']);
+    gulp.watch(path.join(paths.appBase, 'less', '**', '*.less'), infrequentChangesOpts, ['styles']);
     gulp.watch(path.join(paths.appBase, 'scripts', '**', '*.js'), ['scripts']);
     gulp.watch(path.join(paths.appBase, 'assets', '**'), ['assets']);
 
