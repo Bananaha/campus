@@ -1,6 +1,6 @@
-.pop-in-container
+.module-card
     form.grid
-        h2.col-2-3 
+        h2.col-2-3.module-title
             | Création d'une action
         .col-1-3
             select(name='type')
@@ -8,49 +8,48 @@
                 option(value='value2') Employeur
                 option(value='value3') CIF
                 option(value='value3') CPF
-        .col-1-3
+        .col-1-2            
             select(name='type')
                 option(value='value1') --Métier/Produit--
                 option(value='value2') Métier
                 option(value='value3') Produit
-        .col-1-3
+        .col-1-2
             select(name='societe')
                 option(value='value1') --Entité juridique--
                 option(value='value2') Valeur 2
                 option(value='value3') Valeur 3
-        .col-1-3
+        .col-1-2
             select(name='categorie')
                 option(value='value1') --Catégorie--
                 option(value='value2') Formation initiale
                 option(value='value3') Formation continue
-        .col-1-3
+        .col-1-2
             select(name='interneExterne')
                 option(value='value1') --Interne/Externe--
                 option(value='value2') Interne
                 option(value='value3') Externe
-        .col-1-3
-            select(name='Organisme')
-                option(value='value1') --Organisme de formation--
-                option(value='value2') 1
-                option(value='value3') 2
-        .col-1-3.group      
+        .col-1-2.group      
+                input(type="text" required)
+                span.bar
+                label Organisme de formation
+        .col-1-2.group      
                 input(type="text" required)
                 span.bar
                 label Intitulé de la formation
         .col-1.group
-            textarea(name='textarea', rows='2' required)
+            textarea(name='textarea', rows='4' required)
             span.bar
             label Population à former
         .col-1.group
-            textarea(name='textarea', rows='2' required)
+            textarea(name='textarea', rows='4' required)
             span.bar
             label Principaux points abordés
         .col-1.group
-            textarea(name='textarea', rows='2' required)
+            textarea(name='textarea', rows='4' required)
             span.bar
             label Objectifs pédagogiques
         .col-1.group
-            textarea(name='textarea', rows='2' required)
+            textarea(name='textarea', rows='4' required)
             span.bar
             label Pré-requis
         include module-submit

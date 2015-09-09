@@ -1,5 +1,5 @@
 .table-container
-    h2 Liste des actions de formation
+    h2.module-title Liste des actions de formation
         span 
     ul.table-module
         li.table-header
@@ -8,12 +8,11 @@
             .icone
             .icone
             .icone.last
-            .column-border
+            div 
                 | Intitulé
-            .column-short.column-border
-                | Nature
-            .column-short
-                | N° Action
+            .column-short Nb sessions
+            .column-short Nature
+            .column-short N° Action
         li.table-body
             .icone
                 button.button--plus(type="button"  title="Nouvelle session")
@@ -28,9 +27,10 @@
             // Empêcher l'archivage si sessions ouvertes
             .icone.last
                 button.button--archive(type="button"  title="Archiver")
-            .column-border
+            div
                 a FI-Hello world !
-            .column-short.column-border
+            .column-short 7
+            .column-short
                 a Employeur
             .column-short
                 a 007

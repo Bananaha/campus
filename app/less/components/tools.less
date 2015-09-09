@@ -3,30 +3,29 @@
     width: 100%;
     box-sizing: border-box;
     margin-bottom: @u-medium;
-    // background-color: @background-module;
     padding: @u-small;
     box-shadow: @shadow-l1;
-    
+	background: #FFF;
 
-    form, button {
+	&:hover {
+		transition: all 0.2s linear;
+		box-shadow: @shadow-l2;
+	}
+    
+    form, .submit-module {
         display: table-cell;
-        text-align: left;
+        text-align: center;
         vertical-align: middle;
-        width: 33,33%;
-        
     }
     
-    form {
-        padding-right: @u-medium;    
+    p, input {
+        display: inline;
+        width: auto;
     }
-    p {
-        display: inline;  
-    }
+    
     .search-input { 
         width: 100%;
     }
-
-    
 }
 
 
