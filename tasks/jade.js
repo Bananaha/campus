@@ -7,7 +7,7 @@ var path = require('path'),
 
 gulp.task('views', function () {
     return gulp.src([
-            path.join(config.paths.appBase, '*.jade')
+            path.join(config.paths.appBase, 'templates', '*.jade')
         ])
         .pipe(plumber(config.plumber))
         .pipe(jade({
