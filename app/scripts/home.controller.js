@@ -2,7 +2,8 @@
 
 angular.module('campus.app').controller('homeController',
     function (
-        $scope
+        $scope,
+        $http
     ) {
 
     	$scope.lastSessions = [{
@@ -29,7 +30,7 @@ angular.module('campus.app').controller('homeController',
 			}],
 			from: {
 				value: null,
-				opened: true
+				opened: false
 			},
 			to: {
 				value: null,
