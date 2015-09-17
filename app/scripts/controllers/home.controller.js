@@ -4,9 +4,7 @@
     angular.module('campus.app')
     .controller('homeController',
         function (
-            config,
-            $scope,
-            $http
+
         ) {
 
         });
