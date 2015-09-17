@@ -3,19 +3,18 @@ var path = require('path'),
     runSequence = require('run-sequence'),
     browserSync = require('browser-sync'),
     config = require('./config.js'),
-    paths = config.paths,
     serve = require('gulp-serve');
 
 gulp.task('server', function () {
     browserSync({
-        files: path.join(paths.appBase, '**'),
+        files: path.join(config.src, '**'),
         watchOptions: {
             interval: 1000
         },
         port: 8080,
         reloadDelay: 1000,
         server: {
-            baseDir: paths.dist
+            baseDir: config.dist
         },
         online: false,
         notify: false
@@ -32,14 +31,14 @@ gulp.task('watch', function () {
         infrequentChangesOpts = { interval: 2000 };
 
     gulp.watch([
-        path.join(paths.appBase, 'scripts', '**', '*.js'),
+        path.join(config.src, 'scripts', '**', '*.js'),
         config.appConfPath
     ], ['scripts']);
-    gulp.watch(path.join(paths.appBase, '**', '*.jade'), ['views', 'scripts']);
-    gulp.watch(path.join(paths.appBase, 'templates', 'partials', '*.jade'), ['scripts']);
-    gulp.watch(path.join(paths.appBase, 'less', '**', '*.less'), infrequentChangesOpts, ['styles']);
+    gulp.watch(path.join(config.src, '**', '*.jade'), ['views', 'scripts']);
+    gulp.watch(path.join(config.src, 'templates', 'partials', '*.jade'), ['scripts']);
+    gulp.watch(path.join(config.src, 'less', '**', '*.less'), infrequentChangesOpts, ['styles']);
    
-    gulp.watch(path.join(paths.appBase, 'assets', '**'), ['assets']);
+    gulp.watch(path.join(config.src, 'assets', '**'), ['assets']);
 
 });
 

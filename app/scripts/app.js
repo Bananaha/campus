@@ -1,9 +1,7 @@
-'use strict';
+(function (global, angular) {
+    'use strict';
 
-/**
- * Main module of the application.
- */
-angular.module('campus.app', [
+    angular.module('campus.app', [
         'ngRoute',
         'ngMessages',
         'ui.bootstrap'
@@ -24,3 +22,5 @@ angular.module('campus.app', [
                 });
         }
     );
+
+}(window, window.angular));

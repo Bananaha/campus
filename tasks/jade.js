@@ -7,7 +7,7 @@ var path = require('path'),
 
 gulp.task('views', function () {
     return gulp.src([
-            path.join(config.paths.appBase, 'templates', '*.jade')
+            path.join(config.src, 'templates', '*.jade')
         ])
         .pipe(plumber(config.plumber))
         .pipe(jade({
@@ -17,5 +17,5 @@ gulp.task('views', function () {
             js: 'scripts/' + config.scriptName,
             keepBlockTags: true
         }))
-        .pipe(gulp.dest(config.paths.dist));
+        .pipe(gulp.dest(config.dist));
 });

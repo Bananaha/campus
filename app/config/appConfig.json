@@ -1,12 +1,15 @@
 {
     "dev": {
         "config": {
-            "quotationUrl": "/quotation"
+            "urls": {
+                "lastSessions": "assets/json/last-sessions.json",
+                "reporting": "assets/json/reporting.json"
+            }
         }
     },
     "prod": {
         "config": {
-            "quotationUrl": "/quotation"
+
         }
     }
 }

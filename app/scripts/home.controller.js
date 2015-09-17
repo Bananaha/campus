@@ -1,44 +1,42 @@
-'use strict';
+(function (global, angular) {
+    'use strict';
 
-angular.module('campus.app').controller('homeController',
-    function (
-        $scope,
-        $http
-    ) {
+    angular.module('campus.app')
+    .controller('homeController',
+        function (
+            config,
+            $scope,
+            $http
+        ) {
 
-    	$scope.lastSessions = [{
-			"title": "FC_ORANGE_REGLES_DES_CLIENTS BNP PARIBAS",
-			"link": "#"
-		}, {
-			"title": "FC_SFR Business Team_temps fort Novembre 2014",
-			"link": "#"
-		}, {
-			"title": "RAN_SFR BT_Campagne THD",
-			"link": "#"
-		}];
+            $http.get(config.urls.lastSessions).then(function(res) {
+                $scope.lastSessions = res.data;
+            });
 
-		$scope.reporting = {
-			options: [{
-				label: 'Nombre de formations continues',
-				id: 'formationsContinues'
-			}, {
-				label: 'Nombre de sessions ouvertes',
-				id: 'sessionsOuvertes'
-			}, {
-				label: 'Budget dépensé en formation',
-				id: 'budgetDepenseFormation'
-			}],
-			from: {
-				value: null,
-				opened: false
-			},
-			to: {
-				value: null,
-				opened: false
-			}
-		};
+            $scope.reporting = {
+                options: [{
+                    label: 'Nombre de formations continues',
+                    id: 'formationsContinues'
+                }, {
+                    label: 'Nombre de sessions ouvertes',
+                    id: 'sessionsOuvertes'
+                }, {
+                    label: 'Budget dépensé en formation',
+                    id: 'budgetDepenseFormation'
+                }],
+                from: {
+                    value: null,
+                    opened: false
+                },
+                to: {
+                    value: null,
+                    opened: false
+                }
+            };
 
-		$scope.open = function(name) {
-			$scope.reporting[name].opened = true;
-		}        
-    });
+            $scope.open = function(name) {
+                $scope.reporting[name].opened = true;
+            };
+        });
+
+}(window, window.angular));

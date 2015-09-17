@@ -12,8 +12,7 @@ var path = require('path'),
     ngConfig = require('gulp-ng-config'),
     ngTemplateCache = require('gulp-angular-templatecache');
     jade = require('gulp-jade'),
-    config = require('./config.js'),
-    paths = config.paths;
+    config = require('./config.js');
 
 var compileAngularTemplate = lazypipe()
     .pipe(jade, {
@@ -30,7 +29,7 @@ var compileAngularTemplate = lazypipe()
 
 
 function getScriptsFromJade() {
-    var jadeSrc = path.join(paths.appBase, 'templates', 'includes', 'scripts.jade'),
+    var jadeSrc = path.join(config.src, 'templates', 'includes', 'scripts.jade'),
         fileContent = fs.readFileSync(jadeSrc, 'UTF-8'),
         SCRIPTS_REGEX = /script\(.*?src="(.*)".*?\)/mg,
         match,
@@ -41,7 +40,7 @@ function getScriptsFromJade() {
     }
 
     return files.map(function (scriptSrc) {
-        return path.join(paths.appBase, scriptSrc);
+        return path.join(config.src, scriptSrc);
     });
 }
 
@@ -60,7 +59,7 @@ gulp.task('scripts', ['lint'], function () {
     return gulp.src(
             getScriptsFromJade()
             .concat(config.appConfPath)
-            .concat(path.join(paths.appBase, 'templates', 'partials', '*.jade'))
+            .concat(path.join(config.src, 'templates', 'partials', '*.jade'))
         )
         .pipe(plumber(config.plumber))
         // Config
@@ -71,5 +70,5 @@ gulp.task('scripts', ['lint'], function () {
         .pipe(concat(config.scriptName))
         .pipe(gIf(config.prod, uglify()))
         .pipe(gIf(!config.prod, sourcemaps.write()))
-        .pipe(gulp.dest(path.join(paths.dist, 'scripts')));
+        .pipe(gulp.dest(path.join(config.dist, 'scripts')));
 });

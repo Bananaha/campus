@@ -4,14 +4,12 @@ var path = require('path'),
     minify = require('gulp-csso'),
     cache = require('gulp-cache'),
     plumber = require('gulp-plumber');
-
-    config = require('./config.js'),
-    paths = config.paths;
+    config = require('./config.js');
     
 gulp.task('styles', function () {
-    return gulp.src(paths.styles)
+    return gulp.src(path.join(config.src, 'less', 'main.less'))
         .pipe(plumber())
         .pipe(less())
         .pipe(cache(minify()))
-        .pipe(gulp.dest(path.join(paths.dist, 'styles')));
+        .pipe(gulp.dest(path.join(config.dist, 'styles')));
 });
