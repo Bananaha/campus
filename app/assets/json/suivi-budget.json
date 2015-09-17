@@ -1,0 +1,24 @@
+{
+	"graph": [{
+		"label": "CIF",
+		"value": 150,
+		"color": "green"
+	}, {
+		"label": "Plan de f°",
+		"value": 250,
+		"color": "red"
+	}, {
+		"label": "CPF",
+		"value": 600,
+		"color": "yellow"
+	}, {
+		"label": "profess°",
+		"value": 200,
+		"color": "blue"
+	}, {
+		"label": "FPSPP",
+		"value": 500,
+		"color": "purple"
+	}],
+	"coutDirect": 1260
+}

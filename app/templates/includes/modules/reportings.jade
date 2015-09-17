@@ -1,16 +1,18 @@
 h2.module-title Générer un reporting
-.module-card
-    form.grid.pad
+.module-card(ng-controller="reportingController")
+    form.grid.pad(name="reportingForm")
         .col-1
             +form-underlined("Type")
-                select.reporting-list(ng-options="option.label for option in reporting.options" ng-model="reporting.selected")
+                select.reporting-list(ng-options="option.label for option in options" 
+                    ng-model="model.type",
+                    required="true")
         
         .col-1-2
             +form-underlined("Du")
                 - var opt = {}
-                - opt.ngModel = "reporting.from.value"
-                - opt.isOpen = "reporting.from.opened"
-                - opt.maxDate = "reporting.to.value"
+                - opt.ngModel = "model.from"
+                - opt.isOpen = "openDatepickers.from"
+                - opt.maxDate = "model.to"
                 - opt.required = "true"
                 - opt.name = "from"
                 +datePicker(opt)
@@ -18,13 +20,12 @@ h2.module-title Générer un reporting
         .col-1-2
             +form-underlined("au")
                 - var opt = {}
-                - opt.ngModel = "reporting.to.value"
-                - opt.isOpen = "reporting.to.opened"
-                - opt.minDate = "reporting.from.value"
+                - opt.ngModel = "model.to"
+                - opt.isOpen = "openDatepickers.to"
+                - opt.minDate = "model.from"
                 - opt.required = "true"
                 - opt.name = "to"
                 +datePicker(opt)
         
-        
         .module-cta
-            button.btn Générer
+            button.btn(type="button", ng-click="submit()") Générer

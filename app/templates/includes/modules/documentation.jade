@@ -1,23 +1,13 @@
-.module-documentation
+.module-documentation(ng-controller="documentationController")
 
     h2.module-title Documentation
 
-    - var docs = []
-    - docs.push("Information sur les dispositifs de formation")
-    - docs.push("Livret d'information")
-    - docs.push("Guide d'utilisation")
-    - docs.push("Lorem ipsum ut eu ut")
-    - docs.push("Conditions de prise en charge")
-    - docs.push("Information sur les dispositifs de formation")
-
-
-        ul.module-list.grid.pad.noSpacing
-            each doc in docs
-                li.col-1-2
-                    .module-list-item.doc
-                        a(href="#").module-list-link
-                            span.module-list-icon
-                            span.module-list-label= doc
+    ul.module-list.grid.pad.noSpacing
+        li.col-1-2(ng-repeat="doc in docs")
+            .module-list-item.doc
+                a(ng-href="doc.link").module-list-link
+                    span.module-list-icon
+                    span.module-list-label {{doc.title}}
             
     .module-cta
         button.btn Voir tout

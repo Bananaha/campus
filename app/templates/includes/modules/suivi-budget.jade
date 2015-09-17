@@ -1,30 +1,21 @@
 h2.module-title Suivi du budget formation
 
-.module-card
-	- var max = 700
-	- var stats = []
-	- stats.push({name: "CIF", value: 150, color: "green"})
-	- stats.push({name: "Plan de f°", value: 250,  color: "red"})
-	- stats.push({name: "CPF", value: 600,  color: "yellow"})
-	- stats.push({name: "profess°", value: 200,  color: "blue"})
-	- stats.push({name: "FPSPP", value: 500,  color: "purple"})
+.module-card(ng-controller="suiviBudgetController")
 
 	.graph-vbars
 		.graph-vbars-legend
 			ul
-				each stat in stats
-					li
-						span.graph-vbars-legend-color(class="bgColor-" + stat.color)
-						span= stat.name
+				li(ng-repeat="graph in graphs")
+					span.graph-vbars-legend-color(class="bgColor-{{graph.color}}")
+					span {{graph.label}}
 
 		.graph-vbars-cols
-			each stat in stats
-				.graph-vbars-colGroup(style="width: " + 100/stats.length + "%")
-					.graph-vbars-col(style="height:" + stat.value/max*100 + "%", class="bgColor-" + stat.color)
-						.graph-vbars-label(class="bgColor-" + stat.color)
-							span= "reste " + stat.value + "€"
+			.graph-vbars-colGroup(ng-repeat="graph in graphs", style="width: {{colWidth}}%")
+				.graph-vbars-col(style="height:{{graph.height}}%", class="bgColor-{{graph.color}}")
+					.graph-vbars-label(class="bgColor-{{graph.color}}")
+						span reste {{graph.value}} €
 
-	p.module-suiviBudget-coutDirect
-		b 12620
+	p.module-suiviBudget-coutDirect(ng-if="coutDirect")
+		b {{coutDirect}}
 			span.fontSmall € 
 		| Coût direct

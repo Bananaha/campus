@@ -3,7 +3,10 @@
         "config": {
             "urls": {
                 "lastSessions": "assets/json/last-sessions.json",
-                "reporting": "assets/json/reporting.json"
+                "suiviBudget": "assets/json/suivi-budget.json",
+                "reporting": "assets/json/reporting.json",
+                "indicateurs": "assets/json/indicateurs.json",
+                "documentation": "assets/json/documentation.json"
             }
         }
     },
