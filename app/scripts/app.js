@@ -17,6 +17,22 @@
                     templateUrl: basePath + 'home.html',
                     controller: 'homeController'
                 }).
+                when('/training', {
+                    templateUrl: basePath + 'training.html',
+                    controller: 'trainingController'
+                }).
+                when('/accompagnements', {
+                    templateUrl: basePath + 'accompagnements.html',
+                    controller: 'accompagnementsController'
+                }).
+                when('/users', {
+                    templateUrl: basePath + 'users.html',
+                    controller: 'usersController'
+                }).
+                when('/archives', {
+                    templateUrl: basePath + 'archives.html',
+                    controller: 'archivesController'
+                }).
                 otherwise({
                     redirectTo: '/home'
                 });
