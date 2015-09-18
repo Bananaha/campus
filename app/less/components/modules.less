@@ -12,18 +12,13 @@
     margin: -@u-small;
     padding: @u-small;
 
-    .affix-target {
-        border-bottom: 0 solid @color-main;
-    }
-
     &.affix {
         .affix-target {
-            transition: border .3s ease-out;
             background: @color-gray-97;
             left: @size-nav + @u-medium;
             right: @u-medium;
             padding: @u-small;
-            border-bottom-width: 4px;
+            z-index: @z-affix-1;
         }
     }
 }

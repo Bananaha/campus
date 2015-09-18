@@ -12,21 +12,20 @@ include ../mixins/main
           input.search-input(type="search", required, placeholder="rechercher")
         button(type="button").btnIcon.search
 
-  .table.listed
-    .table-head
-      .table-cell
+  .table.listed(affix, affix-offset=100)
+    .table-head.affix-target
+      .table-cell.col-1
         | Intitulé
-      .table-cell
+      .table-cell.w-100
         | Auteur
-      .table-cell
+      .table-cell.w-90
+      .table-cell.w-70
         | N° Action
-      .table-cell
     ul.table-group
       li.table-row(ng-repeat="action in actions")
         .table-cell.col-1 {{action.titre}}
-        .table-cell {{action.auteur}}
-        .table-cell {{action.action}}
-        .table-cell.inline.actions
+        .table-cell.w-100 {{action.auteur}}
+        .table-cell.inline.actions.w-90
           button.btnIcon.modify(type="button",
             tooltips,
             title="Modifier")
@@ -38,3 +37,4 @@ include ../mixins/main
           button.btnIcon.archive(type="button",
             tooltips,
             title="Archiver")
+        .table-cell.w-70 {{action.action}}

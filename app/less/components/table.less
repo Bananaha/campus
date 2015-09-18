@@ -4,6 +4,10 @@
     &:first-child {
         margin-top: 0;
     }
+
+    &.affix {
+        padding-top: 25px;
+    }
 }
 
 .table.listed {
@@ -17,6 +21,25 @@
 
 .table-head {
     display: table-header-group;
+
+    &.affix-target {
+        transition: background .3s ease-out, color .3s ease-out, transform .3s ease-out;
+        left: @size-nav + @u-medium;
+        right: @u-medium;
+        padding-left: @u-small;
+        padding-right: @u-small;
+
+        .affix & {
+            transform: translateY(100%);
+            margin-top: -25px;
+            background-color: @color-main;
+            color: #FFF;
+
+            .table-cell {
+                border-bottom-color: transparent;
+            }
+        }
+    }
 }
 
 .table-row {
@@ -26,6 +49,11 @@
 .table-cell {
     display: table-cell;
     padding: @u-base;
+    box-sizing: border-box;
+
+    &:last-child {
+        text-align: right;
+    }
 
     .table-head & {
         border-bottom: 1px solid @color-border-dark;
@@ -61,6 +89,21 @@
         .table-row:hover & {
             visibility: visible;
         }
+    }
+}
+
+.table-cell {
+
+    &.w-100 {
+        min-width: 100px;
+    }
+
+    &.w-90 {
+        min-width: 90px;
+    }
+
+    &.w-70 {
+        min-width: 70px;
     }
 }
 

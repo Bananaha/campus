@@ -9,6 +9,7 @@
             },
             link: function ($scope, element) {
                 var el = element[0],
+                    targetEl = element.find('.affix-target'),
                     klasses = {
                         affix: 'affix'
                     },
@@ -23,7 +24,8 @@
                 document.addEventListener('scroll', throttle(onScroll, 40));
 
                 function updateElement() {
-                    element.eq(0).toggleClass(klasses.affix, affixed);
+                    element.toggleClass(klasses.affix, affixed);
+                    targetEl.css('top', $scope.affixOffset + 'px');
                 }
 
                 function updateHeight() {
