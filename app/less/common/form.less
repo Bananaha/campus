@@ -1,3 +1,21 @@
+.mixin_placeholder {
+    font-size: 1.2rem;
+    color: @color-gray-04;;
+}
+
+::-webkit-input-placeholder {
+    .mixin_placeholder;
+}
+:-moz-placeholder {
+   .mixin_placeholder;
+}
+::-moz-placeholder {
+   .mixin_placeholder;
+}
+:-ms-input-placeholder {
+   .mixin_placeholder;
+}
+
 ::-webkit-texttime-edit-year-field:not([aria-valuenow]),
 ::-webkit-texttime-edit-month-field:not([aria-valuenow]),
 ::-webkit-texttime-edit-day-field:not([aria-valuenow]),
@@ -5,15 +23,34 @@
     color: transparent;
 }
 
+input[type="search"] {
+    -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
 input,
 select,
 textarea {
+    background-color: transparent;
     box-sizing: border-box;
     color: @color-gray-04;
-    border-color: @color-gray-91;
+    border-color: @color-border-dark;
     border-style: solid;
-    width: 100%; 
+    width: 100%;
     font-size: 1.4rem;
+
+    .card,
+    .module-card & {
+        border-color: @color-border;
+    }
+
+    .module-header & {
+        border-color: @color-border-dark;
+    }
 
     &:focus {
         outline: 0;
@@ -30,10 +67,13 @@ select {
     padding: @u-base 0;
 }
 
-.form-underlined { 
-    position: relative; 
+.form-underlined {
+    position: relative;
     display: block;
-    padding-top: @u-medium;
+
+    &.labelled {
+        padding-top: @u-medium;
+    }
 
     input {
         height: @u-medium;
@@ -41,17 +81,17 @@ select {
         padding-right: 0;
         border-width: 0 0 1px 0;
         box-sizing: border-box;
-    }   
+    }
 
     textarea {
         border-width: 0 0 1px 0;
         width: 100%;
         box-sizing: border-box;
         resize: none;
-    }    
+    }
 
     textarea,
-    input, 
+    input,
     select {
 
         &:focus ~ .form-underlined-label,
@@ -61,7 +101,7 @@ select {
             color: @color-text;
         }
 
-        &:focus { 
+        &:focus {
             border-bottom: none;
         }
 
@@ -72,7 +112,7 @@ select {
 }
 
 .form-underlined-bar {
-    transition: all 0.15s ease-out; 
+    transition: all 0.15s ease-out;
     position: relative;
     display: block;
     width: 100%;
@@ -84,10 +124,27 @@ select {
 }
 
 .form-underlined-label {
-    transition: 0.15s ease-out; 
-    color: @color-gray-04;
+    .mixin_placeholder;
+    transition: 0.15s ease-out;
     position: absolute;
     pointer-events: none;
     left: 0;
     top: @u-base + @u-medium;
+}
+
+.searchBox {
+    @buttonSize: 48px;
+    position: relative;
+    max-width: 300px;
+
+    input {
+        padding-right: @buttonSize;
+    }
+
+    button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: auto;
+    }
 }

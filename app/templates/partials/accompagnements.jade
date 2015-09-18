@@ -1,7 +1,40 @@
 include ../mixins/main
 
-include ../includes/modules/module-filter-tools
-include ../includes/modules/module-listing-accompagnements
-include ../includes/modules/module-renseignements-accompagnements
-.grid.inside-module-block.pop-in-container
-    include ../includes/modules/module-selection-trainees
+.module-card
+  .module-header(affix, affix-offset=48)
+    .affix-target
+      .pull-right
+        button.btn.modal-opener(type="button",
+          ng-click="App.showModal('accompagnement-creation')") Créer un accompagnement
+
+      .searchBox
+        +form-underlined()
+          input.search-input(type="search", required, placeholder="rechercher")
+        button(type="button").btnIcon.search
+
+  .table.listed
+    .table-head
+      .table-cell
+        | Intitulé
+      .table-cell
+        | Auteur
+      .table-cell
+        | N° Action
+      .table-cell
+    ul.table-group
+      li.table-row(ng-repeat="action in actions")
+        .table-cell.col-1 {{action.titre}}
+        .table-cell {{action.auteur}}
+        .table-cell {{action.action}}
+        .table-cell.inline.actions
+          button.btnIcon.modify(type="button",
+            tooltips,
+            title="Modifier")
+          //- Empêcher la suppression si archives existantes ou sessions ouvertes
+          button.btnIcon.delete(type="button",
+            tooltips,
+            title="Supprimer")
+          //- Empêcher l'archivage si sessions ouvertes
+          button.btnIcon.archive(type="button",
+            tooltips,
+            title="Archiver")

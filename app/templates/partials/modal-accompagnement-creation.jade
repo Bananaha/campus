@@ -1,0 +1,10 @@
+extends ../layouts/modal.jade
+
+block header
+  h2 Création d'un accompagnement
+
+block content
+  include ../includes/modules/module-renseignements-accompagnements
+  .grid.inside-module-block.pop-in-container
+    include ../includes/modules/module-selection-trainees
+

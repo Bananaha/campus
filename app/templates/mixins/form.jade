@@ -1,19 +1,20 @@
 mixin form-underlined(label)
-    label.form-underlined
-        block
-        span.form-underlined-bar
-        if label
-            span.form-underlined-label= label
+  - var klass = label ? "labelled" : ""
+  label.form-underlined(class=klass)
+    block
+    span.form-underlined-bar
+    if label
+      span.form-underlined-label= label
 
 mixin datePicker(opt)
-    input.datepicker(type="text" 
-	      datepicker-popup="dd/MM/yyyy" 
-	      ng-model=opt.ngModel 
-	      is-open=opt.isOpen
-	      max-date=opt.maxDate
-	      min-date=opt.minDate
-	      show-button-bar="false"
-	      ng-required=opt.required
-	      close-text="Fermer",
-	      ng-click="open('" + opt.name + "')",
-	      ng-focus="open('" + opt.name + "')")
+  input.datepicker(type="text"
+    datepicker-popup="dd/MM/yyyy"
+    ng-model=opt.ngModel
+    is-open=opt.isOpen
+    max-date=opt.maxDate
+    min-date=opt.minDate
+    show-button-bar="false"
+    ng-required=opt.required
+    close-text="Fermer",
+    ng-click="open('" + opt.name + "')",
+    ng-focus="open('" + opt.name + "')")

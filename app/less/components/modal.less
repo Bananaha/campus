@@ -1,29 +1,87 @@
-.modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: none;
-  
-  &.show {
-    display: block;
-  }
+@modal-padding: @u-medium;
+
+body.modalOpen {
+    overflow: hidden;
+}
+
+.modal-box {
+    position: fixed;
+    top: @size-header;
+    right: 0;
+    bottom: 0;
+    left: @size-nav;
+    z-index: @z-modal;
+    overflow: auto;
+    padding: @u-medium;
 }
 
 .modal-background {
-  background: rgba(255, 255, 255, .5);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+    position: fixed;
+    top: @size-header;
+    right: 0;
+    bottom: 0;
+    left: @size-nav;
+    background: rgba(255, 255, 255, .8);
+    z-index: @z-modalBackground;
+}
+
+.modal-header {
+    padding: @modal-padding;
+
+    h2 {
+        margin: 0;
+        padding-right: 57px + @u-medium;
+    }
+
+    button {
+        .btnIcon;
+        .fa-times;
+        position: absolute;
+        right: @modal-padding;
+        top: @modal-padding;
+
+        &::before {
+            font-size: 2rem;
+        }
+    }
 }
 
 .modal-container {
-  background: #FFF;
-  position: relative;
-  margin: 24px auto;
-  width: 600px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+    .card;
+    margin: @u-large auto;
+    background: #FFF;
+    position: relative;
+    z-index: @z-modal;
+}
+
+.modal-content {
+    padding: @modal-padding;
+}
+
+// ANIMATION
+
+.modal {
+
+    .modal-background {
+        transition: opacity .3s ease-out .3s;
+        opacity: 0;
+    }
+
+    .modal-container {
+        transition: transform .5s ease-out 1ms;
+        transform: translateY(-150%);
+    }
+
+    &.show {
+
+        .modal-background {
+            transition-delay: 1ms;
+            opacity: 1;
+        }
+
+        .modal-container {
+            transition-delay: .1s;
+            transform: translateY(0);
+        }
+    }
 }

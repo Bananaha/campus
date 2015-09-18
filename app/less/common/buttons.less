@@ -20,96 +20,90 @@ button {
 }
 
 .btnIcon {
+    .fa-icon;
     transition: color .3s ease-out;
     color: @button-background;
-    
+    width: 24px;
+    height: 24px;
+    font-size: 1.6rem;
+
     &:hover,
     &:focus {
         color: @button-background-hover;
-    }  
+    }
+
+    &.big {
+        font-size: 2rem;
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.btnIcon {
+
+    &.delete {
+        .fa-trash-o;
+    }
+
+    &.menu {
+        .fa-ellipsis-v;
+    }
+
+    &.modify {
+        .fa-pencil;
+    }
+
+    &.archive {
+        .fa-archive;
+    }
+
+    &.search {
+        .fa-search;
+    }
 }
 
 // TODO: REFACTOR
 .mixin_iconSetting  {
-    .fa-icon;
     width: 30px;
     height: 20px;
-    border: none;
-    transition: all .3s linear;
-    color: lighten(#000, 45%);
-    cursor: pointer;
 }
 
-
-.button--bin {
+.icon.bin {
     .fa-trash-o;
-    .mixin_iconSetting;
-    
-    &:hover {
-        color: red;
-    }
+    .btnIcon;
 }
 
-.button--pen {
+.icon.pen {
     .fa-pencil;
     .mixin_iconSetting;
-    
-    &:hover {
-        //color: @color-orange-corporate;
-    }
 }
 
-.button--archive {
-    .fa-archive;
+.icon.archive {
     .mixin_iconSetting;
-    
-    &:hover {
-        //color: @color-blue-light-corporate;
-    }
 }
 
-.button--folder {
+.icon.folder {
     .fa-folder;
     .mixin_iconSetting;
-    
-    &:hover {
-        //color: @color-blue-dark-corporate;
-    }
 }
 
-.button--plus {
+.icon.plus {
     .fa-plus;
     .mixin_iconSetting;
-    
-    &:hover {
-        //color: @color-green-corporate;
-    }
 }
 
-.button--user-plus {
+.icon.user-plus {
     .fa-user-plus;
     .mixin_iconSetting;
-    
-    &:hover {
-        //color: @color-green-corporate;
-    }
 }
 
-.button--user-less {
+.icon.user-less {
     .fa-user-times;
     .mixin_iconSetting;
-    
-    &:hover {
-        //color: red;
-    }
 }
 
-.button--user {
+.icon.user {
     .fa-user;
     .mixin_iconSetting;
-    
-    &:hover {
-        //color: @color-green-corporate;
-    }
 }
 

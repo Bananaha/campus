@@ -4,7 +4,9 @@
     angular.module('campus.app', [
         'ngRoute',
         'ngMessages',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'angularModalService',
+        '720kb.tooltips'
     ])
     .config(function(
             $routeProvider

@@ -6,13 +6,35 @@
 	line-height: 1;
 }
 
+.module-header {
+    .mixin_clearfix;
+    background: @color-gray-97;
+    margin: -@u-small;
+    padding: @u-small;
+
+    .affix-target {
+        border-bottom: 0 solid @color-main;
+    }
+
+    &.affix {
+        .affix-target {
+            transition: border .3s ease-out;
+            background: @color-gray-97;
+            left: @size-nav + @u-medium;
+            right: @u-medium;
+            padding: @u-small;
+            border-bottom-width: 4px;
+        }
+    }
+}
+
 .module-list-item {
 	.card;
 	padding: 0 @u-base;
 	position: relative;
-	
+
 	+ .module-list-item {
-		margin-top: @u-base; 
+		margin-top: @u-base;
 	}
 }
 
@@ -29,7 +51,7 @@
 	line-height: 48px;
 	text-align: center;
 	font-size: 2.6rem;
-	
+
 	.session & {
 		.fa-graduation-cap;
 	}

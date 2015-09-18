@@ -1,0 +1,9 @@
+.modal(ng-class="{show: show}")
+  .modal-box
+      .modal-background(ng-click="close()")
+      .modal-container
+          header.modal-header
+              button.buttonIcon(type="button", ng-click="close()")
+              block header
+          .modal-content
+              block content

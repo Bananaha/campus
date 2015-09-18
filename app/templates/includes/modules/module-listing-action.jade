@@ -15,18 +15,18 @@
             .column-short N° Action
         li.table-body
             .icone
-                button.button--plus(type="button"  title="Nouvelle session")
+                button.icon.plus(type="button"  title="Nouvelle session")
             // mettre condition : si session non archivée dans action vert si vide bleu
             .icone
-                button.button--folder(type="button") 
+                button.icon.folder(type="button") 
             .icone
-                button.button--pen(type="button"  title="Modifier")
+                button.icon.pen(type="button"  title="Modifier")
             // Empêcher la suppression si archives existantes ou sessions ouvertes
             .icone
-                button.button--bin(type="button"  title="Supprimer")
+                button.icon.bin(type="button"  title="Supprimer")
             // Empêcher l'archivage si sessions ouvertes
             .icone.last
-                button.button--archive(type="button"  title="Archiver")
+                button.icon.archive(type="button"  title="Archiver")
             div
                 a FI-Hello world !
             .column-short 7
