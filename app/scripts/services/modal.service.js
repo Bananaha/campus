@@ -26,6 +26,8 @@
             }
         };
 
+        this.hideModals = hideModals;
+
         function onClose(callback, partialName) {
             if (callback) {
                 callback();
@@ -45,8 +47,8 @@
 
         function hideModals() {
             angular.forEach(modals, function(modal) {
-                if (modal.modal && modal.close) {
-                    modal.close();
+                if (modal.modal) {
+                    modal.modal.scope.close();
                 }
             });
         }

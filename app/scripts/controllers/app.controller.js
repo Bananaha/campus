@@ -5,10 +5,18 @@
     .controller('AppController',
         function(
             $scope,
+            $location,
             modalService
         ) {
 
             $scope.modal = false;
+
+            this.goTo = function(url) {
+                if ($scope.modal) {
+                    modalService.hideModals();
+                }
+                $location.url('/' + url);
+            };
 
             this.showModal = function(modalName) {
                 $scope.modal = true;

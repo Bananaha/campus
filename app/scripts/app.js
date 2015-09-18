@@ -9,7 +9,8 @@
         '720kb.tooltips'
     ])
     .config(function(
-            $routeProvider
+            $routeProvider,
+            tooltipsConfigProvider
         ) {
 
             var basePath = '';
@@ -38,6 +39,11 @@
                 otherwise({
                     redirectTo: '/home'
                 });
+
+            tooltipsConfigProvider.options({
+              speed: 'fast',
+              size: 'small'
+            });
         }
     );
 
