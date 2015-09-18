@@ -31,14 +31,11 @@ include ../mixins/main
         .table-cell.w-100 {{action.auteur}}
         .table-cell.inline.actions.w-90
           button.btnIcon.modify(type="button",
-            tooltips,
             title="Modifier")
           //- Empêcher la suppression si archives existantes ou sessions ouvertes
           button.btnIcon.delete(type="button",
-            tooltips,
             title="Supprimer")
           //- Empêcher l'archivage si sessions ouvertes
           button.btnIcon.archive(type="button",
-            tooltips,
             title="Archiver")
         .table-cell.w-70 {{action.action}}

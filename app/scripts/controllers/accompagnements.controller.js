@@ -40,13 +40,13 @@
 
             function getMatchingActions(search) {
                 return actions.filter(function(action) {
-                    return ['titre', 'auteur'].some(function(key) {
-                        return search.some(function(word) {
+                    return search.every(function(word) {
+                        return ['titre', 'auteur'].some(function(key) {
                             return action[key].toLowerCase().indexOf(word, -1) !== -1;
-                        });
-                    }) || search.some(function(word) {
+                        }) || search.some(function(word) {
                             return String(action.action) === word;
                         });
+                    });
                 });
             }
 
