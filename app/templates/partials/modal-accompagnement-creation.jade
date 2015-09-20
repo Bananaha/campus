@@ -4,7 +4,50 @@ block header
   h2 Création d'un accompagnement
 
 block content
-  include ../includes/modules/module-renseignements-accompagnements
-  .grid.inside-module-block.pop-in-container
+
+    form.grid.pad(ng-controller="accompagnementsCreationController as accompagnementsCreationController")
+        .col-1
+            +form-underlined("Objet")
+                textarea(name='textarea', required, textareaAutosize)
+
+        .col-1
+            +form-underlined("Activité")
+                input(type="text" required)
+
+        .col-1
+            +form-underlined("Client")
+                input(type="text" required)
+
+        .col-1
+            +form-underlined("Produit")
+                input(type="text" required)
+
+        .col-1
+            +form-underlined("Durée (heures)")
+                input(type="number", min="0", required)
+
+        .col-1-2
+            +form-underlined("Date de début")
+                - var opt = {}
+                - opt.ngModel = "model.from"
+                - opt.isOpen = "openDatepickers.from"
+                - opt.maxDate = "model.to"
+                - opt.required = "true"
+                - opt.name = "from"
+                +datePicker(opt)
+
+        .col-1-2
+            +form-underlined("Date de fin")
+                - var opt = {}
+                - opt.ngModel = "model.to"
+                - opt.isOpen = "openDatepickers.to"
+                - opt.minDate = "model.from"
+                - opt.required = "true"
+                - opt.name = "to"
+                +datePicker(opt)
+
+    include ../includes/modules/module-submit
+
+  //- .grid.inside-module-block.pop-in-container
     include ../includes/modules/module-selection-trainees
 
