@@ -6,10 +6,17 @@
         function(
             $scope,
             $location,
-            modalService
+            modalService,
+            appLoaderService
         ) {
 
+            var that = this;
+
             $scope.modal = false;
+
+            this.loading = appLoaderService.get();
+
+            appLoaderService.onChange(onLoadingChange);
 
             this.goTo = function(url) {
                 if ($scope.modal) {
@@ -25,6 +32,10 @@
 
             function onModalHide() {
                 $scope.modal = false;
+            }
+
+            function onLoadingChange(state) {
+                that.loading = state;
             }
         });
 

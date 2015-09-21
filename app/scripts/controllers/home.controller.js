@@ -4,8 +4,10 @@
     angular.module('campus.app')
     .controller('homeController',
         function (
-
+            appLoaderService
         ) {
+
+            appLoaderService.set(false);
 
         });
 

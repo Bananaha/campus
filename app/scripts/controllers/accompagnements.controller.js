@@ -7,7 +7,8 @@
             $scope,
             $http,
             $timeout,
-            config
+            config,
+            appLoaderService
         ) {
 
             $scope.table = {
@@ -35,6 +36,8 @@
                     }]
                 }
             };
+
+            appLoaderService.set(false);
 
         });
 
