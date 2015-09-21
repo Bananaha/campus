@@ -1,15 +1,20 @@
+mixin navLink(route, name)
+  a.nav-link(ng-click="App.goTo('" + route + "')",
+    ng-class="{'active': page === '" + route + "' }")= name
+
+
 .nav
   ul.nav-list
     li.nav-list-item
-      a.nav-link(ng-click="App.goTo('home')") Accueil
+      +navLink('home', 'Accueil')
     li.nav-list-item
-      a.nav-link(ng-click="App.goTo('training')") Formations
+      +navLink('training', 'Formations')
     li.nav-list-item
-      a.nav-link(ng-click="App.goTo('accompagnements')") Accompagnements
+      +navLink('accompagnements', 'Accompagnements')
     li.nav-list-item
-      a.nav-link(ng-click="App.goTo('users')") Utilisateurs
+      +navLink('users', 'Utilisateurs')
     li.nav-list-item
-      a.nav-link(ng-click="App.goTo('archives')") Archives
+      +navLink('archives', 'Archives')
       ul.nav-sublist
         li.nav-list-item
           a.nav-link(href='#') Sessions archivées

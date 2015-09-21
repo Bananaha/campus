@@ -1,0 +1,17 @@
+.table-head.affix-target
+  .table-cell(ng-repeat="col in config.cols", class="{{col.klass}}")
+    button(ng-if="col.sort", ng-click="sort(col.key)")
+      | {{col.label}}
+
+ul.table-group
+  li.table-row(ng-repeat="data in datas")
+    .table-cell(ng-repeat="col in config.cols",
+      class="{{col.klass}}",
+      ng-class="{'actions inline': col.actions}")
+      span(ng-if="col.label") {{data[col.key]}}
+
+      button.btnIcon(ng-repeat="action in col.actions",
+        type="button",
+        class="{{action.id}}",
+        title="{{action.title}}",
+        ng-click="callAction(action.id, data.id)")

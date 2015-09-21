@@ -3,6 +3,15 @@ button {
     background: none;
     border: none;
     outline: none;
+    padding: 0;
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+.submit-button {
+    padding: @u-small;
+    color: @button-background;
 }
 
 .btn {
@@ -59,6 +68,10 @@ button {
 
     &.search {
         .fa-search;
+    }
+    
+    &.add-users {
+        .fa-user-plus;
     }
 }
 

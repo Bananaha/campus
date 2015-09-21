@@ -7,53 +7,37 @@
             $scope,
             $http,
             $timeout,
-            config
+            config,
+            appLoaderService
         ) {
 
-            var actions = [],
-                changeTimeout;
-
-            $http({
-                    method: 'GET',
+            $scope.table = {
+                filters: {},
+                config: {
                     url: config.urls.accompagnements,
-                    params: {
-                        from: 0,
-                        size: 60
-                    }
-                })
-                .then(function(res) {
-                    onResponse(res.data);
-                });
-
-            $scope.filter = function() {
-                $timeout.cancel(changeTimeout);
-                changeTimeout = $timeout(computeFilter, 300);
+                    cols: [{
+                        label: 'Intitulé',
+                        key: 'intitule',
+                        sort: true,
+                        klass: 'col-1'
+                    }, {
+                        label: 'Auteur',
+                        key: 'auteur',
+                        sort: true,
+                        klass: 'w-100'
+                    }, {
+                        actions: ['modify', 'delete', 'archive'],
+                        klass: 'w-90'
+                    }, {
+                        label: 'N° Action',
+                        key: 'action',
+                        sort: true,
+                        klass: 'w-90'
+                    }]
+                }
             };
 
-            function computeFilter() {
-                if ($scope.search) {
-                    $scope.actions = getMatchingActions($scope.search.toLowerCase().split(' '));
-                } else {
-                    $scope.actions = actions;
-                }
-            }
-
-            function getMatchingActions(search) {
-                return actions.filter(function(action) {
-                    return search.every(function(word) {
-                        return ['titre', 'auteur'].some(function(key) {
-                            return action[key].toLowerCase().indexOf(word, -1) !== -1;
-                        }) || search.some(function(word) {
-                            return String(action.action) === word;
-                        });
-                    });
-                });
-            }
-
-            function onResponse(data) {
-                actions = data;
-                $scope.actions = actions;
-            }
+            appLoaderService.set(false);
 
         });
 

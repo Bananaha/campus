@@ -76,11 +76,29 @@ h3 {
     font-size: 2rem;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 
 .view {
     margin-left: @size-nav;
     padding: (@u-medium + @size-header) @u-medium @u-medium;
 
+    &.ng-cloak,
+    &.loading {
+        display: block !important;
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            background: url(@p-loader) no-repeat center center;
+            height: 48px;
+        }
+    }
 }
 
 // COLORS
