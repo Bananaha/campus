@@ -14,6 +14,8 @@
 
             $scope.modal = false;
 
+            $scope.page = $location.url().replace('/', '');
+
             this.loading = appLoaderService.get();
 
             appLoaderService.onChange(onLoadingChange);
@@ -23,6 +25,7 @@
                     modalService.hideModals();
                 }
                 $location.url('/' + url);
+                $scope.page = url;
             };
 
             this.showModal = function(modalName) {
