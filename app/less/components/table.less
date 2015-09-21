@@ -8,6 +8,21 @@
     .affix > & {
         padding-top: 25px;
     }
+
+    &.loading {
+        position: relative;
+        margin-bottom: 48px;
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            background: url("../assets/img/loader.gif") no-repeat center center;
+            height: 48px;
+        }
+    }
 }
 
 .table.listed {
