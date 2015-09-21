@@ -1,0 +1,22 @@
+.table-head.affix-target
+    .table-cell.col-1
+      | Intitulé
+    .table-cell.w-100
+      | Auteur
+    .table-cell.w-90
+    .table-cell.w-70
+      | N° Action
+  ul.table-group
+    li.table-row(ng-repeat="data in datas")
+      .table-cell.col-1 {{data.titre}}
+      .table-cell.w-100 {{data.auteur}}
+      .table-cell.inline.actions.w-90
+        button.btnIcon.modify(type="button",
+          title="Modifier")
+        //- Empêcher la suppression si archives existantes ou sessions ouvertes
+        button.btnIcon.delete(type="button",
+          title="Supprimer")
+        //- Empêcher l'archivage si sessions ouvertes
+        button.btnIcon.archive(type="button",
+          title="Archiver")
+      .table-cell.w-70 {{data.action}}
