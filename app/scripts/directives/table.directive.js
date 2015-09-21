@@ -5,6 +5,7 @@
         function (
             $timeout,
             $http,
+            $q,
             scrollEventServices
         ) {
 
@@ -20,6 +21,7 @@
                         initialized = false,
                         isLoading = false,
                         changeTimeout,
+                        requestPromise,
                         actionLabels = {
                             modify: 'Modifier',
                             delete: 'Supprimer',
@@ -110,6 +112,9 @@
                             from: config.currentPage,
                             size: config.itemPerPage
                         };
+                        if (isLoading) {
+                            requestPromise.resolve();
+                        }
                         loading(true);
                         if ($scope.filter) {
                             params.filter = $scope.filter;
@@ -117,16 +122,23 @@
                         if ($scope.sortBy) {
                             params.sortBy = $scope.sortBy;
                         }
+
+                        requestPromise = $q.defer();
+
                         $http({
-                            method: 'GET',
-                            url: config.url,
-                            params: params
-                        })
-                        .then(function(res) {
-                            $timeout(function() {
-                                onResponse(res.data);
-                            }, 2000);
-                        });
+                                method: 'GET',
+                                url: config.url,
+                                params: params,
+                                timeout: requestPromise
+                            })
+                            .success(function(res) {
+                                console.log(arguments, "table.directive.js - getDatas promess timeout");
+                                if (res) {
+                                    $timeout(function() {
+                                        onResponse(res);
+                                    }, 2000);
+                                }
+                            });
                     }
 
                     function filter() {

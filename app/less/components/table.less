@@ -19,7 +19,7 @@
             position: absolute;
             left: 0;
             right: 0;
-            background: url("../assets/img/loader.gif") no-repeat center center;
+            background: url(@p-loader) no-repeat center center;
             height: 48px;
         }
     }
@@ -46,7 +46,7 @@
 
         .affix & {
             transform: translateY(100%);
-            margin-top: -25px;
+            margin-top: -26px;
             background-color: @color-main;
             color: #FFF;
 
@@ -54,6 +54,10 @@
                 border-bottom-color: transparent;
             }
         }
+    }
+
+    button:hover {
+        color: @color-main;
     }
 }
 
