@@ -10,11 +10,11 @@ include ../mixins/main
       .searchBox
         +form-underlined()
           input.search-input(type="search",
-            ng-model="table.filter",
+            ng-model="table.filters.search",
             required,
             placeholder="rechercher")
         button(type="button").btnIcon.search
   div(affix, affix-offset=100)
     .table.listed(table="table.config",
-      table-filter="table.filter")
+      table-filters="table.filters")
 

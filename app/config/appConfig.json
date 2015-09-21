@@ -8,7 +8,8 @@
                 "reporting": "assets/json/reporting.json",
                 "indicateurs": "assets/json/indicateurs.json",
                 "documentation": "assets/json/documentation.json",
-                "users": "assets/json/users.json"
+                "users": "assets/json/users.json",
+                "archives": "assets/json/archives.json"
             }
         }
     },

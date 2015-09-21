@@ -1,7 +1,31 @@
 include ../mixins/main
 
-include ../includes/modules/module-filter-tools
-include ../includes/modules/module-listing-action
-include ../includes/modules/module-listing-session-employeur
-include ../includes/modules/module-listing-session-cpf
-include ../includes/modules/module-listing-session-cif
+include ../mixins/main
+
+.module-card
+  .module-header(affix, affix-offset=48)
+    .affix-target
+      .filters
+        label(ng-repeat="filter in filters")
+          span {{filter.value}}
+          input(type="checkbox",
+                ng-model="table.filters.type[filter.value]",
+                value="filter.value")
+
+      .searchBox
+        +form-underlined()
+          input.search-input(type="search",
+            ng-model="table.filters.search",
+            required,
+            placeholder="rechercher")
+        button(type="button").btnIcon.search
+  div(affix, affix-offset=96)
+    .table.listed(table="table.config",
+      table-filters="table.filters")
+
+//-
+  include ../includes/modules/module-filter-tools
+  include ../includes/modules/module-listing-action
+  include ../includes/modules/module-listing-session-employeur
+  include ../includes/modules/module-listing-session-cpf
+  include ../includes/modules/module-listing-session-cif

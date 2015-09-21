@@ -12,7 +12,7 @@
         ) {
 
             $scope.table = {
-                filter: null,
+                filters: {},
                 config: {
                     url: config.urls.users,
                     cols: [{

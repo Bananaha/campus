@@ -13,7 +13,7 @@
                 restrict: 'A',
                 scope: {
                     config: '=table',
-                    filter: '=tableFilter'
+                    filters: '=tableFilters'
                 },
                 templateUrl: 'table.html',
                 link: function ($scope, element) {
@@ -66,7 +66,7 @@
                     };
 
                     function init() {
-                        $scope.$watch('filter', filter);
+                        $scope.$watch('filters', filters, true);
                         reinitDatas();
                         config = angular.extend(config, $scope.config);
                         config = formatConfig(config);
@@ -107,21 +107,40 @@
                         $scope.datas = datas = [];
                     }
 
+                    function getFiltersParams(params) {
+                        var types;
+                        if ($scope.filters) {
+                            if ($scope.filters.search) {
+                                params.search = $scope.filters.search;
+                            }
+                            if ($scope.filters.type) {
+                                types = Object.keys($scope.filters.type).reduce(function(sum, key) {
+                                    if ($scope.filters.type[key]) {
+                                        sum.push(key);
+                                    }
+                                    return sum;
+                                }, []);
+                                if (types.length) {
+                                    params.types = types;
+                                }
+                            }
+                        }
+                        if ($scope.sortBy) {
+                            params.sortBy = $scope.sortBy;
+                        }
+                        return params;
+                    }
+
                     function getDatas() {
                         var params = {
                             from: config.currentPage,
                             size: config.itemPerPage
                         };
-                        if (isLoading) {
+                        if (isLoading && requestPromise) {
                             requestPromise.resolve();
                         }
                         loading(true);
-                        if ($scope.filter) {
-                            params.filter = $scope.filter;
-                        }
-                        if ($scope.sortBy) {
-                            params.sortBy = $scope.sortBy;
-                        }
+                        params = getFiltersParams(params);
 
                         requestPromise = $q.defer();
 
@@ -141,14 +160,15 @@
                             });
                     }
 
-                    function filter() {
+                    function filters() {
                         if (initialized) {
+                            console.log('filters');
                             $timeout.cancel(changeTimeout);
-                            changeTimeout = $timeout(computeFilter, 300);
+                            changeTimeout = $timeout(computeFilters, 300);
                         }
                     }
 
-                    function computeFilter() {
+                    function computeFilters() {
                         reinitDatas();
                         getDatas();
                     }
