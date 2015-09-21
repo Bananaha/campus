@@ -1,31 +1,24 @@
-form.grid.inside-module-block.pop-in-container
+form.grid
     h2.col-1 Nouvel accompagnement
-    .col-1.group      
-            textarea(name='textarea', rows='2' required)
-            span.bar
-            label Objet de l'accompagnement
-    .col-1-3.group      
+    .col-1
+        +form-underlined("Objet de l'accompagnement")
             input(type="text" required)
-            span.bar
-            label Activité
-    .col-1-3.group      
+    .col-1-3
+        +form-underlined("Activité")
             input(type="text" required)
-            span.bar
-            label Client 
-    .col-1-3.group      
+    .col-1-3
+        +form-underlined("Client")
             input(type="text" required)
-            span.bar
-            label Produit
-    .col-1-3.group      
+    .col-1-3
+        +form-underlined("Produit")
+            input(type="text" required)
+    .col-1-3
+        +form-underlined("Durée (heures)")
             input(type="number" required)
-            span.bar
-            label Durée (heures)
-    .col-1-3.group      
+    .col-1-3
+        +form-underlined("Date de début")
             input(type="text" required)
-            span.bar
-            label Date de début
-    .col-1-3.group      
+    .col-1-3
+        +form-underlined("Date de fin")
             input(type="text" required)
-            span.bar
-            label Date de fin
     include module-submit
