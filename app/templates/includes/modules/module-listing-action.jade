@@ -1,40 +1,58 @@
-.table-container
-    h2.module-title Liste des actions de formation
-        span 
-    ul.table-module
-        li.table-header
-            .icone
-            .icone
-            .icone
-            .icone
-            .icone.last
-            div 
-                | Intitulé
-            .column-short Nb sessions
-            .column-short Nature
-            .column-short N° Action
-        li.table-body
-            .icone
-                button.icon.plus(type="button"  title="Nouvelle session")
-            // mettre condition : si session non archivée dans action vert si vide bleu
-            .icone
-                button.icon.folder(type="button") 
-            .icone
-                button.icon.pen(type="button"  title="Modifier")
-            // Empêcher la suppression si archives existantes ou sessions ouvertes
-            .icone
-                button.icon.bin(type="button"  title="Supprimer")
-            // Empêcher l'archivage si sessions ouvertes
-            .icone.last
-                button.icon.archive(type="button"  title="Archiver")
-            div
-                a FI-Hello world !
-            .column-short 7
-            .column-short
-                a Employeur
-            .column-short
-                a 007
-                
+h2.module-title Liste des actions de formation
+.module-card
+  .module-header(affix, affix-offset=48)
+    .affix-target
+      .pull-right
+        button.btn.modal-opener(type="button",
+          ng-click="App.showModal('accompagnement-creation')") Créer une action
+
+      .searchBox
+        +form-underlined()
+          input.search-input(type="search",
+            ng-model="search",
+            ng-change="filter($event)"
+            required,
+            placeholder="rechercher")
+        button(type="button").btnIcon.search
+  
+  .table.listed(affix, affix-offset=100)
+    .table-head.affix-target
+      .table-cell.inline.actions.w-90
+          button.btnIcon.modify(type="button",
+            title="Modifier")
+          //- Empêcher la suppression si archives existantes ou sessions ouvertes
+          button.btnIcon.delete(type="button",
+            title="Supprimer")
+          //- Empêcher l'archivage si sessions ouvertes
+          button.btnIcon.archive(type="button",
+            title="Archiver")
+      .table-cell.col-1
+        | Intitulé
+      .table-cell.w-90
+        | Nb Sessions
+      .table-cell.w-100
+        | Auteur
+      .table-cell.w-90
+        | Nature
+      .table-cell.w-70
+        | N° Action
+    ul.table-group
+      li.table-row(ng-repeat="action in actions")
+        .table-cell.inline.actions.w-90
+          button.btnIcon.modify(type="button",
+            title="Modifier")
+          //- Empêcher la suppression si archives existantes ou sessions ouvertes
+          button.btnIcon.delete(type="button",
+            title="Supprimer")
+          //- Empêcher l'archivage si sessions ouvertes
+          button.btnIcon.archive(type="button",
+            title="Archiver")
+        .table-cell.col-1 {{action.titre}}
+        .table-cell.w-90
+        .table-cell.w-100 {{action.auteur}}
+        .table-cell.w-90
+        .table-cell.w-70 {{action.action}}
+
                     
                 
                 
