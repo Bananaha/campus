@@ -8,7 +8,7 @@
             $http,
             $timeout,
             config,
-            appLoaderService
+            appStateService
         ) {
 
             $scope.filters = [{
@@ -58,7 +58,7 @@
                 }
             };
 
-            appLoaderService.set(false);
+            appStateService.isLoading(false);
 
         });
 

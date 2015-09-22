@@ -76,11 +76,11 @@ select {
     display: block;
 
     &.labelled {
-        padding-top: @u-medium;
+        padding-top: @size-labelledInput;
     }
 
     input {
-        height: @u-medium;
+        height: @size-labelledInput;
         padding-left: 0;
         padding-right: 0;
         border-width: 0 0 1px 0;
@@ -99,7 +99,7 @@ select {
     select {
 
         &:focus ~ .form-underlined-label,
-        &:valid ~ .form-underlined-label {
+        &.filled ~ .form-underlined-label {
             top: @u-base;
             font-size: 1.2rem;
             color: @color-text;
@@ -133,7 +133,7 @@ select {
     position: absolute;
     pointer-events: none;
     left: 0;
-    top: @u-base + @u-medium;
+    top: @u-base + @size-labelledInput;
 }
 
 .searchBox {
@@ -159,4 +159,9 @@ select {
     button + button {
         margin-left: @u-small;
     }
+}
+
+form.ng-submitted .ng-invalid {
+    color: @color-error;
+    border-color: @color-error;
 }

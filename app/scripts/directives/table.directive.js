@@ -62,7 +62,7 @@
                     };
 
                     $scope.callAction = function(action, id) {
-                        console.log(action + ' on ' + id);
+                        console.log(action + ' on ' + id); // eslint-disable-line
                     };
 
                     function init() {
@@ -151,18 +151,15 @@
                                 timeout: requestPromise
                             })
                             .success(function(res) {
-                                console.log(arguments, "table.directive.js - getDatas promess timeout");
                                 if (res) {
-                                    $timeout(function() {
-                                        onResponse(res);
-                                    }, 2000);
+                                    onResponse(res);
                                 }
                             });
                     }
 
                     function filters() {
                         if (initialized) {
-                            console.log('filters');
+                            console.log('TODO: Filters'); // eslint-disable-line
                             $timeout.cancel(changeTimeout);
                             changeTimeout = $timeout(computeFilters, 300);
                         }

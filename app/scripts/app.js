@@ -1,19 +1,30 @@
-(function (global, angular) {
+(function (global, angular, moment) {
     'use strict';
 
     angular.module('campus.app', [
         'ngRoute',
         'ngMessages',
         'ui.bootstrap',
+        'LocalStorageModule',
         'angularModalService',
         '720kb.tooltips'
     ])
     .config(function(
             $routeProvider,
-            tooltipsConfigProvider
+            localStorageServiceProvider,
+            tooltipsConfigProvider,
+            datepickerPopupConfig
         ) {
 
             var basePath = '';
+
+            localStorageServiceProvider.setPrefix('campusApp');
+
+            datepickerPopupConfig.clearText = 'Annuler';
+            datepickerPopupConfig.closeText = 'Fermer';
+            datepickerPopupConfig.currentText = 'Aujourd\'hui';
+            datepickerPopupConfig.datepickerPopup = 'dd/MM/yyyy';
+            datepickerPopupConfig.showButtonBar = false;
 
             $routeProvider.
                 when('/home', {
@@ -27,6 +38,14 @@
                 when('/accompagnements', {
                     templateUrl: basePath + 'accompagnements.html',
                     controller: 'accompagnementsController'
+                }).
+                when('/accompagnements/:id', {
+                    templateUrl: basePath + 'accompagnements-details.html',
+                    controller: 'accompagnementsDetailsController'
+                }).
+                when('/accompagnements/:id/modifier', {
+                    templateUrl: basePath + 'accompagnements-modifier.html',
+                    controller: 'accompagnementsModifierController'
                 }).
                 when('/users', {
                     templateUrl: basePath + 'users.html',
@@ -47,4 +66,4 @@
         }
     );
 
-}(window, window.angular));
+}(window, window.angular, window.moment));

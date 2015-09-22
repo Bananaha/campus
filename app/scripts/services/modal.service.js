@@ -24,6 +24,7 @@
                     modal.close.then(onClose.bind(that, callback, partialName));
                 });
             }
+            return that;
         };
 
         this.hideModals = hideModals;
@@ -51,6 +52,7 @@
                     modal.modal.scope.close();
                 }
             });
+            return that;
         }
 
         return this;

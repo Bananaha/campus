@@ -29,7 +29,7 @@
                 to: false
             };
 
-            $scope.open = function(name) {
+            $scope.openDatepicker = function(name) {
                 $scope.openDatepickers[name] = true;
             };
 

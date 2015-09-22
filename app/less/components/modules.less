@@ -6,11 +6,20 @@
 	line-height: 1;
 }
 
+.module-footer,
 .module-header {
     .mixin_clearfix;
     background: @color-gray-97;
-    margin: -@u-small -@u-small 0 -@u-small;
+    margin: 0 -@u-small;
     padding: @u-small;
+}
+
+.module-footer {
+    margin-bottom: -@u-small;
+}
+
+.module-header {
+    margin-top: -@u-small;
 
     &.affix {
         .affix-target {
@@ -22,6 +31,8 @@
         }
     }
 }
+
+
 
 .module-list-item {
 	.card;

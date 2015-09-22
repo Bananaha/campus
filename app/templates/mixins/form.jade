@@ -13,8 +13,19 @@ mixin datePicker(opt)
     is-open=opt.isOpen
     max-date=opt.maxDate
     min-date=opt.minDate
-    show-button-bar="false"
     ng-required=opt.required
-    close-text="Fermer",
-    ng-click="open('" + opt.name + "')",
-    ng-focus="open('" + opt.name + "')")
+    ng-click="openDatepicker('" + opt.name + "')"
+    ng-class=opt.ngModel + " | emptyInputClassFilter")
+
+mixin input(opt)
+  - opt.type = opt.type || "text"
+  input(type=opt.type,
+    name=opt.name,
+    min=opt.min,
+    max=opt.max,
+    ng-model=opt.ngModel,
+    ng-required=opt.ngRequired,
+    required=opt.required,
+    ng-change=opt.ngChange,
+    ng-disabled=opt.ngDisabled,
+    ng-class=opt.ngModel + " | emptyInputClassFilter")

@@ -20,7 +20,7 @@ html.not-ie.no-js(lang="fr")
     link(rel='apple-touch-icon', href='assets/images/favicons/apple-touch-icon.png')
 
   body(class=bodyClass,
-        ng-class="{'modalOpen': modal}"
+        ng-class="{'modalOpen': modal, 'frozen': App.frozen}"
         ng-app="campus.app",
         ng-controller="AppController as App")
 

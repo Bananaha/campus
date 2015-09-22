@@ -1,18 +1,24 @@
 // build:js
 script(src="scripts/bower_components/jquery/dist/jquery.js")
+script(src="scripts/bower_components/moment/moment.js")
 script(src="scripts/bower_components/angular/angular.js")
 script(src="scripts/bower_components/angular-route/angular-route.js")
 script(src="scripts/bower_components/angular-messages/angular-messages.js")
 script(src="scripts/bower_components/angular-bootstrap/ui-bootstrap-tpls.js")
 script(src="scripts/bower_components/angular-tooltips/src/js/angular-tooltips.js")
 script(src="scripts/bower_components/angular-modal-service/dst/angular-modal-service.js")
+script(src="scripts/bower_components/angular-local-storage/dist/angular-local-storage.js")
 
 script(src="scripts/app.js")
+
+script(src="scripts/filters/emptyInputClass.filter.js")
+
 script(src="scripts/controllers/app.controller.js")
 script(src="scripts/controllers/home.controller.js")
 script(src="scripts/controllers/training.controller.js")
 script(src="scripts/controllers/accompagnements.controller.js")
-script(src="scripts/controllers/accompagnementsCreation.controller.js")
+script(src="scripts/controllers/accompagnementsModifier.controller.js")
+script(src="scripts/controllers/accompagnementsDetails.controller.js")
 script(src="scripts/controllers/users.controller.js")
 script(src="scripts/controllers/archives.controller.js")
 script(src="scripts/controllers/modal.controller.js")
@@ -27,8 +33,8 @@ script(src="scripts/directives/textareaAutosize.directive.js")
 script(src="scripts/directives/table.directive.js")
 script(src="scripts/directives/form.directive.js")
 
-script(src="scripts/services/appLoader.service.js")
 script(src="scripts/services/downloader.service.js")
 script(src="scripts/services/modal.service.js")
 script(src="scripts/services/scrollEvent.service.js")
+script(src="scripts/services/appState.service.js")
 // endbuild
