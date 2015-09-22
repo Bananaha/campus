@@ -23,6 +23,10 @@
                 id: 'budgetDepenseFormation'
             }];
 
+            $scope.formConf = {
+                action: config.urls.accompagnementsCreation
+            };
+
             $scope.openDatepickers = {
                 from: false,
                 to: false

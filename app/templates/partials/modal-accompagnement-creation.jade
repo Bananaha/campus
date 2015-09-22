@@ -4,23 +4,23 @@ block header
   h2 Création d'un accompagnement
 
 block content
-
-    form.grid.pad(ng-controller="accompagnementsCreationController as accompagnementsCreationController")
+  div(ng-controller="accompagnementsCreationController")
+    form.grid.pad(form="formConf", ng-action="test")
         .col-1
-            +form-underlined("Objet")
-                textarea(name='textarea', required, textarea-autosize)
-
-        .col-1
-            +form-underlined("Activité")
+            +form-underlined("Intitulé")
                 input(type="text" required)
 
         .col-1
             +form-underlined("Client")
-                input(type="text" required)
+                input(type="text")
+
+        .col-1
+            +form-underlined("Activité")
+                input(type="text")
 
         .col-1
             +form-underlined("Produit")
-                input(type="text" required)
+                input(type="text")
 
         .col-1
             +form-underlined("Durée (heures)")
@@ -46,7 +46,7 @@ block content
                 - opt.name = "to"
                 +datePicker(opt)
 
-    include ../includes/modules/module-submit
+      include ../includes/modules/module-submit
 
   //- .grid.inside-module-block.pop-in-container
     include ../includes/modules/module-selection-trainees

@@ -5,7 +5,6 @@
         return {
             restrict: 'A',
             link: function ($scope, element) {
-                console.log('textareaAutosize', element);
                 var el = element[0];
 
                 element.on('keyup input', resize);
