@@ -17,7 +17,9 @@
     "jquery": "~2.1.4",
     "angular-bootstrap": "~0.13.4",
     "angular-tooltips": "~0.1.22",
-    "angular-modal-service": "~0.6.6"
+    "angular-local-storage": "~0.2.2",
+    "angular-modal-service": "~0.6.6",
+    "moment": "~2.10.6"
   },
   "dependencies": {}
 }
