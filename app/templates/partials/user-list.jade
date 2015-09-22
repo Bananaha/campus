@@ -1,0 +1,26 @@
+.userList-container
+  input.userList-input(type="search",
+    ng-model="search",
+    ng-blur="onBlur()",
+    ng-focus="onFocus()",
+    ng-change="onChange()"
+    required)
+  ul.userList-searchList(ng-if="showSearchList")
+    li(ng-repeat="user in users")
+      button(type="button",
+        ng-click="selectUser(user.id)",
+        ng-blur="onBlur()",
+        ng-focus="onFocus()")
+        span.userList-searchList-name {{user.prenom}} {{user.nom}}
+        span.userList-searchList-departure {{user.sortie}}
+        span.userList-searchList-job {{user.poste}}
+
+p.userList-info(ng-if="!selectedUsers.length") Liste vide
+
+ul.userList-users(ng-if="selectedUsers.length")
+  li.userList-user(ng-repeat="user in selectedUsers")
+    button(type="button",
+      ng-click="removeUser(user.id)")
+      span {{user.prenom}} {{user.nom}}
+
+

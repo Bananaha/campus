@@ -1,16 +1,38 @@
 include ../mixins/main
 
-.module-card
+.grid.pad
 
-  .actionDetails
+  .col-1
+    .module-card
 
-    h2.actionDetails-title {{accompagnement.intitule}}
-    p.actionDetails-id Action n°{{accompagnement.action}}
+      .actionDetails
 
-    ul.actionDetails-list
-      li(ng-repeat="item in accompagnement.list")
-        span.actionDetails-label {{item.label}}
-        span.actionDetails-value {{item.value}}
+        .module-header(affix, affix-offset=48)
+          .affix-target
+            p.actionDetails-id Action n°{{accompagnement.action}} - {{accompagnement.auteur}}
+            h2 {{accompagnement.intitule}}
 
-    .module-footer
-      button(ng-click="modifier()").btn.pull-right Modifier
+        ul.actionDetails-list
+          li(ng-repeat="item in accompagnement.list")
+            span.actionDetails-label {{item.label}}
+            span.actionDetails-value {{item.value}}
+
+        .module-footer.form-actions
+          a(ng-href="#/accompagnements").btn Retour
+          button(ng-click="modifier()").btn Modifier
+
+  .col-1-2
+    .module-card
+      .module-header
+        h2 Participants
+
+      user-list
+
+  .col-1-2
+    .module-card
+      .module-header
+        h2 Formateurs
+
+      user-list
+
+

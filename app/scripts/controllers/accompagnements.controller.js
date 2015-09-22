@@ -20,7 +20,8 @@
                         label: 'Intitulé',
                         key: 'intitule',
                         sort: true,
-                        klass: 'col-1'
+                        klass: 'col-1',
+                        action: 'detail'
                     }, {
                         label: 'Auteur',
                         key: 'auteur',

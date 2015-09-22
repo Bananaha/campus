@@ -8,7 +8,9 @@ ul.table-group
     .table-cell(ng-repeat="col in config.cols",
       class="{{col.klass}}",
       ng-class="{'actions inline': col.actions}")
-      span(ng-if="col.label") {{data[col.key]}}
+      span(ng-if="col.label && !col.action") {{data[col.key]}}
+      button(ng-if="col.label && col.action",
+        ng-click="callAction(col.action, data.id)") {{data[col.key]}}
 
       button.btnIcon(ng-repeat="action in col.actions",
         type="button",

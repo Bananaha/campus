@@ -10,7 +10,7 @@ include ../mixins/main
 
       .module-header
         p.actionDetails-id Action n°{{model.action}} - {{model.auteur}}
-        h2.actionDetails-title {{model.intitule}}
+        h2 {{model.intitule}}
 
       .grid.pad
 
@@ -68,5 +68,6 @@ include ../mixins/main
             - opt.name = "to"
             +datePicker(opt)
 
-      .module-footer
-        include ../includes/modules/module-submit
+      .module-footer.form-actions
+        a.btn(ng-href="#/accompagnements/{{model.id}}") Annuler
+        button.btn(type="submit") Valider

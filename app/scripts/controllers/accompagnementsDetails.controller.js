@@ -14,9 +14,6 @@
         ) {
 
             var listKeys = [{
-                    label: 'Auteur',
-                    key: 'auteur'
-                }, {
                     label: 'Client',
                     key: 'client'
                 }, {
@@ -63,6 +60,7 @@
                 var scope = {};
                 scope.intitule = datas.intitule;
                 scope.action = datas.action;
+                scope.auteur = datas.auteur;
 
                 scope.list = listKeys.map(function(obj) {
                     var value;
