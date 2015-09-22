@@ -4,49 +4,51 @@ block header
   h2 Création d'un accompagnement
 
 block content
-  div(ng-controller="accompagnementsCreationController")
-    form.grid.pad(form="formConf", ng-action="test")
-        .col-1
-            +form-underlined("Intitulé")
-                input(type="text" required)
+  form.grid.pad(name="accompagnementsCreation",
+    form,
+    ng-submit="submit()")
 
-        .col-1
-            +form-underlined("Client")
-                input(type="text")
+    .col-1
+        +form-underlined("Intitulé")
+            input(type="text", required)
 
-        .col-1
-            +form-underlined("Activité")
-                input(type="text")
+    .col-1
+        +form-underlined("Client")
+            input(type="text")
 
-        .col-1
-            +form-underlined("Produit")
-                input(type="text")
+    .col-1
+        +form-underlined("Activité")
+            input(type="text")
 
-        .col-1
-            +form-underlined("Durée (heures)")
-                input(type="number", min="0", required)
+    .col-1
+        +form-underlined("Produit")
+            input(type="text")
 
-        .col-1-2
-            +form-underlined("Date de début")
-                - var opt = {}
-                - opt.ngModel = "model.from"
-                - opt.isOpen = "openDatepickers.from"
-                - opt.maxDate = "model.to"
-                - opt.required = "true"
-                - opt.name = "from"
-                +datePicker(opt)
+    .col-1
+        +form-underlined("Durée (heures)")
+            input(type="number", min="0", required)
 
-        .col-1-2
-            +form-underlined("Date de fin")
-                - var opt = {}
-                - opt.ngModel = "model.to"
-                - opt.isOpen = "openDatepickers.to"
-                - opt.minDate = "model.from"
-                - opt.required = "true"
-                - opt.name = "to"
-                +datePicker(opt)
+    .col-1-2
+        +form-underlined("Date de début")
+            - var opt = {}
+            - opt.ngModel = "model.from"
+            - opt.isOpen = "state.openDatepickers.from"
+            - opt.maxDate = "model.to"
+            - opt.required = "true"
+            - opt.name = "from"
+            +datePicker(opt)
 
-      include ../includes/modules/module-submit
+    .col-1-2
+        +form-underlined("Date de fin")
+            - var opt = {}
+            - opt.ngModel = "model.to"
+            - opt.isOpen = "state.openDatepickers.to"
+            - opt.minDate = "model.from"
+            - opt.required = "true"
+            - opt.name = "to"
+            +datePicker(opt)
+
+    include ../includes/modules/module-submit
 
   //- .grid.inside-module-block.pop-in-container
     include ../includes/modules/module-selection-trainees
