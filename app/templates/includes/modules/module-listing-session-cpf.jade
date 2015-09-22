@@ -1,40 +1,26 @@
-.table-container
-    h2 
-        | Nom de l'action
-    ul.table-module
-        li.table-header
-            .icone
-            .icone
-            .icone.last
-            div
+h2.module-title Liste des sessions CPF
+.module-card
+    .table.listed(affix, affix-offset=100)
+        .table-head.affix-target
+            .table-cell.inline.actions.w-90
+            .table-cell.col-1-2
                 | Nom
-            div
+            .table-cell.col-1-2
                 | Prénom
-            .column-short
+            .table-cell.w-100
                 | Date butoir
-            .column-short
-                | Avis Empl.
-            // Barre de progression à chaque ligne
-            .icone
-            .column-short
+            .table-cell.w-100
+                | Avis Employeur
+            .table-cell.w-100
                 | N° Session
-        li.table-body
-            .icone
-                button.icon.pen(type="button"  title="Modifier")
-            .icone
-                button.icon.bin(type="button"  title="Supprimer")
-            //Empêcher l'archivage si la progression n'est pas à 100%
-            .icone.last
-                button.icon.archive(type="button"  title="Archiver")
-            div
-                a Dupont
-            div
-                a Martin
-            div
-                a 01/01/2020
-            div
-                a OUI
-            div
-                a 
-            div
-                a 000001
+    ul.table-group
+        li.table-row(ng-repeat="action in actions")
+            .table-cell.inline.actions.w-90
+                button.btnIcon.modify(type="button", title="Modifier")
+                button.btnIcon.delete(type="button", title="Supprimer")
+                button.btnIcon.archive(type="button", title="Archiver")
+            .table-cell.col-1-2
+            .table-cell.col-1-2
+            .table-cell.w-100 
+            .table-cell.w-100
+            .table-cell.w-100 

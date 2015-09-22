@@ -18,23 +18,15 @@ h2.module-title Liste des actions de formation
   .table.listed(affix, affix-offset=100)
     .table-head.affix-target
       .table-cell.inline.actions.w-90
-          button.btnIcon.modify(type="button",
-            title="Modifier")
-          //- Empêcher la suppression si archives existantes ou sessions ouvertes
-          button.btnIcon.delete(type="button",
-            title="Supprimer")
-          //- Empêcher l'archivage si sessions ouvertes
-          button.btnIcon.archive(type="button",
-            title="Archiver")
       .table-cell.col-1
         | Intitulé
       .table-cell.w-90
         | Nb Sessions
-      .table-cell.w-100
+      .table-cell.w-90
         | Auteur
       .table-cell.w-90
         | Nature
-      .table-cell.w-70
+      .table-cell.w-90
         | N° Action
     ul.table-group
       li.table-row(ng-repeat="action in actions")
@@ -47,11 +39,11 @@ h2.module-title Liste des actions de formation
           //- Empêcher l'archivage si sessions ouvertes
           button.btnIcon.archive(type="button",
             title="Archiver")
-        .table-cell.col-1 {{action.titre}}
+        .table-cell.col-1
         .table-cell.w-90
-        .table-cell.w-100 {{action.auteur}}
+        .table-cell.w-90 
         .table-cell.w-90
-        .table-cell.w-70 {{action.action}}
+        .table-cell.w-90 
 
                     
                 

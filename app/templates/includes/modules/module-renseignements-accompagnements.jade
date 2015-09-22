@@ -1,0 +1,23 @@
+form.grid
+    .col-1
+        +form-underlined("Objet de l'accompagnement")
+            input(type="text" required)
+    .col-1-3
+        +form-underlined("Activité")
+            input(type="text" required)
+    .col-1-3
+        +form-underlined("Client")
+            input(type="text" required)
+    .col-1-3
+        +form-underlined("Produit")
+            input(type="text" required)
+    .col-1-3
+        +form-underlined("Durée (heures)")
+            input(type="number" required)
+    .col-1-3
+        +form-underlined("Date de début")
+            input(type="text" required)
+    .col-1-3
+        +form-underlined("Date de fin")
+            input(type="text" required)
+    include module-submit
