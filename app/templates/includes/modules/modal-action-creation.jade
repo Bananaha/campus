@@ -1,0 +1,71 @@
+.module-card
+    form.grid
+        h2.col-2-3
+            | Création d'une action
+        .col-1-3
+            +form-underlined("Nature")
+                select(name='type')
+                    option(value='value1') 
+                    option(value='value2') Employeur
+                    option(value='value3') CIF
+                    option(value='value4') CPF
+        .col-1-2            
+            +form-underlined("Métier/Produit")    
+                select(name='type')
+                    option(value='value1')
+                    option(value='value2') Métier
+                    option(value='value3') Produit
+        .col-1-2
+            +form-underlined("Entité juridique")
+                select(name='societe')
+                    option(value='value1')
+                    option(value='value2') B2S AIX
+                    option(value='value3') B2S CHALON SAS
+                    option(value='value3') B2S DEVELOPPEMENT SAS
+                    option(value='value3') B2S LE MANS SAS
+                    option(value='value3') B2S PARIS SASU
+                    option(value='value3') B2S ROANNE SAS
+                    option(value='value3') B2S SAS
+                    option(value='value3') B2S STRASBOURG SAS
+                    option(value='value3') B2S VALENCIENNES SAS
+                    option(value='value3') SYMPHONING SAS
+                    option(value='value3') SYNOPSYA SAS
+        .col-1-2
+            +form-underlined("Catégorie")
+                select(name='categorie')
+                    option(value='value1')
+                    option(value='value2') Formation initiale
+                    option(value='value3') Formation continue
+        .col-1-2
+            +form-underlined("Interne/Externe")
+                select(name='interneExterne')
+                    option(value='value1') 
+                    option(value='value2') Interne
+                    option(value='value3') Externe
+        .col-1-2     
+            +form-underlined("Organisme de formation")
+                input(type="text" required)
+                
+        .col-1-2   
+            +form-underlined("Intitulé de la formation")
+                input(type="text" required)
+                
+        .col-1
+            +form-underlined("Population à former")
+                textarea(name='textarea', rows='4' required)
+                
+        .col-1
+            +form-underlined("Principaux points abordés")
+                textarea(name='textarea', rows='4' required)
+                
+        .col-1
+            +form-underlined("Objectifs pédagogiques")
+                textarea(name='textarea', rows='4' required)
+                
+        .col-1
+            +form-underlined("Pré-requis")
+                textarea(name='textarea', rows='4' required)
+                
+    include module-submit
+        
+                
