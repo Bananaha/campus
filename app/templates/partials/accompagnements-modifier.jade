@@ -9,7 +9,7 @@ include ../mixins/main
       ng-submit="submit()")
 
       .module-header
-        p.actionDetails-id Action n°{{model.action}} - {{model.auteur}}
+        p.actionDetails-id \#{{model.action}} - {{model.auteur}}
         h2 {{model.intitule}}
 
       .grid.pad
@@ -69,5 +69,5 @@ include ../mixins/main
             +datePicker(opt)
 
       .module-footer.form-actions
-        button.btn(ng-click="App.back()") Annuler
+        button.btn(type="button", ng-click="App.back()") Annuler
         button.btn(type="submit") Valider

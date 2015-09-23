@@ -46,6 +46,27 @@ button {
         width: 48px;
         height: 48px;
     }
+
+    &.circle {
+        font-size: 1.4rem;
+        padding: 3px;
+        border-radius: 50%;
+        color: @color-body-background;
+        background-color: @color-link;
+
+        &:hover,
+        &:focus {
+            color: @color-body-background;
+            background-color: @color-link-hover;
+        }
+
+        &.big {
+            width: 42px;
+            height: 42px;
+            font-size: 2rem;
+        }
+
+    }
 }
 
 .btnIcon {
@@ -72,6 +93,10 @@ button {
 
     &.add-users {
         .fa-user-plus;
+    }
+
+    &.back {
+        .fa-chevron-left;
     }
 }
 

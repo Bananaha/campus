@@ -4,16 +4,26 @@ header.header
       a(href='/')
         | b2s
         span Campus
-    .header-menu
-      button.btn(type="button",
+    .header-content
+
+      button.btnIcon.big.back(type="button",
         ng-if="App.showBack",
-        ng-click="App.back()") Retour
+        ng-click="App.back()")
 
-      button.header-menu-button.btnIcon.big.menu(type="button")
+      .header-menu(ng-controller="headerMenuController")
 
-      ul.header-menu-box
-        li.header-menu-item
-          a.menuLink.header-menu-link.account(href="#") Mon compte
-        li.header-menu-item
-          a.menuLink.header-menu-link.logout(href="#") Déconnexion
+        button.header-menu-button.btnIcon.big.menu(type="button",
+          ng-click="toggle()",
+          ng-focus="onFocus()",
+          ng-blur="onBlur()")
+
+        ul.header-menu-box(ng-class="{show: isOpen}")
+          li.header-menu-item
+            a.menuLink.header-menu-link.account(href="#",
+              ng-focus="onFocus()",
+              ng-blur="onBlur()") Mon compte
+          li.header-menu-item
+            a.menuLink.header-menu-link.logout(href="#",
+              ng-focus="onFocus()",
+              ng-blur="onBlur()") Déconnexion
 

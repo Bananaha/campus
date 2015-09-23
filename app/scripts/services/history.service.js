@@ -4,12 +4,10 @@
     angular.module('campus.app').factory('historyService',
         function(
             $window,
-            $location,
-            $routeParams
+            $location
         ) {
 
-            var that = this,
-                prevRoute,
+            var prevRoute,
                 currentRoute,
                 hasBack = false;
 

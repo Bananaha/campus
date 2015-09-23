@@ -9,6 +9,7 @@
 .module-footer,
 .module-header {
     .mixin_clearfix;
+    position: relative;
     background: @color-gray-97;
     margin: 0 -@u-small;
     padding: @u-small;
@@ -20,14 +21,33 @@
 
 .module-header {
     margin-top: -@u-small;
+    
+    .affix-target {
+    	
+    	border-bottom: 0 solid @color-main;
+    }
+
+    .module-header-action {
+    	transition: bottom .2s ease-out;
+    	position: absolute;
+    	right: @u-small;
+    	bottom: 0;
+    	transform: translateY(50%);
+    }
 
     &.affix {
         .affix-target {
+        	transition: border-width .3s ease-out;
             background: @color-gray-97;
             left: @size-nav + @u-medium;
             right: @u-medium;
             padding: @u-small;
             z-index: @z-affix-1;
+            border-bottom-width: 4px;
+        }
+
+        .module-header-action {
+        	bottom: 50%;
         }
     }
 }
