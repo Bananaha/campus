@@ -1,0 +1,76 @@
+.userList-container {
+	margin: @u-medium 0;
+	position: relative;
+}
+
+.userList-searchList {
+	position: absolute;
+	background-color: #FFF;
+	font-size: 1.2rem;
+	min-width: 100%;
+	overflow-y: scroll;
+	max-height: 200px;
+
+	button {
+		padding: @u-base;
+		display: block;
+		width: 100%;
+		text-align: left;
+
+		&:hover,
+		&:focus {
+			background-color: @color-background-hover;
+			color: @color-main;
+		}
+	}
+
+	span + span {
+		margin-left: @u-base;
+	}
+}
+
+.userList-searchList-name {
+	font-weight: 600;
+}
+
+.userList-searchList-job,
+.userList-searchList-departure {
+	font-size: 0.8em;
+	float: right;
+}
+
+.userList-users {
+	font-size: 1.2rem;
+}
+
+.userList-user {
+	display: inline-block;
+
+	button {
+		border-radius: 3px;
+		padding: 3px 16px 3px @u-base;
+		position: relative;
+
+		span {
+			.fa-times;
+
+			&::before {
+				.fa-icon;
+				display: none;
+				position: absolute;
+				right: 3px;
+				font-size: 1rem;
+			}
+		}
+
+		&:focus,
+		&:hover {
+			background-color: @color-background-hover;
+			color: @color-main;
+
+			span::before {
+				display: block;
+			}
+		}
+	}
+}

@@ -3,6 +3,7 @@
 
     angular.module('campus.app').directive('table',
         function (
+            $location,
             $timeout,
             $http,
             $q,
@@ -62,6 +63,15 @@
                     };
 
                     $scope.callAction = function(action, id) {
+                        var currentLocation = $location.url();
+                        switch (action) {
+                            case 'detail':
+                                $location.url(currentLocation + '/' + id);
+                            break;
+                            case 'modify':
+                                $location.url(currentLocation + '/' + id + '/modifier');
+                            break;
+                        }
                         console.log(action + ' on ' + id); // eslint-disable-line
                     };
 
