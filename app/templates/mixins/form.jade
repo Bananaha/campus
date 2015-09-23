@@ -16,6 +16,7 @@ mixin datePicker(opt)
     min-date=opt.minDate
     ng-required=opt.required
     ng-change="closeDatepicker('" + opt.name + "')"
+    ng-focus="openDatepicker('" + opt.name + "')"
     ng-click="openDatepicker('" + opt.name + "')"
     ng-class=opt.ngModel + " | emptyInputClassFilter")
 
