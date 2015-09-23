@@ -20,8 +20,10 @@
                     templateUrl: partialName + '.html',
                     controller: 'modalController'
                 }).then(function(modal) {
+                    console.log('then');
                     modals[partialName].modal = modal;
                     modal.close.then(onClose.bind(that, callback, partialName));
+                    console.log('end then');
                 });
             }
             return that;
@@ -48,7 +50,7 @@
 
         function hideModals() {
             angular.forEach(modals, function(modal) {
-                if (modal.modal) {
+                if (modal.modal && modal.showed) {
                     modal.modal.scope.close();
                 }
             });
