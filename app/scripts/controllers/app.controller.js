@@ -6,8 +6,11 @@
         function(
             $scope,
             $location,
+            $window,
+            $timeout,
             modalService,
-            appStateService
+            appStateService,
+            historyService
         ) {
 
             var that = this;
@@ -19,6 +22,10 @@
             appStateService.onChange(onAppStateChange);
 
             onAppStateChange();
+
+            $scope.$on('$locationChangeSuccess', onLocationChange);
+
+            this.showBack = false;
 
             this.goTo = function(url) {
                 if ($scope.modal) {
@@ -32,6 +39,19 @@
                 $scope.modal = true;
                 modalService.show('modal-' + modalName, onModalHide);
             };
+
+            this.back = function() {
+                historyService.back();
+            };
+
+            function updateShowBack() {
+                that.showBack = historyService.hasBack() && $location.url().split('/').length > 2;
+            }
+
+            function onLocationChange() {
+                historyService.onLocationChange();
+                updateShowBack();
+            }
 
             function onModalHide() {
                 $scope.modal = false;

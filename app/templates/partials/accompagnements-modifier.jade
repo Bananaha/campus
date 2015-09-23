@@ -69,5 +69,5 @@ include ../mixins/main
             +datePicker(opt)
 
       .module-footer.form-actions
-        a.btn(ng-href="#/accompagnements/{{model.id}}") Annuler
+        button.btn(ng-click="App.back()") Annuler
         button.btn(type="submit") Valider

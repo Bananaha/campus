@@ -10,7 +10,8 @@
             config,
             appStateService,
             localStorageService,
-            modalService
+            modalService,
+            historyService
         ) {
             return {
                 restrict: 'A',
@@ -92,11 +93,16 @@
                     }
 
                     function onRequestSuccess(res) {
-                        console.log('TO DO: SUCCESS FORM', res); // eslint-disable-line
-                        // flush();
+                        flush();
                         appStateService.isFrozen(false);
                         modalService.hideModals();
-                        $location.url('/accompagnements/' + res.data.id);
+
+                        if (res.data.id) {
+                            $location.url($location.url() + '/' + res.data.id);
+                        } else {
+                            historyService.back();
+                        }
+
                     }
 
                     function onRequestError() {

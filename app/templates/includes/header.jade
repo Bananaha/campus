@@ -1,15 +1,19 @@
 header.header
-    .header-inner
-        h1.header-title
-            a(href='/')
-                | b2s 
-                span Campus
-        .header-menu
-            button.header-menu-button.btnIcon.big.menu
-            
-            ul.header-menu-box
-                li.header-menu-item
-                    a.menuLink.header-menu-link.account(href="#") Mon compte
-                li.header-menu-item
-                    a.menuLink.header-menu-link.logout(href="#") Déconnexion
-            
+  .header-inner
+    h1.header-title
+      a(href='/')
+        | b2s
+        span Campus
+    .header-menu
+      button.btn(type="button",
+        ng-if="App.showBack",
+        ng-click="App.back()") Retour
+
+      button.header-menu-button.btnIcon.big.menu(type="button")
+
+      ul.header-menu-box
+        li.header-menu-item
+          a.menuLink.header-menu-link.account(href="#") Mon compte
+        li.header-menu-item
+          a.menuLink.header-menu-link.logout(href="#") Déconnexion
+
