@@ -1,4 +1,3 @@
-
 .module-header(affix, affix-offset=48)
     .searchBox
         +form-underlined()
@@ -8,7 +7,7 @@
                 required,
                 placeholder="rechercher")
         button(type="button").btnIcon.search
-p Sélection des stagiaires et formateurs
+h4 Sélection des stagiaires et formateurs
 .table.listed(affix, affix-offset=100)
     .table-head.affix-target
         .table-cell.w-70
@@ -17,17 +16,17 @@ p Sélection des stagiaires et formateurs
         .table-cell.w-70 Contrat
         .table-cell.w-100 Emploi
         .table-cell.w-90 Date de sortie
-ul.table-group
-    li.table-row(ng-repeat="action in actions")
-        .table-cell.w-70.inline.actions
-            button.btnIcon.add-users(type="button",
-        title="Ajouter")
-        .table-cell.w-100 
-        .table-cell.w-100 
-        .table-cell.w-70 
-        .table-cell.w-100 
-        .table-cell.w-90 
-p Stagiaires et formateurs assignés à la formation
+    ul.table-group
+        li.table-row(ng-repeat="action in actions")
+            .table-cell.w-70.inline.actions
+                button.btnIcon.add-users(type="button",
+            title="Ajouter")
+            .table-cell.w-100 
+            .table-cell.w-100 
+            .table-cell.w-70 
+            .table-cell.w-100 
+            .table-cell.w-90 
+h4 Stagiaires et formateurs assignés à la formation
 .table.listed(affix, affix-offset=100)
     .table-head.affix-target
         .table-cell.w-70
@@ -37,16 +36,16 @@ p Stagiaires et formateurs assignés à la formation
         .table-cell.w-100 Emploi
         .table-cell.w-90 Date de sortie
         .table-cell.w-70 Formateur
-ul.table-group
-    li.table-row(ng-repeat="action in actions")
-        .table-cell.w-70.inline.actions
-            button.btnIcon.add-users(type="button",
-        title="Ajouter")
-        .table-cell.w-100 
-        .table-cell.w-100 
-        .table-cell.w-70 
-        .table-cell.w-100 
-        .table-cell.w-90
-        .table-cell.w-70
-            input(type="checkbox"  name=""  checked="unchecked")
+    ul.table-group
+        li.table-row(ng-repeat="action in actions")
+            .table-cell.w-70.inline.actions
+                button.btnIcon.add-users(type="button",
+            title="Ajouter")
+            .table-cell.w-100 
+            .table-cell.w-100 
+            .table-cell.w-70 
+            .table-cell.w-100 
+            .table-cell.w-90
+            .table-cell.w-70
+                input(type="checkbox"  name=""  checked="unchecked")
 include module-submit       

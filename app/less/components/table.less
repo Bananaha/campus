@@ -126,6 +126,42 @@
     }
 }
 
+
+.table-module {
+    width: 100%;
+    
+    tr {
+            height: @u-medium;
+            line-height: @u-medium;
+            text-align: center;
+
+            &:hover {
+                background-color:  @color-background-hover;
+            }
+        
+        th {
+            max-width: 180px;
+            min-width: 130px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        td {
+            max-width: 100px;
+            vertical-align: middle;
+
+            input {
+                width: 50%;
+                margin: @u-base 0;
+            }
+
+            p {
+                display: inline;
+        }
+        }
+}
+}
+
 /*
 .table-container {
     padding: @u-small;
