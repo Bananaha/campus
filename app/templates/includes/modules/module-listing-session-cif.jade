@@ -1,5 +1,20 @@
 h2.module-title Liste des sessions CAP Ambulancier
 .module-card
+    .module-header(affix, affix-offset=48)
+        .affix-target
+          .pull-right
+            button.btn.modal-opener(type="button",
+              ng-click="App.showModal('accompagnement-creation')") Créer une action
+    
+          .searchBox
+            +form-underlined()
+              input.search-input(type="search",
+                ng-model="search",
+                ng-change="filter($event)"
+                required,
+                placeholder="rechercher")
+            button(type="button").btnIcon.search
+        
     .table.listed(affix, affix-offset=100)
         .table-head.affix-target
             .table-cell.inline.actions.w-90
