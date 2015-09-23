@@ -5,7 +5,8 @@ h2.module-title Générer un reporting
             +form-underlined("Type")
                 select.reporting-list(ng-options="option.label for option in options" 
                     ng-model="model.type",
-                    required="true")
+                    required="true",
+                    ng-class="model.type | emptyInputClassFilter")
         
         .col-1-2
             +form-underlined("Du")
