@@ -6,6 +6,7 @@
                 "accompagnementsCreation": "assets/json/accompagnementsCreation.json",
                 "accompagnementsDetails": "assets/json/accompagnementsDetails.json",
                 "accompagnementsModification": "assets/json/accompagnementsDetails.json",
+                "accompagnementsDetailsUpdateUser": "assets/json/accompagnementsDetailsUpdateUser.json",
                 "lastSessions": "assets/json/last-sessions.json",
                 "suiviBudget": "assets/json/suivi-budget.json",
                 "reporting": "assets/json/reporting.json",
@@ -13,7 +14,8 @@
                 "documentation": "assets/json/documentation.json",
                 "users": "assets/json/users.json",
                 "archives": "assets/json/archives.json",
-                "userList": "assets/json/userList.json"
+                "userList": "assets/json/userList.json",
+                "getUsers": "assets/json/getUsers.json"
             }
         }
     },

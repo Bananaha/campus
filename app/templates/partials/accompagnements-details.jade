@@ -26,13 +26,13 @@ include ../mixins/main
       .module-header
         h2 Participants
 
-      user-list
+      user-list(users="model.participants", ng-if="showUsers")
 
   .col-1-2
     .module-card
       .module-header
         h2 Formateurs
 
-      user-list
+      user-list(users="model.formateurs", ng-if="showUsers")
 
 

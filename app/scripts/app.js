@@ -1,4 +1,4 @@
-(function (global, angular, moment) {
+(function (global, angular) {
     'use strict';
 
     angular.module('campus.app', [
@@ -66,4 +66,4 @@
         }
     );
 
-}(window, window.angular, window.moment));
+}(window, window.angular));

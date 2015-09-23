@@ -88,7 +88,7 @@
                                 url: url,
                                 params: params
                             })
-                            .then(onRequestSuccess, onRequestSuccess);
+                            .then(onRequestSuccess, onRequestError);
                     }
 
                     function onRequestSuccess(res) {

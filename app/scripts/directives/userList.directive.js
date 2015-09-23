@@ -10,19 +10,21 @@
             return {
                 restrict: 'E',
                 templateUrl: 'user-list.html',
-                scope: {},
-                link: function ($scope, element) {
+                scope: {
+                    selectedUsers: '=users'
+                },
+                link: function ($scope) {
 
                     var changeTimeout,
                         blurTimeout,
                         blurDelay = 100,
                         changeDelay = 500;
 
-                    $scope.selectedUsers = [];
-
                     $scope.users = [];
 
                     $scope.showSearchList = false;
+
+                    $scope.selectedUsers = $scope.selectedUsers || [];
 
                     $scope.onChange = function() {
                         $scope.users = [];
@@ -52,8 +54,8 @@
                         if (!$scope.selectedUsers.some(function(_user) {
                             return _user.id === user.id;
                         })) {
-                           $scope.selectedUsers.push(user);
-                           $scope.showSearchList = false;
+                            $scope.selectedUsers.push(user);
+                            $scope.showSearchList = false;
                         }
                         reinitSearch();
                     };
@@ -85,7 +87,7 @@
                     function onSearchRequestSuccess(res) {
                         if (res.data && res.data.length) {
                             $scope.showSearchList = true;
-                            $scope.users = res.data.splice(0,20);
+                            $scope.users = res.data.splice(0, 20);
                         }
                     }
 

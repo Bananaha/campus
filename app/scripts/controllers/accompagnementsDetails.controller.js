@@ -10,10 +10,16 @@
             $routeParams,
             $route,
             $location,
-            config
+            config,
+            usersService
         ) {
 
-            var listKeys = [{
+            var that = this,
+                changeTimeout,
+                usersInitialized = false,
+                populations = ['formateurs', 'participants'],
+                populationLoaded = {},
+                listKeys = [{
                     label: 'Client',
                     key: 'client'
                 }, {
@@ -35,6 +41,11 @@
                     date: true
                 }];
 
+            $scope.model = {
+                participants: [],
+                formateurs: []
+            };
+
             $http({
                     method: 'GET',
                     url: config.urls.accompagnementsDetails,
@@ -44,16 +55,72 @@
                 })
                 .then(onGetRequestSuccess, onGetRequestError);
 
+            $scope.$watch('model', onModelChange, true);
+
             $scope.modifier = function() {
                 $location.url('/accompagnements/' + $routeParams.id + '/modifier');
             };
 
+            function onModelChange() {
+                if (usersInitialized) {
+                    $timeout.cancel(changeTimeout);
+                    changeTimeout = $timeout(saveUsers, 200);
+                }
+            }
+
+            function saveUsers() {
+                var params = {
+                    id: $routeParams.id
+                };
+                populations.forEach(function(key) {
+                    params[key] = $scope.model[key].map(function(user) {
+                        return user.id;
+                    });
+                });
+                $http({
+                    method: 'POST',
+                    url: config.urls.accompagnementsDetailsUpdateUser,
+                    params: params
+                });
+            }
+
             function onGetRequestSuccess(res) {
                 $scope.accompagnement = formatDatas(res.data);
+
+                populations.forEach(function(population) {
+                    if (res.data[population] && res.data[population].length) {
+                        usersService
+                            .getUsers(res.data[population])
+                            .then(onGetUsers.bind(that, population));
+                    } else {
+                        populationLoaded[population] = true;
+                    }
+                });
+
+                updateUsersVisibility();
             }
 
             function onGetRequestError() {
                 $location.url('/accompagnements');
+            }
+
+            function onGetUsers(population, res) {
+                $scope.model[population] = res.data;
+                populationLoaded[population] = true;
+                updateUsersVisibility();
+            }
+
+            function updateUsersVisibility() {
+                var allPopulationLoaded = populations.every(function(population) {
+                    return populationLoaded[population];
+                });
+                if (allPopulationLoaded) {
+                    $scope.showUsers = true;
+                    $timeout(function() {
+                        usersInitialized = true;
+                    });
+                }
+
             }
 
             function formatDatas(datas) {
