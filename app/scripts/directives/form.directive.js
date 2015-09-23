@@ -42,6 +42,12 @@
                         $scope.state.openDatepickers[datepickerName] = true;
                     };
 
+                    $scope.closeDatepicker = function(name) {                
+                        $timeout(function() {
+                            $scope.state.openDatepickers[name] = false;
+                        });
+                    };
+
                     $scope.submit = function() {
                         if ($form.$invalid) {
                             $window.alert('erreur dans le formulaire ' + name);

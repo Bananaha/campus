@@ -9,11 +9,13 @@ mixin form-underlined(label)
 mixin datePicker(opt)
   input.datepicker(type="text"
     datepicker-popup="dd/MM/yyyy"
+    class=opt.klass
     ng-model=opt.ngModel
     is-open=opt.isOpen
     max-date=opt.maxDate
     min-date=opt.minDate
     ng-required=opt.required
+    ng-change="closeDatepicker('" + opt.name + "')"
     ng-click="openDatepicker('" + opt.name + "')"
     ng-class=opt.ngModel + " | emptyInputClassFilter")
 

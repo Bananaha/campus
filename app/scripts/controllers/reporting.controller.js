@@ -8,7 +8,8 @@
             downloaderService,
             $scope,
             $window,
-            $http
+            $http,
+            $timeout
         ) {
 
             $scope.valid = false;
@@ -31,6 +32,12 @@
 
             $scope.openDatepicker = function(name) {
                 $scope.openDatepickers[name] = true;
+            };
+
+            $scope.closeDatepicker = function(name) {                
+                $timeout(function() {
+                    $scope.openDatepickers[name] = false;
+                });
             };
 
             $scope.submit = function() {

@@ -10,13 +10,17 @@ input.datepicker + .dropdown-menu {
 	}
 }
 
+input.datepicker.right + .dropdown-menu {
+	right: 0;
+	left: auto !important;
+}
+
 [datepicker] {
 	@cellpadding: 2px;
 	text-align: center;
 	width: (28px + 2 * @cellpadding) * 8;
 	padding: 0 @u-small;
 	position: relative;
-	
 
 	&::before {
 		content: "";
