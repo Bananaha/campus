@@ -1,3 +1,6 @@
+@userList-button-radius: 3px;
+@userList-button-height: 34px;
+
 .userList-container {
 	margin: @u-medium 0;
 	position: relative;
@@ -10,6 +13,8 @@
 	min-width: 100%;
 	overflow-y: scroll;
 	max-height: 200px;
+    z-index: @z-userList-searchList;
+    box-shadow: @shadow-l2;
 
 	button {
 		padding: @u-base;
@@ -40,37 +45,69 @@
 }
 
 .userList-users {
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 }
 
 .userList-user {
 	display: inline-block;
+    margin: 0 @u-base @u-small 0;
 
-	button {
-		border-radius: 3px;
-		padding: 3px 16px 3px @u-base;
-		position: relative;
+    &:hover {
+        color: @color-main;
+    }
+}
 
-		span {
-			.fa-times;
+.userList-info,
+.userList-remove {
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: @userList-button-height;
+    height: @userList-button-height;
 
-			&::before {
-				.fa-icon;
-				display: none;
-				position: absolute;
-				right: 3px;
-				font-size: 1rem;
-			}
-		}
+    padding: 0 @u-small;
+    border: 1px solid @color-border;
+    vertical-align: top;
+}
 
-		&:focus,
-		&:hover {
-			background-color: @color-background-hover;
-			color: @color-main;
+.userList-info {
+    border-top-left-radius: @userList-button-radius;
+    border-bottom-left-radius: @userList-button-radius;
+    border-right: none;
 
-			span::before {
-				display: block;
-			}
-		}
-	}
+    &:hover {
+        cursor: default;
+    }
+}
+
+.userList-remove {
+    .fa-minus;
+    .fa-icon;
+    background-color: @color-gray-97;
+    transition: all .2s ease-out;
+    color: @color-red;
+    width: @userList-button-height;
+    font-size: 1.2rem;
+    border-top-right-radius: @userList-button-radius;
+    border-bottom-right-radius: @userList-button-radius;
+    border-left: none;
+
+    &:hover,
+    &:focus {
+        color: #FFF;
+        background-color: @color-red;
+        border-color: @color-red;
+    }
+}
+
+.userList-placeholder {
+    .fontSmall;
+    text-align: center;
+    font-style: italic;
+    margin: @u-medium @u-large;
+}
+
+.userList-legend {
+    .fontSmall;
+    text-align: right;
+    margin: @u-small 0;
 }

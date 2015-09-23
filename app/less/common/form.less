@@ -139,7 +139,6 @@ select {
 .searchBox {
     @buttonSize: 48px;
     position: relative;
-    max-width: 300px;
 
     input {
         padding-right: @buttonSize;
@@ -150,6 +149,10 @@ select {
         right: 0;
         top: 0;
         height: auto;
+    }
+
+    .module-header & {
+        max-width: 300px;
     }
 }
 

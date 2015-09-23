@@ -1,10 +1,16 @@
+include ../mixins/main
+
 .userList-container
-  input.userList-input(type="search",
-    ng-model="search",
-    ng-blur="onBlur()",
-    ng-focus="onFocus()",
-    ng-change="onChange()"
-    required)
+  .searchBox
+    +form-underlined()
+      input.userList-input(type="search",
+        ng-model="search",
+        ng-blur="onBlur()",
+        ng-focus="onFocus()",
+        ng-change="onChange()",
+        placeholder="Rechercher",
+        required)
+    button(type="button").btnIcon.search
   ul.userList-searchList(ng-if="showSearchList")
     li(ng-repeat="user in users")
       button(type="button",
@@ -15,12 +21,14 @@
         span.userList-searchList-departure {{user.sortie}}
         span.userList-searchList-job {{user.poste}}
 
-p.userList-info(ng-if="!selectedUsers.length") Liste vide
+  p.userList-placeholder(ng-if="!selectedUsers.length") Pour ajouter une personne, veuillez la rechercher ci-dessus.
+  p.userList-legend(ng-if="selectedUsers.length") {{selectedUsers.length}} personne(s) sélectionnée(s).
 
-ul.userList-users(ng-if="selectedUsers.length")
-  li.userList-user(ng-repeat="user in selectedUsers")
-    button(type="button",
-      ng-click="removeUser(user.id)")
-      span {{user.prenom}} {{user.nom}}
+  ul.userList-users(ng-if="selectedUsers.length")
+    li.userList-user(ng-repeat="user in selectedUsers")
+      span.userList-info
+        | {{user.prenom}} {{user.nom}}
+      button.userList-remove(type="button",
+        ng-click="removeUser(user.id)")
 
 

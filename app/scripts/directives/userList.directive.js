@@ -14,9 +14,11 @@
                 link: function ($scope, element) {
 
                     var changeTimeout,
-                        blurTimeout;
+                        blurTimeout,
+                        blurDelay = 100,
+                        changeDelay = 500;
 
-                    $scope.selectedUsers = []; 
+                    $scope.selectedUsers = [];
 
                     $scope.users = [];
 
@@ -25,14 +27,14 @@
                     $scope.onChange = function() {
                         $scope.users = [];
                         $timeout.cancel(changeTimeout);
-                        changeTimeout = $timeout(search, 500);
+                        changeTimeout = $timeout(search, changeDelay);
                     };
 
                     $scope.onBlur = function() {
                         $timeout.cancel(blurTimeout);
                         blurTimeout = $timeout(function() {
                             $scope.showSearchList = false;
-                        }, 300);
+                        }, blurDelay);
                     };
 
                     $scope.onFocus = function() {
@@ -53,6 +55,7 @@
                            $scope.selectedUsers.push(user);
                            $scope.showSearchList = false;
                         }
+                        reinitSearch();
                     };
 
                     $scope.removeUser = function(id) {
@@ -65,7 +68,10 @@
                         }
                     };
 
-                    search();
+                    function reinitSearch() {
+                        $scope.search = null;
+                        $scope.users = [];
+                    }
 
                     function search() {
                         $http({
@@ -81,9 +87,6 @@
                             $scope.showSearchList = true;
                             $scope.users = res.data.splice(0,20);
                         }
-
-                        $scope.selectedUsers = res.data;
-                        $scope.showSearchList = false;
                     }
 
                     function onSearchRequestError() {
