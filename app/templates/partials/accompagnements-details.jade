@@ -33,7 +33,9 @@ include ../mixins/main
       user-list(users="model.formateurs", ng-if="showUsers")
 
   .col-1
-    .accompagnement-couts
+    .module-card
+      .module-header
+        h2 Coût de l'accompagnement
       .grid
         .col-1-2(ng-if="accompagnement.cout")
           .accompagnement-cout
