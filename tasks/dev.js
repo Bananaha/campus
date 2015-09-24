@@ -37,7 +37,7 @@ gulp.task('watch', function () {
     gulp.watch(path.join(config.src, 'assets', '**'), ['assets']);
 });
 
-gulp.task('stubby', function () {
+gulp.task('stubby', function (cb) {
     new Stubby().start({
         location: '0.0.0.0',
         stubs: 8882,
@@ -45,7 +45,7 @@ gulp.task('stubby', function () {
         data: config.stubbyConf,
         mute: true,
         watch: 'app/config/stubby.json'
-    });
+    }, cb);
 });
 
 gulp.task('serve', ['build'], function (cb) {
