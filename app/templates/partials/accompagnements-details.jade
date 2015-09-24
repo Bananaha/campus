@@ -32,17 +32,17 @@ include ../mixins/main
 
       user-list(users="model.formateurs", ng-if="showUsers")
 
-  .col-1
+  .col-1(ng-if="accompagnement.cout")
     .module-card
       .module-header
         h2 Coût de l'accompagnement
       .grid.pad
         .col-1-2
           p Coût salarial : 
-            span 10000€
+            span {{accompagnement.cout.salarial}}€
         .col-1-2
           p Coût pédagogique : 
-            span 10000€
+            span {{accompagnement.cout.pedagogique}}€
 
     
       

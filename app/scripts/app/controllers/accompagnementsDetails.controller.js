@@ -11,7 +11,8 @@
             $route,
             $location,
             config,
-            usersService
+            usersService,
+            dbActionsService
         ) {
 
             var that = this,
@@ -53,7 +54,7 @@
                         id: $routeParams.id
                     }
                 })
-                .then(onGetRequestSuccess, onGetRequestError);
+                .then(onGetDetailSuccess, onGetDetailError);
 
             $scope.$watch('model', onModelChange, true);
 
@@ -77,14 +78,25 @@
                         return user.id;
                     });
                 });
-                $http({
-                    method: 'POST',
-                    url: config.urls.accompagnementsDetailsUpdateUser,
-                    params: params
-                });
+                dbActionsService
+                    .update(config.urls.accompagnementsModification, params)
+                    .then(onUpdateSuccess, onUpdateError);
             }
 
-            function onGetRequestSuccess(res) {
+            function onUpdateSuccess(res) {
+                if (res.data) {
+                    $scope.accompagnement.cout = res.data.cout;
+                }
+            }
+
+            function onUpdateError() {
+                $scope.accompagnement.cout = {
+                    pedagogique: '-',
+                    salarial: '-'
+                };
+            }
+
+            function onGetDetailSuccess(res) {
                 $scope.accompagnement = formatDatas(res.data);
 
                 populations.forEach(function(population) {
@@ -100,7 +112,7 @@
                 updateUsersVisibility();
             }
 
-            function onGetRequestError() {
+            function onGetDetailError() {
                 $location.url('/accompagnements');
             }
 
@@ -128,6 +140,7 @@
                 scope.intitule = datas.intitule;
                 scope.action = datas.action;
                 scope.auteur = datas.auteur;
+                scope.cout = datas.cout;
 
                 scope.list = listKeys.map(function(obj) {
                     var value;
@@ -142,7 +155,6 @@
                         };
                     }
                 });
-
                 return scope;
             }
 

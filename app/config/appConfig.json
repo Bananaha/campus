@@ -6,7 +6,7 @@
                 "accompagnementsCreation": "http://localhost:8882/accompagnements/insert",
                 "accompagnementsDetails": "http://localhost:8882/accompagnements",
                 "accompagnementsModification": "http://localhost:8882/accompagnements/update",
-                "accompagnementsDetailsUpdateUser": "http://localhost:8882/accompagnementParticipants/update",
+                "accompagnementsCout": "http://localhost:8882/accompagnementCout",
                 "lastSessions": "http://localhost:8882/lastSessions",
                 "suiviBudget": "http://localhost:8882/suiviBudget",
                 "reporting": "http://localhost:8882/reporting",
