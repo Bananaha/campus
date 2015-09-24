@@ -13,7 +13,7 @@
         margin-bottom: 48px;
 
         &::before {
-            margin-top: 28px;
+            top: 100%;
         }
     }
 }
@@ -80,6 +80,17 @@
 
     &.inline {
         white-space: nowrap;
+    }
+
+    &.link button {
+        transition: color .2s ease-out;
+        color: @color-link;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+            color: @color-link-hover;
+        }
     }
 
     .table-group & {
