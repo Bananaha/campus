@@ -169,3 +169,67 @@ form.ng-submitted .ng-invalid {
     color: @color-error;
     border-color: @color-error;
 }
+
+
+    
+.checkbox-test {
+	width: @u-medium;
+	height: @u-medium;
+	font: inherit;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	background: #fff;
+	border-radius: .125em;
+	box-sizing: border-box;
+	border: 1px solid grey;
+	box-shadow: inset 0 0 0 0 @color-border;
+	position: relative;
+	margin-right: @u-base;
+	transition: transform .3s cubic-bezier(.2,.3,0,1), box-shadow .3s cubic-bezier(.2,.3,0,1), border-color 0s linear .17s;
+
+	&:focus {
+		outline: none;
+	}
+	&:active {
+		transform: scale(.8);
+	}
+	&:checked {
+		border-color: @color-main;
+		box-shadow: inset 0 0 0 @u-medium @color-main;
+		transition: transform .3s cubic-bezier(.2,.3,0,1), box-shadow .3s cubic-bezier(.2,.3,0,1), border-color 0s;
+	}
+	&:before, &:after {
+		content: '';
+		background: #fff;
+		height: @u-medium;
+		width: @u-medium;
+		position: absolute;
+		transform: translate(6.8px, 11px) rotate(44.91deg) scale(.3411,.1);
+		transform-origin: 0 0;
+		transition: transform .3s cubic-bezier(.2,.3,0,1), opacity .3s cubic-bezier(.2,.3,0,1);
+		top: -.125em;
+		left: -.125em;
+	}
+	&:after {
+		transform: translate(22px, 10.5px) rotate(135.22deg) scale(.5612,.1);
+	}
+	&:not(:checked):before {
+		transform: translate(.505em,.455em) rotate(44.91deg) scale(.1,.1);
+		/* opacity: 0; */
+	}
+	&:not(:checked):after {
+		transform: translate(.575em,.525em) rotate(135.22deg) scale(.1,.1);
+		/* opacity: 0; */
+	}
+	
+	& + p {
+	    display: inline-block;
+	}
+	
+}
+
+
