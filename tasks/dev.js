@@ -10,10 +10,10 @@ gulp.task('server', function () {
     browserSync({
         files: path.join(config.dist, '**'),
         watchOptions: {
-            interval: 500
+            interval: 250
         },
         port: 8080,
-        reloadDebounce: 1000,
+        reloadDebounce: 500,
         ghostMode: false,
         server: {
             baseDir: config.dist
