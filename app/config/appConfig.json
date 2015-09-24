@@ -2,20 +2,20 @@
     "dev": {
         "config": {
             "urls": {
-                "accompagnements": "assets/json/accompagnements.json",
-                "accompagnementsCreation": "assets/json/accompagnementsCreation.json",
-                "accompagnementsDetails": "assets/json/accompagnementsDetails.json",
-                "accompagnementsModification": "assets/json/noop.json",
-                "accompagnementsDetailsUpdateUser": "assets/json/noop.json",
-                "lastSessions": "assets/json/last-sessions.json",
-                "suiviBudget": "assets/json/suivi-budget.json",
-                "reporting": "assets/json/reporting.json",
-                "indicateurs": "assets/json/indicateurs.json",
-                "documentation": "assets/json/documentation.json",
-                "users": "assets/json/users.json",
-                "archives": "assets/json/archives.json",
-                "userList": "assets/json/userList.json",
-                "getUsers": "assets/json/getUsers.json"
+                "accompagnements": "http://localhost:8882/accompagnements",
+                "accompagnementsCreation": "http://localhost:8882/accompagnements/insert",
+                "accompagnementsDetails": "http://localhost:8882/accompagnements",
+                "accompagnementsModification": "http://localhost:8882/accompagnements/update",
+                "accompagnementsDetailsUpdateUser": "http://localhost:8882/accompagnementParticipants/update",
+                "lastSessions": "http://localhost:8882/lastSessions",
+                "suiviBudget": "http://localhost:8882/suiviBudget",
+                "reporting": "http://localhost:8882/reporting",
+                "indicateurs": "http://localhost:8882/indicateurs",
+                "documentation": "http://localhost:8882/documentation",
+                "users": "http://localhost:8882/users",
+                "archives": "http://localhost:8882/archives",
+                "userList": "http://localhost:8882/users",
+                "getUsers": "http://localhost:8882/getUsers"
             }
         }
     },

@@ -1,0 +1,202 @@
+[{
+    "request": {
+        "url": "/accompagnements$",
+        "method": "GET",
+        "query": {
+            "id": "^$"
+        }
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/accompagnements.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnements/insert",
+        "method": "POST"
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/accompagnementsCreation.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnements$",
+        "method": "GET",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        }
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/accompagnementsDetails.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnements/update",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnementParticipants/update",
+        "method": "POST"
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
+        "url": "/lastSessions",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/last-sessions.json"
+    }
+}, {
+    "request": {
+        "url": "/suiviBudget",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/suivi-budget.json"
+    }
+}, {
+    "request": {
+        "url": "/reporting",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/reporting.json"
+    }
+}, {
+    "request": {
+        "url": "/indicateurs",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/indicateurs.json"
+    }
+}, {
+    "request": {
+        "url": "/documentation",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/documentation.json"
+    }
+}, {
+    "request": {
+        "url": "/users$",
+        "method": "GET",
+        "query": {
+            "ids": "^$",
+            "search": "^$"
+        }
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/users.json"
+    }
+}, {
+    "request": {
+        "url": "/users$",
+        "method": "GET",
+        "query": {
+            "ids": "^[a-zA-Z0-9]"
+        }
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/getUsers.json"
+    }
+}, {
+    "request": {
+        "url": "/users$",
+        "method": "GET",
+        "query": {
+            "search": "^[a-zA-Z0-9]"
+        }
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/userList.json"
+    }
+}, {
+    "request": {
+        "url": "/archives",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "latency": 1000,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/archives.json"
+    }
+}]

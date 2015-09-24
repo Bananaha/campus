@@ -7,7 +7,8 @@ module.exports = {
     scriptName: 'app.js',
     moduleName: 'campus.app',
     env: 'dev',
-    appConfPath: 'app/config/appConfig.json',
     src: 'app',
-    dist: 'dist'
+    dist: 'dist',
+    appConfPath: 'app/config/appConfig.json',
+    stubbyConf: require('../app/config/stubby.json'),
 };

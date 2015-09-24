@@ -42,7 +42,7 @@
                         $scope.state.openDatepickers[datepickerName] = true;
                     };
 
-                    $scope.closeDatepicker = function(name) {                
+                    $scope.closeDatepicker = function(name) {
                         $timeout(function() {
                             $scope.state.openDatepickers[name] = false;
                         });
@@ -88,10 +88,9 @@
                     function sendRequest() {
                         var params = formatParams();
                         appStateService.isFrozen(true);
-                        console.log('TO DO: FORM REQUEST TO POST'); // eslint-disable-line
 
                         $http({
-                                method: 'GET',
+                                method: 'POST',
                                 url: url,
                                 params: params
                             })

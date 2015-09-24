@@ -11,7 +11,7 @@
             this.getUsers = function(ids) {
                 var request = $http({
                         method: 'GET',
-                        url: config.urls.getUsers,
+                        url: config.urls.users,
                         params: { ids: ids }
                     });
                 request.then(angular.noop, onGetUsersError);
