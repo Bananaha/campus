@@ -28,47 +28,74 @@ var compileAngularTemplate = lazypipe()
     });
 
 
-function getScriptsFromJade() {
+function getScriptsFromJade(getVendor) {
     var jadeSrc = path.join(config.src, 'templates', 'includes', 'scripts.jade'),
         fileContent = fs.readFileSync(jadeSrc, 'UTF-8'),
         SCRIPTS_REGEX = /script\(.*?src="(.*)".*?\)/mg,
         match,
-        files = [];
+        files = [],
+        shouldAddIt;
+
 
     while (match = SCRIPTS_REGEX.exec(fileContent)) {
-        files.push(match[1]);
+        shouldAddIt = isAppScript(match[1]);
+        if (getVendor) {
+            shouldAddIt = !shouldAddIt;
+        }
+
+        if (shouldAddIt) {
+            files.push(match[1]);
+        }
     }
 
     return files.map(function (scriptSrc) {
         return path.join(config.src, scriptSrc);
     });
+
+    console.log(getVendor, files);
+
+    return files;
 }
 
-function isAppScript(file) {
-    return file.path.indexOf('bower_components') < 0;
+function isAppScript(match) {
+    return match.indexOf('bower_components') < 0;
 }
 
 gulp.task('lint', function () {
     return gulp.src(getScriptsFromJade())
-        .pipe(gIf(isAppScript, eslint())) // Exclude bower_components from linting
         .pipe(eslint.format())
         .pipe(gIf(config.prod, eslint.failOnError()));
 });
 
-gulp.task('scripts', ['lint'], function () {
+gulp.task('scripts-vendors', function() {
+    return gulp.src(getScriptsFromJade(true))
+        .pipe(plumber(config.plumber))
+        .pipe(concat(config.vendorName))
+        .pipe(gIf(config.prod, uglify()))
+        .pipe(gulp.dest(path.join(config.dist, 'scripts')));
+});
+
+gulp.task('scripts-templates', function() {
+    return gulp.src(path.join(config.src, 'templates', 'partials', '*.jade'))
+        .pipe(plumber(config.plumber))
+        .pipe(gIf(/.*\.jade$/, compileAngularTemplate()))
+        .pipe(concat(config.templatesName))
+        .pipe(gulp.dest(path.join(config.dist, 'scripts')));
+});
+
+gulp.task('scripts-app', function () {
     return gulp.src(
             getScriptsFromJade()
             .concat(config.appConfPath)
-            .concat(path.join(config.src, 'templates', 'partials', '*.jade'))
         )
         .pipe(plumber(config.plumber))
         // Config
         .pipe(gIf(/.*\.json/, generateAngularConstants()))
-        // Optim jade -> html -> js: less http requests
-        .pipe(gIf(/.*\.jade$/, compileAngularTemplate()))
         .pipe(sourcemaps.init())
         .pipe(concat(config.scriptName))
         .pipe(gIf(config.prod, uglify()))
         .pipe(gIf(!config.prod, sourcemaps.write()))
         .pipe(gulp.dest(path.join(config.dist, 'scripts')));
 });
+
+gulp.task('scripts', ['scripts-vendors', 'scripts-templates', 'scripts-app', 'lint']);

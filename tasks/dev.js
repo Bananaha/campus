@@ -8,12 +8,11 @@ var path = require('path'),
 
 gulp.task('server', function () {
     browserSync({
-        files: path.join(config.src, '**'),
+        files: path.join(config.dist, '**'),
         watchOptions: {
-            interval: 1000
+            interval: 500
         },
         port: 8080,
-        reloadDelay: 1000,
         reloadDebounce: 1000,
         ghostMode: false,
         server: {
@@ -29,11 +28,11 @@ gulp.task('watch', function () {
         infrequentChangesOpts = { interval: 2000 };
 
     gulp.watch([
-        path.join(config.src, 'scripts', '**', '*.js'),
+        path.join(config.src, 'scripts', 'app', '**', '*.js'),
         config.appConfPath
-    ], ['scripts']);
-    gulp.watch(path.join(config.src, '**', '*.jade'), ['views', 'scripts']);
-    gulp.watch(path.join(config.src, 'templates', 'partials', '*.jade'), ['scripts']);
+    ], ['scripts-app', 'lint']);
+    gulp.watch(path.join(config.src, 'scripts', 'bower_components', '**', '*.js'), ['scripts-vendors']);
+    gulp.watch(path.join(config.src, '**', '*.jade'), ['views', 'scripts-templates']);
     gulp.watch(path.join(config.src, 'less', '**', '*.less'), infrequentChangesOpts, ['styles']);
     gulp.watch(path.join(config.src, 'assets', '**'), ['assets']);
 });
@@ -44,7 +43,7 @@ gulp.task('stubby', function () {
         stubs: 8882,
         admin: 8889,
         data: config.stubbyConf,
-        mute: false,
+        mute: true,
         watch: 'app/config/stubby.json'
     });
 });

@@ -15,6 +15,8 @@ gulp.task('views', function () {
         }))
         .pipe(htmlReplace({
             js: 'scripts/' + config.scriptName,
+            vendor: 'scripts/' + config.vendorName,
+            tps: 'scripts/' + config.templatesName,
             keepBlockTags: true
         }))
         .pipe(gulp.dest(config.dist));

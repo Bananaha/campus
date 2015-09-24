@@ -5,6 +5,8 @@ module.exports = {
     pkg: pkg,
     prod: false,
     scriptName: 'app.js',
+    vendorName: 'vendors.js',
+    templatesName: 'tps.js',
     moduleName: 'campus.app',
     env: 'dev',
     src: 'app',
