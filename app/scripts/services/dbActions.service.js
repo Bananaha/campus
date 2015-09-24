@@ -35,16 +35,14 @@
                 var params = {
                     id: id
                 };
-                url = url + '/supprimer';
-                return httpRequest('supprimer', url, params);
+                return httpRequest('supprimer', url + '/supprimer', params);
             };
 
             this.archive = function(url, id) {
                 var params = {
                     id: id
                 };
-                url = url + '/archiver';
-                return httpRequest('archiver', url, params);
+                return httpRequest('archiver', url + '/archiver', params);
             };
 
             function httpRequest(action, url, params) {
@@ -69,7 +67,7 @@
 
             function onRequestError(action) {
                 appStateService.isFrozen(false);
-                notificationService.warn(message.error[action]);
+                notificationService.warn(messages.error[action]);
             }
 
             return this;

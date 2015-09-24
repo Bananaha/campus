@@ -44,9 +44,9 @@
                         $scope.state.openDatepickers[datepickerName] = true;
                     };
 
-                    $scope.closeDatepicker = function(name) {
+                    $scope.closeDatepicker = function(datepickerName) {
                         $timeout(function() {
-                            $scope.state.openDatepickers[name] = false;
+                            $scope.state.openDatepickers[datepickerName] = false;
                         });
                     };
 

@@ -22,14 +22,6 @@
                 })
                 .then(onGetRequestSuccess, onGetRequestError);
 
-            $scope.submit = function() {
-                console.log('submit');
-            };
-
-            $scope.cancel = function() {
-                console.log('cancel');
-            };
-
             function onGetRequestSuccess(res) {
                 $scope.model = formatDatas(res.data);
             }
