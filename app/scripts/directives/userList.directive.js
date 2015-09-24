@@ -13,7 +13,7 @@
                 scope: {
                     selectedUsers: '=users'
                 },
-                link: function ($scope) {
+                link: function ($scope, element) {
 
                     var changeTimeout,
                         blurTimeout,
@@ -76,6 +76,7 @@
                     }
 
                     function search() {
+                        loading(true);
                         $http({
                                 method: 'GET',
                                 url: config.urls.userList,
@@ -85,14 +86,22 @@
                     }
 
                     function onSearchRequestSuccess(res) {
-                        if (res.data && res.data.length) {
-                            $scope.showSearchList = true;
-                            $scope.users = res.data.splice(0, 20);
-                        }
+                        $timeout(function() {
+                            if (res.data && res.data.length) {
+                                $scope.showSearchList = true;
+                                $scope.users = res.data.splice(0, 20);
+                            }
+                            loading(false);
+                        }, 2000);
                     }
 
                     function onSearchRequestError() {
+                        loading(false);
                         $window.alert('error lors de la recherche des utilisateurs');
+                    }
+
+                    function loading(state) {
+                        element.toggleClass('loading', state);
                     }
                 }
             };
