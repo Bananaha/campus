@@ -11,13 +11,15 @@
             appStateService,
             localStorageService,
             modalService,
-            historyService
+            historyService,
+            dbActionsService
         ) {
             return {
                 restrict: 'A',
                 link: function ($scope, element) {
 
                     var name = element.attr('name'),
+                        action = element.data('action'),
                         url = config.urls[name],
                         $form = $scope[name],
                         storageName = 'form-' + name,
@@ -86,20 +88,22 @@
                     }
 
                     function sendRequest() {
-                        var params = formatParams();
-                        appStateService.isFrozen(true);
-
-                        $http({
-                                method: 'POST',
-                                url: url,
-                                params: params
-                            })
-                            .then(onRequestSuccess, onRequestError);
+                        var params = formatParams(),
+                            request;
+                        switch (action) {
+                            case 'insert':
+                                request = dbActionsService.insert(url, params);
+                            break;
+                            case 'update':
+                                request = dbActionsService.update(url, params);
+                            break;
+                        }
+                        request
+                            .then(onRequestSuccess);
                     }
 
                     function onRequestSuccess(res) {
                         flush();
-                        appStateService.isFrozen(false);
                         modalService.hideModals();
 
                         if (res.data.id) {
@@ -107,12 +111,6 @@
                         } else {
                             historyService.back();
                         }
-
-                    }
-
-                    function onRequestError() {
-                        $window.alert('erreur lors de l\'envoi des données');
-                        appStateService.isFrozen(false);
                     }
 
                     function formatParams() {

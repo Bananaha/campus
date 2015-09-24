@@ -7,7 +7,8 @@
             $timeout,
             $http,
             $q,
-            scrollEventServices
+            scrollEventService,
+            dbActionsService
         ) {
 
             return {
@@ -34,7 +35,7 @@
                         },
                         emitterId = 'tableDirective' + new Date().getTime();
 
-                    scrollEventServices.add(emitterId, onScroll);
+                    scrollEventService.add(emitterId, onScroll);
 
                     $scope.nextPage = function() {
                         if ($scope.hasNext && !isLoading) {
@@ -71,8 +72,13 @@
                             case 'modify':
                                 $location.url(currentLocation + '/' + id + '/modifier');
                             break;
+                            case 'delete':
+                                dbActionsService.delete(config.url, id);
+                            break;
+                            case 'archive':
+                                dbActionsService.archive(config.url, id);
+                            break;
                         }
-                        console.log(action + ' on ' + id); // eslint-disable-line
                     };
 
                     function init() {

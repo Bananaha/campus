@@ -1,0 +1,4 @@
+.notifications.ng-cloak(ng-controller="notificationController")
+      .notification(ng-repeat="notification in notifications",
+        class="{{notification.type}}")
+        p {{notification.message}}

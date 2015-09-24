@@ -21,7 +21,7 @@
     },
     "response": {
         "status": 200,
-        "latency": 210,
+        "latency": 500,
         "headers": {
             "Content-Type": "application/json"
         },
@@ -53,7 +53,39 @@
     },
     "response": {
         "status": 200,
-        "latency": 210,
+        "latency": 500,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnements/archiver",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "status": 200,
+        "latency": 500,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnements/supprimer",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "status": 200,
+        "latency": 500,
         "headers": {
             "Content-Type": "application/json"
         },
@@ -66,7 +98,7 @@
     },
     "response": {
         "status": 200,
-        "latency": 210,
+        "latency": 500,
         "headers": {
             "Content-Type": "application/json"
         },

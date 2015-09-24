@@ -1,0 +1,31 @@
+.notifications {
+    position: fixed;
+    z-index: @z-notifications;
+    left: @size-nav;
+    right: 0;
+    bottom: @u-medium;
+}
+
+.notification {
+    background-color: #FFF;
+    box-shadow: @shadow-l2;
+    color: @color-main;
+    text-align: center;
+    margin: 0 auto;
+    width: 300px;
+    padding: @u-small;
+
+    + .notification {
+        margin-top: @u-medium;
+    }
+
+    &.warn {
+        background-color: @color-red;
+        color: #FFF;
+    }
+
+    &.confirm {
+        background-color: @color-green;
+        color: #FFF;
+    }
+}

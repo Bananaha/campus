@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('campus.app').directive('affix', function (
-            scrollEventServices
+            scrollEventService
         ) {
             return {
                 restrict: 'A',
@@ -22,7 +22,7 @@
 
                     updateHeight();
 
-                    scrollEventServices.add(emitterId, checkAffix);
+                    scrollEventService.add(emitterId, checkAffix);
 
                     function updateElement() {
                         element.toggleClass(klasses.affix, affixed);

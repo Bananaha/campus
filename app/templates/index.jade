@@ -8,5 +8,7 @@ block layoutContent
 
     iframe#downloader
 
+    include includes/notification
+
     .view.ng-cloak(ng-view,
       ng-class="{'loading': App.loading}")

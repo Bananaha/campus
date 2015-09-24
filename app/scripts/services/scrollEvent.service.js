@@ -1,7 +1,7 @@
 (function (global, angular) {
     'use strict';
 
-    angular.module('campus.app').factory('scrollEventServices',
+    angular.module('campus.app').factory('scrollEventService',
         function(
             $timeout,
             $window
