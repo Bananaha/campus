@@ -32,6 +32,6 @@
     "require-dir": "^0.1.0",
     "lazypipe": "^1.0.1",
     "run-sequence": "^1.0.2",
-    "stubby": "^0.2.11"
+    "stubby": "git://github.com/kombucha/stubby4node.git#handle-query-arrays"
   }
 }
