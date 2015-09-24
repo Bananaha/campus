@@ -28,24 +28,16 @@ var compileAngularTemplate = lazypipe()
     });
 
 
-function getScriptsFromJade(getVendor) {
+function getScriptsFromJade() {
     var jadeSrc = path.join(config.src, 'templates', 'includes', 'scripts.jade'),
         fileContent = fs.readFileSync(jadeSrc, 'UTF-8'),
         SCRIPTS_REGEX = /script\(.*?src="(.*)".*?\)/mg,
         match,
-        files = [],
-        shouldAddIt;
+        files = [];
 
 
     while (match = SCRIPTS_REGEX.exec(fileContent)) {
-        shouldAddIt = isAppScript(match[1]);
-        if (getVendor) {
-            shouldAddIt = !shouldAddIt;
-        }
-
-        if (shouldAddIt) {
-            files.push(match[1]);
-        }
+        files.push(match[1]);
     }
 
     return files.map(function (scriptSrc) {
@@ -57,18 +49,14 @@ function getScriptsFromJade(getVendor) {
     return files;
 }
 
-function isAppScript(match) {
-    return match.indexOf('bower_components') < 0;
-}
-
 gulp.task('lint', function () {
-    return gulp.src(getScriptsFromJade())
+    return gulp.src(path.join(config.src, 'scripts', 'app', '**', '*.js'))
         .pipe(eslint.format())
         .pipe(gIf(config.prod, eslint.failOnError()));
 });
 
 gulp.task('scripts-vendors', function() {
-    return gulp.src(getScriptsFromJade(true))
+    return gulp.src(getScriptsFromJade())
         .pipe(plumber(config.plumber))
         .pipe(concat(config.vendorName))
         .pipe(gIf(config.prod, uglify()))
@@ -85,7 +73,7 @@ gulp.task('scripts-templates', function() {
 
 gulp.task('scripts-app', function () {
     return gulp.src(
-            getScriptsFromJade()
+            [path.join(config.src, 'scripts', 'app', '**', '*.js')]
             .concat(config.appConfPath)
         )
         .pipe(plumber(config.plumber))
