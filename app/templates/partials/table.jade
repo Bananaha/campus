@@ -10,10 +10,10 @@ ul.table-group
       ng-class="{'actions inline': col.actions, 'link': col.label && col.action}")
       span(ng-if="col.label && !col.action") {{data[col.key]}}
       button(ng-if="col.label && col.action",
-        ng-click="callAction(col.action, data.id)") {{data[col.key]}}
+        ng-click="callAction(col.action, data)") {{data[col.key]}}
 
       button.btnIcon(ng-repeat="action in col.actions",
         type="button",
         class="{{action.id}}",
         title="{{action.title}}",
-        ng-click="callAction(action.id, data.id)")
+        ng-click="callAction(action.id, data)")

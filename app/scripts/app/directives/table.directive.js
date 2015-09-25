@@ -63,20 +63,23 @@
                         getDatas();
                     };
 
-                    $scope.callAction = function(action, id) {
+                    $scope.callAction = function(action, item) {
                         var currentLocation = $location.url();
                         switch (action) {
+                            case 'users':
+                                $location.url('users/' + item.auteurId);
+                            break;
                             case 'detail':
-                                $location.url(currentLocation + '/' + id);
+                                $location.url(currentLocation + '/' + item.id);
                             break;
                             case 'modify':
-                                $location.url(currentLocation + '/' + id + '/modifier');
+                                $location.url(currentLocation + '/' + item.id + '/modifier');
                             break;
                             case 'delete':
-                                dbActionsService.delete(config.url, id);
+                                dbActionsService.delete(config.url, item.id);
                             break;
                             case 'archive':
-                                dbActionsService.archive(config.url, id);
+                                dbActionsService.archive(config.url, item.id);
                             break;
                         }
                     };

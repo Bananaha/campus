@@ -13,6 +13,7 @@
                 "indicateurs": "http://localhost:8882/indicateurs",
                 "documentation": "http://localhost:8882/documentation",
                 "users": "http://localhost:8882/users",
+                "usersDetails": "http://localhost:8882/users",
                 "archives": "http://localhost:8882/archives",
                 "userList": "http://localhost:8882/users",
                 "getUsers": "http://localhost:8882/getUsers"

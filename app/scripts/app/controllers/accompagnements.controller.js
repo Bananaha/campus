@@ -24,9 +24,10 @@
                         action: 'detail'
                     }, {
                         label: 'Auteur',
-                        key: 'auteur',
+                        key: 'auteurNom',
                         sort: true,
-                        klass: 'w-100'
+                        klass: 'w-100',
+                        action: 'users'
                     }, {
                         actions: ['modify', 'delete', 'archive'],
                         klass: 'w-90'

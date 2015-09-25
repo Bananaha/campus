@@ -19,12 +19,14 @@
                         label: 'Nom',
                         key: 'nom',
                         sort: true,
-                        klass: 'w-100'
+                        klass: 'w-100',
+                        action: 'detail'
                     }, {
                         label: 'Prénom',
                         key: 'prenom',
                         sort: true,
-                        klass: 'w-100'
+                        klass: 'w-100',
+                        action: 'detail'
                     }, {
                         label: 'Entité',
                         key: 'entite',
@@ -34,8 +36,8 @@
                         actions: ['modify', 'delete'],
                         klass: 'w-70'
                     }, {
-                        label: 'Admin',
-                        key: 'admin',
+                        label: 'Droits d\'accès',
+                        key: 'permission',
                         sort: true,
                         klass: 'w-70'
                     }]
