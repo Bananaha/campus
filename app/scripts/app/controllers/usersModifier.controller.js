@@ -10,20 +10,12 @@
             $routeParams,
             $location,
             config,
-            appStateService
+            appStateService,
+            PERMISSIONS
 
         ) {
 
-            $scope.permissions = [{
-                label: 'Standard',
-                value: 0
-            }, {
-                label: 'Admin',
-                value: 1
-            }, {
-                label: 'Super admin',
-                value: 2
-            }];
+            $scope.permissions = PERMISSIONS;
 
             $http({
                     method: 'GET',
