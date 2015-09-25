@@ -5,48 +5,62 @@ block header
 
 block content
 
- div(ng-controller="accompagnementsCreationController")
-    form.grid.pad(form="formConf", ng-action="test")
-        .col-1-2
-            +form-underlined("Nom")
-                input(type="text" required)
-        .col-1-2
-            +form-underlined("Prénom")
-                input(type="text" required)
-        .col-1-2
-            +form-underlined("Adresse Mail")
-                input(type="email" required)
-        .col-1-2
-            +form-underlined("Mot de Passse")
-                input(type="password" required)
-        .col-1-2
-            +form-underlined("Entité")
-                select(name='type')
-                    option(value='value1')
-                    option(value='value2') B2S AIX
-                    option(value='value3') B2S CHALON SAS
-                    option(value='value3') B2S DEVELOPPEMENT SAS
-                    option(value='value3') B2S LE MANS SAS
-                    option(value='value3') B2S PARIS SASU
-                    option(value='value3') B2S ROANNE SAS
-                    option(value='value3') B2S SAS
-                    option(value='value3') B2S STRASBOURG SAS
-                    option(value='value3') B2S VALENCIENNES SAS
-                    option(value='value3') SYMPHONING SAS
-                    option(value='value3') SYNOPSYA SAS
-        .col-1-2
-            +form-underlined("Services")
-                select(name='type')
-                    option(value='value1')
-                    option(value='value2') Ressources Humaines
-                    option(value='value3') Qualité Formation
-                    option(value='value4') Direction
-                    option(value='value5') Autres fonctions
-        .col-1
-            +form-underlined("Droits d'accès")
-                select(name='type')
-                    option(value='value1')
-                    option(value='value2') Standard
-                    option(value='value3') Administrateur
+  form.grid.pad(name="userCreation",
+    data-action="insert",
+    form,
+    ng-submit="submit()")
 
-      include ../includes/modules/module-submit
+    .col-1
+        +form-underlined("Nom")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.nom"
+          +input(opt)
+
+    .col-1
+        +form-underlined("Prénom")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.prenom"
+          +input(opt)
+
+    .col-1
+        +form-underlined("Adresse mail")
+          - opt = {}
+          - opt.type = "mail"
+          - opt.ngModel = "model.mail"
+          +input(opt)
+
+    .col-1
+        +form-underlined("Mot de passe")
+          - opt = {}
+          - opt.type = "password"
+          - opt.ngModel = "model.password"
+          - opt.required = true
+          +input(opt)
+
+    .col-1
+        +form-underlined("Entité")
+          - opt = {}
+          - opt.ngModel = "model.entite"
+          - opt.ngOptions = "entite as entite for entite in constants.entites"
+          - opt.required = true
+          +select(opt)
+
+    .col-1
+        +form-underlined("Service")
+          - opt = {}
+          - opt.ngModel = "model.service"
+          - opt.ngOptions = "service as service for service in constants.services"
+          - opt.required = true
+          +select(opt)
+
+    .col-1
+        +form-underlined("Droits d'accès")
+          - opt = {}
+          - opt.ngModel = "model.permission"
+          - opt.ngOptions = "permission.value as permission.label for permission in constants.permissions"
+          - opt.required = true
+          +select(opt)
+
+    include ../includes/modules/module-submit

@@ -240,6 +240,19 @@
     }
 }, {
     "request": {
+        "url": "/users/insert",
+        "method": "POST"
+    },
+    "response": {
+        "status": 200,
+        "latency": 500,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/usersCreation.json"
+    }
+}, {
+    "request": {
         "url": "/archives",
         "method": "GET"
     },

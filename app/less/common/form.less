@@ -165,13 +165,21 @@ select {
     }
 }
 
-form.ng-submitted .ng-invalid {
-    color: @color-error;
-    border-color: @color-error;
+form.submitted,
+form.ng-submitted {
+
+    & .ng-invalid {
+        color: @color-error;
+        border-color: @color-error;
+
+        ~ .form-underlined-label {
+            color: @color-error;
+        }
+    }
 }
 
 
-    
+
 .checkbox-test {
 	width: @u-medium;
 	height: @u-medium;
@@ -225,11 +233,11 @@ form.ng-submitted .ng-invalid {
 		transform: translate(.575em,.525em) rotate(135.22deg) scale(.1,.1);
 		/* opacity: 0; */
 	}
-	
+
 	& + p {
 	    display: inline-block;
 	}
-	
+
 }
 
 

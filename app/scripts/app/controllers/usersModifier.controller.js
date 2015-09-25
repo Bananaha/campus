@@ -8,8 +8,10 @@
             $http,
             $timeout,
             $routeParams,
+            $location,
             config,
             appStateService
+
         ) {
 
             $scope.permissions = [{

@@ -15,6 +15,7 @@
                 "users": "http://localhost:8882/users",
                 "usersModification": "http://localhost:8882/users/update",
                 "usersDetails": "http://localhost:8882/users",
+                "userCreation": "http://localhost:8882/users/insert",
                 "archives": "http://localhost:8882/archives",
                 "userList": "http://localhost:8882/users",
                 "getUsers": "http://localhost:8882/getUsers"

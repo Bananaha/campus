@@ -8,11 +8,15 @@
             $timeout,
             $location,
             config,
+            notificationService,
             appStateService,
             localStorageService,
             modalService,
             historyService,
-            dbActionsService
+            dbActionsService,
+            ENTITES,
+            PERMISSIONS,
+            SERVICES
         ) {
             return {
                 restrict: 'A',
@@ -30,6 +34,12 @@
                         valid: false,
                         submitted: false,
                         openDatepickers: {}
+                    };
+
+                    $scope.constants = {
+                        entites: ENTITES,
+                        permissions: PERMISSIONS,
+                        services: SERVICES
                     };
 
                     $scope.model = getModelFromStorage();
@@ -52,7 +62,8 @@
 
                     $scope.submit = function() {
                         if ($form.$invalid) {
-                            $window.alert('erreur dans le formulaire ' + name);
+                            element.addClass('submitted');
+                            notificationService.warn('erreur dans le formulaire');
                         } else if (!appStateService.isFrozen()) {
                             sendRequest();
                         }
@@ -90,6 +101,7 @@
                     function sendRequest() {
                         var params = formatParams(),
                             request;
+                            console.log('sendRequest', params, url);
                         switch (action) {
                             case 'insert':
                                 request = dbActionsService.insert(url, params);
