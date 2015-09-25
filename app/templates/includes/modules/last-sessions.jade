@@ -4,9 +4,9 @@
 
     ul.module-list
         li.module-list-item.session(ng-repeat="session in lastSessions")
-            a(href="{{session.link}}").module-list-link
+            a(ng-href="#/sessions/{{session.id}}").module-list-link
                 span.module-list-icon
-                span.module-list-label {{session.title}}
-        
+                span.module-list-label {{session.intitule}}
+
     .module-cta
         button.btn Voir tout

@@ -1,0 +1,41 @@
+include ../mixins/main
+
+.module-card
+
+  .actionDetails
+
+    form(name="accompagnementsModification",
+      data-action="update",
+      form,
+      ng-submit="submit()")
+
+      .module-header
+        p.actionDetails-id \#{{model.id}}
+        h2 {{prenom}} {{model.nom}}
+
+      .grid.pad
+
+        .col-1
+          +form-underlined("Nom")
+            - opt = {}
+            - opt.required = true
+            - opt.ngModel = "model.nom"
+            +input(opt)
+
+        .col-1
+          +form-underlined("Mot de passe")
+            - opt = {}
+            - opt.ngModel = "model.password"
+            +input(opt)
+
+        .col-1
+          +form-underlined("Droits d'accès")
+            - opt = {}
+            - opt.ngModel = "model.permission"
+            - opt.ngOptions = "permission.value as permission.label for permission in permissions"
+            - opt.required = true
+            +select(opt)
+
+      .module-footer.form-actions
+        button.btn(type="button", ng-click="App.back()") Annuler
+        button.btn(type="submit") Valider

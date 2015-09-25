@@ -11,12 +11,12 @@ include ../mixins/main
           .affix-target
             p.actionDetails-id \#{{accompagnement.action}} - {{accompagnement.auteur}}
             h2 {{accompagnement.intitule}}
-            button(ng-click="modifier()").module-header-action.btnIcon.circle.big.modify
+            a(ng-href="#/accompagnements/{{accompagnement.id}}/modifier").module-header-action.btnIcon.circle.big.modify
 
         ul.actionDetails-list
           li(ng-repeat="item in accompagnement.list")
             span.actionDetails-label {{item.label}}
-            span.actionDetails-value {{item.value}}          
+            span.actionDetails-value {{item.value}}
 
   .col-1-2
     .module-card
@@ -43,9 +43,9 @@ include ../mixins/main
             span.accompagnement-cout-number {{accompagnement.cout.salarial}}€
         .col-1-2(ng-if="accompagnement.cout")
           .accompagnement-cout
-            span.accompagnement-cout-label Coût pédagogique 
+            span.accompagnement-cout-label Coût pédagogique
             span.accompagnement-cout-number {{accompagnement.cout.pedagogique}}€
 
-    
-      
-        
+
+
+

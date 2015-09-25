@@ -1,0 +1,27 @@
+{
+    "id": "56000d80d0880b1a2ce0c620",
+    "nom": "Compton",
+    "prenom": "Benjamin",
+    "entite": "B2S AIX",
+    "service": "Ressources Humaines",
+    "permission": 1,
+    "mail": "benjamin.compton@gmail.com",
+    "password": "p4S5w0rD$",
+    "actions": {
+        "formateur": [{
+            "id": "55fc02f65fd56a5ee149851f",
+            "action": 150,
+            "intitule": "ipsum cupidatat pariatur occaecat nostrud pariatur"
+        }, {
+            "id": "55fc02f6d8cec56ae70169c2",
+            "action": 198,
+            "intitule": "sit deserunt sunt occaecat quis qui"
+        }],
+        "participant": [{
+            "id": "55fc02f6c15799d3a8f22b04",
+            "action": 718,
+            "intitule": "adipisicing cupidatat sint nostrud tempor qui"
+        }]
+    }
+
+}

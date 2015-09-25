@@ -58,10 +58,6 @@
 
             $scope.$watch('model', onModelChange, true);
 
-            $scope.modifier = function() {
-                $location.url('/accompagnements/' + $routeParams.id + '/modifier');
-            };
-
             function onModelChange() {
                 if (usersInitialized) {
                     $timeout.cancel(changeTimeout);
@@ -137,6 +133,7 @@
 
             function formatDatas(datas) {
                 var scope = {};
+                scope.id = datas.id;
                 scope.intitule = datas.intitule;
                 scope.action = datas.action;
                 scope.auteur = datas.auteur;

@@ -11,7 +11,7 @@ include ../mixins/main
           .affix-target
             p.actionDetails-id \#{{userDetail.id}}
             h2 {{userDetail.prenom}} {{userDetail.nom}}
-            button(ng-click="modifier()").module-header-action.btnIcon.circle.big.modify
+            a(ng-href="#/users/{{userDetail.id}}/modifier").module-header-action.btnIcon.circle.big.modify
 
         ul.actionDetails-list
           li(ng-repeat="item in userDetail.list")
@@ -19,22 +19,18 @@ include ../mixins/main
             span.actionDetails-value {{item.value}}
 
   .col-1-2(ng-if="userDetail.actions.participant")
-    .module-card
-      .module-header
-        h2 Participant sur
+      h2.module-title Participant sur
       ul.module-list
-        li.module-list-item(ng-repeat="action in userDetail.actions.participant")
+        li.module-list-item.session(ng-repeat="action in userDetail.actions.participant")
           a(ng-href="#/action/{{action.id}}").module-list-link
             span.module-list-icon
             span.module-list-label {{action.intitule}}
 
   .col-1-2
-    .module-card
-      .module-header
-        h2 Formateur sur
+      h2.module-title Formateur sur
       ul.module-list
-        li.module-list-item(ng-repeat="action in userDetail.actions.formateur")
-          a(ng-href="#/action/{{action.id}}").module-list-link
+        li.module-list-item.session(ng-repeat="action in userDetail.actions.formateur")
+          a(ng-href="#/actions/{{action.id}}").module-list-link
             span.module-list-icon
             span.module-list-label {{action.intitule}}
 

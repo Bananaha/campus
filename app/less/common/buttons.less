@@ -30,6 +30,7 @@ button {
 
 .btnIcon {
     .fa-icon;
+    text-align: center;
     transition: color .3s ease-out;
     color: @button-background;
     width: 24px;
@@ -39,6 +40,7 @@ button {
     &:hover,
     &:focus {
         color: @button-background-hover;
+        text-decoration: none;
     }
 
     &.big {
@@ -48,11 +50,22 @@ button {
     }
 
     &.circle {
+        position: relative;
         font-size: 1.4rem;
         padding: 3px;
         border-radius: 50%;
         color: @color-body-background;
         background-color: @color-link;
+
+        &::before {
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 0;
+            line-height: 0;
+        }
 
         &:hover,
         &:focus {

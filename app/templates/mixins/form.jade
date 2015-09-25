@@ -20,6 +20,17 @@ mixin datePicker(opt)
     ng-click="openDatepicker('" + opt.name + "')"
     ng-class=opt.ngModel + " | emptyInputClassFilter")
 
+mixin select(opt)
+  select(name=opt.name,
+    ng-model=opt.ngModel,
+    ng-required=opt.ngRequired,
+    required=opt.required,
+    ng-change=opt.ngChange,
+    ng-disabled=opt.ngDisabled,
+    ng-options=opt.ngOptions,
+    ng-class=opt.ngModel + " | emptyInputClassFilter")
+    block
+
 mixin input(opt)
   - opt.type = opt.type || "text"
   input(type=opt.type,
