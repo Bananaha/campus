@@ -1,7 +1,10 @@
 .table-head.affix-target
   .table-cell(ng-repeat="col in config.cols", class="{{col.klass}}")
-    button(ng-if="col.sort", ng-click="sort(col.key)")
+    button(ng-if="col.sort",
+      ng-click="sort(col.key)",
+      ng-class="{active: sortBy === col.key}")
       | {{col.label}}
+    span(ng-if="!col.sort") {{col.label}}
 
 ul.table-group
 

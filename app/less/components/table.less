@@ -49,8 +49,28 @@
         }
     }
 
-    button:hover {
-        color: @color-main;
+    button {
+
+        &.active {
+            .fa-sort-desc;
+            position: relative;
+            padding-right: 1.6rem;
+
+            &::before {
+                .fa-icon;
+                position: absolute;
+                font-size: 1.6rem;
+                right: 0;
+                top: 0;
+                line-height: 0;
+                margin-top: 3px;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            color: @color-main;
+        }
     }
 }
 
@@ -59,6 +79,7 @@
 }
 
 .table-cell {
+    cursor: default;
     display: table-cell;
     padding: @u-small @u-base;
     box-sizing: border-box;
