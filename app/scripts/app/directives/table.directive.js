@@ -8,7 +8,8 @@
             $http,
             $q,
             scrollEventService,
-            dbActionsService
+            dbActionsService,
+            PERMISSIONS
         ) {
 
             return {
@@ -34,6 +35,8 @@
                             currentPage: 0
                         },
                         emitterId = 'tableDirective' + new Date().getTime();
+
+                    $scope.datas = [];
 
                     scrollEventService.add(emitterId, onScroll);
 
@@ -64,7 +67,9 @@
                     };
 
                     $scope.callAction = function(action, item) {
-                        var currentLocation = $location.url();
+                        var currentLocation = $location.url(),
+                            request,
+                            callback;
                         switch (action) {
                             case 'users':
                                 $location.url('users/' + item.auteurId);
@@ -76,11 +81,16 @@
                                 $location.url(currentLocation + '/' + item.id + '/modifier');
                             break;
                             case 'delete':
-                                dbActionsService.delete(config.url, item.id);
+                                request = dbActionsService.delete(config.url, item.id);
+                                callback = removeItem.bind(this, item.id);
                             break;
                             case 'archive':
-                                dbActionsService.archive(config.url, item.id);
+                                request = dbActionsService.archive(config.url, item.id);
+                                callback = disableItem.bind(this, item.id);
                             break;
+                        }
+                        if (request) {
+                            request.then(callback);
                         }
                     };
 
@@ -95,6 +105,23 @@
                             initialized = true;
                             getDatas();
                         });
+                    }
+
+                    function removeItem(id) {
+                        var i;
+                        for (i = 0; i < $scope.datas.length; i++) {
+                            if ($scope.datas[i].id === id) {
+                                $scope.datas.splice(i, 1);
+                                return;
+                            }
+                        }
+
+                    }
+
+                    function disableItem(id) {
+                        $scope.datas.filter(function(item) {
+                            return item.id === id;
+                        })[0].disabled = true;
                     }
 
                     function onScroll(windowHeight) {
@@ -190,15 +217,21 @@
                     }
 
                     function onResponse(data) {
-                        if (data.length >= config.itemPerPage) {
-                            datas = datas.concat(data.slice(0, config.itemPerPage));
-                            $scope.hasNext = true;
-                        } else {
-                            datas = datas.concat(data);
-                            $scope.hasNext = false;
-                        }
-                        $scope.datas = datas;
+                        $scope.hasNext = data.length >= config.itemPerPage;
+                        data = format(data.slice(0, config.itemPerPage));
+                        Array.prototype.push.apply($scope.datas, data);
                         loading(false);
+                    }
+
+                    function format(data) {
+                        return data.map(function(d) {
+                            if (angular.isNumber(d.permission)) {
+                                d.permission = PERMISSIONS.filter(function(perm) {
+                                    return perm.value === d.permission;
+                                })[0].label;
+                            }
+                            return d;
+                        });
                     }
 
                     function loading(state) {

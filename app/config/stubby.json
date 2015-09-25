@@ -253,6 +253,22 @@
     }
 }, {
     "request": {
+        "url": "/users/supprimer",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "status": 200,
+        "latency": 500,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
         "url": "/archives",
         "method": "GET"
     },

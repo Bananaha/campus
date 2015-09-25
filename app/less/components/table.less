@@ -60,7 +60,7 @@
 
 .table-cell {
     display: table-cell;
-    padding: @u-base;
+    padding: @u-small @u-base;
     box-sizing: border-box;
 
     &:last-child {
@@ -68,6 +68,7 @@
     }
 
     .table-head & {
+        padding: @u-base;
         border-bottom: 1px solid @color-border-dark;
         white-space: nowrap;
         font-size: 1.2rem;
@@ -106,11 +107,15 @@
         }
     }
 
-    &.actions button {
-        visibility: hidden;
+    &.actions {
+        padding: 0;
 
-        .table-row:hover & {
-            visibility: visible;
+        button {
+            visibility: hidden;
+
+            .table-row:hover & {
+                visibility: visible;
+            }
         }
     }
 }
@@ -163,94 +168,20 @@
                 display: inline;
         }
         }
-}
-}
-
-/*
-.table-container {
-    padding: @u-small;
-    // background-color: @background-module;
-
-    & + .table-container {
-        margin-top: @u-small;
-    }
-    .table-module {
-        display: table;
-        width: 100%;
-        border-collapse: collapse;
-
-        h2 {
-            padding: @u-base;
-        }
-        > li {
-            display: table-row;
-            line-height: @u-large;
-
-            > div {
-                display: table-cell;
-                text-align: left;
-                vertical-align: top;
-                color: @color-text;
-                padding-left: @u-base;
-            }
-
-            .icone {
-                width: 30px;
-                padding-left: 0;
-            }
-
-            .column-short {
-                width: 90px;
-            }
-            .last {
-                padding-right: @u-base;
-            }
-            a {
-                display: block;
-                cursor: pointer;
-            }
-        }
-    }
-    .table-header {
-
-        > div {
-            // border-bottom: 1px solid @color-gg-indigo-darker;
-            color: @color-text;
-        }
     }
 }
 
-table {
+.table-group .table-row.disabled,
+.table-group .table-row.disabled:hover {
+    &,
+    &:hover {
+        .table-cell {
+            background: transparent;
 
-        tr {
-            height: @u-medium;
-            line-height: @u-medium;
-            text-align: center;
-
-            &:hover {
-                // background-color: @color-gg-indigo-lighter;
+            button,
+            span {
+                color: @color-text-lighter;
             }
         }
-
-        th {
-            max-width: 180px;
-            min-width: 130px;
-            vertical-align: middle;
-            text-align: left;
-        }
-
-        td {
-            max-width: 100px;
-            vertical-align: middle;
-
-            input {
-                width: 60%;
-                margin: @u-base 0;
-            }
-
-            p {
-                display: inline;
-            }
-        }
+    }
 }
-*/

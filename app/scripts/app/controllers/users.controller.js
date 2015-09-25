@@ -39,7 +39,7 @@
                         label: 'Droits d\'accès',
                         key: 'permission',
                         sort: true,
-                        klass: 'w-70'
+                        klass: 'w-100'
                     }]
                 }
             };

@@ -4,10 +4,14 @@
       | {{col.label}}
 
 ul.table-group
-  li.table-row(ng-repeat="data in datas")
+
+  li.table-row(ng-repeat="data in datas",
+    ng-class="{disabled: data.disabled}")
+
     .table-cell(ng-repeat="col in config.cols",
       class="{{col.klass}}",
       ng-class="{'actions inline': col.actions, 'link': col.label && col.action}")
+
       span(ng-if="col.label && !col.action") {{data[col.key]}}
       button(ng-if="col.label && col.action",
         ng-click="callAction(col.action, data)") {{data[col.key]}}
@@ -16,4 +20,5 @@ ul.table-group
         type="button",
         class="{{action.id}}",
         title="{{action.title}}",
+        ng-if="!data.disabled",
         ng-click="callAction(action.id, data)")
