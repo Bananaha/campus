@@ -51,6 +51,14 @@
                     templateUrl: basePath + 'users.html',
                     controller: 'usersController'
                 }).
+                when('/users/:id', {
+                    templateUrl: basePath + 'users-detail.html',
+                    controller: 'usersDetailsController'
+                }).
+                when('/users/:id/modifier', {
+                    templateUrl: basePath + 'users-modifier.html',
+                    controller: 'usersModifierController'
+                }).
                 when('/archives', {
                     templateUrl: basePath + 'archives.html',
                     controller: 'archivesController'
