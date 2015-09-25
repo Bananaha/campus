@@ -52,7 +52,7 @@
                     controller: 'usersController'
                 }).
                 when('/users/:id', {
-                    templateUrl: basePath + 'users-detail.html',
+                    templateUrl: basePath + 'users-details.html',
                     controller: 'usersDetailsController'
                 }).
                 when('/users/:id/modifier', {

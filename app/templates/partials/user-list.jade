@@ -26,7 +26,7 @@ include ../mixins/main
 
   ul.userList-users(ng-if="selectedUsers.length")
     li.userList-user(ng-repeat="user in selectedUsers")
-      a.userList-info(ng-href="./#/users/{{user.id}}")
+      a.userList-info(ng-href="#/users/{{user.id}}")
         | {{user.prenom}} {{user.nom}}
       button.userList-remove(type="button",
         ng-click="removeUser(user.id)")
