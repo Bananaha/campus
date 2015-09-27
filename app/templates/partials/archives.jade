@@ -5,13 +5,6 @@ include ../mixins/main
 .module-card
   .module-header(affix, affix-offset=48)
     .affix-target
-      .filters
-        label(ng-repeat="filter in filters")
-          span {{filter.value}}
-          input(type="checkbox",
-                ng-model="table.filters.type[filter.value]",
-                value="filter.value")
-
       .searchBox
         +form-underlined()
           input.search-input(type="search",
@@ -19,6 +12,15 @@ include ../mixins/main
             required,
             placeholder="rechercher")
         button(type="button").btnIcon.search
+
+      .filters
+        .filter(ng-repeat="filter in filters")
+          - opt = {}
+          - opt.label = "{{filter.value}}"
+          - opt.ngModel = "table.filters.type[filter.value]"
+          - value = "filter.value"
+          +custom-checkbox(opt)
+
   div(affix, affix-offset=96)
     .table.listed(table="table.config",
       table-filters="table.filters")

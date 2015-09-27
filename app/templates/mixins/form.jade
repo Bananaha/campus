@@ -43,3 +43,17 @@ mixin input(opt)
     ng-change=opt.ngChange,
     ng-disabled=opt.ngDisabled,
     ng-class=opt.ngModel + " | emptyInputClassFilter")
+
+mixin custom-checkbox(opt)
+    label.checkbox
+        input(type="checkbox",
+            name=opt.name,
+            ng-model=opt.ngModel,
+            ng-required=opt.ngRequired,
+            required=opt.required,
+            ng-change=opt.ngChange,
+            ng-disabled=opt.ngDisabled,
+            value= opt.value,
+            ng-class=opt.ngModel + " | emptyInputClassFilter")
+        span.checkbox-placeholder
+        span.checkbox-label= opt.label
