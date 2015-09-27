@@ -101,7 +101,6 @@
                     function sendRequest() {
                         var params = formatParams(),
                             request;
-                            console.log('sendRequest', params, url);
                         switch (action) {
                             case 'insert':
                                 request = dbActionsService.insert(url, params);

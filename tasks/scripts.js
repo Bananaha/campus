@@ -44,8 +44,6 @@ function getScriptsFromJade() {
         return path.join(config.src, scriptSrc);
     });
 
-    console.log(getVendor, files);
-
     return files;
 }
 
