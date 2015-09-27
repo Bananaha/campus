@@ -47,7 +47,7 @@
                         sort: true,
                         klass: 'w-70'
                     }, {
-                        actions: ['details', 'modify', 'delete'],
+                        actions: ['desarchiver'],
                         klass: 'w-70'
                     }, {
                         label: 'Nature',
