@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('campus.app')
-    .controller('usersController',
+    .controller('utilisateursController',
         function (
             $scope,
             $http,
@@ -14,7 +14,7 @@
             $scope.table = {
                 filters: {},
                 config: {
-                    url: config.urls.users,
+                    url: config.urls.utilisateurs,
                     cols: [{
                         label: 'Nom',
                         key: 'nom',

@@ -9,7 +9,7 @@
         ) {
             return {
                 restrict: 'E',
-                templateUrl: 'user-list.html',
+                templateUrl: 'utilisateurs-list.html',
                 scope: {
                     selectedUsers: '=users'
                 },

@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('campus.app')
-    .controller('usersDetailsController',
+    .controller('utilisateursDetailsController',
         function (
             $scope,
             $http,
@@ -35,7 +35,7 @@
 
             $http({
                     method: 'GET',
-                    url: config.urls.usersDetails,
+                    url: config.urls.utilisateursDetails,
                     params: {
                         id: $routeParams.id
                     }

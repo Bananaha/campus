@@ -2,15 +2,15 @@
     'use strict';
 
     angular.module('campus.app')
-    .controller('archivesController',
+    .controller('formationsController',
         function (
-            $scope,
+        	$scope,
             config,
             appStateService,
             ACTIONS
         ) {
 
-            $scope.filters = ACTIONS.map(function(action) {
+        	 $scope.filters = ACTIONS.map(function(action) {
                 return {
                     label: action.label,
                     value: action.id
@@ -20,7 +20,7 @@
             $scope.table = {
                 filters: {},
                 config: {
-                    url: config.urls.archives,
+                    url: config.urls.formations,
                     cols: [{
                         label: 'Intitulé',
                         key: 'intitule',
@@ -44,7 +44,7 @@
                         sort: true,
                         klass: 'w-70'
                     }, {
-                        actions: ['desarchiver'],
+                        actions: ['modify', 'delete', 'archive'],
                         klass: 'w-70'
                     }, {
                         label: 'Type',

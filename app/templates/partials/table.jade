@@ -13,11 +13,11 @@ ul.table-group
 
     .table-cell(ng-repeat="col in config.cols",
       class="{{col.klass}}",
-      ng-class="{'actions inline': col.actions, 'link': col.label && col.action}")
+      ng-class="{'actions inline': col.actions, 'link': col.label && col.link}")
 
-      span(ng-if="col.label && !col.action") {{data[col.key]}}
-      button(ng-if="col.label && col.action",
-        ng-click="callAction(col.action, data)") {{data[col.key]}}
+      span(ng-if="col.label && !col.link") {{data[col.key]}}
+      button(ng-if="col.label && col.link",
+        ng-click="goTo(col.link, data)") {{data[col.key]}}
 
       button.btnIcon(ng-repeat="action in col.actions",
         type="button",

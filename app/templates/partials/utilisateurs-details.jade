@@ -11,7 +11,7 @@ include ../mixins/main
           .affix-target
             p.actionDetails-id \#{{userDetail.id}}
             h2 {{userDetail.prenom}} {{userDetail.nom}}
-            a(ng-href="#/users/{{userDetail.id}}/modifier").module-header-action.btnIcon.circle.big.modify
+            a(ng-href="#/utilisateurs/{{userDetail.id}}/modifier").module-header-action.btnIcon.circle.big.modify
 
         ul.actionDetails-list
           li(ng-repeat="item in userDetail.list")
@@ -22,7 +22,7 @@ include ../mixins/main
       h2.module-title Participant sur
       ul.module-list
         li.module-list-item.session(ng-repeat="action in userDetail.actions.participant")
-          a(ng-href="#/action/{{action.id}}").module-list-link
+          a(ng-href="#/actions/{{action.id}}").module-list-link
             span.module-list-icon
             span.module-list-label {{action.intitule}}
 

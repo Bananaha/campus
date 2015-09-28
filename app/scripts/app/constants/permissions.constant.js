@@ -4,13 +4,13 @@
     angular.module('campus.app').constant('PERMISSIONS',
         [{
             label: 'Standard',
-            value: 0
+            id: 0
         }, {
             label: 'Admin',
-            value: 1
+            id: 1
         }, {
             label: 'Super admin',
-            value: 2
+            id: 2
         }]
     );
 

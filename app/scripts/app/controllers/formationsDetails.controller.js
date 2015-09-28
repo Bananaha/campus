@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('campus.app')
-    .controller('accompagnementsDetailsController',
+    .controller('formationsDetailsController',
         function (
             $scope,
             $http,
@@ -49,7 +49,7 @@
 
             $http({
                     method: 'GET',
-                    url: config.urls.accompagnementsDetails,
+                    url: config.urls.formationsDetails,
                     params: {
                         id: $routeParams.id
                     }
@@ -75,25 +75,25 @@
                     });
                 });
                 dbActionsService
-                    .update(config.urls.accompagnementsModification, params)
+                    .update(config.urls.formationsModification, params)
                     .then(onUpdateSuccess, onUpdateError);
             }
 
             function onUpdateSuccess(res) {
                 if (res.data) {
-                    $scope.accompagnement.cout = res.data.cout;
+                    $scope.formation.cout = res.data.cout;
                 }
             }
 
             function onUpdateError() {
-                $scope.accompagnement.cout = {
+                $scope.formation.cout = {
                     pedagogique: '-',
                     salarial: '-'
                 };
             }
 
             function onGetDetailSuccess(res) {
-                $scope.accompagnement = formatDatas(res.data);
+                $scope.formation = formatDatas(res.data);
 
                 populations.forEach(function(population) {
                     if (res.data[population] && res.data[population].length) {
@@ -109,7 +109,7 @@
             }
 
             function onGetDetailError() {
-                $location.url('/accompagnements');
+                $location.url('/formations');
             }
 
             function onGetUsers(population, res) {
