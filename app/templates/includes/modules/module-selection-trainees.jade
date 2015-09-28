@@ -1,51 +1,14 @@
-.module-header(affix, affix-offset=48)
-    .searchBox
-        +form-underlined()
-            input.search-input(type="search",
-                ng-model="search",
-                ng-change="filter($event)"
-                required,
-                placeholder="rechercher")
-        button(type="button").btnIcon.search
-h4 Sélection des stagiaires et formateurs
-.table.listed(affix, affix-offset=100)
-    .table-head.affix-target
-        .table-cell.w-70
-        .table-cell.w-100 Nom
-        .table-cell.w-100 Prénom
-        .table-cell.w-70 Contrat
-        .table-cell.w-100 Emploi
-        .table-cell.w-90 Date de sortie
-    ul.table-group
-        li.table-row(ng-repeat="action in actions")
-            .table-cell.w-70.inline.actions
-                button.btnIcon.add-users(type="button",
-            title="Ajouter")
-            .table-cell.w-100 
-            .table-cell.w-100 
-            .table-cell.w-70 
-            .table-cell.w-100 
-            .table-cell.w-90 
-h4 Stagiaires et formateurs assignés à la formation
-.table.listed(affix, affix-offset=100)
-    .table-head.affix-target
-        .table-cell.w-70
-        .table-cell.w-100 Nom
-        .table-cell.w-100 Prénom
-        .table-cell.w-70 Contrat
-        .table-cell.w-100 Emploi
-        .table-cell.w-90 Date de sortie
-        .table-cell.w-70 Formateur
-    ul.table-group
-        li.table-row(ng-repeat="action in actions")
-            .table-cell.w-70.inline.actions
-                button.btnIcon.add-users(type="button",
-            title="Ajouter")
-            .table-cell.w-100 
-            .table-cell.w-100 
-            .table-cell.w-70 
-            .table-cell.w-100 
-            .table-cell.w-90
-            .table-cell.w-70
-                input(type="checkbox"  name=""  checked="unchecked")
-include module-submit       
+.grid.pad
+    .col-1-2
+        .module-card
+          .module-header
+            h2 Participants
+
+          user-list(users="model.participants", ng-if="showUsers")
+
+      .col-1-2
+        .module-card
+          .module-header
+            h2 Formateurs
+
+          user-list(users="model.formateurs", ng-if="showUsers")
