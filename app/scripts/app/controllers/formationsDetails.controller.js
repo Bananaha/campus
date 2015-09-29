@@ -8,10 +8,8 @@
             $http,
             $timeout,
             $routeParams,
-            $route,
             $location,
             config,
-            utilisateursService,
             dbActionsService,
             actionsService,
             formatterService

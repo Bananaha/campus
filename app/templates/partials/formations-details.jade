@@ -29,6 +29,12 @@ mixin formation-list(label, model)
           +formation-list("Produit", "formation.produit")
           +formation-list("Date de début", "formation.from")
           +formation-list("Date de fin", "formation.to")
+          +formation-list("Organisme", "formation.organisme")
+          +formation-list("Nom de l'organisme", "formation.nomOrganisme")
+          +formation-list("Population", "formation.population")
+          +formation-list("Objectif", "formation.objectif")
+          +formation-list("Contenu", "formation.contenu")
+          +formation-list("Prérequis", "formation.prerequis")
 
   .col-1-2(ng-if="hasUsers")
     .module-card
