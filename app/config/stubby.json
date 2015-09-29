@@ -226,6 +226,17 @@
     }
 }, {
     "request": {
+        "url": "/formations/desarchiver",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
         "url": "/formations$",
         "query": {
             "id": "fakeidCIF"
