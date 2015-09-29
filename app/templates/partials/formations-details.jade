@@ -18,19 +18,5 @@ include ../mixins/main
             span.actionDetails-label {{item.label}}
             span.actionDetails-value {{item.value}}
 
-  .col-1-2
-    .module-card
-      .module-header
-        h2 Participants
-
-      user-list(users="model.participants", ng-if="showUsers")
-
-  .col-1-2
-    .module-card
-      .module-header
-        h2 Formateurs
-
-      user-list(users="model.formateurs", ng-if="showUsers")
-
 
 

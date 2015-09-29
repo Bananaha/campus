@@ -21,6 +21,9 @@
                 populations = ['formateurs', 'participants'],
                 populationLoaded = {},
                 listKeys = [{
+                    label: 'Type',
+                    key: 'type'
+                }, {
                     label: 'Client',
                     key: 'client'
                 }, {
@@ -55,6 +58,8 @@
                     }
                 })
                 .then(onGetDetailSuccess, onGetDetailError);
+
+            return;
 
             $scope.$watch('model', onModelChange, true);
 

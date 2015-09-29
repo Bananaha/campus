@@ -1,17 +1,11 @@
 [{
     "request": {
         "url": "/accompagnements$",
-        "method": "GET",
         "query": {
             "id": "^$"
         }
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/accompagnements.json"
     }
 }, {
@@ -20,27 +14,16 @@
         "method": "POST"
     },
     "response": {
-        "status": 200,
-        "latency": 500,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/accompagnementsCreation.json"
     }
 }, {
     "request": {
         "url": "/accompagnements$",
-        "method": "GET",
         "query": {
             "id": "^[0-9a-zA-Z]"
         }
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/accompagnementsDetails.json"
     }
 }, {
@@ -52,11 +35,6 @@
         "method": "POST"
     },
     "response": {
-        "status": 200,
-        "latency": 500,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/accompagnementsUpdate.json"
     }
 }, {
@@ -68,11 +46,6 @@
         "method": "POST"
     },
     "response": {
-        "status": 200,
-        "latency": 500,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/noop.json"
     }
 }, {
@@ -84,11 +57,6 @@
         "method": "POST"
     },
     "response": {
-        "status": 200,
-        "latency": 500,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/noop.json"
     }
 }, {
@@ -97,11 +65,6 @@
         "method": "GET"
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/last-sessions.json"
     }
 }, {
@@ -110,11 +73,6 @@
         "method": "GET"
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/suivi-budget.json"
     }
 }, {
@@ -123,11 +81,6 @@
         "method": "GET"
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/reporting.json"
     }
 }, {
@@ -136,11 +89,6 @@
         "method": "GET"
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/indicateurs.json"
     }
 }, {
@@ -149,17 +97,11 @@
         "method": "GET"
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/documentation.json"
     }
 }, {
     "request": {
         "url": "/utilisateurs$",
-        "method": "GET",
         "query": {
             "id": "^$",
             "ids": "^$",
@@ -167,59 +109,36 @@
         }
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/utilisateurs.json"
     }
 }, {
     "request": {
         "url": "/utilisateurs$",
-        "method": "GET",
         "query": {
             "ids": "^[a-zA-Z0-9]"
         }
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/getUtilisateurs.json"
     }
 }, {
     "request": {
         "url": "/utilisateurs$",
-        "method": "GET",
         "query": {
             "search": "^[a-zA-Z0-9]"
         }
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/utilisateursList.json"
     }
 }, {
     "request": {
         "url": "/utilisateurs$",
-        "method": "GET",
         "query": {
             "id": "^[a-zA-Z0-9]"
         }
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/utilisateursDetails.json"
     }
 }, {
@@ -231,11 +150,6 @@
         "method": "POST"
     },
     "response": {
-        "status": 200,
-        "latency": 500,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/noop.json"
     }
 }, {
@@ -244,11 +158,6 @@
         "method": "POST"
     },
     "response": {
-        "status": 200,
-        "latency": 500,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/utilisateursCreation.json"
     }
 }, {
@@ -260,11 +169,6 @@
         "method": "POST"
     },
     "response": {
-        "status": 200,
-        "latency": 500,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/noop.json"
     }
 }, {
@@ -276,11 +180,6 @@
         "method": "POST"
     },
     "response": {
-        "status": 200,
-        "latency": 500,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/noop.json"
     }
 }, {
@@ -289,17 +188,11 @@
         "method": "GET"
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/archives.json"
     }
 }, {
     "request": {
-        "url": "/formations",
-        "method": "GET",
+        "url": "/formations$",
         "query": {
             "id": "^$",
             "ids": "^$",
@@ -307,11 +200,46 @@
         }
     },
     "response": {
-        "status": 200,
-        "latency": 210,
-        "headers": {
-            "Content-Type": "application/json"
-        },
         "file": "app/mocks/formations.json"
+    }
+}, {
+    "request": {
+        "url": "/formations$",
+        "query": {
+            "id": "fakeidCIF"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations-CIF.json"
+    }
+}, {
+    "request": {
+        "url": "/formations$",
+        "query": {
+            "id": "fakeidCPF"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations-CPF.json"
+    }
+}, {
+    "request": {
+        "url": "/formations$",
+        "query": {
+            "id": "fakeidEmployeur"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations-EMPLOYEUR.json"
+    }
+}, {
+    "request": {
+        "url": "/formations$",
+        "query": {
+            "id": "fakeidAccompagnement"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations-ACCOMPAGNEMENT.json"
     }
 }]

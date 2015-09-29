@@ -17,7 +17,8 @@
         }, {
             label: 'Accompagnement',
             id: 'accompagnement',
-            abbr: 'Acc.'
+            abbr: 'Acc.',
+            isSession: true
         }]
     );
 

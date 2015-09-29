@@ -70,7 +70,7 @@
                     $scope.goTo = function(type, item) {
                         switch (type) {
                             case 'utilisateur':
-                                $location.url('utilisateurs/' + item.auteurId);
+                                $location.url('utilisateurs/' + (item.auteurId || item.id));
                             break;
                             case 'formation':
                                 $location.url('formations/' + item.id);

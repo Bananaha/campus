@@ -20,13 +20,13 @@
                         key: 'nom',
                         sort: true,
                         klass: 'w-100',
-                        action: 'detail'
+                        link: 'utilisateur'
                     }, {
                         label: 'Prénom',
                         key: 'prenom',
                         sort: true,
                         klass: 'w-100',
-                        action: 'detail'
+                        link: 'utilisateur'
                     }, {
                         label: 'Entité',
                         key: 'entite',

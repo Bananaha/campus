@@ -11,7 +11,7 @@
             this.getUsers = function(ids) {
                 var request = $http({
                         method: 'GET',
-                        url: config.urls.users,
+                        url: config.urls.utilisateurs,
                         params: { ids: ids }
                     });
                 request.then(angular.noop, onGetUsersError);
@@ -19,7 +19,7 @@
             };
 
             function onGetUsersError() {
-                $window.alert('Errur lors de la récupération des utilisateurs');
+                $window.alert('Erreur lors de la récupération des utilisateurs');
             }
 
             return this;
