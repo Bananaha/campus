@@ -1,7 +1,7 @@
 (function (global, angular) {
     'use strict';
 
-    angular.module('campus.app').factory('usersService',
+    angular.module('campus.app').factory('utilisateursService',
         function(
             $http,
             $window,

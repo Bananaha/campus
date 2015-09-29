@@ -9,7 +9,8 @@
             $q,
             scrollEventService,
             dbActionsService,
-            PERMISSIONS
+            PERMISSIONS,
+            ACTIONS
         ) {
 
             return {
@@ -66,17 +67,22 @@
                         getDatas();
                     };
 
+                    $scope.goTo = function(type, item) {
+                        switch (type) {
+                            case 'utilisateur':
+                                $location.url('utilisateurs/' + item.auteurId);
+                            break;
+                            case 'formation':
+                                $location.url('formations/' + item.id);
+                            break;
+                        }
+                    };
+
                     $scope.callAction = function(action, item) {
                         var currentLocation = $location.url(),
                             request,
                             callback;
                         switch (action) {
-                            case 'users':
-                                $location.url('users/' + item.auteurId);
-                            break;
-                            case 'detail':
-                                $location.url(currentLocation + '/' + item.id);
-                            break;
                             case 'modify':
                                 $location.url(currentLocation + '/' + item.id + '/modifier');
                             break;
@@ -231,8 +237,13 @@
                         return data.map(function(d) {
                             if (angular.isNumber(d.permission)) {
                                 d.permission = PERMISSIONS.filter(function(perm) {
-                                    return perm.value === d.permission;
+                                    return perm.id === d.permission;
                                 })[0].label;
+                            }
+                            if (d.type) {
+                                d.type = ACTIONS.filter(function(action) {
+                                    return action.id === d.type;
+                                })[0].abbr;
                             }
                             return d;
                         });

@@ -2,10 +2,6 @@ h2.module-title Liste des actions de formation
 .module-card
   .module-header(affix, affix-offset=48)
     .affix-target
-      .pull-right
-        button.btn.modal-opener(type="button",
-          ng-click="App.showModal('accompagnement-creation')") Créer une action
-
       .searchBox
         +form-underlined()
           input.search-input(type="search",
@@ -15,16 +11,18 @@ h2.module-title Liste des actions de formation
             placeholder="rechercher")
         button(type="button").btnIcon.search
         
-      form
-        input.checkbox-test(type="checkbox" checked="checked")
-        p CPF
-        input.checkbox-test(type="checkbox" checked="checked")
-        p CIF
-        input.checkbox-test(type="checkbox" checked="checked")
-        p Employeur
-        
+      .filters
+        .filter(ng-repeat="filter in filters")
+          - opt = {}
+          - opt.label = "{{filter.value}}"
+          - opt.ngModel = "table.filters.type[filter.value]"
+          - value = "filter.value"
+          +custom-checkbox(opt)
           
-            
+      .pull-right
+        button.btn.modal-opener(type="button",
+          ng-click="App.showModal('accompagnement-creation')") Créer une action
+                  
         
         
   .table.listed(affix, affix-offset=100)

@@ -21,13 +21,13 @@
                         key: 'intitule',
                         sort: true,
                         klass: 'col-1',
-                        action: 'detail'
+                        link: 'formation'
                     }, {
                         label: 'Auteur',
                         key: 'auteurNom',
                         sort: true,
                         klass: 'w-100',
-                        action: 'users'
+                        link: 'utilisateur'
                     }, {
                         actions: ['modify', 'delete', 'archive'],
                         klass: 'w-90'

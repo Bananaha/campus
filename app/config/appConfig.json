@@ -12,13 +12,14 @@
                 "reporting": "http://localhost:8882/reporting",
                 "indicateurs": "http://localhost:8882/indicateurs",
                 "documentation": "http://localhost:8882/documentation",
-                "users": "http://localhost:8882/users",
-                "usersModification": "http://localhost:8882/users/update",
-                "usersDetails": "http://localhost:8882/users",
-                "userCreation": "http://localhost:8882/users/insert",
+                "utilisateurs": "http://localhost:8882/utilisateurs",
+                "utilisateursModification": "http://localhost:8882/utilisateurs/update",
+                "utilisateursDetails": "http://localhost:8882/utilisateurs",
+                "utilisateursCreation": "http://localhost:8882/utilisateurs/insert",
+                "formations": "http://localhost:8882/formations",
                 "archives": "http://localhost:8882/archives",
-                "userList": "http://localhost:8882/users",
-                "getUsers": "http://localhost:8882/getUsers"
+                "utilisateursList": "http://localhost:8882/utilisateurs",
+                "getUtilisateurs": "http://localhost:8882/getUsers"
             }
         }
     },

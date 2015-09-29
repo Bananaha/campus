@@ -2,24 +2,20 @@
     'use strict';
 
     angular.module('campus.app')
-    .controller('usersModifierController',
+    .controller('formationsModifierController',
         function (
             $scope,
             $http,
             $timeout,
             $routeParams,
+            $route,
             $location,
-            config,
-            appStateService,
-            PERMISSIONS
-
+            config
         ) {
-
-            $scope.permissions = PERMISSIONS;
 
             $http({
                     method: 'GET',
-                    url: config.urls.usersDetails,
+                    url: config.urls.formationsDetails,
                     params: {
                         id: $routeParams.id
                     }
@@ -27,21 +23,21 @@
                 .then(onGetRequestSuccess, onGetRequestError);
 
             function onGetRequestSuccess(res) {
-                $scope.model = {
-                    nom: res.data.nom,
-                    password: res.data.password,
-                    permission: res.data.permission,
-                    id: res.data.id
-                };
-
-                $scope.prenom = res.data.prenom;
+                $scope.model = formatDatas(res.data);
             }
 
             function onGetRequestError() {
-                $location.url('/users');
+                $location.url('/formations');
             }
 
-            appStateService.isLoading(false);
+            function formatDatas(datas) {
+                ['from', 'to'].forEach(function(key) {
+                    if (datas[key]) {
+                        datas[key] = new Date(datas[key]);
+                    }
+                });
+                return datas;
+            }
 
         });
 

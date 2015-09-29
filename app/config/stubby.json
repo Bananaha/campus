@@ -158,7 +158,7 @@
     }
 }, {
     "request": {
-        "url": "/users$",
+        "url": "/utilisateurs$",
         "method": "GET",
         "query": {
             "id": "^$",
@@ -172,11 +172,11 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "file": "app/mocks/users.json"
+        "file": "app/mocks/utilisateurs.json"
     }
 }, {
     "request": {
-        "url": "/users$",
+        "url": "/utilisateurs$",
         "method": "GET",
         "query": {
             "ids": "^[a-zA-Z0-9]"
@@ -188,11 +188,11 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "file": "app/mocks/getUsers.json"
+        "file": "app/mocks/getUtilisateurs.json"
     }
 }, {
     "request": {
-        "url": "/users$",
+        "url": "/utilisateurs$",
         "method": "GET",
         "query": {
             "search": "^[a-zA-Z0-9]"
@@ -204,11 +204,11 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "file": "app/mocks/userList.json"
+        "file": "app/mocks/utilisateursList.json"
     }
 }, {
     "request": {
-        "url": "/users$",
+        "url": "/utilisateurs$",
         "method": "GET",
         "query": {
             "id": "^[a-zA-Z0-9]"
@@ -220,11 +220,11 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "file": "app/mocks/usersDetails.json"
+        "file": "app/mocks/utilisateursDetails.json"
     }
 }, {
     "request": {
-        "url": "/users/update$",
+        "url": "/utilisateurs/update$",
         "query": {
             "id": "^[0-9a-zA-Z]"
         },
@@ -240,7 +240,7 @@
     }
 }, {
     "request": {
-        "url": "/users/insert",
+        "url": "/utilisateurs/insert",
         "method": "POST"
     },
     "response": {
@@ -249,11 +249,11 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "file": "app/mocks/usersCreation.json"
+        "file": "app/mocks/utilisateursCreation.json"
     }
 }, {
     "request": {
-        "url": "/users/supprimer",
+        "url": "/utilisateurs/supprimer",
         "query": {
             "id": "^[0-9a-zA-Z]"
         },
@@ -295,5 +295,23 @@
             "Content-Type": "application/json"
         },
         "file": "app/mocks/archives.json"
+    }
+}, {
+    "request": {
+        "url": "/formations",
+        "method": "GET",
+        "query": {
+            "id": "^$",
+            "ids": "^$",
+            "search": "^$"
+        }
+    },
+    "response": {
+        "status": 200,
+        "latency": 210,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "file": "app/mocks/formations.json"
     }
 }]

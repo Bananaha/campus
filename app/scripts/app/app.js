@@ -31,9 +31,17 @@
                     templateUrl: basePath + 'home.html',
                     controller: 'homeController'
                 }).
-                when('/training', {
-                    templateUrl: basePath + 'training.html',
-                    controller: 'trainingController'
+                when('/formations', {
+                    templateUrl: basePath + 'formations.html',
+                    controller: 'formationsController'
+                }).
+                when('/formations/:id', {
+                    templateUrl: basePath + 'formations-details.html',
+                    controller: 'formationsDetailsController'
+                }).
+                when('/formations/:id/modifier', {
+                    templateUrl: basePath + 'formations-modifier.html',
+                    controller: 'formationsModifierController'
                 }).
                 when('/accompagnements', {
                     templateUrl: basePath + 'accompagnements.html',
@@ -47,17 +55,17 @@
                     templateUrl: basePath + 'accompagnements-modifier.html',
                     controller: 'accompagnementsModifierController'
                 }).
-                when('/users', {
-                    templateUrl: basePath + 'users.html',
-                    controller: 'usersController'
+                when('/utilisateurs', {
+                    templateUrl: basePath + 'utilisateurs.html',
+                    controller: 'utilisateursController'
                 }).
-                when('/users/:id', {
-                    templateUrl: basePath + 'users-details.html',
-                    controller: 'usersDetailsController'
+                when('/utilisateurs/:id', {
+                    templateUrl: basePath + 'utilisateurs-details.html',
+                    controller: 'utilisateursDetailsController'
                 }).
-                when('/users/:id/modifier', {
-                    templateUrl: basePath + 'users-modifier.html',
-                    controller: 'usersModifierController'
+                when('/utilisateurs/:id/modifier', {
+                    templateUrl: basePath + 'utilisateurs-modifier.html',
+                    controller: 'utilisateursModifierController'
                 }).
                 when('/archives', {
                     templateUrl: basePath + 'archives.html',

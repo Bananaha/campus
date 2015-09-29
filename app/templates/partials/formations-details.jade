@@ -1,0 +1,36 @@
+include ../mixins/main
+
+.grid.pad
+
+  .col-1
+    .module-card
+
+      .actionDetails
+
+        .module-header(affix, affix-offset=48)
+          .affix-target
+            p.actionDetails-id \#{{formation.action}} - {{formation.auteur}}
+            h2 {{formation.intitule}}
+            a(ng-href="#/formations/{{formation.id}}/modifier").module-header-action.btnIcon.circle.big.modify
+
+        ul.actionDetails-list
+          li(ng-repeat="item in formation.list")
+            span.actionDetails-label {{item.label}}
+            span.actionDetails-value {{item.value}}
+
+  .col-1-2
+    .module-card
+      .module-header
+        h2 Participants
+
+      user-list(users="model.participants", ng-if="showUsers")
+
+  .col-1-2
+    .module-card
+      .module-header
+        h2 Formateurs
+
+      user-list(users="model.formateurs", ng-if="showUsers")
+
+
+
