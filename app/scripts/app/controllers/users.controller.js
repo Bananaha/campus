@@ -34,7 +34,7 @@
                         klass: 'col-1'
                     }, {
                         actions: ['modify', 'delete'],
-                        klass: 'w-70'
+                        klass: 'w-50'
                     }, {
                         label: 'Droits d\'accès',
                         key: 'permission',

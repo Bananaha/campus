@@ -48,7 +48,7 @@
                         klass: 'w-70'
                     }, {
                         actions: ['desarchiver'],
-                        klass: 'w-70'
+                        klass: 'w-30'
                     }, {
                         label: 'Nature',
                         key: 'nature',

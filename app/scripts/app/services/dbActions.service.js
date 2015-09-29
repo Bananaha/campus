@@ -13,13 +13,15 @@
                     supprimer: 'Suppression effectuée avec succès.',
                     modifier: 'Modification effectuée avec succès.',
                     ajouter: 'Ajout effectué avec succès.',
-                    archiver: 'Archivage effectué avec succès.'
+                    archiver: 'Archivage effectué avec succès.',
+                    desarchiver: 'Désarchivage effectué avec succès.'
                 },
                 error: {
                     supprimer: 'Erreur lors de la suppression.',
                     ajouter: 'Erreur lors de l\'ajout',
                     modifier: 'Erreur lors de la modification.',
-                    archiver: 'Erreur lors de l\'archivage.'
+                    archiver: 'Erreur lors de l\'archivage.',
+                    desarchiver: 'Erreur lors du désarchivage.'
                 }
             };
 
@@ -43,6 +45,13 @@
                     id: id
                 };
                 return httpRequest('archiver', url + '/archiver', params);
+            };
+
+            this.unarchive = function(url, id) {
+                var params = {
+                    id: id
+                };
+                return httpRequest('desarchiver', url + '/desarchiver', params);
             };
 
             function httpRequest(action, url, params) {

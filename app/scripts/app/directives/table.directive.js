@@ -88,6 +88,10 @@
                                 request = dbActionsService.archive(config.url, item.id);
                                 callback = disableItem.bind(this, item.id);
                             break;
+                            case 'desarchiver':
+                                request = dbActionsService.unarchive(config.url, item.id);
+                                callback = disableItem.bind(this, item.id);
+                            break;
                         }
                         if (request) {
                             request.then(callback);

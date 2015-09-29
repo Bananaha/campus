@@ -13,6 +13,8 @@ include ../mixins/main
             placeholder="rechercher")
         button(type="button").btnIcon.search
 
+      button.filters-toggler(type="button") filtrer
+
       .filters
         .filter(ng-repeat="filter in filters")
           - opt = {}

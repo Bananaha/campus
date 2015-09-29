@@ -1,7 +1,18 @@
-.searchBox + .filters {
+.searchBox + .filters-toggler {
 	float: right;
 	text-align: right;
 	line-height: 26px;
+}
+
+.filters {
+    .mixin_clearfix;
+    //display: none;
+    overflow: hidden;
+    height: 0;
+    background: @color-gray-35;
+    margin: @u-small -@u-small -@u-small;
+    padding: 0 @u-small;
+    box-sizing: border-box;
 }
 
 .filter {
