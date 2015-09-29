@@ -12,14 +12,12 @@
             $location,
             config,
             utilisateursService,
-            dbActionsService
+            dbActionsService,
+            actionsService
         ) {
 
-            var that = this,
-                changeTimeout,
-                usersInitialized = false,
-                populations = ['formateurs', 'participants'],
-                populationLoaded = {},
+            var changeTimeout,
+                populations = ['formateurs', 'stagiaires'],
                 listKeys = [{
                     label: 'Type',
                     key: 'type'
@@ -45,8 +43,8 @@
                     date: true
                 }];
 
-            $scope.model = {
-                participants: [],
+            $scope.participants = {
+                stagiaires: [],
                 formateurs: []
             };
 
@@ -59,15 +57,11 @@
                 })
                 .then(onGetDetailSuccess, onGetDetailError);
 
-            return;
+            $scope.$watch('participants', onParticipantsChange, true);
 
-            $scope.$watch('model', onModelChange, true);
-
-            function onModelChange() {
-                if (usersInitialized) {
-                    $timeout.cancel(changeTimeout);
-                    changeTimeout = $timeout(saveUsers, 200);
-                }
+            function onParticipantsChange() {
+                $timeout.cancel(changeTimeout);
+                changeTimeout = $timeout(saveUsers, 200);
             }
 
             function saveUsers() {
@@ -75,7 +69,7 @@
                     id: $routeParams.id
                 };
                 populations.forEach(function(key) {
-                    params[key] = $scope.model[key].map(function(user) {
+                    params[key] = $scope.participants[key].map(function(user) {
                         return user.id;
                     });
                 });
@@ -85,7 +79,7 @@
             }
 
             function onUpdateSuccess(res) {
-                if (res.data) {
+                if (res.data && res.data.cout) {
                     $scope.formation.cout = res.data.cout;
                 }
             }
@@ -98,42 +92,21 @@
             }
 
             function onGetDetailSuccess(res) {
+                var actionConfig = actionsService.getConfig(res.data.type);
                 $scope.formation = formatDatas(res.data);
 
-                populations.forEach(function(population) {
-                    if (res.data[population] && res.data[population].length) {
-                        utilisateursService
-                            .getUsers(res.data[population])
-                            .then(onGetUsers.bind(that, population));
-                    } else {
-                        populationLoaded[population] = true;
-                    }
-                });
+                if (actionConfig.isSession) {
+                    $scope.hasUsers = true;
+                    $scope.participants = res.data.participants;
+                }
 
-                updateUsersVisibility();
+                if (actionConfig.showCost) {
+                    $scope.showCost = true;
+                }
             }
 
             function onGetDetailError() {
                 $location.url('/formations');
-            }
-
-            function onGetUsers(population, res) {
-                $scope.model[population] = res.data;
-                populationLoaded[population] = true;
-                updateUsersVisibility();
-            }
-
-            function updateUsersVisibility() {
-                var allPopulationLoaded = populations.every(function(population) {
-                    return populationLoaded[population];
-                });
-                if (allPopulationLoaded) {
-                    $scope.showUsers = true;
-                    $timeout(function() {
-                        usersInitialized = true;
-                    });
-                }
-
             }
 
             function formatDatas(datas) {

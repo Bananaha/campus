@@ -204,6 +204,28 @@
     }
 }, {
     "request": {
+        "url": "/formations/update",
+        "query": {
+            "id": "fakeidAccompagnement"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/formationsUpdate-ACCOMPAGNEMENT.json"
+    }
+}, {
+    "request": {
+        "url": "/formations/update",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
         "url": "/formations$",
         "query": {
             "id": "fakeidCIF"

@@ -18,7 +18,8 @@
             label: 'Accompagnement',
             id: 'accompagnement',
             abbr: 'Acc.',
-            isSession: true
+            isSession: true,
+            showCost: true
         }]
     );
 

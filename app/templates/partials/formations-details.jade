@@ -18,5 +18,33 @@ include ../mixins/main
             span.actionDetails-label {{item.label}}
             span.actionDetails-value {{item.value}}
 
+  .col-1-2(ng-if="hasUsers")
+    .module-card
+      .module-header
+        h2 Stagiaires
 
+      user-list(users="participants.stagiaires")
 
+  .col-1-2(ng-if="hasUsers")
+    .module-card
+      .module-header
+        h2 Formateurs
+
+      user-list(users="participants.formateurs")
+
+  .col-1(ng-if="showCost")
+    .module-card
+      .module-header
+        h2 Coût de l'accompagnement
+      accompagnement-cout(ng-if="formation.cout",
+        model="formation.cout",
+        population="participants")
+      .grid
+        .col-1-2(ng-if="formation.cout")
+          .accompagnement-cout
+            span.accompagnement-cout-label Coût salarial
+            span.accompagnement-cout-number {{formation.cout.salarial}}€
+        .col-1-2(ng-if="formation.cout")
+          .accompagnement-cout
+            span.accompagnement-cout-label Coût pédagogique
+            span.accompagnement-cout-number {{formation.cout.pedagogique}}€

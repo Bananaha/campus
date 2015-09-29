@@ -18,8 +18,9 @@
                 "utilisateursCreation": "http://localhost:8882/utilisateurs/insert",
                 "formations": "http://localhost:8882/formations",
                 "formationsDetails": "http://localhost:8882/formations",
+                "formationsModification": "http://localhost:8882/formations/update",
                 "archives": "http://localhost:8882/archives",
-                "utilisateursList": "http://localhost:8882/utilisateurs",
+                "utilisateursSearch": "http://localhost:8882/utilisateurs",
                 "getUtilisateurs": "http://localhost:8882/getUsers"
             }
         }

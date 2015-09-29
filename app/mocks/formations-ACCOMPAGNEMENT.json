@@ -11,8 +11,10 @@
     "produit": "FTN",
     "from": 1441749600000,
     "to": 1442440800000,
-    "participants" : ["156", "648", "654", "467", "36"],
-    "formateurs": ["345", "121"],
+    "participants": {
+        "stagiaires" : ["156", "648", "654", "467", "36"],
+        "formateurs": ["345", "121"]
+    },
     "cout": {
         "salarial": 8437,
         "pedagogique": 7915

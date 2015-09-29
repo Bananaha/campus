@@ -5,7 +5,8 @@
             $timeout,
             $window,
             $http,
-            config
+            config,
+            utilisateursService
         ) {
             return {
                 restrict: 'E',
@@ -18,13 +19,19 @@
                     var changeTimeout,
                         blurTimeout,
                         blurDelay = 100,
-                        changeDelay = 500;
+                        changeDelay = 300;
 
                     $scope.users = [];
 
                     $scope.showSearchList = false;
 
                     $scope.selectedUsers = $scope.selectedUsers || [];
+
+                    if ($scope.selectedUsers.length) {
+                        getInitialUsers();
+                    } else {
+                        $scope.ready = true;
+                    }
 
                     $scope.onChange = function() {
                         $scope.users = [];
@@ -75,11 +82,33 @@
                         $scope.users = [];
                     }
 
+                    function getInitialUsers() {
+                        var idOnly = $scope.selectedUsers.every(function(user) {
+                                return !angular.isObject(user);
+                            });
+                        if (idOnly) {
+                            getUsers($scope.selectedUsers);
+                        } else {
+                            $scope.ready = true;
+                        }
+                    }
+
+                    function getUsers(ids) {
+                        utilisateursService
+                            .getUsers(ids)
+                            .then(onGetUsers);
+                    }
+
+                    function onGetUsers(res) {
+                        $scope.selectedUsers = res.data;
+                        $scope.ready = true;
+                    }
+
                     function search() {
                         loading(true);
                         $http({
                                 method: 'GET',
-                                url: config.urls.userList,
+                                url: config.urls.utilisateursSearch,
                                 params: { search: $scope.search }
                             })
                             .then(onSearchRequestSuccess, onSearchRequestError);

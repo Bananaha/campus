@@ -1,6 +1,6 @@
 include ../mixins/main
 
-.userList-container
+.userList-container(ng-if="ready")
   .searchBox
     +form-underlined()
       input.userList-input(type="search",
