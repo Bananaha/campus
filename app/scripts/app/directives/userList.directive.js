@@ -12,7 +12,8 @@
                 restrict: 'E',
                 templateUrl: 'utilisateurs-list.html',
                 scope: {
-                    selectedUsers: '=users'
+                    selectedUsers: '=users',
+                    frozen: '=frozen'
                 },
                 link: function ($scope, element) {
 
@@ -26,6 +27,8 @@
                     $scope.showSearchList = false;
 
                     $scope.selectedUsers = $scope.selectedUsers || [];
+
+                    $scope.displayedUsers = [];
 
                     if ($scope.selectedUsers.length) {
                         getInitialUsers();
@@ -61,7 +64,8 @@
                         if (!$scope.selectedUsers.some(function(_user) {
                             return _user.id === user.id;
                         })) {
-                            $scope.selectedUsers.push(user);
+                            $scope.selectedUsers.push(user.id);
+                            $scope.displayedUsers.push(user);
                             $scope.showSearchList = false;
                         }
                         reinitSearch();
@@ -69,8 +73,14 @@
 
                     $scope.removeUser = function(id) {
                         var i = 0;
+                        for (i = 0; i < $scope.displayedUsers.length; i++) {
+                            if ($scope.displayedUsers[i].id === id) {
+                                $scope.displayedUsers.splice(i, 1);
+                                break;
+                            }
+                        }
                         for (i = 0; i < $scope.selectedUsers.length; i++) {
-                            if ($scope.selectedUsers[i].id === id) {
+                            if ($scope.selectedUsers[i] === id) {
                                 $scope.selectedUsers.splice(i, 1);
                                 break;
                             }
@@ -100,7 +110,7 @@
                     }
 
                     function onGetUsers(res) {
-                        $scope.selectedUsers = res.data;
+                        $scope.displayedUsers = res.data;
                         $scope.ready = true;
                     }
 

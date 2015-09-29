@@ -1,5 +1,10 @@
 include ../mixins/main
 
+mixin formation-list(label, model)
+  li(ng-if=model)
+    span.actionDetails-label= label
+    span.actionDetails-value= '{{' + model + '}}'
+
 .grid.pad
 
   .col-1
@@ -11,34 +16,38 @@ include ../mixins/main
           .affix-target
             p.actionDetails-id \#{{formation.action}} - {{formation.auteur}}
             h2 {{formation.intitule}}
-            a(ng-href="#/formations/{{formation.id}}/modifier").module-header-action.btnIcon.circle.big.modify
+            a(ng-href="#/formations/{{formation.id}}/modifier"
+              ng-if="!formation.archive").module-header-action.btnIcon.circle.big.modify
+            button(ng-if="formation.archive",
+              ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
 
         ul.actionDetails-list
-          li(ng-repeat="item in formation.list")
-            span.actionDetails-label {{item.label}}
-            span.actionDetails-value {{item.value}}
+          +formation-list("Type", "formation.type")
+          +formation-list("Client", "formation.client")
+          +formation-list("Durée", "formation.duree")
+          +formation-list("Activité", "formation.activite")
+          +formation-list("Produit", "formation.produit")
+          +formation-list("Date de début", "formation.from")
+          +formation-list("Date de fin", "formation.to")
 
   .col-1-2(ng-if="hasUsers")
     .module-card
       .module-header
         h2 Stagiaires
 
-      user-list(users="participants.stagiaires")
+      user-list(users="participants.stagiaires", frozen="formation.archive")
 
   .col-1-2(ng-if="hasUsers")
     .module-card
       .module-header
         h2 Formateurs
 
-      user-list(users="participants.formateurs")
+      user-list(users="participants.formateurs", frozen="formation.archive")
 
   .col-1(ng-if="showCost")
     .module-card
       .module-header
         h2 Coût de l'accompagnement
-      accompagnement-cout(ng-if="formation.cout",
-        model="formation.cout",
-        population="participants")
       .grid
         .col-1-2(ng-if="formation.cout")
           .accompagnement-cout

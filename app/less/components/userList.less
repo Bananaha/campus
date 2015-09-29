@@ -74,6 +74,11 @@
     border-top-left-radius: @userList-button-radius;
     border-bottom-left-radius: @userList-button-radius;
     border-right: none;
+
+    .frozen & {
+        border: 1px solid @color-border;
+        border-radius: @userList-button-radius;
+    }
 }
 
 .userList-remove {

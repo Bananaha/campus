@@ -13,35 +13,13 @@
             config,
             utilisateursService,
             dbActionsService,
-            actionsService
+            actionsService,
+            formatterService
         ) {
 
             var changeTimeout,
-                populations = ['formateurs', 'stagiaires'],
-                listKeys = [{
-                    label: 'Type',
-                    key: 'type'
-                }, {
-                    label: 'Client',
-                    key: 'client'
-                }, {
-                    label: 'Durée',
-                    key: 'duree'
-                }, {
-                    label: 'Activité',
-                    key: 'activite'
-                }, {
-                    label: 'Produit',
-                    key: 'produit'
-                }, {
-                    label: 'Date de début',
-                    key: 'from',
-                    date: true
-                }, {
-                    label: 'Date de fin',
-                    key: 'to',
-                    date: true
-                }];
+                initialized,
+                populations = ['formateurs', 'stagiaires'];
 
             $scope.participants = {
                 stagiaires: [],
@@ -59,9 +37,16 @@
 
             $scope.$watch('participants', onParticipantsChange, true);
 
+            $timeout(function() {
+                initialized = true
+            });
+
             function onParticipantsChange() {
-                $timeout.cancel(changeTimeout);
-                changeTimeout = $timeout(saveUsers, 200);
+                if (initialized) {
+                    console.log('onParticipantsChange');
+                    $timeout.cancel(changeTimeout);
+                    changeTimeout = $timeout(saveUsers, 200);
+                }
             }
 
             function saveUsers() {
@@ -110,27 +95,7 @@
             }
 
             function formatDatas(datas) {
-                var scope = {};
-                scope.id = datas.id;
-                scope.intitule = datas.intitule;
-                scope.action = datas.action;
-                scope.auteur = datas.auteur;
-                scope.cout = datas.cout;
-
-                scope.list = listKeys.map(function(obj) {
-                    var value;
-                    if (datas[obj.key]) {
-                        value = datas[obj.key];
-                        if (obj.date) {
-                            value = moment(value).format('DD/MM/YYYY');
-                        }
-                        return {
-                            label: obj.label,
-                            value: value
-                        };
-                    }
-                });
-                return scope;
+                return formatterService.format(datas);
             }
 
         });
