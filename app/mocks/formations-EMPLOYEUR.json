@@ -5,16 +5,15 @@
     "action": 598,
     "intitule": "ad proident occaecat labore cillum sint",
     "auteur": "Stark",
+    "entite": "B2S AIX",
+    "dcreation":"10/10/2012",
     "client": "Banana company",
-    "duree": 20,
     "activite": "AE",
-    "produit": "FTN",
-    "from": 1441749600000,
-    "to": 1442440800000,
-    "participants" : ["156", "648", "654", "467", "36"],
-    "formateurs": ["345", "121"],
-    "cout": {
-        "salarial": 8437,
-        "pedagogique": 7915
-    }
+    "produit": "IceCream factory",
+    "interneExterne": "Interne", 
+    "organisme": "Forma Company",
+    "population": "Téléconseillers",
+    "objectif": "Faire des glaces à l'italienne",
+    "contenu": "Connaitre les ingrédients, la recette",
+    "prerequis": "Aimer les glaces",
 }
