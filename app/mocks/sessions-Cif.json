@@ -1,0 +1,40 @@
+{
+    "id": "59fc02f66b4c7db8b27cadda",
+    "archive": false,
+    "action": 598,
+    "auteur": "Stark",
+    "dcreation":"10/10/2012",
+    "entite": "B2S AIX",
+    "categorie": "Formation continue",
+    "organisme": "Interne", 
+    "nomOrganisme": "Forma Company",
+    "horaireSouhaite": "PTT",
+    "dureeHeure": 20,
+    "dureeMois": 12,
+    "HeuresMois": 2.5,
+
+    "from": 1441749600000,
+    "to": 1442440800000,
+    "devis": 10000,
+    "nom": "Perry",
+    "prénom": "Kathy",
+    "matricule": 1000234,
+    "dateDemande": 1441749600000,
+    "dateButoir": 1441749600012,
+    "temps": "Temps complet",
+    "validation": "Formation certifiante",
+    "validationComment": "Expert glace d'état",
+    "avisEmployeur": "Acceptée",
+    "dateAvisEmployeur":1441749600000,
+    "motifEmployeur":"nop",
+    "avisFongecif": "Acceptée",
+    "dateAvisFongecif":1441749600000,
+    "motifFongecif":"nop",
+
+    "dureeAccepteeFongecif": 19,
+    "reprisePoste": "oui",
+    "mttSalairePc": 1234,
+
+
+    
+    
