@@ -43,7 +43,7 @@ function concatArrays(datas) {
     var mergedJson = Object.keys(datas).reduce(function(arr, key) {
         return arr.concat(datas[key]);
     }, []);
-    return new Buffer(JSON.stringify(mergedJson));
+    return new Buffer(JSON.stringify(mergedJson, null, 3));
 }
 
 gulp.task('stubbyConf', function() {

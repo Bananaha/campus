@@ -46,53 +46,6 @@
         "fpspp": 0,
         "autres": 234
     },
-    "imputation": {
-        "sessionCours": {
-            "sessionCoursPlan": 20000,
-            "sessionCoursDirect": 20000,
-            "sessionCoursPro": 20000,
-            "sessionCoursCpf": 20000,
-            "sessionCoursCif": 20000,
-            "sessionCoursFpspp": 20000,
-            "sessionCoursAutre": 20000
-        },
-        "sessionArchivees": {
-            "sessionCoursPlan": 20000,
-            "sessionCoursDirect": 20000,
-            "sessionCoursPro": 20000,
-            "sessionCoursCpf": 20000,
-            "sessionCoursCif": 20000,
-            "sessionCoursFpspp": 20000,
-            "sessionCoursAutre": 20000
-        },
-        "sessionCours": {
-            "sessionArchiveesPlan": 20000,
-            "sessionArchiveesDirect": 20000,
-            "sessionArchiveesPro": 20000,
-            "sessionArchiveesCpf": 20000,
-            "sessionArchiveesCif": 20000,
-            "sessionArchiveesFpspp": 20000,
-            "sessionArchiveesAutre": 20000
-        },
-        "obligation": {
-            "obligationPlan": 20000,
-            "obligationDirect": 20000,
-            "obligationPro": 20000,
-            "obligationCpf": 20000,
-            "obligationCif": 20000,
-            "obligationFpspp": 20000,
-            "obligationAutre": 20000
-        },
-        "solde": {
-            "soldePlan": 20000,
-            "soldeDirect": 20000,
-            "soldePro": 20000,
-            "soldeCpf": 20000,
-            "soldeCif": 20000,
-            "soldeFpspp": 20000,
-            "soldeAutre": 20000
-        }
-    },
     "montantEncaisse": {
         "plan": 0,
         "pro": 0,
