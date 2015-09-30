@@ -4,7 +4,9 @@ var path = require('path'),
     runSequence = require('run-sequence'),
     browserSync = require('browser-sync'),
     config = require('./config.js'),
-    serve = require('gulp-serve');
+    serve = require('gulp-serve'),
+
+    extend = require('gulp-extend');
 
 gulp.task('server', function () {
     browserSync({
@@ -35,6 +37,17 @@ gulp.task('watch', function () {
     gulp.watch(path.join(config.src, '**', '*.jade'), ['views', 'scripts-templates']);
     gulp.watch(path.join(config.src, 'less', '**', '*.less'), infrequentChangesOpts, ['styles']);
     gulp.watch(path.join(config.src, 'assets', '**'), ['assets']);
+});
+
+function test() {
+    console.log('test');
+    return true;
+}
+
+gulp.task('stubbyConf', function() {
+    return gulp.src(path.join(config.stubbyConfPath, '**', '*.json'))
+        .pipe(extend('app/config/stubby.json'))
+        .pipe(gulp.dest('app/config'));
 });
 
 gulp.task('stubby', function (cb) {

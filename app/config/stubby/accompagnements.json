@@ -1,0 +1,62 @@
+[{
+    "request": {
+        "url": "/accompagnements$",
+        "query": {
+            "id": "^$"
+        }
+    },
+    "response": {
+        "file": "app/mocks/accompagnements.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnements/insert",
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/accompagnementsCreation.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnements$",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        }
+    },
+    "response": {
+        "file": "app/mocks/accompagnementsDetails.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnements/update",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/accompagnementsUpdate.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnements/archiver",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
+        "url": "/accompagnements/supprimer",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/noop.json"
+    }
+}]

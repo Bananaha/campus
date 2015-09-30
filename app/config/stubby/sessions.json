@@ -1,0 +1,13 @@
+[{
+    "request": {
+        "url": "/sessions$",
+        "query": {
+            "id": "^$",
+            "ids": "^$",
+            "action": "fakeidEmployeur"
+        }
+    },
+    "response": {
+        "file": "app/mocks/sessions-EMPLOYEUR.json"
+    }
+}]

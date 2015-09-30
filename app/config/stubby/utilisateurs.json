@@ -1,0 +1,73 @@
+[{
+    "request": {
+        "url": "/utilisateurs$",
+        "query": {
+            "id": "^$",
+            "ids": "^$",
+            "search": "^$"
+        }
+    },
+    "response": {
+        "file": "app/mocks/utilisateurs.json"
+    }
+}, {
+    "request": {
+        "url": "/utilisateurs$",
+        "query": {
+            "ids": "^[a-zA-Z0-9]"
+        }
+    },
+    "response": {
+        "file": "app/mocks/getUtilisateurs.json"
+    }
+}, {
+    "request": {
+        "url": "/utilisateurs$",
+        "query": {
+            "search": "^[a-zA-Z0-9]"
+        }
+    },
+    "response": {
+        "file": "app/mocks/utilisateursList.json"
+    }
+}, {
+    "request": {
+        "url": "/utilisateurs$",
+        "query": {
+            "id": "^[a-zA-Z0-9]"
+        }
+    },
+    "response": {
+        "file": "app/mocks/utilisateursDetails.json"
+    }
+}, {
+    "request": {
+        "url": "/utilisateurs/update$",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
+        "url": "/utilisateurs/insert",
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/utilisateursCreation.json"
+    }
+}, {
+    "request": {
+        "url": "/utilisateurs/supprimer",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/noop.json"
+    }
+}]

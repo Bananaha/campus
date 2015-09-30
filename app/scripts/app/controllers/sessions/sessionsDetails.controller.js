@@ -15,7 +15,8 @@
             formatterService
         ) {
 
-            var ID = $routeParams.id;
+            var initialized,
+                ID = $routeParams.id;
 
             $scope.participants = {
                 stagiaires: [],
@@ -89,7 +90,7 @@
             }
 
             function onGetDetailError() {
-                $location.url('/formations');
+                // $location.url('/formations');
             }
 
             function formatDatas(datas) {

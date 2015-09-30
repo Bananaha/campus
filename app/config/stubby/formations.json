@@ -1,0 +1,86 @@
+[{
+    "request": {
+        "url": "/formations$",
+        "query": {
+            "id": "^$",
+            "ids": "^$",
+            "search": "^$"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations.json"
+    }
+}, {
+    "request": {
+        "url": "/formations/update",
+        "query": {
+            "id": "fakeidAccompagnement"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/formationsUpdate-ACCOMPAGNEMENT.json"
+    }
+}, {
+    "request": {
+        "url": "/formations/update",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
+        "url": "/formations/desarchiver",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
+        "url": "/formations$",
+        "query": {
+            "id": "fakeidCIF"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations-CIF.json"
+    }
+}, {
+    "request": {
+        "url": "/formations$",
+        "query": {
+            "id": "fakeidCPF"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations-CPF.json"
+    }
+}, {
+    "request": {
+        "url": "/formations$",
+        "query": {
+            "id": "fakeidEmployeur"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations-EMPLOYEUR.json"
+    }
+}, {
+    "request": {
+        "url": "/formations$",
+        "query": {
+            "id": "fakeidAccompagnement"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations-ACCOMPAGNEMENT.json"
+    }
+}]

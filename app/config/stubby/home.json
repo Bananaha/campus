@@ -1,0 +1,41 @@
+[{
+    "request": {
+        "url": "/lastSessions",
+        "method": "GET"
+    },
+    "response": {
+        "file": "app/mocks/last-sessions.json"
+    }
+}, {
+    "request": {
+        "url": "/suiviBudget",
+        "method": "GET"
+    },
+    "response": {
+        "file": "app/mocks/suivi-budget.json"
+    }
+}, {
+    "request": {
+        "url": "/reporting",
+        "method": "GET"
+    },
+    "response": {
+        "file": "app/mocks/reporting.json"
+    }
+}, {
+    "request": {
+        "url": "/indicateurs",
+        "method": "GET"
+    },
+    "response": {
+        "file": "app/mocks/indicateurs.json"
+    }
+}, {
+    "request": {
+        "url": "/documentation",
+        "method": "GET"
+    },
+    "response": {
+        "file": "app/mocks/documentation.json"
+    }
+}]

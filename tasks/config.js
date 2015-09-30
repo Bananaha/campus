@@ -12,5 +12,5 @@ module.exports = {
     src: 'app',
     dist: 'dist',
     appConfPath: 'app/config/appConfig.json',
-    stubbyConf: require('../app/config/stubby.json'),
+    stubbyConfPath: 'app/config/stubby/'
 };
