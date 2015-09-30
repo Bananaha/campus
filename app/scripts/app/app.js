@@ -71,6 +71,17 @@
                     templateUrl: basePath + 'archives.html',
                     controller: 'archivesController'
                 }).
+                when('/sessions', {
+                    redirectTo: '/formations'
+                }).
+                when('/sessions/:id', {
+                    templateUrl: basePath + 'sessions-details.html',
+                    controller: 'sessionsDetailsController'
+                }).
+                when('/sessions/:id/modifier', {
+                    templateUrl: basePath + 'sessions-modifier.html',
+                    controller: 'sessionsModifierController'
+                }).
                 otherwise({
                     redirectTo: '/home'
                 });

@@ -9,6 +9,7 @@
             $q,
             scrollEventService,
             dbActionsService,
+            formatterService,
             PERMISSIONS,
             ACTIONS
         ) {
@@ -75,6 +76,9 @@
                             case 'formation':
                                 $location.url('formations/' + item.id);
                             break;
+                            case 'session':
+                                $location.url('sessions/' + item.id);
+                            break;
                         }
                     };
 
@@ -106,6 +110,9 @@
 
                     function init() {
                         $scope.$watch('filters', filters, true);
+                        if ($scope.config.params) {
+                            $scope.$watch('config.params', filters, true);
+                        }
                         reinitDatas();
                         config = angular.extend(config, $scope.config);
                         config = formatConfig(config);
@@ -125,7 +132,6 @@
                                 return;
                             }
                         }
-
                     }
 
                     function disableItem(id) {
@@ -188,15 +194,18 @@
                     }
 
                     function getDatas() {
-                        var params = {
-                            from: config.currentPage,
-                            size: config.itemPerPage
-                        };
+                        var params = $scope.config.params ? angular.copy($scope.config.params) : {},
+                            configParams = {
+                                from: config.currentPage,
+                                size: config.itemPerPage
+                            };
+
                         if (isLoading && requestPromise) {
                             requestPromise.resolve();
                         }
                         loading(true);
-                        params = getFiltersParams(params);
+
+                        angular.extend(params, getFiltersParams(configParams));
 
                         requestPromise = $q.defer();
 
@@ -245,7 +254,7 @@
                                     return action.id === d.type;
                                 })[0].abbr;
                             }
-                            return d;
+                            return formatterService.format(d);
                         });
                     }
 

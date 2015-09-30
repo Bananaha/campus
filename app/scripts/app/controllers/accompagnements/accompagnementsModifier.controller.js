@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('campus.app')
-    .controller('formationsModifierController',
+    .controller('accompagnementsModifierController',
         function (
             $scope,
             $http,
@@ -10,12 +10,13 @@
             $routeParams,
             $route,
             $location,
+            formatterService,
             config
         ) {
 
             $http({
                     method: 'GET',
-                    url: config.urls.formationsDetails,
+                    url: config.urls.accompagnementsDetails,
                     params: {
                         id: $routeParams.id
                     }
@@ -27,16 +28,11 @@
             }
 
             function onGetRequestError() {
-                $location.url('/formations');
+                $location.url('/accompagnements');
             }
 
             function formatDatas(datas) {
-                ['from', 'to'].forEach(function(key) {
-                    if (datas[key]) {
-                        datas[key] = new Date(datas[key]);
-                    }
-                });
-                return datas;
+                return formatterService.format(datas);
             }
 
         });

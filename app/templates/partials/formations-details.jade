@@ -36,6 +36,21 @@ mixin formation-list(label, model)
           +formation-list("Contenu", "formation.contenu")
           +formation-list("Prérequis", "formation.prerequis")
 
+  .col-1(ng-if="hasSessions")
+    .module-card
+      .module-header
+        h2 Sessions
+        button(type="button",
+          ng-if="!table.config.params.archives",
+          ng-click="toggleSessionArchives()").btn Voir les sessions archivées
+        button(type="button",
+          ng-if="table.config.params.archives",
+          ng-click="toggleSessionArchives()").btn Masquer les sessions archivées
+
+      div(affix, affix-offset=96)
+        .table.listed(table="table.config",
+          table-filters="table.filters")
+
   .col-1-2(ng-if="hasUsers")
     .module-card
       .module-header

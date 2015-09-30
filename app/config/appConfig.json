@@ -7,21 +7,26 @@
                 "accompagnementsDetails": "http://localhost:8882/accompagnements",
                 "accompagnementsModification": "http://localhost:8882/accompagnements/update",
                 "accompagnementsCout": "http://localhost:8882/accompagnementCout",
+
                 "lastSessions": "http://localhost:8882/lastSessions",
                 "suiviBudget": "http://localhost:8882/suiviBudget",
                 "reporting": "http://localhost:8882/reporting",
                 "indicateurs": "http://localhost:8882/indicateurs",
                 "documentation": "http://localhost:8882/documentation",
+
                 "utilisateurs": "http://localhost:8882/utilisateurs",
                 "utilisateursModification": "http://localhost:8882/utilisateurs/update",
                 "utilisateursDetails": "http://localhost:8882/utilisateurs",
                 "utilisateursCreation": "http://localhost:8882/utilisateurs/insert",
+                "utilisateursSearch": "http://localhost:8882/utilisateurs",
+                "getUtilisateurs": "http://localhost:8882/getUsers",
+
                 "formations": "http://localhost:8882/formations",
                 "formationsDetails": "http://localhost:8882/formations",
                 "formationsModification": "http://localhost:8882/formations/update",
                 "archives": "http://localhost:8882/archives",
-                "utilisateursSearch": "http://localhost:8882/utilisateurs",
-                "getUtilisateurs": "http://localhost:8882/getUsers"
+
+                "sessions": "http://localhost:8882/sessions"
             }
         }
     },

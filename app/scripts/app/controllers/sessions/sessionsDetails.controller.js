@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('campus.app')
-    .controller('formationsDetailsController',
+    .controller('sessionsDetailsController',
         function (
             $scope,
             $http,
@@ -15,9 +15,7 @@
             formatterService
         ) {
 
-            var changeTimeout,
-                initialized,
-                populations = ['formateurs', 'stagiaires'];
+            var ID = $routeParams.id;
 
             $scope.participants = {
                 stagiaires: [],
@@ -26,9 +24,9 @@
 
             $http({
                     method: 'GET',
-                    url: config.urls.formationsDetails,
+                    url: config.urls.sessionsDetails,
                     params: {
-                        id: $routeParams.id
+                        id: ID
                     }
                 })
                 .then(onGetDetailSuccess, onGetDetailError);
@@ -40,15 +38,15 @@
             });
 
             $scope.unarchive = function() {
-                if ($scope.formation.archive) {
+                if ($scope.session.archive) {
                     dbActionsService
-                        .unarchive(config.urls.formations, $routeParams.id)
+                        .unarchive(config.urls.sessions, ID)
                         .then(onUnarchive);
                 }
             }
 
             function onUnarchive() {
-                $scope.formation.archive = false;
+                $scope.session.archive = false;
             }
 
             function onParticipantsChange() {
@@ -61,7 +59,7 @@
 
             function saveUsers() {
                 var params = {
-                    id: $routeParams.id
+                    id: ID
                 };
                 populations.forEach(function(key) {
                     params[key] = $scope.participants[key].map(function(user) {
@@ -69,35 +67,25 @@
                     });
                 });
                 dbActionsService
-                    .update(config.urls.formationsModification, params)
+                    .update(config.urls.sessionsModification, params)
                     .then(onUpdateSuccess, onUpdateError);
             }
 
             function onUpdateSuccess(res) {
                 if (res.data && res.data.cout) {
-                    $scope.formation.cout = res.data.cout;
+                    $scope.session.cout = res.data.cout;
                 }
             }
 
             function onUpdateError() {
-                $scope.formation.cout = {
+                $scope.session.cout = {
                     pedagogique: '-',
                     salarial: '-'
                 };
             }
 
             function onGetDetailSuccess(res) {
-                var actionConfig = actionsService.getConfig(res.data.type);
-                $scope.formation = formatDatas(res.data);
-
-                if (actionConfig.isSession) {
-                    $scope.hasUsers = true;
-                    $scope.participants = res.data.participants;
-                }
-
-                if (actionConfig.showCost) {
-                    $scope.showCost = true;
-                }
+                $scope.session = formatDatas(res.data);
             }
 
             function onGetDetailError() {
