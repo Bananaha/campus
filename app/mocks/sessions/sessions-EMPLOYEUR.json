@@ -1,6 +1,6 @@
 [
   {
-    "id": "560ba86c36b7f97cbdc4d936",
+    "id": "fakeIdEmployeur",
     "reference": "labore S5",
     "archive": false,
     "auteurNom": "Green",
@@ -10,7 +10,7 @@
     "to": 1442440800000
   },
   {
-    "id": "560ba86caecdc3e1dadb71d4",
+    "id": "fakeIdEmployeur",
     "reference": "sit S13",
     "archive": false,
     "auteurNom": "Farley",
@@ -20,7 +20,7 @@
     "to": 1442440800000
   },
   {
-    "id": "560ba86c7fcbf8bce3073243",
+    "id": "fakeIdEmployeur",
     "reference": "esse S15",
     "archive": false,
     "auteurNom": "Perez",
@@ -30,7 +30,7 @@
     "to": 1442440800000
   },
   {
-    "id": "560ba86c6e86593395d3d2f2",
+    "id": "fakeIdEmployeur",
     "reference": "incididunt S34",
     "archive": false,
     "auteurNom": "Weiss",
@@ -40,7 +40,7 @@
     "to": 1442440800000
   },
   {
-    "id": "560ba86ce2c835b6fd48d9a7",
+    "id": "fakeIdEmployeur",
     "reference": "laboris S19",
     "archive": false,
     "auteurNom": "Becker",

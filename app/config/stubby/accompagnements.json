@@ -6,7 +6,7 @@
         }
     },
     "response": {
-        "file": "app/mocks/accompagnements.json"
+        "file": "app/mocks/accompagnements/accompagnements.json"
     }
 }, {
     "request": {
@@ -14,7 +14,7 @@
         "method": "POST"
     },
     "response": {
-        "file": "app/mocks/accompagnementsCreation.json"
+        "file": "app/mocks/accompagnements/accompagnementsCreation.json"
     }
 }, {
     "request": {
@@ -24,7 +24,7 @@
         }
     },
     "response": {
-        "file": "app/mocks/accompagnementsDetails.json"
+        "file": "app/mocks/accompagnements/accompagnementsDetails.json"
     }
 }, {
     "request": {
@@ -35,7 +35,7 @@
         "method": "POST"
     },
     "response": {
-        "file": "app/mocks/accompagnementsUpdate.json"
+        "file": "app/mocks/accompagnements/accompagnementsUpdate.json"
     }
 }, {
     "request": {

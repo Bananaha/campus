@@ -8,7 +8,7 @@
         }
     },
     "response": {
-        "file": "app/mocks/utilisateurs.json"
+        "file": "app/mocks/utilisateurs/utilisateurs.json"
     }
 }, {
     "request": {
@@ -18,7 +18,7 @@
         }
     },
     "response": {
-        "file": "app/mocks/getUtilisateurs.json"
+        "file": "app/mocks/utilisateurs/getUtilisateurs.json"
     }
 }, {
     "request": {
@@ -28,7 +28,7 @@
         }
     },
     "response": {
-        "file": "app/mocks/utilisateursList.json"
+        "file": "app/mocks/utilisateurs/utilisateursList.json"
     }
 }, {
     "request": {
@@ -38,7 +38,7 @@
         }
     },
     "response": {
-        "file": "app/mocks/utilisateursDetails.json"
+        "file": "app/mocks/utilisateurs/utilisateursDetails.json"
     }
 }, {
     "request": {
@@ -57,7 +57,7 @@
         "method": "POST"
     },
     "response": {
-        "file": "app/mocks/utilisateursCreation.json"
+        "file": "app/mocks/utilisateurs/utilisateursCreation.json"
     }
 }, {
     "request": {

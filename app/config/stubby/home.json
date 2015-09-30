@@ -4,7 +4,7 @@
         "method": "GET"
     },
     "response": {
-        "file": "app/mocks/last-sessions.json"
+        "file": "app/mocks/home/last-sessions.json"
     }
 }, {
     "request": {
@@ -12,7 +12,7 @@
         "method": "GET"
     },
     "response": {
-        "file": "app/mocks/suivi-budget.json"
+        "file": "app/mocks/home/suivi-budget.json"
     }
 }, {
     "request": {
@@ -20,7 +20,7 @@
         "method": "GET"
     },
     "response": {
-        "file": "app/mocks/reporting.json"
+        "file": "app/mocks/home/reporting.json"
     }
 }, {
     "request": {
@@ -28,7 +28,7 @@
         "method": "GET"
     },
     "response": {
-        "file": "app/mocks/indicateurs.json"
+        "file": "app/mocks/home/indicateurs.json"
     }
 }, {
     "request": {
@@ -36,6 +36,6 @@
         "method": "GET"
     },
     "response": {
-        "file": "app/mocks/documentation.json"
+        "file": "app/mocks/home/documentation.json"
     }
 }]

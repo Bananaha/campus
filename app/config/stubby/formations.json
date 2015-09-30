@@ -8,7 +8,7 @@
         }
     },
     "response": {
-        "file": "app/mocks/formations.json"
+        "file": "app/mocks/formations/formations.json"
     }
 }, {
     "request": {
@@ -19,7 +19,7 @@
         "method": "POST"
     },
     "response": {
-        "file": "app/mocks/formationsUpdate-ACCOMPAGNEMENT.json"
+        "file": "app/mocks/formations/formationsUpdate-ACCOMPAGNEMENT.json"
     }
 }, {
     "request": {
@@ -51,7 +51,7 @@
         }
     },
     "response": {
-        "file": "app/mocks/formations-CIF.json"
+        "file": "app/mocks/formations/formations-CIF.json"
     }
 }, {
     "request": {
@@ -61,7 +61,7 @@
         }
     },
     "response": {
-        "file": "app/mocks/formations-CPF.json"
+        "file": "app/mocks/formations/formations-CPF.json"
     }
 }, {
     "request": {
@@ -71,7 +71,7 @@
         }
     },
     "response": {
-        "file": "app/mocks/formations-EMPLOYEUR.json"
+        "file": "app/mocks/formations/formations-EMPLOYEUR.json"
     }
 }, {
     "request": {
@@ -81,6 +81,6 @@
         }
     },
     "response": {
-        "file": "app/mocks/formations-ACCOMPAGNEMENT.json"
+        "file": "app/mocks/formations/formations-ACCOMPAGNEMENT.json"
     }
 }]

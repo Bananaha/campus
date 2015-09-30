@@ -8,16 +8,16 @@
         }
     },
     "response": {
-        "file": "app/mocks/sessions-EMPLOYEUR.json"
+        "file": "app/mocks/sessions/sessions-EMPLOYEUR.json"
     }
 }, {
     "request": {
         "url": "/sessions$",
         "query": {
-            "id": "^[0-9a-zA-Z]"
+            "id": "fakeIdEmployeur"
         }
     },
     "response": {
-        "file": "app/mocks/sessionsDetails-EMPLOYEUR.json"
+        "file": "app/mocks/sessions/sessionsDetails-EMPLOYEUR.json"
     }
 }]
