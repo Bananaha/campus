@@ -8,10 +8,8 @@
             $http,
             $timeout,
             $routeParams,
-            $route,
             $location,
             config,
-            utilisateursService,
             dbActionsService,
             actionsService,
             formatterService
@@ -40,6 +38,18 @@
             $timeout(function() {
                 initialized = true
             });
+
+            $scope.unarchive = function() {
+                if ($scope.formation.archive) {
+                    dbActionsService
+                        .unarchive(config.urls.formations, $routeParams.id)
+                        .then(onUnarchive);
+                }
+            }
+
+            function onUnarchive() {
+                $scope.formation.archive = false;
+            }
 
             function onParticipantsChange() {
                 if (initialized) {

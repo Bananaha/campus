@@ -125,13 +125,11 @@
                     }
 
                     function onSearchRequestSuccess(res) {
-                        $timeout(function() {
-                            if (res.data && res.data.length) {
-                                $scope.showSearchList = true;
-                                $scope.users = res.data.splice(0, 20);
-                            }
-                            loading(false);
-                        }, 2000);
+                        if (res.data && res.data.length) {
+                            $scope.showSearchList = true;
+                            $scope.users = res.data.splice(0, 20);
+                        }
+                        loading(false);
                     }
 
                     function onSearchRequestError() {
