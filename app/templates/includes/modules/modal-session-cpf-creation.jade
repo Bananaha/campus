@@ -3,80 +3,81 @@
         // Module de renseignement de base
         h2.col-1 
             | Cr&#233;ation d"une session CPF "nom de l"action"
-        .col-1-3.group      
-            input(type="text" required)
-            span.bar
-            label Matricule
-        .col-1-3.group      
-            input(type="text" required)
-            span.bar
-            label Nom
-        .col-1-3.group      
-            input(type="text" required)
-            span.bar
-            label Pr&#233;nom :
-        .col-1-3.group      
-            input(type="text" required)
-            span.bar
-            label text de la demande
-        .col-1-3.group      
-            input(type="text" required)
-            span.bar
-            label text butoir :
-        .col-1-3.group      
-            input(type="number" required)
-            span.bar
-            label Nombre d'hres CPF utilis&#233;es
+        .col-1-3    
+            +form-underlined("Matricule")
+                input(type="text" required)
+        .col-1-3    
+            +form-underlined("Nom")
+                input(type="text" required)
         .col-1-3
-            select(name="completPartiel")
-                option(value="value1") --Nature--
-                option(value="value2") Adaptation
-                option(value="value3") D&#233;veloppement
-                option(value="value3") VAE
-                option(value="value3") Bilan de comp&#233;tences
+            +form-underlined("Catégorie")
+                select
+                    option(value="value1") 
+                    option(value="value2") Formation initiale
+                    option(value="value3") Formation continue
+        .col-1-3    
+            +form-underlined("Prénom")
+                input(type="text" required)
+        .col-1-3    
+            +form-underlined("Date de la demande")
+                input(type="date" required)
+        .col-1-3    
+            +form-underlined("Date butoir")
+                input(type="date" required)
+        .col-1-3    
+            +form-underlined("Nombre hrs CPF mobilisé")
+                input(type="number" required)
         .col-1-3
-            select(name="interneExterne")
-                option(value="value1") --Interne/Externe--
-                option(value="value2") Interne
-                option(value="value3") Externe
+            +form-underlined("Nature")
+                select
+                    option(value="value1") 
+                    option(value="value2") Adaptation
+                    option(value="value3") D&#233;veloppement
+                    option(value="value3") VAE
+                    option(value="value3") Bilan de comp&#233;tences
         .col-1-3
-            select(name="pttHtt")
-                option(value="value1") --PTT/HTT--
-                option(value="value2") Pendant le temps de travail
-                option(value="value3") Hors temps de travail
+            +form-underlined("Organisme")
+                select
+                    option(value="value1") 
+                    option(value="value2") Interne
+                    option(value="value3") Externe
+        .col-1-3
+            +form-underlined("Horaire souhaité")
+                select
+                    option(value="value1") 
+                    option(value="value2") Pendant le temps de travail
+                    option(value="value3") Hors temps de travail
         .col-1-2
-            select(name="")
-                option(value="value1") --Validation--
-                option(value="value2") Formation certifiante
-                option(value="value3") Formation qualifiante
-                option(value="value3") Formation dipl&#244;mante
+            +form-underlined("Validation")
+                select
+                    option(value="value1") 
+                    option(value="value2") Formation certifiante
+                    option(value="value3") Formation qualifiante
+                    option(value="value4") Formation dipl&#244;mante
         .col-1-2
-            select(name="")
-                option(value="value1") --Action prioritaire de la branche--
-                option(value="value2") Action prioritaire
-                option(value="value3") Action non prioritaire
-        .col-1-2.group      
-            input(type="number" required)
-            span.bar
-            label Dur&#233;e (heures) :
-        .col-1-2.group      
-            input(type="text" required)
-            span.bar
-            label Organisme de formation
-        .col-1-2.group      
-            input(type="text" required)
-            span.bar
-            label text de d&#233;but
-        .col-1-2.group      
-            input(type="text" required)
-            span.bar
-            label text de fin
+            +form-underlined("Action prioritaire de la branche")
+                select
+                    option(value="value1") 
+                    option(value="value2") Action prioritaire
+                    option(value="value3") Action non prioritaire
+        .col-1-3    
+            +form-underlined("Durée (heure)")
+                input(type="number" required)
+        .col-1-3    
+            +form-underlined("Organisme de formation")
+                input(type="text" required)
+        .col-1-3    
+            +form-underlined("Date de début")
+                input(type="date" required)
+        .col-1-3    
+            +form-underlined("Date de fin")
+                input(type="date" required)
         include module-submit
             // Module d'imputation des coûts
-.pop-in-container
+
     include module-saisie-couts
-.pop-in-container
+
     include modal-suivi-imputations
-.pop-in-container    
+ 
     include module-saisie-financement
             
