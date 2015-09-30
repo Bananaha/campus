@@ -1,114 +1,101 @@
 form
     .grid.pop-in-container
         h2.col-1 Cr&#233;ation d"une session CIF "nom de l"action"
-        .col-1-3.group      
-            input(type="number" required)
-            span.bar
-            label Matricule
-        .col-1-3.group      
-            input(type="text" required)
-            span.bar
-            label Nom
-        .col-1-3.group      
-            input(type="text" required)
-            span.bar
-            label Pr&#233;nom
-        .col-1-3.group      
-            input(type="text" required)
-            span.bar
-            label Date de la demande
-        .col-1-3.group      
-            input(type="text" required)
-            span.bar
-            label Date butoir
-        .col-1-3.group
-            select(name="completPartiel")
-                option(value="value1") --Tps complet/Tps partiel--
-                option(value="value2") Temps complet
-                option(value="value3") Temps partiel
-        .col-1-3.group
-            select(name="completPartiel")
-                option(value="value1") --Validation--
-                option(value="value2") Certifiante
-                option(value="value3") Qualifiante
-                option(value="value3") Dipl&#244;mante
-        .col-2-3.group      
-            textarea(name='textarea', rows='2' required)
-            span.bar
-            label Pr&#233;cisez :
-        .col-1-3.group      
-            input(type="number" required)
-            span.bar
-            label Dur&#233;e (heures) :
-        .col-1-3.group      
-            input(type="number" required)
-            span.bar
-            label Dur&#233;e (mois) :
-        .col-1-3.group      
-            input(type="number" required)
-            span.bar
-            label Nb heures/mois :
-        .col-1-2.group      
-            input(type="text" required)
-            span.bar
-            label Date de d&#233;but :
-        .col-1-2.group      
-            input(type="text" required)
-            span.bar
-            label Date de fin :
+        .col-1-3    
+            +form-underlined("Matricule")
+                input(type="text" required)
+        .col-1-3    
+            +form-underlined("Nom")
+                input(type="text" required)
+        .col-1-3    
+            +form-underlined("Prénom")
+                input(type="text" required)
+        .col-1-3    
+            +form-underlined("Date de la demande")
+                input(type="date" required)
+        .col-1-3    
+            +form-underlined("Date butoir")
+                input(type="date" required)
+        .col-1-3
+            +form-underlined("Tps complet/Tps partiel")
+                select
+                    option(value="value1") --Tps complet/Tps partiel--
+                    option(value="value2") Temps complet
+                    option(value="value3") Temps partiel
+        .col-1-2
+            +form-underlined("Validation")
+                select
+                    option(value="value1") 
+                    option(value="value2") Formation certifiante
+                    option(value="value3") Formation qualifiante
+                    option(value="value4") Formation dipl&#244;mante
+        .col-1-3    
+            +form-underlined("Pr&#233;cisez :")
+                input(type="text" required)
+        .col-1-3    
+            +form-underlined("Durée (heure)")
+                input(type="number" required)
+        .col-1-3    
+            +form-underlined("Durée (mois)")
+                input(type="number" required)
+        .col-1-3    
+            +form-underlined("Nb hres/mois")
+                input(type="number" required)
+        .col-1-3    
+            +form-underlined("Date de début")
+                input(type="date" required)
+        .col-1-3    
+            +form-underlined("Date de fin")
+                input(type="date" required)
         include module-submit
-        // Module de validation
-    .pop-in-container.grid
+        
         h2.col-1 Validation du CIF
         .col-1-2
-            select(name="visaEmployeur") 
-                option(value="value1") --Employeur--
+            +form-underlined("Employeur")
+            select
+                option(value="value1")
                 option(value="value2") En cours
                 option(value="value3") Accept&#233;e
                 option(value="value4") Refus&#233;e
                 option(value="value5") Report&#233;e
-        .col-1-2.group      
-            input(type="text" required)
-            span.bar
-            label Date de validation
-        .col-1.group      
-            textarea(name='textarea', rows='2' required)
-            span.bar
-            label Motif de refus ou de report
+        .col-1-2    
+            +form-underlined("Date de validation")
+                input(type="date" required)
+        .col-1
+            +form-underlined("Motif de refus ou de report")
+                input(type="text" required)
         .col-1-2
+            +form-underlined("FONGECIF")
             select(name="visaFongecif")
-                option(value="value1") --FONGECIF--
+                option(value="value1")
                 option(value="value2") En cours
                 option(value="value3") Accept&#233;e
                 option(value="value4") Refus&#233;e
                 option(value="value5") Report&#233;e
-        .col-1-2.group      
-            input(type="text" required)
-            span.bar
-            label Date de validation
-        .col-1.group      
-            textarea(name='textarea', rows='2' required)
-            span.bar
-            label Motif de refus ou de report
+        .col-1-2    
+            +form-underlined("Date de validation")
+                input(type="date" required)
+        .col-1
+            +form-underlined("Motif de refus ou de report")
+                input(type="text" required)
         include module-submit
     .pop-in-container.grid
         h2.col-1 Prise en charge du FONGECIF
-        .col-1-2.group      
-            input(type="text" required)
-            span.bar
-            label Dur&#233;e de la formation th&#233;orique
         .col-1-2
-            select(name="visaFongecif") 
-                option(value="value1") --Reprise du poste pendant la formation--
+            +form-underlined("Dur&#233;e de la formation th&#233;orique")
+                input(type="number" required) 
+        col-1-2
+            +form-underlined("Reprise du poste pendant la formation")
+            select
+                option(value="value1")
                 option(value="value2") Oui
                 option(value="value3") Non
-        .col-1.group      
-            input(type="text" required)
-            span.bar
-            label Prise en charge salariale
+        .col-1
+            +form-underlined("Prise en charge salariale")
+                input(type="number" required)
         include module-submit
-        // Module de suivi du financement
-    .pop-in-container.grid
+        
+    
         h2.col-1 Suivi du financement
         div
             table
@@ -131,14 +118,14 @@ form
                     td
                         | Ann&#233;e x
                     td
-                        input(type="number", name="", placeholder="0")
+                        input(type="number")
                         p hrs
                     td
-                        input(type="number", name="", placeholder="0.00")
+                        input(type="number")
                         p &#8364;
                     td
-                        input(type="number", name="", placeholder="0.00")
+                        input(type="number")
                         p &#8364;
                     td
-                        input(type="text", name="", placeholder="")
+                        input(type="text")
         include module-submit
