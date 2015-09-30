@@ -5,8 +5,7 @@ var path = require('path'),
     browserSync = require('browser-sync'),
     config = require('./config.js'),
     serve = require('gulp-serve'),
-
-    extend = require('gulp-extend');
+    jsoncombine = require("gulp-jsoncombine");
 
 gulp.task('server', function () {
     browserSync({
@@ -37,20 +36,23 @@ gulp.task('watch', function () {
     gulp.watch(path.join(config.src, '**', '*.jade'), ['views', 'scripts-templates']);
     gulp.watch(path.join(config.src, 'less', '**', '*.less'), infrequentChangesOpts, ['styles']);
     gulp.watch(path.join(config.src, 'assets', '**'), ['assets']);
+    gulp.watch(path.join(config.stubbyConfPath, '*.json'), ['stubbyConf']);
 });
 
-function test() {
-    console.log('test');
-    return true;
+function concatArrays(datas) {
+    var mergedJson = Object.keys(datas).reduce(function(arr, key) {
+        return arr.concat(datas[key]);
+    }, []);
+    return new Buffer(JSON.stringify(mergedJson));
 }
 
 gulp.task('stubbyConf', function() {
-    return gulp.src(path.join(config.stubbyConfPath, '**', '*.json'))
-        .pipe(extend('app/config/stubby.json'))
+    return gulp.src(path.join(config.stubbyConfPath, '*.json'))
+        .pipe(jsoncombine('stubby.json', concatArrays))
         .pipe(gulp.dest('app/config'));
 });
 
-gulp.task('stubby', function (cb) {
+gulp.task('stubby', ['stubbyConf'], function (cb) {
     new Stubby().start({
         location: '0.0.0.0',
         stubs: 8882,

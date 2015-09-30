@@ -32,6 +32,8 @@
                 })
                 .then(onGetDetailSuccess, onGetDetailError);
 
+            return;
+
             $scope.$watch('participants', onParticipantsChange, true);
 
             $timeout(function() {

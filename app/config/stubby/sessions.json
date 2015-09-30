@@ -10,4 +10,14 @@
     "response": {
         "file": "app/mocks/sessions-EMPLOYEUR.json"
     }
+}, {
+    "request": {
+        "url": "/sessions$",
+        "query": {
+            "id": "^[0-9a-zA-Z]"
+        }
+    },
+    "response": {
+        "file": "app/mocks/sessionsDetails-EMPLOYEUR.json"
+    }
 }]
