@@ -20,4 +20,48 @@
     "response": {
         "file": "app/mocks/sessions/sessionsDetails-EMPLOYEUR.json"
     }
+}, {
+    "request": {
+        "url": "/sessions$",
+        "query": {
+            "id": "^$",
+            "ids": "^$",
+            "action": "fakeidCPF"
+        }
+    },
+    "response": {
+        "file": "app/mocks/sessions/sessions-CPF.json"
+    }
+}, {
+    "request": {
+        "url": "/sessions$",
+        "query": {
+            "id": "fakeIdCPF"
+        }
+    },
+    "response": {
+        "file": "app/mocks/sessions/sessionsDetails-CPF.json"
+    }
+}, {
+    "request": {
+        "url": "/sessions$",
+        "query": {
+            "id": "^$",
+            "ids": "^$",
+            "action": "fakeidCIF"
+        }
+    },
+    "response": {
+        "file": "app/mocks/sessions/sessions-CIF.json"
+    }
+}, {
+    "request": {
+        "url": "/sessions$",
+        "query": {
+            "id": "fakeIdCIF"
+        }
+    },
+    "response": {
+        "file": "app/mocks/sessions/sessionsDetails-CIF.json"
+    }
 }]

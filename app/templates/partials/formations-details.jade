@@ -1,7 +1,7 @@
 include ../mixins/main
 
-mixin formation-list(label, model)
-  li(ng-if=model)
+mixin formation-list(label, model, ngIf)
+  li(ng-if=ngIf || model)
     span.actionDetails-label= label
     span.actionDetails-value= '{{' + model + '}}'
 
@@ -29,8 +29,7 @@ mixin formation-list(label, model)
           +formation-list("Produit", "formation.produit")
           +formation-list("Date de début", "formation.from")
           +formation-list("Date de fin", "formation.to")
-          +formation-list("Organisme", "formation.organisme")
-          +formation-list("Nom de l'organisme", "formation.nomOrganisme")
+          +formation-list("Organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
           +formation-list("Population", "formation.population")
           +formation-list("Objectif", "formation.objectif")
           +formation-list("Contenu", "formation.contenu")

@@ -175,16 +175,10 @@
                             if ($scope.filters.search) {
                                 params.search = $scope.filters.search;
                             }
-                            if ($scope.filters.type) {
-                                types = Object.keys($scope.filters.type).reduce(function(sum, key) {
-                                    if ($scope.filters.type[key]) {
-                                        sum.push(key);
-                                    }
-                                    return sum;
-                                }, []);
-                                if (types.length) {
-                                    params.types = types;
-                                }
+                            if ($scope.filters.filters) {
+                                Object.keys($scope.filters.filters).forEach(function(key) {
+                                    params[key] = $scope.filters.filters[key];
+                                });
                             }
                         }
                         if ($scope.sortBy) {
@@ -224,7 +218,6 @@
 
                     function filters() {
                         if (initialized) {
-                            console.log('TODO: Filters'); // eslint-disable-line
                             $timeout.cancel(changeTimeout);
                             changeTimeout = $timeout(computeFilters, 300);
                         }
