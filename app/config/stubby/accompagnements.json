@@ -6,7 +6,7 @@
         }
     },
     "response": {
-        "file": "../app/mocks/accompagnements/accompagnements.json"
+        "file": "app/mocks/accompagnements/accompagnements.json"
     }
 }, {
     "request": {
