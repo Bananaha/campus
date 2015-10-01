@@ -48,14 +48,8 @@
                 }
             };
 
-            $scope.filtersOpen = false;
-
             $scope.filtersSettings = {
                 type: true
-            };
-
-            $scope.toggleFilters = function() {
-                $scope.filtersOpen = !$scope.filtersOpen;
             };
 
             appStateService.isLoading(false);

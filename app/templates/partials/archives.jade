@@ -13,16 +13,8 @@ include ../mixins/main
             placeholder="rechercher")
         button(type="button").btnIcon.search
 
-      button.filters-toggler.btn(type="button",
-        ng-class="{active: filtersOpen}"
-        ng-click="toggleFilters()")
-        | filtres
-        span(ng-if="filtersCount") ({{filtersCount}})
-
       filters(filters="table.filters.filters",
-        settings="filtersSettings",
-        count="filtersCount"
-        open="filtersOpen")
+        settings="filtersSettings")
 
   div(affix, affix-offset=96)
     .table.listed(table="table.config",

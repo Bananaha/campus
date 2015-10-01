@@ -11,9 +11,7 @@
                 restrict: 'E',
                 scope: {
                     settings: '=',
-                    open: '=',
-                    filters: '=',
-                    count: '='
+                    filters: '='
                 },
                 templateUrl: 'filters.html',
                 link: function ($scope, element) {
@@ -28,7 +26,7 @@
                     $scope.filters = $scope.filters || {}; // Filtres actifs formatés et exposés
                     $scope.model = {}; // Filtres actifs - privé
                     $scope.constant = {}; // Label & value de chaque filtre
-                    $scope.count = $scope.count || 0;
+                    $scope.count = 0;
 
                     if ($scope.settings.type) {
                         $scope.constant.type = ACTIONS.map(function(action) {
@@ -40,7 +38,6 @@
                     }
 
                     $scope.$watch('model', onModelChange, true);
-                    $scope.$watch('open', onVisibilityToggle);
 
                     $timeout(function() {
                         refreshHeight();
@@ -49,6 +46,11 @@
 
                     resizeEventService.add('filters', refreshHeight);
                     scrollEventService.add('filters', close);
+
+                    $scope.toggle = function() {
+                        $scope.open = !$scope.open;
+                        onVisibilityToggle();
+                    };
 
                     function close() {
                         if ($scope.open && !hasChanged) {

@@ -48,15 +48,9 @@
                 }
             };
 
-            $scope.filtersOpen = false;
-
             $scope.filtersSettings = {
                 type: true,
                 archive: true
-            };
-
-            $scope.toggleFilters = function() {
-                $scope.filtersOpen = !$scope.filtersOpen;
             };
 
             appStateService.isLoading(false);

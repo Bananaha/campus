@@ -1,5 +1,10 @@
 include ../mixins/main
 
+button.filters-toggler.btn(type="button",
+  ng-click="toggle()")
+  | filtres
+  span(ng-if="count") ({{count}})
+
 .filters
   .filters-inner
     .filters-group(ng-if="settings.type")

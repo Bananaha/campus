@@ -38,13 +38,9 @@ mixin formation-list(label, model, ngIf)
   .col-1(ng-if="hasSessions")
     .module-card
       .module-header
+        filters(filters="table.filters.filters",
+          settings="filtersSettings")
         h2 Sessions
-        button(type="button",
-          ng-if="!table.config.params.archives",
-          ng-click="toggleSessionArchives()").btn Voir les sessions archivées
-        button(type="button",
-          ng-if="table.config.params.archives",
-          ng-click="toggleSessionArchives()").btn Masquer les sessions archivées
 
       div(affix, affix-offset=96)
         .table.listed(table="table.config",
