@@ -157,3 +157,4 @@ gradle-app.setting
 git-stats/
 dist/
 .publish/
+app/config/stubby.json
