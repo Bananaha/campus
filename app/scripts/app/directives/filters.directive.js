@@ -88,10 +88,11 @@
                             value = $scope.model[key];
                             if (angular.isObject(value)) {
                                 value = flattenObject(value);
-                            } else {
-                                count++;
                             }
-                            model[key] = value;
+                            if (value) {
+                                count++;
+                                model[key] = value;
+                            }
                         });
                         return model;
                     }
