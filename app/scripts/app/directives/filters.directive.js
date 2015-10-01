@@ -77,6 +77,7 @@
                         count = 0;
                         hasChanged = true;
                         $scope.filters = formatModel();
+                        console.log('onModelChange', count, $scope.filters);
                         $scope.count = count;
                     }
 
