@@ -231,11 +231,26 @@
          "query": {
             "id": "^$",
             "ids": "^$",
+            "archive": "^$",
             "action": "fakeidEmployeur"
          }
       },
       "response": {
          "file": "app/mocks/sessions/sessions-EMPLOYEUR.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/sessions$",
+         "query": {
+            "id": "^$",
+            "ids": "^$",
+            "archive": "true",
+            "action": "fakeidEmployeur"
+         }
+      },
+      "response": {
+         "file": "app/mocks/sessions/sessions-archives-EMPLOYEUR.json"
       }
    },
    {

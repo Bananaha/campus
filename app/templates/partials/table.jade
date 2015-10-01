@@ -9,7 +9,7 @@
 ul.table-group
 
   li.table-row(ng-repeat="data in datas",
-    ng-class="{disabled: data.disabled}")
+    ng-class="{disabled: data.disabled, archive: data.archive}")
 
     .table-cell(ng-repeat="col in config.cols",
       class="{{col.klass}}",
@@ -23,5 +23,5 @@ ul.table-group
         type="button",
         class="{{action.id}}",
         title="{{action.title}}",
-        ng-if="!data.disabled",
+        ng-if="!data.disabled && !data.archive",
         ng-click="callAction(action.id, data)")
