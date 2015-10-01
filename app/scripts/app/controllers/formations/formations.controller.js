@@ -10,13 +10,6 @@
             ACTIONS
         ) {
 
-        	 $scope.filters = ACTIONS.map(function(action) {
-                return {
-                    label: action.label,
-                    value: action.id
-                };
-            });
-
             $scope.table = {
                 filters: {},
                 config: {
@@ -53,6 +46,16 @@
                         klass: 'w-70'
                     }]
                 }
+            };
+
+            $scope.filtersOpen = false;
+
+            $scope.filtersSettings = {
+                type: true
+            };
+
+            $scope.toggleFilters = function() {
+                $scope.filtersOpen = !$scope.filtersOpen;
             };
 
             appStateService.isLoading(false);

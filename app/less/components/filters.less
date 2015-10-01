@@ -1,9 +1,13 @@
 .filters {
     .mixin_clearfix;
+    position: absolute;
     transition: height .2s ease-out;
     overflow: hidden;
     background: @color-gray-35;
-    margin: @u-small -@u-small -@u-small;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: @z-filters;
 }
 
 .filters-inner {
@@ -66,5 +70,9 @@
         &::before {
             transform: rotate(180deg);
         }
+    }
+
+    button + & {
+        margin-left: @u-small;
     }
 }
