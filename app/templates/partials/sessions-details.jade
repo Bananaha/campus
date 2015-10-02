@@ -30,6 +30,24 @@ include ../mixins/main
           +details-list("Matricule", "session.matricule")
           +details-list("Nature", "session.nature")
           +details-list("Produit", "session.produit")
-          +details-list("Organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
-          +details-list("Validation", "formation.validation")
+          +details-list("Organisme", "session.nomOrganisme", "session.organisme && session.nomOrganisme")
+          +details-list("Validation", "session.validation")
 
+  .col-1-2(ng-if="hasUsers")
+    .module-card
+      .module-header
+        h2 Stagiaires
+
+      user-list(users="participants.stagiaires", frozen="session.archive")
+
+  .col-1-2(ng-if="hasUsers")
+    .module-card
+      .module-header
+        h2 Formateurs
+
+      user-list(users="participants.formateurs", frozen="session.archive")
+
+  .col-1
+    .module-card
+      .module-header
+        h2 Coût de l'accompagnement

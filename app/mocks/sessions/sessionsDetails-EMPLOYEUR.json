@@ -22,5 +22,9 @@
     "organisme": "Forma Company",
     "produit": "IceCream factory",
     "reference": "lorem S21",
-    "session":6584
+    "session":6584,
+    "participants": {
+        "stagiaires" : ["156", "648", "654", "467"],
+        "formateurs": ["156", "648", "654", "467"]
+    }
 }

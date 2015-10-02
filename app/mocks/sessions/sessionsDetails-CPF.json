@@ -25,5 +25,9 @@
     "produit": "IceCream factory",
     "reference": "lorem S21",
     "session": 4671,
-    "validation": "Formation certifiante"
+    "validation": "Formation certifiante",
+    "participants": {
+        "stagiaires" : ["156", "648", "654", "467"],
+        "formateurs": ["156", "648", "654", "467"]
+    }
 }

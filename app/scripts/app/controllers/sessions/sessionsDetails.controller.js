@@ -32,8 +32,6 @@
                 })
                 .then(onGetDetailSuccess, onGetDetailError);
 
-            return;
-
             $scope.$watch('participants', onParticipantsChange, true);
 
             $timeout(function() {
@@ -56,7 +54,7 @@
                 if (initialized) {
                     console.log('onParticipantsChange');
                     $timeout.cancel(changeTimeout);
-                    changeTimeout = $timeout(saveUsers, 200);
+                    // changeTimeout = $timeout(saveUsers, 200);
                 }
             }
 
@@ -89,7 +87,8 @@
 
             function onGetDetailSuccess(res) {
                 $scope.session = formatDatas(res.data);
-                console.log($scope.session);
+                $scope.participants = res.data.participants;
+                $scope.hasUsers = true;
             }
 
             function onGetDetailError() {

@@ -25,7 +25,7 @@
                     $scope.users = [];
 
                     $scope.showSearchList = false;
-
+                    console.log($scope.selectedUsers);
                     $scope.selectedUsers = $scope.selectedUsers || [];
 
                     $scope.displayedUsers = [];

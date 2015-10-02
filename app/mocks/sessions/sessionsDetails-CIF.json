@@ -32,7 +32,11 @@
     "session": 3154,
     "temps": "Temps complet",
     "validation": "Formation certifiante",
-    "validationComment": "Expert glace d'état"
+    "validationComment": "Expert glace d'état",
+    "participants": {
+        "stagiaires" : ["156", "648", "654", "467"],
+        "formateurs": ["156", "648", "654", "467"]
+    }
 }
 
 
