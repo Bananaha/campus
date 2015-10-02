@@ -96,11 +96,11 @@
                             break;
                             case 'archive':
                                 request = dbActionsService.archive(config.url, item.id);
-                                callback = disableItem.bind(this, item.id);
+                                callback = archiveItem.bind(this, item);
                             break;
                             case 'desarchiver':
                                 request = dbActionsService.unarchive(config.url, item.id);
-                                callback = disableItem.bind(this, item.id);
+                                callback = unarchiveItem.bind(this,  item);
                             break;
                         }
                         if (request) {
@@ -134,10 +134,12 @@
                         }
                     }
 
-                    function disableItem(id) {
-                        $scope.datas.filter(function(item) {
-                            return item.id === id;
-                        })[0].disabled = true;
+                    function archiveItem(item) {
+                        item.archive = true;
+                    }
+
+                    function unarchiveItem(item) {
+                        item.archive = false;
                     }
 
                     function onScroll(windowHeight) {
