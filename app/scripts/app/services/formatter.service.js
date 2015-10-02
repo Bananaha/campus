@@ -53,6 +53,10 @@
                     label: 'Date avis Fongecif',
                     key: 'dateAvisFongecif',
                     date: true
+                }, {
+                    label: 'Date de la demande',
+                    key: 'dateDemande',
+                    date: true
                 }];
 
             this.formatAsList = function(datas) {
