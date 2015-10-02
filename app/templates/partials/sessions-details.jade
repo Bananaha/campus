@@ -5,8 +5,31 @@ include ../mixins/main
   .col-1
     .module-card
 
-      .actionDetails
+      .details
 
         .module-header(affix, affix-offset=48)
           .affix-target
-            h2 SESSION DETAIL
+            p.details-id \#{{session.session}} - {{session.auteur}}
+            h2 {{session.intitule}}
+            a(ng-href="#/sessions/{{session.id}}/modifier"
+              ng-if="!session.archive").module-header-action.btnIcon.circle.big.modify
+            button(ng-if="session.archive",
+              ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
+
+        ul.details-list
+          +details-list("Action", "session.action")
+          +details-list("Pioritaire", "session.actionPrioritaire")
+          +details-list("Activité", "session.activite")
+          +details-list("Catégorie", "session.categorie")
+          +details-list("Client", "session.client")
+          +details-list("Durée", "session.duree")
+          +details-list("Entite", "session.entite")
+          +details-list("Date de commencement", "session.from")
+          +details-list("Date de fin", "session.to")
+          +details-list("Horaire souhaité", "session.horaireSouhaite")
+          +details-list("Matricule", "session.matricule")
+          +details-list("Nature", "session.nature")
+          +details-list("Produit", "session.produit")
+          +details-list("Organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
+          +details-list("Validation", "formation.validation")
+

@@ -89,6 +89,7 @@
 
             function onGetDetailSuccess(res) {
                 $scope.session = formatDatas(res.data);
+                console.log($scope.session);
             }
 
             function onGetDetailError() {

@@ -5,18 +5,18 @@ include ../mixins/main
   .col-1
     .module-card
 
-      .actionDetails
+      .details
 
         .module-header(affix, affix-offset=48)
           .affix-target
-            p.actionDetails-id \#{{userDetail.id}}
+            p.details-id \#{{userDetail.id}}
             h2 {{userDetail.prenom}} {{userDetail.nom}}
             a(ng-href="#/utilisateurs/{{userDetail.id}}/modifier").module-header-action.btnIcon.circle.big.modify
 
-        ul.actionDetails-list
+        ul.details-list
           li(ng-repeat="item in userDetail.list")
-            span.actionDetails-label {{item.label}}
-            span.actionDetails-value {{item.value}}
+            span.details-label {{item.label}}
+            span.details-value {{item.value}}
 
   .col-1-2(ng-if="userDetail.actions.participant")
       h2.module-title Participant sur

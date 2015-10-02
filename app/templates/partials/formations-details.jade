@@ -1,39 +1,34 @@
 include ../mixins/main
 
-mixin formation-list(label, model, ngIf)
-  li(ng-if=ngIf || model)
-    span.actionDetails-label= label
-    span.actionDetails-value= '{{' + model + '}}'
-
 .grid.pad
 
   .col-1
     .module-card
 
-      .actionDetails
+      .details
 
         .module-header(affix, affix-offset=48)
           .affix-target
-            p.actionDetails-id \#{{formation.action}} - {{formation.auteur}}
+            p.details-id \#{{formation.action}} - {{formation.auteur}}
             h2 {{formation.intitule}}
             a(ng-href="#/formations/{{formation.id}}/modifier"
               ng-if="!formation.archive").module-header-action.btnIcon.circle.big.modify
             button(ng-if="formation.archive",
               ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
 
-        ul.actionDetails-list
-          +formation-list("Type", "formation.type")
-          +formation-list("Client", "formation.client")
-          +formation-list("Durée", "formation.duree")
-          +formation-list("Activité", "formation.activite")
-          +formation-list("Produit", "formation.produit")
-          +formation-list("Date de début", "formation.from")
-          +formation-list("Date de fin", "formation.to")
-          +formation-list("Organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
-          +formation-list("Population", "formation.population")
-          +formation-list("Objectif", "formation.objectif")
-          +formation-list("Contenu", "formation.contenu")
-          +formation-list("Prérequis", "formation.prerequis")
+        ul.details-list
+          +details-list("Type", "formation.type")
+          +details-list("Client", "formation.client")
+          +details-list("Durée", "formation.duree")
+          +details-list("Activité", "formation.activite")
+          +details-list("Produit", "formation.produit")
+          +details-list("Date de début", "formation.from")
+          +details-list("Date de fin", "formation.to")
+          +details-list("Organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
+          +details-list("Population", "formation.population")
+          +details-list("Objectif", "formation.objectif")
+          +details-list("Contenu", "formation.contenu")
+          +details-list("Prérequis", "formation.prerequis")
 
   .col-1(ng-if="hasSessions")
     .module-card

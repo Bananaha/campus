@@ -5,18 +5,18 @@ include ../mixins/main
   .col-1
     .module-card
 
-      .actionDetails
+      .details
 
         .module-header(affix, affix-offset=48)
           .affix-target
-            p.actionDetails-id \#{{accompagnement.action}} - {{accompagnement.auteur}}
+            p.details-id \#{{accompagnement.action}} - {{accompagnement.auteur}}
             h2 {{accompagnement.intitule}}
             a(ng-href="#/accompagnements/{{accompagnement.id}}/modifier").module-header-action.btnIcon.circle.big.modify
 
-        ul.actionDetails-list
+        ul.details-list
           li(ng-repeat="item in accompagnement.list")
-            span.actionDetails-label {{item.label}}
-            span.actionDetails-value {{item.value}}
+            span.details-label {{item.label}}
+            span.details-value {{item.value}}
 
   .col-1-2
     .module-card

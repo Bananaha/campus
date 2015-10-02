@@ -1,0 +1,4 @@
+mixin details-list(label, model, ngIf)
+  li(ng-if=ngIf || model)
+    span.details-label= label
+    span.details-value= '{{' + model + '}}'

@@ -2,7 +2,7 @@ include ../mixins/main
 
 .module-card
 
-  .actionDetails
+  .details
 
     form(name="formationsModification",
       data-action="update",
@@ -10,7 +10,7 @@ include ../mixins/main
       ng-submit="submit()")
 
       .module-header
-        p.actionDetails-id \#{{model.action}} - {{model.auteur}}
+        p.details-id \#{{model.action}} - {{model.auteur}}
         h2 {{model.intitule}}
 
       .grid.pad
