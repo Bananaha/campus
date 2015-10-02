@@ -15,8 +15,10 @@
             formatterService
         ) {
 
-            var initialized,
-                ID = $routeParams.id;
+            var ID = $routeParams.id,
+                initialized,
+                changeTimeout,
+                populations = ['formateurs', 'stagiaires'];
 
             $scope.participants = {
                 stagiaires: [],
@@ -52,9 +54,8 @@
 
             function onParticipantsChange() {
                 if (initialized) {
-                    console.log('onParticipantsChange');
                     $timeout.cancel(changeTimeout);
-                    // changeTimeout = $timeout(saveUsers, 200);
+                    changeTimeout = $timeout(saveUsers, 200);
                 }
             }
 
@@ -92,7 +93,7 @@
             }
 
             function onGetDetailError() {
-                // $location.url('/formations');
+                $location.url('/formations');
             }
 
             function formatDatas(datas) {

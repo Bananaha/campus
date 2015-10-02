@@ -29,6 +29,30 @@
                     label: 'Date de fin',
                     key: 'to',
                     date: true
+                }, {
+                    label: 'Date de début',
+                    key: 'dateDebut',
+                    date: true
+                }, {
+                    label: 'Date de fin',
+                    key: 'dateFin',
+                    date: true
+                }, {
+                    label: 'Date de création',
+                    key: 'dateCreation',
+                    date: true
+                }, {
+                    label: 'Date butoir',
+                    key: 'dateButoir',
+                    date: true
+                }, {
+                    label: 'Date avis employeur',
+                    key: 'dateAvisEmployeur',
+                    date: true
+                }, {
+                    label: 'Date avis Fongecif',
+                    key: 'dateAvisFongecif',
+                    date: true
                 }];
 
             this.formatAsList = function(datas) {

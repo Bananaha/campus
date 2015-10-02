@@ -1,17 +1,13 @@
 {
     "id": "fakeIdCPF",
 
-    "action": 598,
-    "actionPrioritaire": true,
+    "action": "fakeidCPF",
+    "archive": false,
     "auteurNom": "Stark",
     "auteurId": "59fc02f66b4",
-    "archive": false,
     "categorie": "Formation continue",
-    "client": "Banana company",
-    "dateButoir": 1441749600012,
     "dateCreation": 1441749600000,
     "dateDebut": 1441749600000,
-    "dateDemande": 1441749600000,
     "dateFin": 1442440800000,
     "devis": 10000,
     "duree": 20,
@@ -19,13 +15,19 @@
     "horaireSouhaite": "PTT",
     "intitule": "ad proident occaecat labore cillum sint",
     "nature": "Adaptation",
-    "nbHrsCpf": 12,
     "nomOrganisme": "Forma Company",
-    "organisme": "Interne",
-    "produit": "IceCream factory",
+    "organisme": true,
     "reference": "lorem S21",
-    "session": 4671,
+    "session":6584,
+
+    "avisEmployeur": "enCours",
+    "dateAvisEmployeur": 1441749600012,
+    "dateDemande": 1441749600012,
+    "motifEmployeur": "if avisEmployeur === accepté",
+    "temps": "Temps plein",
     "validation": "Formation certifiante",
+    "validationComment": "diplome Ambulancier",
+
     "participants": {
         "stagiaires" : ["156", "648", "654", "467"],
         "formateurs": ["156", "648", "654", "467"]
