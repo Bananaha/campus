@@ -29,7 +29,7 @@
     "validationComment": "diplome Ambulancier",
 
     "avisFongecif": "enCours",
-    "dateAvisFongecifr": 1441749600012,
+    "dateAvisFongecif": 1441749600012,
     "dateButoir": 1441749600012,
     "motifFongecif": "if avisFongecif === accepté",
     "priseChargeSalaire": 150,
