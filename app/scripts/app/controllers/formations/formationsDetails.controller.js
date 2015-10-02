@@ -83,9 +83,8 @@
                 }
             };
 
-            $scope.toggleSessionArchives = function() {
-                console.log('TODO: archive toggler as filter'); // eslint-disable-line
-                $scope.table.config.params.archives = !$scope.table.config.params.archives;
+            $scope.filtersSettings = {
+                archive: true
             };
 
             $scope.unarchive = function() {

@@ -1,24 +1,78 @@
-.searchBox + .filters-toggler {
-	float: right;
-	text-align: right;
-	line-height: 26px;
+button + filters {
+    margin-left: @u-small;
 }
 
 .filters {
     .mixin_clearfix;
-    //display: none;
+    position: absolute;
+    transition: height .2s ease-out;
     overflow: hidden;
-    height: 0;
     background: @color-gray-35;
-    margin: @u-small -@u-small -@u-small;
-    padding: 0 @u-small;
-    box-sizing: border-box;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: @z-filters;
+}
+
+.filters-inner {
+    padding: @u-small;
+}
+
+.filters-group {
+
+    + .filters-group {
+        border-top: 1px solid @color-gray-42;
+        padding-top: @u-small;
+        margin-top: @u-small;
+    }
+}
+
+.filters-title {
+    color: @color-gray-60;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    display: inline-block;
+    width: 10rem;
 }
 
 .filter {
+    color: #FFF;
 	display: inline-block;
+    margin-left: 10rem;
 
 	+ .filter {
 		margin-left: @u-medium;
 	}
+
+    .filters-title + & {
+        margin-left: 0;
+    }
+}
+
+.filters-toggler {
+    .fa-angle-down;
+    position: relative;
+    padding-right: 2.8rem;
+    float: right;
+
+    span {
+        .fontSmall;
+        margin-left: @u-base;
+    }
+
+    &::before {
+        .fa-icon;
+        transition: transform .1s ease-out;
+        position: absolute;
+        top: 50%;
+        right: @u-small;
+        line-height: 0;
+    }
+
+    &.active {
+
+        &::before {
+            transform: rotate(180deg);
+        }
+    }
 }

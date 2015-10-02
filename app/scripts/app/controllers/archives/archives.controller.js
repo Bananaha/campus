@@ -10,13 +10,6 @@
             ACTIONS
         ) {
 
-            $scope.filters = ACTIONS.map(function(action) {
-                return {
-                    label: action.label,
-                    value: action.id
-                };
-            });
-
             $scope.table = {
                 filters: {},
                 config: {
@@ -53,6 +46,11 @@
                         klass: 'w-70'
                     }]
                 }
+            };
+
+            $scope.filtersSettings = {
+                type: true,
+                archive: true
             };
 
             appStateService.isLoading(false);

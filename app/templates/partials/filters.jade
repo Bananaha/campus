@@ -1,0 +1,26 @@
+include ../mixins/main
+
+button.filters-toggler.btn(type="button",
+  ng-click="toggle()")
+  | filtres
+  span(ng-if="count") ({{count}})
+
+.filters
+  .filters-inner
+    .filters-group(ng-if="settings.type")
+      h3.filters-title Type
+      .filter(ng-repeat="filter in constant.type")
+        - opt = {}
+        - opt.label = "{{filter.label}}"
+        - opt.ngModel = "model.type[filter.value]"
+        - value = "filter.value"
+        +custom-checkbox(opt)
+
+    .filters-group(ng-if="settings.archive")
+      h3.filters-title Archives
+      .filter
+        - opt = {}
+        - opt.label = "afficher"
+        - opt.ngModel = "model.archive"
+        - value = "true"
+        +custom-checkbox(opt)

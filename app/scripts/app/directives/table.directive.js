@@ -96,11 +96,11 @@
                             break;
                             case 'archive':
                                 request = dbActionsService.archive(config.url, item.id);
-                                callback = disableItem.bind(this, item.id);
+                                callback = archiveItem.bind(this, item);
                             break;
                             case 'desarchiver':
                                 request = dbActionsService.unarchive(config.url, item.id);
-                                callback = disableItem.bind(this, item.id);
+                                callback = unarchiveItem.bind(this,  item);
                             break;
                         }
                         if (request) {
@@ -134,10 +134,12 @@
                         }
                     }
 
-                    function disableItem(id) {
-                        $scope.datas.filter(function(item) {
-                            return item.id === id;
-                        })[0].disabled = true;
+                    function archiveItem(item) {
+                        item.archive = true;
+                    }
+
+                    function unarchiveItem(item) {
+                        item.archive = false;
                     }
 
                     function onScroll(windowHeight) {
@@ -175,16 +177,10 @@
                             if ($scope.filters.search) {
                                 params.search = $scope.filters.search;
                             }
-                            if ($scope.filters.type) {
-                                types = Object.keys($scope.filters.type).reduce(function(sum, key) {
-                                    if ($scope.filters.type[key]) {
-                                        sum.push(key);
-                                    }
-                                    return sum;
-                                }, []);
-                                if (types.length) {
-                                    params.types = types;
-                                }
+                            if ($scope.filters.filters) {
+                                Object.keys($scope.filters.filters).forEach(function(key) {
+                                    params[key] = $scope.filters.filters[key];
+                                });
                             }
                         }
                         if ($scope.sortBy) {
@@ -224,7 +220,6 @@
 
                     function filters() {
                         if (initialized) {
-                            console.log('TODO: Filters'); // eslint-disable-line
                             $timeout.cancel(changeTimeout);
                             changeTimeout = $timeout(computeFilters, 300);
                         }

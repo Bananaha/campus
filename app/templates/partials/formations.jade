@@ -13,17 +13,12 @@ include ../mixins/main
             placeholder="rechercher")
         button(type="button").btnIcon.search
 
-      .filters
-        .filter(ng-repeat="filter in filters")
-          - opt = {}
-          - opt.label = "{{filter.label}}"
-          - opt.ngModel = "table.filters.type[filter.value]"
-          - value = "filter.value"
-          +custom-checkbox(opt)
-
       .pull-right
         button.btn.modal-opener(type="button",
           ng-click="App.showModal('formation-creation')") Créer une action
+
+        filters(filters="table.filters.filters",
+          settings="filtersSettings")
 
   div(affix, affix-offset=96)
     .table.listed(table="table.config",
@@ -44,4 +39,4 @@ include ../mixins/main
     include ../includes/modules/modal-session-employeur-creation
     include ../includes/modules/modal-session-cpf-creation
     include ../includes/modules/modal-session-cif-creation
-    
+

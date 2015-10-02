@@ -39,7 +39,7 @@
 
         .affix & {
             transform: translateY(100%);
-            margin-top: -26px;
+            margin-top: -22px;
             background-color: @color-main;
             color: #FFF;
 
@@ -200,16 +200,42 @@
     }
 }
 
-.table-group .table-row.disabled,
-.table-group .table-row.disabled:hover {
-    &,
-    &:hover {
-        .table-cell {
-            background: transparent;
+.table-group .table-row {
 
-            button,
-            span {
-                color: @color-text-lighter;
+    &.archive {
+        &,
+        &:hover {
+            .table-cell {
+                background-color: @color-gray-97;
+                font-style: italic;
+
+                &:first-child > *:first-child {
+                    .fa-archive;
+
+                    &::before {
+                        .fa-icon;
+                        margin-right: @u-small;
+                        color: @color-text-light;
+                    }
+                }
+            }
+
+            button {
+                font-style: italic;
+            }
+        }
+    }
+
+    &.disabled {
+        &,
+        &:hover {
+            .table-cell {
+                background-color: transparent;
+
+                button,
+                span {
+                    color: @color-text-lighter;
+                }
             }
         }
     }

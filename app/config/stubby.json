@@ -7,7 +7,11 @@
          }
       },
       "response": {
+<<<<<<< HEAD
          "file": "../app/mocks/accompagnements/accompagnements.json"
+=======
+         "file": "app/mocks/accompagnements/accompagnements.json"
+>>>>>>> eb49800be7c30a5d635c5df4bcdf648425720f14
       }
    },
    {
@@ -231,6 +235,10 @@
          "query": {
             "id": "^$",
             "ids": "^$",
+<<<<<<< HEAD
+=======
+            "archive": "^$",
+>>>>>>> eb49800be7c30a5d635c5df4bcdf648425720f14
             "action": "fakeidEmployeur"
          }
       },
@@ -242,6 +250,23 @@
       "request": {
          "url": "/sessions$",
          "query": {
+<<<<<<< HEAD
+=======
+            "id": "^$",
+            "ids": "^$",
+            "archive": "true",
+            "action": "fakeidEmployeur"
+         }
+      },
+      "response": {
+         "file": "app/mocks/sessions/sessions-archives-EMPLOYEUR.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/sessions$",
+         "query": {
+>>>>>>> eb49800be7c30a5d635c5df4bcdf648425720f14
             "id": "fakeIdEmployeur"
          }
       },
@@ -251,6 +276,57 @@
    },
    {
       "request": {
+<<<<<<< HEAD
+=======
+         "url": "/sessions$",
+         "query": {
+            "id": "^$",
+            "ids": "^$",
+            "action": "fakeidCPF"
+         }
+      },
+      "response": {
+         "file": "app/mocks/sessions/sessions-CPF.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/sessions$",
+         "query": {
+            "id": "fakeIdCPF"
+         }
+      },
+      "response": {
+         "file": "app/mocks/sessions/sessionsDetails-CPF.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/sessions$",
+         "query": {
+            "id": "^$",
+            "ids": "^$",
+            "action": "fakeidCIF"
+         }
+      },
+      "response": {
+         "file": "app/mocks/sessions/sessions-CIF.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/sessions$",
+         "query": {
+            "id": "fakeIdCIF"
+         }
+      },
+      "response": {
+         "file": "app/mocks/sessions/sessionsDetails-CIF.json"
+      }
+   },
+   {
+      "request": {
+>>>>>>> eb49800be7c30a5d635c5df4bcdf648425720f14
          "url": "/utilisateurs$",
          "query": {
             "id": "^$",

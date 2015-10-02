@@ -1,7 +1,7 @@
 include ../mixins/main
 
-mixin formation-list(label, model)
-  li(ng-if=model)
+mixin formation-list(label, model, ngIf)
+  li(ng-if=ngIf || model)
     span.actionDetails-label= label
     span.actionDetails-value= '{{' + model + '}}'
 
@@ -29,8 +29,7 @@ mixin formation-list(label, model)
           +formation-list("Produit", "formation.produit")
           +formation-list("Date de début", "formation.from")
           +formation-list("Date de fin", "formation.to")
-          +formation-list("Organisme", "formation.organisme")
-          +formation-list("Nom de l'organisme", "formation.nomOrganisme")
+          +formation-list("Organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
           +formation-list("Population", "formation.population")
           +formation-list("Objectif", "formation.objectif")
           +formation-list("Contenu", "formation.contenu")
@@ -39,13 +38,9 @@ mixin formation-list(label, model)
   .col-1(ng-if="hasSessions")
     .module-card
       .module-header
+        filters(filters="table.filters.filters",
+          settings="filtersSettings")
         h2 Sessions
-        button(type="button",
-          ng-if="!table.config.params.archives",
-          ng-click="toggleSessionArchives()").btn Voir les sessions archivées
-        button(type="button",
-          ng-if="table.config.params.archives",
-          ng-click="toggleSessionArchives()").btn Masquer les sessions archivées
 
       div(affix, affix-offset=96)
         .table.listed(table="table.config",

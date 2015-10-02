@@ -13,15 +13,8 @@ include ../mixins/main
             placeholder="rechercher")
         button(type="button").btnIcon.search
 
-      button.filters-toggler(type="button") filtrer
-
-      .filters
-        .filter(ng-repeat="filter in filters")
-          - opt = {}
-          - opt.label = "{{filter.label}}"
-          - opt.ngModel = "table.filters.type[filter.value]"
-          - value = "filter.value"
-          +custom-checkbox(opt)
+      filters(filters="table.filters.filters",
+        settings="filtersSettings")
 
   div(affix, affix-offset=96)
     .table.listed(table="table.config",

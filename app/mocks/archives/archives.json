@@ -5,6 +5,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Landry",
     "sessions": 57,
+    "archive": true,
     "action": 855,
     "type": "CPF"
   },
@@ -14,6 +15,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Rose",
     "sessions": 45,
+    "archive": true,
     "action": 938,
     "type": "employeur"
   },
@@ -23,6 +25,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Carson",
     "sessions": 13,
+    "archive": true,
     "action": 416,
     "type": "CIF"
   },
@@ -32,6 +35,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Bentley",
     "sessions": 38,
+    "archive": true,
     "action": 604,
     "type": "employeur"
   },
@@ -41,6 +45,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Harvey",
     "sessions": 33,
+    "archive": true,
     "action": 970,
     "type": "employeur"
   },
@@ -50,6 +55,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Whitaker",
     "sessions": 27,
+    "archive": true,
     "action": 903,
     "type": "CIF"
   },
@@ -59,6 +65,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "English",
     "sessions": 23,
+    "archive": true,
     "action": 44,
     "type": "employeur"
   },
@@ -68,6 +75,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Townsend",
     "sessions": 64,
+    "archive": true,
     "action": 276,
     "type": "CIF"
   },
@@ -77,6 +85,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Bridges",
     "sessions": 20,
+    "archive": true,
     "action": 439,
     "type": "employeur"
   },
@@ -85,6 +94,7 @@
     "intitule": "magna deserunt velit incididunt amet",
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Kerr",
+    "archive": true,
     "action": 463,
     "type": "accompagnement"
   },
@@ -94,6 +104,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Burns",
     "sessions": 17,
+    "archive": true,
     "action": 185,
     "type": "CPF"
   },
@@ -102,6 +113,7 @@
     "intitule": "est ipsum laborum nisi labore",
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Weeks",
+    "archive": true,
     "action": 523,
     "type": "accompagnement"
   },
@@ -111,6 +123,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Chambers",
     "sessions": 16,
+    "archive": true,
     "action": 216,
     "type": "employeur"
   },
@@ -120,6 +133,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Hebert",
     "sessions": 55,
+    "archive": true,
     "action": 868,
     "type": "CPF"
   },
@@ -128,6 +142,7 @@
     "intitule": "labore quis sint non exercitation",
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Dunlap",
+    "archive": true,
     "action": 755,
     "type": "accompagnement"
   },
@@ -137,6 +152,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Deleon",
     "sessions": 50,
+    "archive": true,
     "action": 715,
     "type": "CPF"
   },
@@ -146,6 +162,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Hudson",
     "sessions": 69,
+    "archive": true,
     "action": 860,
     "type": "CPF"
   },
@@ -155,6 +172,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Montoya",
     "sessions": 7,
+    "archive": true,
     "action": 344,
     "type": "employeur"
   },
@@ -164,6 +182,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Fisher",
     "sessions": 45,
+    "archive": true,
     "action": 533,
     "type": "CIF"
   },
@@ -172,6 +191,7 @@
     "intitule": "reprehenderit deserunt ipsum consequat officia",
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Pruitt",
+    "archive": true,
     "action": 406,
     "type": "accompagnement"
   },
@@ -181,6 +201,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Page",
     "sessions": 43,
+    "archive": true,
     "action": 23
   },
   {
@@ -189,6 +210,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Henry",
     "sessions": 10,
+    "archive": true,
     "action": 638,
     "type": "employeur"
   },
@@ -198,6 +220,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Nixon",
     "sessions": 26,
+    "archive": true,
     "action": 411,
     "type": "employeur"
   },
@@ -207,6 +230,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Hartman",
     "sessions": 46,
+    "archive": true,
     "action": 216,
     "type": "employeur"
   },
@@ -216,6 +240,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Christian",
     "sessions": 24,
+    "archive": true,
     "action": 483,
     "type": "CIF"
   },
@@ -225,6 +250,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Le",
     "sessions": 53,
+    "archive": true,
     "action": 963,
     "type": "employeur"
   },
@@ -234,6 +260,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Mckee",
     "sessions": 53,
+    "archive": true,
     "action": 911,
     "type": "employeur"
   },
@@ -243,6 +270,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Terry",
     "sessions": 29,
+    "archive": true,
     "action": 162,
     "type": "CIF"
   },
@@ -252,6 +280,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Bruce",
     "sessions": 73,
+    "archive": true,
     "action": 454,
     "type": "CPF"
   },
@@ -261,6 +290,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Lamb",
     "sessions": 29,
+    "archive": true,
     "action": 627,
     "type": "employeur"
   }
