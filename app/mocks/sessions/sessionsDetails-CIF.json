@@ -1,40 +1,42 @@
 {
-    "id": "fakeIdCIF",
+    "id": "fakeIdCPF",
 
+    "action": "fakeidCPF",
     "archive": false,
-    "action": 598,
     "auteurNom": "Stark",
     "auteurId": "59fc02f66b4",
-    "archive": false,
-    "avisEmployeur": "Acceptée",
-    "avisFongecif": "En cours / Acceptée / refusées / reportée",
-    "categorie": "Formation continue / Formation initiale",
-    "dateAvisEmployeur":1441749600000,
-    "dateAvisFongecif":1441749600000,
-    "dateButoir": 1441749600012,
+    "categorie": "Formation continue",
     "dateCreation": 1441749600000,
     "dateDebut": 1441749600000,
-    "dateDemande": 1441749600000,
     "dateFin": 1442440800000,
     "devis": 10000,
-    "dureeAccepteeFongecif": 19,
     "duree": 20,
     "entite": "B2S AIX",
-    "heuresMois": 2.5,
     "horaireSouhaite": "PTT",
-    "motifEmployeur":"nop",
-    "motifFongecif":"nop",
-    "mttSalairePc": 1234,
+    "intitule": "ad proident occaecat labore cillum sint",
+    "nature": "Adaptation",
     "nomOrganisme": "Forma Company",
-    "organisme": "Interne",
+    "organisme": true,
     "reference": "lorem S21",
-    "reprisePoste": "oui",
-    "session": 3154,
-    "temps": "Temps complet",
+    "session":6584,
+
+    "avisEmployeur": "acceptee",
+    "dateAvisEmployeur": 1441749600012,
+    "dateDemande": 1441749600012,
+    "motifEmployeur": "Lorem ipsum dolor sit amet",
+    "temps": "Temps plein",
     "validation": "Formation certifiante",
-    "validationComment": "Expert glace d'état"
+    "validationComment": "diplome Ambulancier",
+
+    "avisFongecif": "acceptee",
+    "dateAvisFongecif": 1441749600012,
+    "dateButoir": 1441749600012,
+    "motifFongecif": "Lorem ipsum dolor sit amet",
+    "priseChargeSalaire": 150,
+    "reprisePoste": true,
+
+    "participants": {
+        "stagiaires" : ["156", "648", "654", "467"],
+        "formateurs": ["156", "648", "654", "467"]
+    }
 }
-
-
-
-

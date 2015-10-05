@@ -78,4 +78,12 @@
     "response": {
         "file": "app/mocks/sessions/sessionsDetails-CIF.json"
     }
+}, {
+    "request": {
+        "url": "/sessions/update",
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/noop.json"
+    }
 }]

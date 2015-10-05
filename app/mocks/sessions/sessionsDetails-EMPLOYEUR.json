@@ -1,14 +1,12 @@
 {
     "id": "fakeIdEmployeur",
 
-    "action": 598,
-    "activite": "AE",
+    "action": "fakeidEmployeur",
+
     "archive": false,
     "auteurNom": "Stark",
     "auteurId": "59fc02f66b4",
-    "archive": false,
-    "categorie": "Formation continue / Formation initiale",
-    "client": "Banana company",
+    "categorie": "Formation continue",
     "dateCreation": 1441749600000,
     "dateDebut": 1441749600000,
     "dateFin": 1442440800000,
@@ -17,10 +15,18 @@
     "entite": "B2S AIX",
     "horaireSouhaite": "PTT",
     "intitule": "ad proident occaecat labore cillum sint",
-    "interneExterne": "Interne",
     "nature": "Adaptation",
-    "organisme": "Forma Company",
-    "produit": "IceCream factory",
+    "nomOrganisme": "Forma Company",
+    "organisme": true,
     "reference": "lorem S21",
-    "session":6584
+    "session":6584,
+
+    "activite": "AE",
+    "client": "Banana company",
+    "produit": "IceCream factory",
+
+    "participants": {
+        "stagiaires" : ["156", "648", "654", "467"],
+        "formateurs": ["156", "648", "654", "467"]
+    }
 }

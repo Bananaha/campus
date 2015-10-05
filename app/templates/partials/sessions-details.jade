@@ -9,7 +9,9 @@ include ../mixins/main
 
         .module-header(affix, affix-offset=48)
           .affix-target
-            p.details-id \#{{session.session}} - {{session.auteur}}
+            p.details-id
+              | \#{{session.session}} -&nbsp;
+              a(ng-href="#/utilisateurs/{{session.auteurId}}") {{session.auteurNom}}
             h2 {{session.intitule}}
             a(ng-href="#/sessions/{{session.id}}/modifier"
               ng-if="!session.archive").module-header-action.btnIcon.circle.big.modify
@@ -17,19 +19,62 @@ include ../mixins/main
               ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
 
         ul.details-list
-          +details-list("Action", "session.action")
-          +details-list("Pioritaire", "session.actionPrioritaire")
-          +details-list("Activité", "session.activite")
-          +details-list("Catégorie", "session.categorie")
-          +details-list("Client", "session.client")
-          +details-list("Durée", "session.duree")
-          +details-list("Entite", "session.entite")
-          +details-list("Date de début", "session.from")
-          +details-list("Date de fin", "session.to")
-          +details-list("Horaire souhaité", "session.horaireSouhaite")
-          +details-list("Matricule", "session.matricule")
-          +details-list("Nature", "session.nature")
-          +details-list("Produit", "session.produit")
-          +details-list("Organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
-          +details-list("Validation", "formation.validation")
 
+          .grid.pad
+            .col-1-2
+              +details-item("Action")
+                a(ng-href="#/formations/{{session.action}}") {{session.action}}
+              +details-item("Catégorie") {{session.categorie}}
+              +details-item("Date de création") {{session.dateCreation}}
+              +details-item("Date de début") {{session.dateDebut}}
+              +details-item("Date de fin") {{session.dateFin}}
+              +details-item("Devis") {{session.devis}}
+            .col-1-2
+              +details-item("Duree") {{session.duree}}
+              +details-item("Entité") {{session.entite}}
+              +details-item("Horaire souhaité") {{session.horaireSouhaite}}
+              +details-item("Nature") {{session.nature}}
+              +details-item("Organisme", "session.organisme && session.nomOrganisme") {{session.nomOrganisme}}
+              +details-item("Référence") {{session.reference}}
+
+            .col-1
+              // Employeur
+              +details-item("Activité", "session.activite") {{session.activite}}
+              +details-item("Client", "session.client") {{session.client}}
+              +details-item("Produit", "session.produit") {{session.produit}}
+
+          // CPF + CIF
+          +details-item("Avis employeur", "session.avisEmployeur") {{session.avisEmployeur}}
+          +details-item("Date avis employeur", "session.dateAvisEmployeur") {{session.dateAvisEmployeur}}
+          +details-item("Date demande", "session.dateDemande") {{session.dateDemande}}
+          +details-item("Motif employeur", "session.motifEmployeur && session.avisEmployeur === 'acceptee'") {{session.motifEmployeur}}
+          +details-item("Temps", "session.temps") {{session.temps}}
+          +details-item("Validation", "session.validation") {{session.validation}}
+          +details-item("Validation commentaire", "session.validationComment") {{session.validationComment}}
+
+          // CIF
+          +details-item("Avis Fongecif", "session.avisFongecif") {{session.avisFongecif}}
+          +details-item("Date avis Fongecif", "session.dateAvisFongecif") {{session.dateAvisFongecif}}
+          +details-item("Date butoir", "session.dateButoir") {{session.dateButoir}}
+          +details-item("Motif Fongecif", "session.motifFongecif  && session.avisFongecif === 'acceptee'") {{session.motifFongecif}}
+          +details-item("Montant de prise en charge sur salaire", "session.priseChargeSalaire") {{session.priseChargeSalaire}}
+          +details-item("Repriste de poste", "session.reprisePoste") {{session.reprisePoste}}
+
+  .col-1-2(ng-if="hasUsers")
+    .module-card
+      .module-header
+        h2 Stagiaires
+
+      user-list(users="participants.stagiaires", frozen="session.archive")
+
+  .col-1-2(ng-if="hasUsers")
+    .module-card
+      .module-header
+        h2 Formateurs
+
+      user-list(users="participants.formateurs", frozen="session.archive")
+
+  .col-1
+    .module-card
+      .module-header
+        h2 Coût de l'accompagnement

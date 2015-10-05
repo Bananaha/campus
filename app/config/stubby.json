@@ -314,6 +314,15 @@
    },
    {
       "request": {
+         "url": "/sessions/update",
+         "method": "POST"
+      },
+      "response": {
+         "file": "app/mocks/noop.json"
+      }
+   },
+   {
+      "request": {
          "url": "/utilisateurs$",
          "query": {
             "id": "^$",

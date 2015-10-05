@@ -27,7 +27,8 @@
                 "archives": "http://localhost:8882/archives",
 
                 "sessions": "http://localhost:8882/sessions",
-                "sessionsDetails": "http://localhost:8882/sessions"
+                "sessionsDetails": "http://localhost:8882/sessions",
+                "sessionsModification": "http://localhost:8882/sessions/update"
             }
         }
     },
