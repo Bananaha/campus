@@ -19,31 +19,31 @@ include ../mixins/main
               ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
 
         ul.details-list
-          +details-item("Action")
-            a(ng-href="#/formations/{{session.action}}") {{session.action}}
 
-          +details-item("Activité", "session.activite") {{session.activite}}
+          .grid.pad
+            .col-1-2
+              +details-item("Action")
+                a(ng-href="#/formations/{{session.action}}") {{session.action}}
+              +details-item("Catégorie") {{session.categorie}}
+              +details-item("Date de création") {{session.dateCreation}}
+              +details-item("Date de début") {{session.dateDebut}}
+              +details-item("Date de fin") {{session.dateFin}}
+              +details-item("Devis") {{session.devis}}
+            .col-1-2
+              +details-item("Duree") {{session.duree}}
+              +details-item("Entité") {{session.entite}}
+              +details-item("Horaire souhaité") {{session.horaireSouhaite}}
+              +details-item("Nature") {{session.nature}}
+              +details-item("Organisme", "session.organisme && session.nomOrganisme") {{session.nomOrganisme}}
+              +details-item("Référence") {{session.reference}}
 
-          +details-item("Catégorie") {{session.categorie}}
+            .col-1
+              // Employeur
+              +details-item("Activité", "session.activite") {{session.activite}}
+              +details-item("Client", "session.client") {{session.client}}
+              +details-item("Produit", "session.produit") {{session.produit}}
 
-          +details-item("Client", "session.client") {{session.client}}
-
-          +details-item("Date de création") {{session.dateCreation}}
-          +details-item("Date de début") {{session.dateDebut}}
-          +details-item("Date de fin") {{session.dateFin}}
-
-          +details-item("Devis") {{session.devis}}
-          +details-item("Duree") {{session.duree}}
-          +details-item("Entité") {{session.entite}}
-
-          +details-item("Horaire souhaité") {{session.horaireSouhaite}}
-
-          +details-item("Nature") {{session.nature}}
-
-          +details-item("Organisme", "session.organisme && session.nomOrganisme") {{session.nomOrganisme}}
-          +details-item("Produit", "session.produit") {{session.produit}}
-          +details-item("Référence") {{session.reference}}
-
+          // CPF + CIF
           +details-item("Avis employeur", "session.avisEmployeur") {{session.avisEmployeur}}
           +details-item("Date avis employeur", "session.dateAvisEmployeur") {{session.dateAvisEmployeur}}
           +details-item("Date demande", "session.dateDemande") {{session.dateDemande}}
@@ -52,6 +52,7 @@ include ../mixins/main
           +details-item("Validation", "session.validation") {{session.validation}}
           +details-item("Validation commentaire", "session.validationComment") {{session.validationComment}}
 
+          // CIF
           +details-item("Avis Fongecif", "session.avisFongecif") {{session.avisFongecif}}
           +details-item("Date avis Fongecif", "session.dateAvisFongecif") {{session.dateAvisFongecif}}
           +details-item("Date butoir", "session.dateButoir") {{session.dateButoir}}
@@ -59,14 +60,14 @@ include ../mixins/main
           +details-item("Montant de prise en charge sur salaire", "session.priseChargeSalaire") {{session.priseChargeSalaire}}
           +details-item("Repriste de poste", "session.reprisePoste") {{session.reprisePoste}}
 
-  // .col-1-2(ng-if="hasUsers")
+  .col-1-2(ng-if="hasUsers")
     .module-card
       .module-header
         h2 Stagiaires
 
       user-list(users="participants.stagiaires", frozen="session.archive")
 
-  // .col-1-2(ng-if="hasUsers")
+  .col-1-2(ng-if="hasUsers")
     .module-card
       .module-header
         h2 Formateurs
