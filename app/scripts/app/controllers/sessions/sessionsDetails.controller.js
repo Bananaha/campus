@@ -36,17 +36,13 @@
 
             $scope.$watch('participants', onParticipantsChange, true);
 
-            $timeout(function() {
-                initialized = true
-            });
-
             $scope.unarchive = function() {
                 if ($scope.session.archive) {
                     dbActionsService
                         .unarchive(config.urls.sessions, ID)
                         .then(onUnarchive);
                 }
-            }
+            };
 
             function onUnarchive() {
                 $scope.session.archive = false;
@@ -90,6 +86,9 @@
                 $scope.session = formatDatas(res.data);
                 $scope.participants = res.data.participants;
                 $scope.hasUsers = true;
+                $timeout(function() {
+                    initialized = true;
+                });
             }
 
             function onGetDetailError() {

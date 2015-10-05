@@ -47,7 +47,7 @@ include ../mixins/main
           +details-item("Avis employeur", "session.avisEmployeur") {{session.avisEmployeur}}
           +details-item("Date avis employeur", "session.dateAvisEmployeur") {{session.dateAvisEmployeur}}
           +details-item("Date demande", "session.dateDemande") {{session.dateDemande}}
-          +details-item("Motif employeur", "session.motifEmployeur") {{session.motifEmployeur}}
+          +details-item("Motif employeur", "session.motifEmployeur && session.avisEmployeur === 'acceptee'") {{session.motifEmployeur}}
           +details-item("Temps", "session.temps") {{session.temps}}
           +details-item("Validation", "session.validation") {{session.validation}}
           +details-item("Validation commentaire", "session.validationComment") {{session.validationComment}}
@@ -55,18 +55,18 @@ include ../mixins/main
           +details-item("Avis Fongecif", "session.avisFongecif") {{session.avisFongecif}}
           +details-item("Date avis Fongecif", "session.dateAvisFongecif") {{session.dateAvisFongecif}}
           +details-item("Date butoir", "session.dateButoir") {{session.dateButoir}}
-          +details-item("Motif Fongecif", "session.motifFongecif") {{session.motifFongecif}}
+          +details-item("Motif Fongecif", "session.motifFongecif  && session.avisFongecif === 'acceptee'") {{session.motifFongecif}}
           +details-item("Montant de prise en charge sur salaire", "session.priseChargeSalaire") {{session.priseChargeSalaire}}
           +details-item("Repriste de poste", "session.reprisePoste") {{session.reprisePoste}}
 
-  .col-1-2(ng-if="hasUsers")
+  // .col-1-2(ng-if="hasUsers")
     .module-card
       .module-header
         h2 Stagiaires
 
       user-list(users="participants.stagiaires", frozen="session.archive")
 
-  .col-1-2(ng-if="hasUsers")
+  // .col-1-2(ng-if="hasUsers")
     .module-card
       .module-header
         h2 Formateurs

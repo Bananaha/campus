@@ -20,18 +20,18 @@
     "reference": "lorem S21",
     "session":6584,
 
-    "avisEmployeur": "enCours",
+    "avisEmployeur": "acceptee",
     "dateAvisEmployeur": 1441749600012,
     "dateDemande": 1441749600012,
-    "motifEmployeur": "if avisEmployeur === accepté",
+    "motifEmployeur": "Lorem ipsum dolor sit amet",
     "temps": "Temps plein",
     "validation": "Formation certifiante",
     "validationComment": "diplome Ambulancier",
 
-    "avisFongecif": "enCours",
+    "avisFongecif": "acceptee",
     "dateAvisFongecif": 1441749600012,
     "dateButoir": 1441749600012,
-    "motifFongecif": "if avisFongecif === accepté",
+    "motifFongecif": "Lorem ipsum dolor sit amet",
     "priseChargeSalaire": 150,
     "reprisePoste": true,
 
