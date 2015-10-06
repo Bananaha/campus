@@ -11,11 +11,10 @@
             $location,
             config,
             appStateService,
-            PERMISSIONS
-
+            FORMDATAS
         ) {
 
-            $scope.permissions = PERMISSIONS.map(function(permission) {
+            $scope.permissions = FORMDATAS.permissions.map(function(permission) {
                 return {
                     label: permission.label,
                     value: permission.id

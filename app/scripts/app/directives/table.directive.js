@@ -10,7 +10,7 @@
             scrollEventService,
             dbActionsService,
             formatterService,
-            PERMISSIONS,
+            FORMDATAS,
             ACTIONS
         ) {
 
@@ -240,7 +240,7 @@
                     function format(data) {
                         return data.map(function(d) {
                             if (angular.isNumber(d.permission)) {
-                                d.permission = PERMISSIONS.filter(function(perm) {
+                                d.permission = FORMDATAS.permissions.filter(function(perm) {
                                     return perm.id === d.permission;
                                 })[0].label;
                             }

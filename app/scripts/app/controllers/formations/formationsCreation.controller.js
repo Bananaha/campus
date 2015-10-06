@@ -4,10 +4,12 @@
     angular.module('campus.app')
     .controller('formationsCreationController',
         function (
-        	$scope,
+            $scope,
             config,
             appStateService
         ) {
+
+            console.log('formationsCreationController');
 
             appStateService.isLoading(false);
 

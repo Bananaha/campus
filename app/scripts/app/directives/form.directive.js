@@ -14,9 +14,7 @@
             modalService,
             historyService,
             dbActionsService,
-            ENTITES,
-            PERMISSIONS,
-            SERVICES
+            FORMDATAS
         ) {
             return {
                 restrict: 'A',
@@ -37,9 +35,9 @@
                     };
 
                     $scope.constants = {
-                        entites: ENTITES,
-                        permissions: PERMISSIONS,
-                        services: SERVICES
+                        entites: FORMDATAS.entites,
+                        permissions: FORMDATAS.permissions,
+                        services: FORMDATAS.services
                     };
 
                     $scope.model = getModelFromStorage();

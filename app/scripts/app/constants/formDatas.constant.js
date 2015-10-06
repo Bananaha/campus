@@ -1,8 +1,40 @@
 (function (global, angular) {
     'use strict';
 
-    angular.module('campus.app').constant('SESSIONSDATAS',
+    angular.module('campus.app').constant('FORMDATAS',
         {
+            entites: [
+                'B2S AIX',
+                'B2S CHALON SAS',
+                'B2S DEVELOPPEMENT SAS',
+                'B2S LE MANS SAS',
+                'B2S PARIS SASU',
+                'B2S ROANNE SAS   ',
+                'B2S SAS',
+                'B2S STRASBOURG SAS',
+                'B2S VALENCIENNES SAS',
+                'SYMPHONING SAS',
+                'SYNOPSYA SAS'
+            ],
+
+            services: [
+                'Ressources Humaines',
+                'Qualité Formation',
+                'Direction',
+                'Autres fonctions'
+            ],
+
+            permissions: [{
+                label: 'Standard',
+                id: 0
+            }, {
+                label: 'Admin',
+                id: 1
+            }, {
+                label: 'Super admin',
+                id: 2
+            }],
+
             avisEmployeur: [{
                 label: 'En cours',
                 value: 'enCours'
