@@ -4,46 +4,5 @@
     a {
         display: block;
         text-align: center;
-        font-size: 1.6rem;
-        position: relative;
-        text-decoration: none;
-        
-        span {
-            transition: color .2s ease-out;
-            line-height: @size;
-            position: relative;
-            display: block;
-            margin-top: @u-small;
-            color: @color-main;
-        }
-        
-        &::before {
-            transition: transform .2s ease-out, background .2s ease-out;
-            content: "";
-            display: block;
-            position: absolute;
-            background: @color-gray-97;
-            border-radius: 50%;
-            width: @size;
-            height: @size;
-            left: 50%;
-            top: 50%;
-            margin: -@size/2 0 0 -@size/2;
-            transform: scale(0);
-        }
-        
-        &:hover,
-        &:focus {
-            
-            span {
-                transition: none;
-                color: #FFF;
-            }
-            
-            &::before {
-                transform: scale(1);
-                background-color: @color-main;
-            }
-        }
     }
 }
