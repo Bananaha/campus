@@ -43,6 +43,22 @@
                     templateUrl: basePath + 'formations-modifier.html',
                     controller: 'formationsModifierController'
                 }).
+                when('/formations/creation/accompagnement', {
+                    templateUrl: basePath + 'formations-creation-accompagnement.html',
+                    controller: 'formationsCreationController'
+                }).
+                when('/formations/creation/employeur', {
+                    templateUrl: basePath + 'formations-creation-employeur.html',
+                    controller: 'formationsCreationController'
+                }).
+                when('/formations/creation/CIF', {
+                    templateUrl: basePath + 'formations-creation-CIF.html',
+                    controller: 'formationsCreationController'
+                }).
+                when('/formations/creation/CPF', {
+                    templateUrl: basePath + 'formations-creation-CPF.html',
+                    controller: 'formationsCreationController'
+                }).
                 when('/accompagnements', {
                     templateUrl: basePath + 'accompagnements.html',
                     controller: 'accompagnementsController'

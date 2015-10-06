@@ -1,0 +1,19 @@
+extends ../layouts/modal.jade
+
+block header
+  h2 Création d'une action de formation
+  
+block content
+  .formationCreationList.grid.pad
+    .col-1-4
+      a(ng-href="#/formations/creation/employeur") 
+        span Employeur  
+    .col-1-4
+      a(ng-href="#/formations/creation/CIF") 
+        span CIF  
+    .col-1-4
+      a(ng-href="#/formations/creation/CPF") 
+        span CPF
+    .col-1-4
+      a(ng-href="#/formations/creation/accompagnement") 
+        span Accompagnement

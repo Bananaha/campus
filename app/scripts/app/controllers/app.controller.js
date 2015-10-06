@@ -49,6 +49,7 @@
             }
 
             function onLocationChange() {
+                modalService.hideModals();
                 historyService.onLocationChange();
                 updateShowBack();
             }
