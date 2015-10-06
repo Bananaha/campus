@@ -74,7 +74,7 @@
                     obj[key] = getFormattedValue(key, datas[key]);
                     return obj;
                 }, {});
-            }
+            };
 
             function getFormattedValue(key, value) {
                 var listItem = getItem(key);
@@ -84,7 +84,7 @@
                     }
                 }
                 return value;
-            };
+            }
 
             function getItem(key) {
                 return list.filter(function(item) {

@@ -2,11 +2,10 @@
     "id": "fakeIdEmployeur",
 
     "action": "fakeidEmployeur",
-
     "archive": false,
     "auteurNom": "Stark",
     "auteurId": "59fc02f66b4",
-    "categorie": "Formation continue",
+    "categorie": "continue",
     "dateCreation": 1441749600000,
     "dateDebut": 1441749600000,
     "dateFin": 1442440800000,
@@ -15,11 +14,12 @@
     "entite": "B2S AIX",
     "horaireSouhaite": "PTT",
     "intitule": "ad proident occaecat labore cillum sint",
-    "nature": "Adaptation",
+    "nature": "bilanCompetences",
     "nomOrganisme": "Forma Company",
     "organisme": true,
     "reference": "lorem S21",
     "session":6584,
+    "type": "employeur",
 
     "activite": "AE",
     "client": "Banana company",

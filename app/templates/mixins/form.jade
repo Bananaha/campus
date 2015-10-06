@@ -1,6 +1,6 @@
-mixin form-underlined(label)
+mixin form-underlined(label, ngIf)
   - var klass = label ? "labelled" : ""
-  label.form-underlined(class=klass)
+  label.form-underlined(class=klass, ng-if=ngIf)
     block
     span.form-underlined-bar
     if label

@@ -11,7 +11,8 @@
             $route,
             $location,
             formatterService,
-            config
+            config,
+            FORMDATAS
         ) {
 
             $http({
@@ -23,18 +24,15 @@
                 })
                 .then(onGetRequestSuccess, onGetRequestError);
 
+            $scope.opts = FORMDATAS;
+
             function onGetRequestSuccess(res) {
-                $scope.model = formatDatas(res.data);
+                $scope.model = res.data;
             }
 
             function onGetRequestError() {
                 $location.url('/formations');
             }
-
-            function formatDatas(datas) {
-                return formatterService.format(datas);
-            }
-
         });
 
 }(window, window.angular));
