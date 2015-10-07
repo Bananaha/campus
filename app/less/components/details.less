@@ -1,5 +1,7 @@
 .details-title {
-    margin-top: @u-small;
+    margin-top: @u-medium;
+    border-bottom: 1px solid @color-purple-dark;
+    padding-bottom: @u-base;
     margin-bottom: @u-medium;
 }
 
@@ -9,6 +11,24 @@
 
 .grid.pad > .details-list {
     margin-top: @u-medium;
+
+
+}
+
+.details-list.grid.pad {
+    margin-top: 0;
+
+    li + li {
+        margin-top: 0;
+    }
+}
+
+.details-list {
+    margin-top: @u-medium;
+
+    li + li {
+        margin-top: @u-medium;
+    }
 }
 
 .details-label {

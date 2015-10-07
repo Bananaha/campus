@@ -20,7 +20,7 @@ include ../mixins/main
             button(ng-if="session.archive",
               ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
 
-        h4 Informations
+        h4.details-title Informations
         ul.details-list.grid.pad
           +details-item("Entité") {{session.entite}}
 
@@ -51,7 +51,7 @@ include ../mixins/main
           - opt = { ngIf: "session.produit" }
           +details-item("Produit", opt) {{session.produit}}
 
-        h4 Modalités de l'action de formation
+        h4.details-title Modalités de l'action de formation
         ul.details-list.grid.pad
 
           // CPF + CIF
@@ -83,7 +83,7 @@ include ../mixins/main
           +details-item("Date de fin") {{session.dateFin}}
 
         div(ng-if="session.type === 'CIF' || session.type ==='CPF'")
-          h4 Acceptation de l'action de formation
+          h4.details-title Acceptation de l'action de formation
           .grid.pad
             .col-1-2(ng-if="session.type === 'CIF'")
               ul.details-list.grid.pad
@@ -113,7 +113,7 @@ include ../mixins/main
                 +details-item("Motif employeur", opt) {{session.motifEmployeur}}
 
         div(ng-if="session.type === 'CIF'")
-          h4 Modalités de prise en charge par le Fongecif
+          h4.details-title Modalités de prise en charge par le Fongecif
           ul.details-list.grid.pad
 
             // CIF
