@@ -10,91 +10,99 @@ include ../mixins/main
         .module-header(affix, affix-offset=48)
           .affix-target
             p.details-id
-              | \#{{session.session}} -&nbsp;
+              | \#{{session.session}} &nbsp; -&nbsp;
               a(ng-href="#/utilisateurs/{{session.auteurId}}") {{session.auteurNom}}
+              | &nbsp; -&nbsp;Action #
+              a(ng-href="#/formations/{{session.action}}") {{session.action}}
+
             h2 {{session.intitule}}
             a(ng-href="#/sessions/{{session.id}}/modifier"
               ng-if="!session.archive").module-header-action.btnIcon.circle.big.modify
             button(ng-if="session.archive",
               ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
 
-        ul.details-list
-          h4 Informations
-          .grid.pad
-            .col-1-3
-              //+details-item("Action")
-                a(ng-href="#/formations/{{session.action}}") {{session.action}}
+         h4 Informations
+
+        .grid.pad
+          .col-1-2
+            ul.details-list
               +details-item("Entité") {{session.entite}}
                // Employeur
               +details-item("Client", "session.client") {{session.client}}
               +details-item("Nature") {{session.categorie}}
               +details-item("Date de début") {{session.dateDebut}}
               +details-item("Organisme", "session.organisme && session.nomOrganisme") {{session.nomOrganisme}}
-              
-            .col-1-3
-              
+
+          .col-1-2
+            ul.details-list
+
               +details-item("Date de création") {{session.dateCreation}}
                // Employeur
               +details-item("Activité", "session.activite") {{session.activite}}
               +details-item("Format") {{session.nature}}
               +details-item("Date de fin") {{session.dateFin}}
               +details-item("Devis") {{session.devis}}
-              
-            .col-1-3
+
+          .col-1-2
+            ul.details-list
               +details-item("Référence") {{session.reference}}
-               // Employeur  
+               // Employeur
               +details-item("Produit", "session.produit") {{session.produit}}
               +details-item("Type : Adaptation/Développement") {{session.nature}}
               // CIF
               +details-item("Date butoir", "session.dateButoir") {{session.dateButoir}}
               +details-item("Duree") {{session.duree}}
-              
-        ul.details-list
-          h4 Modalité de l'action de formation
-          .grid.pad
-            .col-1-3
+
+        h4 Modalité de l'action de formation
+
+        .grid.pad
+          .col-1-2
+            ul.details-list
               // CPF + CIF
               +details-item("Formation", "session.validation") {{session.validation}}
               // CPF + CIF
               +details-item("Temps", "session.temps") {{session.temps}}
-            .col-1-3
+
+          .col-1-2
+            ul.details-list
               // CPF + CIF
-              +details-item("Validation commentaire", "session.validationComment") {{session.validationComment}} 
+              +details-item("Validation commentaire", "session.validationComment") {{session.validationComment}}
               +details-item("Horaire souhaité") {{session.horaireSouhaite}}
-            .col-1-3
+          .col-1-2
+            ul.details-list
               // CPF + CIF
               +details-item("Date demande", "session.dateDemande") {{session.dateDemande}}
 
-         
+
         ul.details-list
-          h4 Acceptation de l'action de formation 
+          h4 Acceptation de l'action de formation
           .grid.pad
             .col-1-2
-              // CIF
-              +details-item("Avis Fongecif", "session.avisFongecif") {{session.avisFongecif}}
-              // CIF
-              +details-item("Motif Fongecif", "session.motifFongecif  && session.avisFongecif === 'acceptee'") {{session.motifFongecif}} 
-              // CIF
-              +details-item("Date avis Fongecif", "session.dateAvisFongecif") {{session.dateAvisFongecif}}
+              ul.details-list
+                // CIF
+                +details-item("Avis Fongecif", "session.avisFongecif") {{session.avisFongecif}}
+                // CIF
+                +details-item("Motif Fongecif", "session.motifFongecif  && session.avisFongecif === 'acceptee'") {{session.motifFongecif}}
+                // CIF
+                +details-item("Date avis Fongecif", "session.dateAvisFongecif") {{session.dateAvisFongecif}}
             .col-1-2
-              // CPF + CIF
-              +details-item("Avis employeur", "session.avisEmployeur") {{session.avisEmployeur}}
-              // CPF + CIF
-              +details-item("Date avis employeur", "session.dateAvisEmployeur") {{session.dateAvisEmployeur}}
-              // CPF + CIF
-              +details-item("Motif employeur", "session.motifEmployeur && session.avisEmployeur === 'acceptee'") {{session.motifEmployeur}}
-    
-        
-        ul.details-list
-          h4 Modalité de prise en charge par le Fongecif  
-          .grid.pad
-            .col-1-3
-              // CIF
-              +details-item("Montant de prise en charge sur salaire", "session.priseChargeSalaire") {{session.priseChargeSalaire}}
-            .col-1-3
-              +details-item("Repriste de poste", "session.reprisePoste") {{session.reprisePoste}} 
-            .col-1-3
-              +details-item("Duree prise en charge") {{session.duree}}
+              ul.details-list
+                // CPF + CIF
+                +details-item("Avis employeur", "session.avisEmployeur") {{session.avisEmployeur}}
+                // CPF + CIF
+                +details-item("Date avis employeur", "session.dateAvisEmployeur") {{session.dateAvisEmployeur}}
+                // CPF + CIF
+                +details-item("Motif employeur", "session.motifEmployeur && session.avisEmployeur === 'acceptee'") {{session.motifEmployeur}}
+
+        h4 Modalité de prise en charge par le Fongecif
+
+        .grid.pad
+          ul.details-list
+            // CIF
+            +details-item("Montant de prise en charge sur salaire", "session.priseChargeSalaire") {{session.priseChargeSalaire}}
+            // CIF
+            +details-item("Repriste de poste", "session.reprisePoste") {{session.reprisePoste}}
+            +details-item("Duree prise en charge") {{session.duree}}
 
   .col-1-2(ng-if="hasUsers")
     .module-card
