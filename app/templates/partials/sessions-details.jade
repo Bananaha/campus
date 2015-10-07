@@ -102,7 +102,8 @@ include ../mixins/main
             +details-item("Montant de prise en charge sur salaire", "session.priseChargeSalaire") {{session.priseChargeSalaire}}
             // CIF
             +details-item("Repriste de poste", "session.reprisePoste") {{session.reprisePoste}}
-            +details-item("Duree prise en charge") {{session.duree}}
+            // CIF
+            +details-item("Duree prise en charge", "session.dureePriseEnCharge") {{session.dureePriseEnCharge}}
 
   .col-1-2(ng-if="hasUsers")
     .module-card

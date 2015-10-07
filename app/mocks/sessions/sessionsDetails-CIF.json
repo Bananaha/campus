@@ -35,6 +35,7 @@
     "motifFongecif": "Lorem ipsum dolor sit amet",
     "priseChargeSalaire": 150,
     "reprisePoste": true,
+    "dureePriseEnCharge": 20,
 
     "participants": {
         "stagiaires" : ["156", "648", "654", "467"],
