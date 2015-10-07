@@ -18,7 +18,6 @@
             });
 
             appStateService.isLoading(false);
-
         });
 
 }(window, window.angular));

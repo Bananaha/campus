@@ -76,7 +76,11 @@
 
                     $scope.cancel = function() {
                         flush();
-                        modalService.hideModals();
+                        if (element.closest('.modal').length) {
+                            modalService.hideModals();
+                        } else {
+                            historyService.back();
+                        }
                     };
 
                     function getModelFromStorage() {
