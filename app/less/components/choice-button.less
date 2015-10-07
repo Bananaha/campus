@@ -1,0 +1,81 @@
+.mixin_choiceButton-list {
+    display: block;
+    box-shadow: @shadow-l1;
+}
+
+.mixin_choiceButton-button {
+    background-color: darken(@color-link-hover, 5%);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.choiceButton {
+    display: inline-block;
+    position: relative;
+
+    ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    li:last-child a {
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    a {
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: block;
+        padding: @u-small @u-base;
+        color: #FFF;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: @color-link;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            background-color: @color-link-hover;
+        }
+    }
+
+    &:hover {
+        ul {
+            .mixin_choiceButton-list;
+        }
+
+        > button {
+            .mixin_choiceButton-button;
+        }
+    }
+
+    > button {
+        .fa-angle-down;
+        position: relative;
+        padding-right: 2.8rem;
+        cursor: default;
+        min-width: 170px;
+
+        &::before {
+            .fa-icon;
+            position: absolute;
+            top: 50%;
+            right: @u-small;
+            line-height: 0;
+        }
+
+        &:focus {
+            .mixin_choiceButton-button;
+
+            + ul {
+                .mixin_choiceButton-list;
+            }
+        }
+    }
+}

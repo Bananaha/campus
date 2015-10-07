@@ -14,8 +14,14 @@ include ../mixins/main
         button(type="button").btnIcon.search
 
       .pull-right
-        button.btn.modal-opener(type="button",
-          ng-click="App.showModal('formation-creation')") Créer une action
+
+        .choiceButton
+          button.btn(type="button") Créer une action
+          ul
+            li
+              a(ng-href="#/creation") Employeur / CIF / CPF
+            li
+              a(ng-href="#/creation/accompagnement") Accompagnement
 
         filters(filters="table.filters.filters",
           settings="filtersSettings")
