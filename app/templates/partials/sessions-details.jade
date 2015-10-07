@@ -27,7 +27,7 @@ include ../mixins/main
               +details-item("Entité") {{session.entite}}
                // Employeur
               +details-item("Client", "session.client") {{session.client}}
-              +details-item("Catégorie") {{session.categorie}}
+              +details-item("Nature") {{session.categorie}}
               +details-item("Date de début") {{session.dateDebut}}
               +details-item("Organisme", "session.organisme && session.nomOrganisme") {{session.nomOrganisme}}
               
@@ -36,7 +36,7 @@ include ../mixins/main
               +details-item("Date de création") {{session.dateCreation}}
                // Employeur
               +details-item("Activité", "session.activite") {{session.activite}}
-              +details-item("Nature") {{session.nature}}
+              +details-item("Format") {{session.nature}}
               +details-item("Date de fin") {{session.dateFin}}
               +details-item("Devis") {{session.devis}}
               
@@ -44,7 +44,7 @@ include ../mixins/main
               +details-item("Référence") {{session.reference}}
                // Employeur  
               +details-item("Produit", "session.produit") {{session.produit}}
-              +details-item("Type") {{session.nature}}
+              +details-item("Type : Adaptation/Développement") {{session.nature}}
               // CIF
               +details-item("Date butoir", "session.dateButoir") {{session.dateButoir}}
               +details-item("Duree") {{session.duree}}
