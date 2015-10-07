@@ -3,8 +3,12 @@ mixin details-list(label, model, ngIf)
     span.details-label= label
     span.details-value= '{{' + model + '}}'
 
-mixin details-item(label, ngIf)
-  li(ng-if=ngIf)
+mixin details-item(label, opt)
+  - opt = opt || {}
+  - var klass = opt.klass || 'col-1-2'
+  li(ng-if=opt.ngIf,
+     class=klass,
+     ng-class=ngClass)
     span.details-label= label
     span.details-value
       block

@@ -12,93 +12,118 @@ include ../mixins/main
             p.details-id
               | \#{{session.session}} -&nbsp;
               a(ng-href="#/utilisateurs/{{session.auteurId}}") {{session.auteurNom}}
+              | &nbsp; -&nbsp;Action #
+              a(ng-href="#/formations/{{session.action}}") {{session.action}}
             h2 {{session.intitule}}
             a(ng-href="#/sessions/{{session.id}}/modifier"
               ng-if="!session.archive").module-header-action.btnIcon.circle.big.modify
             button(ng-if="session.archive",
               ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
 
-        ul.details-list
-          h4 Informations
+        h4 Informations
+        ul.details-list.grid.pad
+          +details-item("Entité") {{session.entite}}
+
+           // Employeur
+          - var opt = { ngIf: "session.client" }
+          +details-item("Client", opt) {{session.client}}
+
+          +details-item("Nature") {{session.categorie}}
+
+          - opt = { ngIf: "session.organisme && session.nomOrganisme" }
+          +details-item("Organisme", opt) {{session.nomOrganisme}}
+
+          +details-item("Date de création") {{session.dateCreation}}
+
+          // Employeur
+          - opt = { ngIf: "session.activite" }
+          +details-item("Activité", opt) {{session.activite}}
+
+          +details-item("Type") {{session.nature}}
+
+          +details-item("Devis") {{session.devis}}
+
+          +details-item("Format") {{session.type}}
+
+          +details-item("Référence") {{session.reference}}
+
+          // Employeur
+          - opt = { ngIf: "session.produit" }
+          +details-item("Produit", opt) {{session.produit}}
+
+        h4 Modalités de l'action de formation
+        ul.details-list.grid.pad
+
+          // CPF + CIF
+          - opt = { ngIf: "session.validation" }
+          +details-item("Formation", opt) {{session.validation}}
+
+          - opt = { ngIf: "session.temps" }
+          // CPF + CIF
+          +details-item("Temps",opt) {{session.temps}}
+
+          - opt = { ngIf: "session.dateDemande" }
+          // CPF + CIF
+          +details-item("Date demande", opt) {{session.dateDemande}}
+
+          +details-item("Date de début") {{session.dateDebut}}
+
+          +details-item("Duree") {{session.duree}}
+
+          // CPF + CIF
+          - opt = { ngIf: "session.validationComment" }
+          +details-item("Validation commentaire", opt) {{session.validationComment}}
+
+          +details-item("Horaire souhaité") {{session.horaireSouhaite}}
+
+          // CPF + CIF
+          - opt = { ngIf: "session.dateButoir" }
+          +details-item("Date butoir", opt) {{session.dateButoir}}
+
+          +details-item("Date de fin") {{session.dateFin}}
+
+        div(ng-if="session.type === 'CIF' || session.type ==='CPF'")
+          h4 Acceptation de l'action de formation
           .grid.pad
-            .col-1-3
-              //+details-item("Action")
-                a(ng-href="#/formations/{{session.action}}") {{session.action}}
-              +details-item("Entité") {{session.entite}}
-               // Employeur
-              +details-item("Client", "session.client") {{session.client}}
-              +details-item("Type") {{session.categorie}}
-              
-              +details-item("Organisme", "session.organisme && session.nomOrganisme") {{session.nomOrganisme}}
-              
-            .col-1-3
-              
-              +details-item("Date de création") {{session.dateCreation}}
-               // Employeur
-              +details-item("Activité", "session.activite") {{session.activite}}
-              +details-item("Nature") {{session.nature}}
-              
-              +details-item("Devis") {{session.devis}}
-              
-            .col-1-3
-              +details-item("Référence") {{session.reference}}
-               // Employeur  
-              +details-item("Produit", "session.produit") {{session.produit}}
-              +details-item("Type") {{session.nature}}
-              
-              
-              
-        ul.details-list
-          h4 Modalités de l'action de formation
-          .grid.pad
-            .col-1-2
-              // CPF + CIF
-              +details-item("Formation", "session.validation") {{session.validation}}
-              // CPF + CIF
-              +details-item("Temps", "session.temps") {{session.temps}}
-               // CPF + CIF
-              +details-item("Date demande", "session.dateDemande") {{session.dateDemande}}
-              +details-item("Date de début") {{session.dateDebut}}
-              +details-item("Duree") {{session.duree}}
-            .col-1-2
-              // CPF + CIF
-              +details-item("Validation commentaire", "session.validationComment") {{session.validationComment}} 
-              +details-item("Horaire souhaité") {{session.horaireSouhaite}}
-              // CPF + CIF
-              +details-item("Date butoir", "session.dateButoir") {{session.dateButoir}}
-              +details-item("Date de fin") {{session.dateFin}}
-            
-       ul.details-list
-          h4 Acceptation de l'action de formation 
-          .grid.pad
-            .col-1-2
-              // CIF
-              +details-item("Avis Fongecif", "session.avisFongecif") {{session.avisFongecif}}
-              // CIF
-              +details-item("Motif Fongecif", "session.motifFongecif  && session.avisFongecif === 'acceptee'") {{session.motifFongecif}} 
-              // CIF
-              +details-item("Date avis Fongecif", "session.dateAvisFongecif") {{session.dateAvisFongecif}}
-            .col-1-2
-              // CPF + CIF
-              +details-item("Avis employeur", "session.avisEmployeur") {{session.avisEmployeur}}
-              // CPF + CIF
-              +details-item("Date avis employeur", "session.dateAvisEmployeur") {{session.dateAvisEmployeur}}
-              // CPF + CIF
-              +details-item("Motif employeur", "session.motifEmployeur && session.avisEmployeur === 'acceptee'") {{session.motifEmployeur}}
-    
-        
-        ul.details-list
-          h4 Modalités de prise en charge par le Fongecif  
-          .grid.pad
-            .col-1-3
-              // CIF
-              +details-item("Montant de prise en charge sur salaire", "session.priseChargeSalaire") {{session.priseChargeSalaire}}
-            .col-1-3
-              // CIF
-              +details-item("Repriste de poste", "session.reprisePoste") {{session.reprisePoste}} 
-            .col-1-3
-              // CIF
-              +details-item("Duree prise en charge") {{session.duree}}
+            .col-1-2(ng-if="session.type === 'CIF'")
+              ul.details-list.grid.pad
+                - optKlass = { klass: 'col-1' }
+                // CIF
+                +details-item("Avis Fongecif", optKlass) {{session.avisFongecif}}
+
+                // CIF
+                - opt = { ngIf: "session.avisFongecif === 'acceptee'" }
+                - opt.klass = 'col-1'
+                +details-item("Motif Fongecif", opt) {{session.motifFongecif}}
+
+                // CIF
+                +details-item("Date avis Fongecif", optKlass) {{session.dateAvisFongecif}}
+
+            div(ng-class="session.type === 'CIF' ? 'col-1-2' : 'col-1'")
+              ul.details-list.grid.pad
+                // CPF + CIF
+                +details-item("Avis employeur", optKlass) {{session.avisEmployeur}}
+
+                // CPF + CIF
+                +details-item("Date avis employeur", optKlass) {{session.dateAvisEmployeur}}
+
+                // CPF + CIF
+                - opt = { ngIf: "session.avisEmployeur === 'acceptee'" }
+                - opt.klass = 'col-1'
+                +details-item("Motif employeur", opt) {{session.motifEmployeur}}
+
+        div(ng-if="session.type === 'CIF'")
+          h4 Modalités de prise en charge par le Fongecif
+          ul.details-list.grid.pad
+
+            // CIF
+            +details-item("Montant de prise en charge sur salaire") {{session.priseChargeSalaire}}
+
+            // CIF
+            +details-item("Repriste de poste") {{session.reprisePoste}}
+
+            // CIF
+            +details-item("Duree prise en charge") {{session.dureePriseEnCharge}}
 
   .col-1-2(ng-if="hasUsers")
     .module-card
