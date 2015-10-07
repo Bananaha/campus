@@ -71,7 +71,7 @@
                 value: 'continue'
             }],
 
-            horaiteSouhaite: [{
+            horaireSouhaite: [{
                 label: 'PTT',
                 value: 'PTT'
             }, {

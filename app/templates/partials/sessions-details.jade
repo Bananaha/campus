@@ -24,32 +24,35 @@ include ../mixins/main
         ul.details-list.grid.pad
           +details-item("Entité") {{session.entite}}
 
-           // Employeur
-          - var opt = { ngIf: "session.client" }
-          +details-item("Client", opt) {{session.client}}
-
-          +details-item("Nature") {{session.categorie}}
-
-          - opt = { ngIf: "session.organisme && session.nomOrganisme" }
-          +details-item("Organisme", opt) {{session.nomOrganisme}}
+          +details-item("Référence") {{session.reference}}
 
           +details-item("Date de création") {{session.dateCreation}}
+
+          +details-item("Format") {{session.type}}
+
+          // Employeur
+          - var opt = { ngIf: "session.client" }
+          +details-item("Client", opt) {{session.client}}
 
           // Employeur
           - opt = { ngIf: "session.activite" }
           +details-item("Activité", opt) {{session.activite}}
-
-          +details-item("Type") {{session.nature}}
-
-          +details-item("Devis") {{session.devis}}
-
-          +details-item("Format") {{session.type}}
-
-          +details-item("Référence") {{session.reference}}
-
+          
           // Employeur
           - opt = { ngIf: "session.produit" }
           +details-item("Produit", opt) {{session.produit}}
+
+          +details-item("Nature") {{session.categorie}}
+
+          +details-item("Type") {{session.nature}}          
+
+          - opt = { ngIf: "!session.organisme" }
+          +details-item("Organisme", opt) Interne
+
+          - opt = { ngIf: "session.organisme && session.nomOrganisme" }
+          +details-item("Organisme", opt) {{session.nomOrganisme}}
+
+          +details-item("Devis") {{session.devis}}€
 
         h4.details-title Modalités de l'action de formation
         ul.details-list.grid.pad
@@ -58,6 +61,12 @@ include ../mixins/main
           - opt = { ngIf: "session.validation" }
           +details-item("Formation", opt) {{session.validation}}
 
+          // CPF + CIF
+          - opt = { ngIf: "session.validationComment" }
+          +details-item("Préciser", opt) {{session.validationComment}}
+
+          +details-item("Horaire souhaité") {{session.horaireSouhaite}}
+          
           - opt = { ngIf: "session.temps" }
           // CPF + CIF
           +details-item("Temps",opt) {{session.temps}}
@@ -66,39 +75,21 @@ include ../mixins/main
           // CPF + CIF
           +details-item("Date demande", opt) {{session.dateDemande}}
 
-          +details-item("Date de début") {{session.dateDebut}}
-
-          +details-item("Duree") {{session.duree}}
-
-          // CPF + CIF
-          - opt = { ngIf: "session.validationComment" }
-          +details-item("Validation commentaire", opt) {{session.validationComment}}
-
-          +details-item("Horaire souhaité") {{session.horaireSouhaite}}
-
           // CPF + CIF
           - opt = { ngIf: "session.dateButoir" }
           +details-item("Date butoir", opt) {{session.dateButoir}}
 
+          +details-item("Date de début") {{session.dateDebut}}
+
           +details-item("Date de fin") {{session.dateFin}}
+
+          +details-item("Duree") {{session.duree}}h
+
 
         div(ng-if="session.type === 'CIF' || session.type ==='CPF'")
           h4.details-title Acceptation de l'action de formation
           .grid.pad
-            .col-1-2(ng-if="session.type === 'CIF'")
-              ul.details-list.grid.pad
-                - optKlass = { klass: 'col-1' }
-                // CIF
-                +details-item("Avis Fongecif", optKlass) {{session.avisFongecif}}
-
-                // CIF
-                - opt = { ngIf: "session.avisFongecif === 'acceptee'" }
-                - opt.klass = 'col-1'
-                +details-item("Motif Fongecif", opt) {{session.motifFongecif}}
-
-                // CIF
-                +details-item("Date avis Fongecif", optKlass) {{session.dateAvisFongecif}}
-
+            - optKlass = { klass: 'col-1' }
             div(ng-class="session.type === 'CIF' ? 'col-1-2' : 'col-1'")
               ul.details-list.grid.pad
                 // CPF + CIF
@@ -112,27 +103,41 @@ include ../mixins/main
                 - opt.klass = 'col-1'
                 +details-item("Motif employeur", opt) {{session.motifEmployeur}}
 
+            .col-1-2(ng-if="session.type === 'CIF'")
+              ul.details-list.grid.pad
+                // CIF
+                +details-item("Avis Fongecif", optKlass) {{session.avisFongecif}}
+
+                // CIF
+                +details-item("Date avis Fongecif", optKlass) {{session.dateAvisFongecif}}
+
+                // CIF
+                - opt = { ngIf: "session.avisFongecif === 'acceptee'" }
+                - opt.klass = 'col-1'
+                +details-item("Motif Fongecif", opt) {{session.motifFongecif}}
+
+
         div(ng-if="session.type === 'CIF'")
           h4.details-title Modalités de prise en charge par le Fongecif
           ul.details-list.grid.pad
 
             // CIF
-            +details-item("Montant de prise en charge sur salaire") {{session.priseChargeSalaire}}
+            +details-item("Salaire") {{session.priseChargeSalaire}}€
 
             // CIF
             +details-item("Repriste de poste") {{session.reprisePoste}}
 
             // CIF
-            +details-item("Duree prise en charge") {{session.dureePriseEnCharge}}
+            +details-item("Duree") {{session.dureePriseEnCharge}}h
 
-  .col-1-2(ng-if="hasUsers")
+  div(ng-if="hasUsers", ng-class="session.organisme ? 'col-1' : 'col-1-2'")
     .module-card
       .module-header
         h2 Stagiaires
 
       user-list(users="participants.stagiaires", frozen="session.archive")
 
-  .col-1-2(ng-if="hasUsers")
+  .col-1-2(ng-if="!session.organisme && hasUsers")
     .module-card
       .module-header
         h2 Formateurs
