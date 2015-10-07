@@ -11,10 +11,8 @@
             FORMDATAS
         ) {
 
-            console.log('formationsCreationController');
-            
             $scope.opts = FORMDATAS;
-            
+
             $scope.opts.type = ACTIONS.filter(function(action) {
                 return !action.isSession;
             });

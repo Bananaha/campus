@@ -6,36 +6,41 @@ h2.module-title Création d'un accompagnement
 
   .col-1
     .module-card
-      form.grid.pad(name="accompagnementsCreation",
+      form.grid.pad(name="formationsCreation",
         data-action="insert",
+        data-target="formations"
         form,
         ng-submit="submit()")
-    
+
+        input(type="hidden",
+          name="type",
+          value="accompagnement")
+
         .col-1
           +form-underlined("Intitulé")
             - opt = {}
             - opt.required = true
             - opt.ngModel = "model.intitule"
             +input(opt)
-    
+
         .col-1
           +form-underlined("Client")
             - opt = {}
             - opt.ngModel = "model.client"
             +input(opt)
-    
+
         .col-1
           +form-underlined("Activité")
             - opt = {}
             - opt.ngModel = "model.activite"
             +input(opt)
-    
+
         .col-1
           +form-underlined("Produit")
             - opt = {}
             - opt.ngModel = "model.produit"
             +input(opt)
-    
+
         .col-1
           +form-underlined("Durée (heures)")
             - opt = {}
@@ -44,7 +49,7 @@ h2.module-title Création d'un accompagnement
             - opt.min = "0"
             - opt.required = true
             +input(opt)
-    
+
         .col-1-2
           +form-underlined("Date de début")
             - var opt = {}
@@ -54,7 +59,7 @@ h2.module-title Création d'un accompagnement
             - opt.required = "true"
             - opt.name = "from"
             +datePicker(opt)
-    
+
         .col-1-2
           +form-underlined("Date de fin")
             - var opt = {}
@@ -64,5 +69,5 @@ h2.module-title Création d'un accompagnement
             - opt.required = "true"
             - opt.name = "to"
             +datePicker(opt)
-            
+
         include ../includes/modules/module-submit

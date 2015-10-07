@@ -34,12 +34,6 @@
                 })
                 .then(onGetDetailSuccess, onGetDetailError);
 
-            $scope.$watch('participants', onParticipantsChange, true);
-
-            $timeout(function() {
-                initialized = true
-            });
-
             $scope.table = {
                 filters: {},
                 config: {
@@ -93,7 +87,7 @@
                         .unarchive(config.urls.formations, ID)
                         .then(onUnarchive);
                 }
-            }
+            };
 
             function onUnarchive() {
                 $scope.formation.archive = false;
@@ -148,6 +142,13 @@
                 if (actionConfig.showCost) {
                     $scope.showCost = true;
                 }
+
+                $scope.$watch('participants', onParticipantsChange, true);
+
+                $timeout(function() {
+                    $scope.$apply();
+                    initialized = true;
+                });
             }
 
             function onGetDetailError() {

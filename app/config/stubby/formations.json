@@ -23,6 +23,50 @@
     }
 }, {
     "request": {
+        "url": "/formations/insert",
+        "method": "POST",
+        "query": {
+            "type": "employeur"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations/formationsCreation-EMPLOYEUR.json"
+    }
+}, {
+    "request": {
+        "url": "/formations/insert",
+        "method": "POST",
+        "query": {
+            "type": "accompagnement"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations/formationsCreation-ACCOMPAGNEMENT.json"
+    }
+}, {
+    "request": {
+        "url": "/formations/insert",
+        "method": "POST",
+        "query": {
+            "type": "CPF"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations/formationsCreation-CPF.json"
+    }
+}, {
+    "request": {
+        "url": "/formations/insert",
+        "method": "POST",
+        "query": {
+            "type": "CIF"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations/formationsCreation-CIF.json"
+    }
+}, {
+    "request": {
         "url": "/formations/update",
         "query": {
             "id": "^[0-9a-zA-Z]"

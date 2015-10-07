@@ -22,6 +22,7 @@
                 "getUtilisateurs": "http://localhost:8882/getUsers",
 
                 "formations": "http://localhost:8882/formations",
+                "formationsCreation": "http://localhost:8882/formations/insert",
                 "formationsDetails": "http://localhost:8882/formations",
                 "formationsModification": "http://localhost:8882/formations/update",
                 "archives": "http://localhost:8882/archives",
