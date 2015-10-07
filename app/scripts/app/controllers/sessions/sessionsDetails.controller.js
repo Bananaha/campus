@@ -25,16 +25,9 @@
                 formateurs: []
             };
 
-            $http({
-                    method: 'GET',
-                    url: config.urls.sessionsDetails,
-                    params: {
-                        id: ID
-                    }
-                })
-                .then(onGetDetailSuccess, onGetDetailError);
-
             $scope.$watch('participants', onParticipantsChange, true);
+
+            getDatas();
 
             $scope.unarchive = function() {
                 if ($scope.session.archive) {
@@ -43,6 +36,17 @@
                         .then(onUnarchive);
                 }
             };
+
+            function getDatas() {
+                $http({
+                    method: 'GET',
+                    url: config.urls.sessionsDetails,
+                    params: {
+                        id: ID
+                    }
+                })
+                .then(onGetDetailSuccess, onGetDetailError);
+            }
 
             function onUnarchive() {
                 $scope.session.archive = false;
@@ -89,6 +93,18 @@
                 $timeout(function() {
                     initialized = true;
                 });
+
+                console.log('TODO: clean this');
+                global.s = function(int) {
+                   var b = ['fakeIdCIF', 'fakeIdCPF', 'fakeIdEmployeur'];
+                    global.a = int || (global.a + 1) || 0;
+                    if (global.a >= b.length) {
+                        global.a = 0;
+                    }
+                    ID = b[global.a];
+                    getDatas();
+                    return ID;
+                };
             }
 
             function onGetDetailError() {
