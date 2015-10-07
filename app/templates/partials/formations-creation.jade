@@ -12,21 +12,21 @@ h2.module-title Création d'une action de formation
         form,
         ng-submit="submit()")
 
-        .col-1
-          +form-underlined("Type")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.type"
-            - opt.ngOptions = "type.id as type.label for type in opts.type"
-            +select(opt)
-
-        .col-1
+        .col-3-4
           +form-underlined("Intitulé")
             - opt = {}
             - opt.required = true
             - opt.ngModel = "model.intitule"
             +input(opt)
 
+        .col-1-4
+          +form-underlined("Dispositif")
+            - opt = {}
+            - opt.required = true
+            - opt.ngModel = "model.type"
+            - opt.ngOptions = "type.id as type.label for type in opts.type"
+            +select(opt)
+    
         .col-1
           +form-underlined("Entité")
             - opt = {}
@@ -35,28 +35,28 @@ h2.module-title Création d'une action de formation
             - opt.ngOptions = "entite for entite in opts.entites"
             +select(opt)
 
-        .col-1
+        .col-1-3
           +form-underlined("Client")
             - opt = {}
             - opt.required = true
             - opt.ngModel = "model.client"
             +input(opt)
 
-        .col-1
+        .col-1-3
           +form-underlined("Activité")
             - opt = {}
             - opt.required = true
             - opt.ngModel = "model.activite"
             +input(opt)
 
-        .col-1
+        .col-1-3
           +form-underlined("Produit")
             - opt = {}
             - opt.required = true
             - opt.ngModel = "model.produit"
             +input(opt)
 
-        .col-1
+        .col-1-2
           +form-underlined("Organisme")
             - opt = {}
             - opt.required = true
@@ -64,7 +64,7 @@ h2.module-title Création d'une action de formation
             - opt.ngOptions = "organisme.value as organisme.label for organisme in opts.organisme"
             +select(opt)
 
-        .col-1(ng-if="model.organisme")
+        .col-1-2(ng-if="model.organisme")
           +form-underlined("Nom organisme")
             - opt = {}
             - opt.required = true
@@ -99,4 +99,5 @@ h2.module-title Création d'une action de formation
             - opt.ngModel = "model.prerequis"
             +input(opt)
 
-        include ../includes/modules/module-submit
+        .col-1
+            include ../includes/modules/module-submit

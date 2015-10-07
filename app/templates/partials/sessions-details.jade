@@ -19,7 +19,7 @@ include ../mixins/main
               ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
 
         ul.details-list
-
+          h4 Informations
           .grid.pad
             .col-1-3
               //+details-item("Action")
@@ -32,6 +32,7 @@ include ../mixins/main
               +details-item("Organisme", "session.organisme && session.nomOrganisme") {{session.nomOrganisme}}
               
             .col-1-3
+              
               +details-item("Date de création") {{session.dateCreation}}
                // Employeur
               +details-item("Activité", "session.activite") {{session.activite}}
@@ -46,57 +47,54 @@ include ../mixins/main
               +details-item("Type") {{session.nature}}
               // CIF
               +details-item("Date butoir", "session.dateButoir") {{session.dateButoir}}
-              +details-item("Duree") {{session.duree}} 
-    .module-card
-      .module-header
-        h2 Modalité de l'action de formation  
-      ul.details-list
-        .grid.pad
-          .col-1-3
-            // CPF + CIF
-            +details-item("Formation", "session.validation") {{session.validation}}
-            // CPF + CIF
-            +details-item("Temps", "session.temps") {{session.temps}}
-          .col-1-3
-            // CPF + CIF
-            +details-item("Validation commentaire", "session.validationComment") {{session.validationComment}} 
-            +details-item("Horaire souhaité") {{session.horaireSouhaite}}
-          .col-1-3
-            // CPF + CIF
-            +details-item("Date demande", "session.dateDemande") {{session.dateDemande}}
+              +details-item("Duree") {{session.duree}}
+              
+        ul.details-list
+          h4 Modalité de l'action de formation
+          .grid.pad
+            .col-1-3
+              // CPF + CIF
+              +details-item("Formation", "session.validation") {{session.validation}}
+              // CPF + CIF
+              +details-item("Temps", "session.temps") {{session.temps}}
+            .col-1-3
+              // CPF + CIF
+              +details-item("Validation commentaire", "session.validationComment") {{session.validationComment}} 
+              +details-item("Horaire souhaité") {{session.horaireSouhaite}}
+            .col-1-3
+              // CPF + CIF
+              +details-item("Date demande", "session.dateDemande") {{session.dateDemande}}
+
+         
+        ul.details-list
+          h4 Acceptation de l'action de formation 
+          .grid.pad
+            .col-1-2
+              // CIF
+              +details-item("Avis Fongecif", "session.avisFongecif") {{session.avisFongecif}}
+              // CIF
+              +details-item("Motif Fongecif", "session.motifFongecif  && session.avisFongecif === 'acceptee'") {{session.motifFongecif}} 
+              // CIF
+              +details-item("Date avis Fongecif", "session.dateAvisFongecif") {{session.dateAvisFongecif}}
+            .col-1-2
+              // CPF + CIF
+              +details-item("Avis employeur", "session.avisEmployeur") {{session.avisEmployeur}}
+              // CPF + CIF
+              +details-item("Date avis employeur", "session.dateAvisEmployeur") {{session.dateAvisEmployeur}}
+              // CPF + CIF
+              +details-item("Motif employeur", "session.motifEmployeur && session.avisEmployeur === 'acceptee'") {{session.motifEmployeur}}
+    
         
-        
-    .module-card
-      .module-header
-        h2 Acceptation de l'action de formation  
-      ul.details-list
-        .grid.pad
-          .col-1-2
-            // CIF
-            +details-item("Avis Fongecif", "session.avisFongecif") {{session.avisFongecif}}
-            // CIF
-            +details-item("Motif Fongecif", "session.motifFongecif  && session.avisFongecif === 'acceptee'") {{session.motifFongecif}} 
-            // CIF
-            +details-item("Date avis Fongecif", "session.dateAvisFongecif") {{session.dateAvisFongecif}}
-          .col-1-2
-            // CPF + CIF
-            +details-item("Avis employeur", "session.avisEmployeur") {{session.avisEmployeur}}
-            // CPF + CIF
-            +details-item("Date avis employeur", "session.dateAvisEmployeur") {{session.dateAvisEmployeur}}
-            // CPF + CIF
-            +details-item("Motif employeur", "session.motifEmployeur && session.avisEmployeur === 'acceptee'") {{session.motifEmployeur}}
-    .module-card
-      .module-header
-        h2 Modalité de prise en charge par le Fongecif  
-      ul.details-list
-        .grid.pad
-          .col-1-3
-            // CIF
-            +details-item("Montant de prise en charge sur salaire", "session.priseChargeSalaire") {{session.priseChargeSalaire}}
-          .col-1-3
-            +details-item("Repriste de poste", "session.reprisePoste") {{session.reprisePoste}} 
-          .col-1-3
-            +details-item("Duree prise en charge") {{session.duree}}
+        ul.details-list
+          h4 Modalité de prise en charge par le Fongecif  
+          .grid.pad
+            .col-1-3
+              // CIF
+              +details-item("Montant de prise en charge sur salaire", "session.priseChargeSalaire") {{session.priseChargeSalaire}}
+            .col-1-3
+              +details-item("Repriste de poste", "session.reprisePoste") {{session.reprisePoste}} 
+            .col-1-3
+              +details-item("Duree prise en charge") {{session.duree}}
 
   .col-1-2(ng-if="hasUsers")
     .module-card
