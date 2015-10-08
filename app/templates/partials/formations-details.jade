@@ -11,8 +11,8 @@ include ../mixins/main
           .affix-target
             p.details-id \#{{formation.action}} - {{formation.auteur}}
             h2 {{formation.intitule}}
-            a(ng-href="#/formations/{{formation.id}}/modifier"
-              ng-if="!formation.archive").module-header-action.btnIcon.circle.big.modify
+            a(ng-href="#/formations/{{formation.id}}/creation-session",
+              ng-if="!formation.archive").module-header-action.btnIcon.circle.big.add
             button(ng-if="formation.archive",
               ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
 
@@ -29,6 +29,10 @@ include ../mixins/main
           +details-list("Objectif", "formation.objectif")
           +details-list("Contenu", "formation.contenu")
           +details-list("Prérequis", "formation.prerequis")
+
+        .module-cta
+          a.btn(ng-href="#/formations/{{formation.id}}/modifier"
+            ng-if="!formation.archive") modifier
 
   .col-1(ng-if="hasSessions")
     .module-card

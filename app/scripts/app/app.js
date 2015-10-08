@@ -39,6 +39,10 @@
                     templateUrl: basePath + 'formations-details.html',
                     controller: 'formationsDetailsController'
                 }).
+                when('/formations/:id/creation-session', {
+                    templateUrl: basePath + 'sessions-creation.html',
+                    controller: 'sessionsCreationController'
+                }).
                 when('/formations/:id/modifier', {
                     templateUrl: basePath + 'formations-modifier.html',
                     controller: 'formationsModifierController'

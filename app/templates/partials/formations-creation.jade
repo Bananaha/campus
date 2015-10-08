@@ -26,7 +26,7 @@ h2.module-title Création d'une action de formation
             - opt.ngModel = "model.type"
             - opt.ngOptions = "type.id as type.label for type in opts.type"
             +select(opt)
-    
+
         .col-1
           +form-underlined("Entité")
             - opt = {}
@@ -65,7 +65,7 @@ h2.module-title Création d'une action de formation
             +select(opt)
 
         .col-1-2(ng-if="model.organisme")
-          +form-underlined("Nom organisme")
+          +form-underlined("Nom de l'organisme")
             - opt = {}
             - opt.required = true
             - opt.ngModel = "model.nomOrganisme"
