@@ -240,7 +240,8 @@ include ../mixins/main
                   - opt = {}
                   - opt.required = true
                   - opt.ngModel = "model.reprisePoste"
-                  +input(opt)
+                  - opt.ngOptions = "opt.value as opt.label for opt in opts.reprisePoste"
+                  +select(opt)
 
 
 

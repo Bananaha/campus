@@ -10,12 +10,15 @@
             formatterService,
             historyService,
             config,
-            ACTIONS
+            ACTIONS,
+            FORMDATAS
         ) {
 
             var ID = $routeParams.id;
 
             $scope.model = {};
+
+            $scope.opts = FORMDATAS;
 
             $http({
                     method: 'GET',
@@ -25,7 +28,6 @@
                     }
                 })
                 .then(onGetDetailSuccess, onGetDetailError);
-
 
             function onGetDetailSuccess(res) {
                 var allowSessionCreation = false,
@@ -37,11 +39,11 @@
 
                 if (allowSessionCreation) {
                     $scope.model.type = res.data.type;
+                    fillInheritedData(res.data);
                     console.log($scope.model);
                 } else {
                     historyService.back();
                 }
-
             }
 
             function onGetDetailError() {
@@ -50,6 +52,15 @@
 
             function formatDatas(datas) {
                 return formatterService.format(datas);
+            }
+
+            function fillInheritedData(data) {
+                var inheritedKeys = ['activite', 'categorie', 'client', 'nature', 'nomOrganisme', 'organisme', 'produit'];
+                inheritedKeys.forEach(function(key) {
+                    if (angular.isDefined(data[key])) {
+                        $scope.model[key] = data[key];
+                    }
+                });
             }
 
         });
