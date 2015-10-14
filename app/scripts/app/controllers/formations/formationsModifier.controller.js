@@ -29,7 +29,7 @@
             }
 
             function onGetRequestError() {
-                notificationService.warn('Erreur lors de la récupération des données de l\'action ' + ID + '.')
+                notificationService.warn('Erreur lors de la récupération des données de l\'action ' + ID + '.');
                 historyService.back();
             }
 

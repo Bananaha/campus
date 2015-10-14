@@ -34,7 +34,7 @@
                                 value: action.id,
                                 label: action.label
                             };
-                        })
+                        });
                     }
 
                     $scope.$watch('model', onModelChange, true);
@@ -61,7 +61,7 @@
                     }
 
                     function onVisibilityToggle() {
-                        element.toggleClass(openClass, $scope.open)
+                        element.toggleClass(openClass, $scope.open);
                         if ($scope.open) {
                             filtersEl.height(height);
                         } else {
@@ -104,7 +104,7 @@
                                 count++;
                                 return key;
                             }
-                        })
+                        });
                     }
                 }
             };

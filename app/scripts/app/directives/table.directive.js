@@ -22,8 +22,7 @@
                 },
                 templateUrl: 'table.html',
                 link: function ($scope, element) {
-                    var datas = [],
-                        initialized = false,
+                    var initialized = false,
                         isLoading = false,
                         changeTimeout,
                         requestPromise,
@@ -100,7 +99,7 @@
                             break;
                             case 'desarchiver':
                                 request = dbActionsService.unarchive(config.url, item.id);
-                                callback = unarchiveItem.bind(this,  item);
+                                callback = unarchiveItem.bind(this, item);
                             break;
                         }
                         if (request) {
@@ -168,11 +167,10 @@
                     }
 
                     function reinitDatas() {
-                        $scope.datas = datas = [];
+                        $scope.datas = [];
                     }
 
                     function getFiltersParams(params) {
-                        var types;
                         if ($scope.filters) {
                             if ($scope.filters.search) {
                                 params.search = $scope.filters.search;

@@ -124,18 +124,18 @@
                     }
 
                     function onRequestSuccess(res) {
-                        var url;
+                        var _url;
 
                         flush();
                         modalService.hideModals();
 
                         if (res.data.id) {
                             if (target) {
-                                url = target + '/' + res.data.id;
+                                _url = target + '/' + res.data.id;
                             } else {
-                                url = $location.url() + '/' + res.data.id;
+                                _url = $location.url() + '/' + res.data.id;
                             }
-                            $location.url(url);
+                            $location.url(_url);
                         } else {
                             historyService.back();
                         }

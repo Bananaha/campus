@@ -1,4 +1,4 @@
-(function (global, angular) {
+(function (global, angular, moment) {
     'use strict';
 
     angular.module('campus.app').factory('formatterService',
@@ -96,5 +96,5 @@
         }
     );
 
-}(window, window.angular));
+}(window, window.angular, window.moment));
 

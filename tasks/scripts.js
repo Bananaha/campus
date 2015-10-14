@@ -49,6 +49,7 @@ function getScriptsFromJade() {
 
 gulp.task('lint', function () {
     return gulp.src(path.join(config.src, 'scripts', 'app', '**', '*.js'))
+        .pipe(eslint())
         .pipe(eslint.format())
         .pipe(gIf(config.prod, eslint.failOnError()));
 });

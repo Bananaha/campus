@@ -1,4 +1,4 @@
-(function (global, angular, moment) {
+(function (global, angular) {
     'use strict';
 
     angular.module('campus.app')
@@ -8,6 +8,7 @@
             $http,
             $timeout,
             $routeParams,
+            historyService,
             notificationService,
             dbActionsService,
             actionsService,
@@ -93,22 +94,10 @@
                 $timeout(function() {
                     initialized = true;
                 });
-
-                console.log('TODO: clean this');
-                global.s = function(int) {
-                   var b = ['fakeIdCIF', 'fakeIdCPF', 'fakeIdEmployeur'];
-                    global.a = int || (global.a + 1) || 0;
-                    if (global.a >= b.length) {
-                        global.a = 0;
-                    }
-                    ID = b[global.a];
-                    getDatas();
-                    return ID;
-                };
             }
 
             function onGetDetailError() {
-                notificationService.warn('Erreur lors de la récupération des données de la session ' + ID + '.')
+                notificationService.warn('Erreur lors de la récupération des données de la session ' + ID + '.');
                 historyService.back();
             }
 
@@ -118,4 +107,4 @@
 
         });
 
-}(window, window.angular, window.moment));
+}(window, window.angular));

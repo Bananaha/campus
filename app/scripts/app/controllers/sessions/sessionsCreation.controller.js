@@ -1,4 +1,4 @@
-(function (global) {
+(function (angular) {
     'use strict';
 
     angular.module('campus.app')
@@ -42,17 +42,13 @@
                     $scope.model.type = res.data.type;
                     fillInheritedData(res.data);
                 } else {
-                    notificationService.warn('Vous ne pouvez pas créer de session pour cette action.')
+                    notificationService.warn('Vous ne pouvez pas créer de session pour cette action.');
                     historyService.back();
                 }
             }
 
             function onGetDetailError() {
                 historyService.back();
-            }
-
-            function formatDatas(datas) {
-                return formatterService.format(datas);
             }
 
             function fillInheritedData(data) {
@@ -66,4 +62,4 @@
 
         });
 
-}(window));
+}(window.angular));

@@ -3,8 +3,7 @@
 
     angular.module('campus.app').factory('resizeEventService',
         function(
-            $timeout,
-            $window
+            $timeout
         ) {
 
             var callbacks = {},

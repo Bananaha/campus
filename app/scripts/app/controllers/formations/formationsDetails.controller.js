@@ -1,4 +1,4 @@
-(function (global, angular, moment) {
+(function (global, angular) {
     'use strict';
 
     angular.module('campus.app')
@@ -10,6 +10,7 @@
             $routeParams,
             config,
             historyService,
+            notificationService,
             dbActionsService,
             actionsService,
             formatterService
@@ -95,7 +96,6 @@
 
             function onParticipantsChange() {
                 if (initialized) {
-                    console.log('onParticipantsChange');
                     $timeout.cancel(changeTimeout);
                     changeTimeout = $timeout(saveUsers, 200);
                 }
@@ -152,7 +152,7 @@
             }
 
             function onGetDetailError() {
-                notificationService.warn('Erreur lors de la récupération des données de l\'action ' + ID + '.')
+                notificationService.warn('Erreur lors de la récupération des données de l\'action ' + ID + '.');
                 historyService.back();
             }
 
@@ -162,4 +162,4 @@
 
         });
 
-}(window, window.angular, window.moment));
+}(window, window.angular));

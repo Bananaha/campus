@@ -1,4 +1,4 @@
-(function (global, angular) {
+(function (global, angular, moment) {
     'use strict';
 
     angular.module('campus.app')
@@ -13,8 +13,7 @@
             config
         ) {
 
-            var that = this,
-                ID = $routeParams.id,
+            var ID = $routeParams.id,
                 listKeys = [{
                     label: 'Adresse mail',
                     key: 'mail'
@@ -74,8 +73,6 @@
                 });
                 return scope;
             }
-
-
         });
 
-}(window, window.angular));
+}(window, window.angular, window.moment));

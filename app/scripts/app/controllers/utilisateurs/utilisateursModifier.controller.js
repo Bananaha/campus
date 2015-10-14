@@ -21,7 +21,7 @@
                 return {
                     label: permission.label,
                     value: permission.id
-                }
+                };
             });
 
             $http({

@@ -4,7 +4,7 @@
     angular.module('campus.app')
     .controller('formationsController',
         function (
-        	$scope,
+            $scope,
             config,
             appStateService
         ) {
