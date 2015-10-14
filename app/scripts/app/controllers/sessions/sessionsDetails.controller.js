@@ -8,11 +8,11 @@
             $http,
             $timeout,
             $routeParams,
-            $location,
-            config,
+            notificationService,
             dbActionsService,
             actionsService,
-            formatterService
+            formatterService,
+            config
         ) {
 
             var ID = $routeParams.id,
@@ -108,7 +108,8 @@
             }
 
             function onGetDetailError() {
-                $location.url('/formations');
+                notificationService.warn('Erreur lors de la récupération des données de la session ' + ID + '.')
+                historyService.back();
             }
 
             function formatDatas(datas) {

@@ -8,11 +8,14 @@
             $http,
             $timeout,
             $routeParams,
-            $location,
-            config,
             appStateService,
+            notificationService,
+            historyService,
+            config,
             FORMDATAS
         ) {
+
+            var ID = $routeParams.id;
 
             $scope.permissions = FORMDATAS.permissions.map(function(permission) {
                 return {
@@ -25,7 +28,7 @@
                     method: 'GET',
                     url: config.urls.utilisateursDetails,
                     params: {
-                        id: $routeParams.id
+                        id: ID
                     }
                 })
                 .then(onGetRequestSuccess, onGetRequestError);
@@ -42,7 +45,8 @@
             }
 
             function onGetRequestError() {
-                $location.url('/users');
+                notificationService.warn('Erreur lors de la récupération de l\'utilisateur ' + ID + '.');
+                historyService.back();
             }
 
             appStateService.isLoading(false);

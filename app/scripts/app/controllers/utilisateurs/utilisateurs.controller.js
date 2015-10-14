@@ -5,10 +5,8 @@
     .controller('utilisateursController',
         function (
             $scope,
-            $http,
-            $timeout,
-            config,
-            appStateService
+            appStateService,
+            config
         ) {
 
             $scope.table = {

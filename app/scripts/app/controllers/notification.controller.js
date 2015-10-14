@@ -26,7 +26,6 @@
             function shift() {
                 $scope.notifications.shift();
             }
-
         });
 
 }(window, window.angular));

@@ -5,7 +5,6 @@
     .controller('formationsCreationController',
         function (
             $scope,
-            config,
             appStateService,
             ACTIONS,
             FORMDATAS

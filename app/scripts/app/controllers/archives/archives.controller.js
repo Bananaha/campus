@@ -6,8 +6,7 @@
         function (
             $scope,
             config,
-            appStateService,
-            ACTIONS
+            appStateService
         ) {
 
             $scope.table = {

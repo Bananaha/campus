@@ -6,14 +6,15 @@
         function (
             $scope,
             $http,
-            $timeout,
             $routeParams,
-            $location,
-            config,
-            appStateService
+            appStateService,
+            notificationService,
+            historyService,
+            config
         ) {
 
             var that = this,
+                ID = $routeParams.id,
                 listKeys = [{
                     label: 'Adresse mail',
                     key: 'mail'
@@ -37,7 +38,7 @@
                     method: 'GET',
                     url: config.urls.utilisateursDetails,
                     params: {
-                        id: $routeParams.id
+                        id: ID
                     }
                 })
                 .then(onGetDetailSuccess, onGetDetailError);
@@ -47,7 +48,8 @@
             }
 
             function onGetDetailError() {
-                $location.url('/users');
+                notificationService.warn('Erreur lors de la récupération de l\'utilisateur ' + ID + '.');
+                historyService.back();
             }
 
             function formatDatas(datas) {

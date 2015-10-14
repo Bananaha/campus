@@ -4,9 +4,10 @@
     angular.module('campus.app')
     .controller('lastSessionsController',
         function (
-            config,
             $scope,
-            $http
+            $http,
+            notificationService,
+            config
         ) {
 
             $http({
@@ -17,12 +18,14 @@
                         size: 3
                     }
                 })
-                .then(function(res) {
-                    onResponse(res.data);
-                });
+                .then(onGetSessionsSuccess, onGetSessionsError);
 
-            function onResponse(data) {
-                $scope.lastSessions = data;
+            function onGetSessionsSuccess(res) {
+                $scope.lastSessions = res.data;
+            }
+
+            function onGetSessionsError() {
+                notificationService.warn('Erreur lors de la récupération des dernières sessions.');
             }
         });
 

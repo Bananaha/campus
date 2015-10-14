@@ -4,12 +4,12 @@
     angular.module('campus.app')
     .controller('reportingController',
         function (
-            config,
-            downloaderService,
             $scope,
-            $window,
             $http,
-            $timeout
+            $timeout,
+            downloaderService,
+            notificationService,
+            config
         ) {
 
             $scope.valid = false;
@@ -43,7 +43,7 @@
             $scope.submit = function() {
                 var data;
                 if ($scope.reportingForm.$invalid && false) {
-                    $window.alert('erreur dans le formulaire reporting');
+                    notificationService.warn('Erreur dans le formulaire reporting');
                 } else {
                     data = {
                         from: new Date($scope.model.from).getTime(),
@@ -55,11 +55,17 @@
                             url: config.urls.reporting,
                             params: data
                         })
-                        .then(function(res) {
-                            downloaderService.download(res.data.url);
-                        });
+                        .then(onGetReportSuccess, onGetReportError);
                 }
             };
+
+            function onGetReportSuccess(res) {
+                downloaderService.download(res.data.url);
+            }
+
+            function onGetReportError() {
+                notificationService.warn('Erreur lors de la récupération du reporting.');
+            }
         });
 
 }(window, window.angular));

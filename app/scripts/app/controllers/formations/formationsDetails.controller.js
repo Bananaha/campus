@@ -8,8 +8,8 @@
             $http,
             $timeout,
             $routeParams,
-            $location,
             config,
+            historyService,
             dbActionsService,
             actionsService,
             formatterService
@@ -152,7 +152,8 @@
             }
 
             function onGetDetailError() {
-                $location.url('/formations');
+                notificationService.warn('Erreur lors de la récupération des données de l\'action ' + ID + '.')
+                historyService.back();
             }
 
             function formatDatas(datas) {

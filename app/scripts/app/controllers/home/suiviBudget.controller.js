@@ -4,19 +4,22 @@
     angular.module('campus.app')
     .controller('suiviBudgetController',
         function (
-            config,
             $scope,
-            $http
+            $http,
+            notificationService,
+            config
         ) {
 
             $http.get(config.urls.suiviBudget)
-            .then(function(res) {
-                onResponse(res.data);
-            });
+                .then(onGetBudgetSuccess, onGetBudgetError);
 
-            function onResponse(data) {
-                $scope.graphs = data.graph;
-                $scope.coutDirect = data.coutDirect;
+            function onGetBudgetError() {
+                notificationService.warn('Erreur lors de la récupération du budget.');
+            }
+
+            function onGetBudgetSuccess(res) {
+                $scope.graphs = res.data.graph;
+                $scope.coutDirect = res.data.coutDirect;
                 initGraph();
             }
 

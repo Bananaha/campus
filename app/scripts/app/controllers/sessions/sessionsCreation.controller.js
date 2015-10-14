@@ -7,6 +7,7 @@
             $scope,
             $http,
             $routeParams,
+            notificationService,
             formatterService,
             historyService,
             config,
@@ -40,8 +41,8 @@
                 if (allowSessionCreation) {
                     $scope.model.type = res.data.type;
                     fillInheritedData(res.data);
-                    console.log($scope.model);
                 } else {
+                    notificationService.warn('Vous ne pouvez pas créer de session pour cette action.')
                     historyService.back();
                 }
             }

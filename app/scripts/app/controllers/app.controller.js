@@ -6,8 +6,6 @@
         function(
             $scope,
             $location,
-            $window,
-            $timeout,
             modalService,
             appStateService,
             historyService

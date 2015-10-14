@@ -4,9 +4,10 @@
     angular.module('campus.app')
     .controller('documentationController',
         function (
-            config,
             $scope,
-            $http
+            $http,
+            notificationService,
+            config
         ) {
 
             $http({
@@ -17,12 +18,14 @@
                         size: 6
                     }
                 })
-                .then(function(res) {
-                    onResponse(res.data);
-                });
+                .then(onGetDocumentationSuccess, onGetDocumentationError);
 
-            function onResponse(data) {
-                $scope.docs = data;
+            function onGetDocumentationError() {
+                notificationService.warn('Erreur lors de la récupération de la documentation.');
+            }
+
+            function onGetDocumentationSuccess(res) {
+                $scope.docs = res.data;
             }
         });
 

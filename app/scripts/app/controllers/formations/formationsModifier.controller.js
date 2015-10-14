@@ -6,19 +6,20 @@
         function (
             $scope,
             $http,
-            $timeout,
             $routeParams,
-            $route,
-            $location,
+            notificationService,
+            historyService,
             formatterService,
             config
         ) {
+
+            var ID = $routeParams.id;
 
             $http({
                     method: 'GET',
                     url: config.urls.formationsDetails,
                     params: {
-                        id: $routeParams.id
+                        id: ID
                     }
                 })
                 .then(onGetRequestSuccess, onGetRequestError);
@@ -28,7 +29,8 @@
             }
 
             function onGetRequestError() {
-                $location.url('/formations');
+                notificationService.warn('Erreur lors de la récupération des données de l\'action ' + ID + '.')
+                historyService.back();
             }
 
             function formatDatas(datas) {

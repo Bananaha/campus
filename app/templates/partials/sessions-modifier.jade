@@ -1,250 +1,256 @@
 include ../mixins/main
 
-.grid.pad
+form.details(name="sessionsModification",
+    data-action="update",
+    form,
+    ng-submit="submit()")
 
-  .col-1
-    .module-card
+  .module-card
 
-      .details
+    .module-header(affix, affix-offset=48)
+      .affix-target
+        p.details-id
+          | \#{{model.session}} - {{model.auteurNom}} - Action n°{{model.action}} - {{model.type}}
+        h2 {{model.intitule}}
 
-        form(name="sessionsModification",
-          data-action="update",
-          form,
-          ng-submit="submit()")
+    .grid.pad
+      .col-1
+        +form-underlined("Référence")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.reference"
+          +input(opt)
 
-          .module-header(affix, affix-offset=48)
-            .affix-target
-              p.details-id
-                | \#{{model.session}} - {{model.auteurNom}} - Action n°{{model.action}} - {{model.type}}
-              h2 {{model.intitule}}
+      // Employeur
+      .col-1
+        +form-underlined("Client")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.client"
+          +input(opt)
 
-          .grid.pad
+      // Employeur
+      .col-1
+        +form-underlined("Activité")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.activite"
+          +input(opt)
 
-            .col-1
-              +form-underlined("Catégorie")
-                - opt = {}
-                - opt.required = true
-                - opt.ngModel = "model.categorie"
-                - opt.ngOptions = "opt.value as opt.label for opt in opts.categorie"
-                +select(opt)
+      // Employeur
+      .col-1
+        +form-underlined("Produit")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.produit"
+          +input(opt)
 
-            .col-1
-              +form-underlined("Date de début")
-                - var opt = {}
-                - opt.ngModel = "model.dateDebut"
-                - opt.isOpen = "state.openDatepickers.dateDebut"
-                - opt.maxDate = "model.dateFin"
-                - opt.required = "true"
-                +datePicker(opt)
+      .col-1
+        +form-underlined("Nature")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.categorie"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.categorie"
+          +select(opt)
 
-            .col-1
-              +form-underlined("Date de fin")
-                - var opt = {}
-                - opt.ngModel = "model.dateFin"
-                - opt.isOpen = "state.openDatepickers.dateFin"
-                - opt.minDate = "model.dateDebut"
-                - opt.required = "true"
-                +datePicker(opt)
+      .col-1
+        +form-underlined("Type")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.nature"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.nature"
+          +select(opt)
 
-            .col-1
-              +form-underlined("Devis")
-                - opt = {}
-                - opt.required = true
-                - opt.type = "number"
-                - opt.min = 0
-                - opt.ngModel = "model.devis"
-                +input(opt)
+      .col-1
+        +form-underlined("Organisme")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.organisme"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.organisme"
+          +select(opt)
 
-            .col-1
-              +form-underlined("Durée")
-                - opt = {}
-                - opt.required = true
-                - opt.type = "number"
-                - opt.min = 0
-                - opt.ngModel = "model.duree"
-                +input(opt)
+      .col-1
+        +form-underlined("Nom de l'organisme")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.nomOrganisme"
+          +input(opt)
 
-            .col-1
-              +form-underlined("Horaire souhaité")
-                - opt = {}
-                - opt.required = true
-                - opt.ngModel = "model.horaireSouhaite"
-                - opt.ngOptions = "opt.value as opt.label for opt in opts.horaiteSouhaite"
-                +select(opt)
+      .col-1
+        +form-underlined("Devis (€)")
+          - opt = {}
+          - opt.type = "number"
+          - opt.required = true
+          - opt.ngModel = "model.devis"
+          +input(opt)
 
-            .col-1
-              +form-underlined("Nature")
-                - opt = {}
-                - opt.required = true
-                - opt.ngModel = "model.nature"
-                - opt.ngOptions = "opt.value as opt.label for opt in opts.nature"
-                +select(opt)
+  .module-card
+    .module-header
+      h3 Modalités de l'action de formation
 
-            .col-1
-              +form-underlined("Organisme")
-                - opt = {}
-                - opt.required = true
-                - opt.ngModel = "model.organisme"
-                - opt.ngOptions = "opt.value as opt.label for opt in opts.organisme"
-                +select(opt)
+    .grid.pad
+      .col-1
+        // CPF + CIF
+        +form-underlined("Formation")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.validation"
+          +input(opt)
 
-            .col-1
-              +form-underlined("Nom de l'organisme", "model.organisme")
-                - opt = {}
-                - opt.required = true
-                - opt.ngModel = "model.nomOrganisme"
-                +input(opt)
+      .col-1
+        // CPF + CIF
+        +form-underlined("Préciser")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.validationComment"
+          +input(opt)
 
-            .col-1
-              +form-underlined("Référence")
-                - opt = {}
-                - opt.required = true
-                - opt.ngModel = "model.reference"
-                +input(opt)
+      .col-1
+        +form-underlined("Horaire souhaité")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.horaireSouhaite"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.horaireSouhaite"
+          +select(opt)
 
-          // Employeur
-          div(ng-if="model.type === 'employeur'")
-            h3 Employeur
-            .grid.pad
+      // CPF + CIF
+      .col-1
+        +form-underlined("Temps")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.temps"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.temps"
+          +select(opt)
 
-              .col-1
-                +form-underlined("Activité")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.activite"
-                  +input(opt)
+      // CPF + CIF
+      .col-1
+        +form-underlined("Date de demande")
+          - var opt = {}
+          - opt.ngModel = "model.dateDemande"
+          - opt.isOpen = "state.openDatepickers.dateDemande"
+          - opt.required = "true"
+          - opt.name = "dateDemande"
+          +datePicker(opt)
 
-              .col-1
-                +form-underlined("Client")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.client"
-                  +input(opt)
+      .col-1-2
+        +form-underlined("Date de début")
+          - var opt = {}
+          - opt.ngModel = "model.dateDebut"
+          - opt.isOpen = "state.openDatepickers.dateDebut"
+          - opt.maxDate = "model.dateFin"
+          - opt.required = "true"
+          - opt.name = "dateDebut"
+          +datePicker(opt)
 
-              .col-1
-                +form-underlined("Produit")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.produit"
-                  +input(opt)
+      .col-1-2
+        +form-underlined("Date de fin")
+          - var opt = {}
+          - opt.ngModel = "model.dateFin"
+          - opt.isOpen = "state.openDatepickers.dateFin"
+          - opt.minDate = "model.dateDebut"
+          - opt.required = "true"
+          - opt.name = "dateFin"
+          +datePicker(opt)
 
-          // CPF + CIF
-          div(ng-if="model.type === 'CPF' || model.type === 'CIF'")
-            h3 Statut employeur
-            .grid.pad
-              .col-1
-                +form-underlined("Avis employeur")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.avisEmployeur"
-                  - opt.ngOptions = "opt.value as opt.label for opt in opts.avisEmployeur"
-                  +select(opt)
+      .col-1
+        +form-underlined("Duree (h)")
+          - opt = {}
+          - opt.type = "number"
+          - opt.required = true
+          - opt.ngModel = "model.duree"
+          +input(opt)
 
-              .col-1
-                +form-underlined("Date avis employeur")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.dateAvisEmployeur"
-                  - opt.isOpen = "state.openDatepickers.dateAvisEmployeur"
-                  - opt.minDate = "model.dateDemande"
-                  - opt.name = "dateAvisEmployeur"
-                  +datePicker(opt)
+  .module-card(ng-if="model.type === 'CIF' || model.type ==='CPF'")
+    .module-header
+      h3 Acceptation de l'action de formation
 
-              .col-1
-                +form-underlined("Date demande")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.dateDemande"
-                  - opt.isOpen = "state.openDatepickers.dateDemande"
-                  - opt.name = "dateDemande"
-                  +datePicker(opt)
+    .grid.pad
+      // CPF + CIF
+      .col-1
+        +form-underlined("Avis employeur")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.avisEmployeur"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.avisEmployeur"
+          +select(opt)
 
-              .col-1
-                +form-underlined("Motif Employeur")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.motifEmployeur"
-                  +input(opt)
+      // CPF + CIF
+      .col-1
+        +form-underlined("Date avis employeur")
+          - var opt = {}
+          - opt.ngModel = "model.dateAvisEmployeur"
+          - opt.isOpen = "state.openDatepickers.dateAvisEmployeur"
+          - opt.required = "true"
+          - opt.name = "dateAvisEmployeur"
+          +datePicker(opt)
 
-              .col-1
-                +form-underlined("Temps")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.temps"
-                  - opt.ngOptions = "opt.value as opt.label for opt in opts.temps"
-                  +select(opt)
+      // CPF + CIF
+      .col-1(ng-if="model.avisEmployeur === 'acceptee'")
+        +form-underlined("Motif employeur")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.motifEmployeur"
+          +input(opt)
 
-              .col-1
-                +form-underlined("Validation")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.validation"
-                  - opt.ngOptions = "opt.value as opt.label for opt in opts.validation"
-                  +select(opt)
+    .grid.pad(ng-if="model.type === 'CIF'")
+      // CIF
+      .col-1
+        +form-underlined("Avis Fongecif")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.avisFongecif"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.avisFongecif"
+          +select(opt)
 
-              .col-1
-                +form-underlined("Validation commentaire")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.validationComment"
-                  - opt.ngIf = "model.validation"
-                  +input(opt)
+      // CIF
+      .col-1
+        +form-underlined("Date avis Fongecif")
+          - var opt = {}
+          - opt.ngModel = "model.dateAvisFongecif"
+          - opt.isOpen = "state.openDatepickers.dateAvisFongecif"
+          - opt.required = "true"
+          - opt.name = "dateAvisFongecif"
+          +datePicker(opt)
 
-          // CIF
-          div(ng-if="model.type === 'CIF'")
-            h3 Statut Fongecif
-            .grid.pad
-              .col-1
-                +form-underlined("Avis Fongecif")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.avisFongecif"
-                  - opt.ngOptions = "opt.value as opt.label for opt in opts.avisFongecif"
-                  +select(opt)
-
-              .col-1
-                +form-underlined("Date avis Fongecif")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.dateAvisFongecif"
-                  - opt.isOpen = "state.openDatepickers.dateAvisFongecif"
-                  - opt.name = "dateAvisFongecif"
-                  +datePicker(opt)
-
-              .col-1
-                +form-underlined("Date butoir")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.dateButoir"
-                  - opt.isOpen = "state.openDatepickers.dateButoir"
-                  - opt.name = "dateButoir"
-                  +datePicker(opt)
-
-              .col-1
-                +form-underlined("Motif Fongecif")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.motifFongecif"
-                  +input(opt)
-
-              .col-1
-                +form-underlined("Montant de prise en charge sur salaire")
-                  - opt = {}
-                  - opt.type = "number"
-                  - opt.required = true
-                  - opt.ngModel = "model.priseChargeSalaire"
-                  +input(opt)
-
-              .col-1
-                +form-underlined("Reprise de poste")
-                  - opt = {}
-                  - opt.required = true
-                  - opt.ngModel = "model.reprisePoste"
-                  - opt.ngOptions = "opt.value as opt.label for opt in opts.reprisePoste"
-                  +select(opt)
+      // CIF
+      .col-1(ng-if="model.avisEmployeur === 'acceptee'")
+        +form-underlined("Motif Fongecif")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.motifFongecif"
+          +input(opt)
 
 
+  .module-card(ng-if="model.type === 'CIF'")
+    .module-header
+      h3 Modalités de prise en charge par le Fongecif
 
-          .module-footer.form-actions
-            button.btn(type="button", ng-click="App.back()") Annuler
-            button.btn(type="submit") Valider
+    .grid.pad
+      // CIF
+      .col-1
+        +form-underlined("Salaire (€)")
+          - opt = {}
+          - opt.type = "number"
+          - opt.required = true
+          - opt.ngModel = "model.priseChargeSalaire"
+          +input(opt)
+
+      // CIF
+      .col-1
+        +form-underlined("Reprise de poste")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.reprisePoste"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.reprisePoste"
+          +select(opt)
+
+      // CIF
+      .col-1
+        +form-underlined("Duree (h)")
+          - opt = {}
+          - opt.type = "number"
+          - opt.required = true
+          - opt.ngModel = "model.dureePriseEnCharge"
+          +input(opt)
+
+  include ../includes/modules/module-submit
