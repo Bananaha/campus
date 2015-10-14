@@ -49,7 +49,8 @@
             };
 
             $scope.filtersSettings = {
-                type: true
+                type: true,
+                archive: true
             };
 
             appStateService.isLoading(false);

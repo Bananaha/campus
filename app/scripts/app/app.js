@@ -47,18 +47,6 @@
                     templateUrl: basePath + 'formations-modifier.html',
                     controller: 'formationsModifierController'
                 }).
-                when('/accompagnements', {
-                    templateUrl: basePath + 'accompagnements.html',
-                    controller: 'accompagnementsController'
-                }).
-                when('/accompagnements/:id', {
-                    templateUrl: basePath + 'accompagnements-details.html',
-                    controller: 'accompagnementsDetailsController'
-                }).
-                when('/accompagnements/:id/modifier', {
-                    templateUrl: basePath + 'accompagnements-modifier.html',
-                    controller: 'accompagnementsModifierController'
-                }).
                 when('/creation', {
                     templateUrl: basePath + 'formations-creation.html',
                     controller: 'formationsCreationController'
