@@ -14,61 +14,83 @@ include ../mixins/main
         h2 {{model.intitule}}
 
       .grid.pad
-
         .col-1
-          +form-underlined("Intitulé")
+          +form-underlined("Dispositif")
             - opt = {}
             - opt.required = true
-            - opt.ngModel = "model.intitule"
-            +input(opt)
+            - opt.ngModel = "model.type"
+            - opt.ngOptions = "type.id as type.label for type in opts.type"
+            +select(opt)
 
         .col-1
+          +form-underlined("Entité")
+            - opt = {}
+            - opt.required = true
+            - opt.ngModel = "model.entite"
+            - opt.ngOptions = "entite for entite in opts.entites"
+            +select(opt)
+
+        .col-1-3
           +form-underlined("Client")
             - opt = {}
+            - opt.required = true
             - opt.ngModel = "model.client"
             +input(opt)
 
-        .col-1-2
+        .col-1-3
           +form-underlined("Activité")
             - opt = {}
+            - opt.required = true
             - opt.ngModel = "model.activite"
             +input(opt)
 
-        .col-1-2
+        .col-1-3
           +form-underlined("Produit")
             - opt = {}
+            - opt.required = true
             - opt.ngModel = "model.produit"
             +input(opt)
 
-        .col-1
-          +form-underlined("Durée (heures)")
+        .col-1-2
+          +form-underlined("Organisme")
             - opt = {}
-            - opt.ngModel = "model.duree"
-            - opt.type = "number"
-            - opt.min = "0"
             - opt.required = true
+            - opt.ngModel = "model.organisme"
+            - opt.ngOptions = "organisme.value as organisme.label for organisme in opts.organisme"
+            +select(opt)
+
+        .col-1-2(ng-if="model.organisme")
+          +form-underlined("Nom de l'organisme")
+            - opt = {}
+            - opt.required = true
+            - opt.ngModel = "model.nomOrganisme"
             +input(opt)
 
-        .col-1-2
-          +form-underlined("Date de début")
-            - var opt = {}
-            - opt.ngModel = "model.from"
-            - opt.isOpen = "state.openDatepickers.from"
-            - opt.maxDate = "model.to"
-            - opt.required = "true"
-            - opt.name = "from"
-            +datePicker(opt)
+        .col-1
+          +form-underlined("Population")
+            - opt = {}
+            - opt.required = true
+            - opt.ngModel = "model.population"
+            +input(opt)
 
-        .col-1-2
-          +form-underlined("Date de fin")
-            - var opt = {}
-            - opt.ngModel = "model.to"
-            - opt.isOpen = "state.openDatepickers.to"
-            - opt.minDate = "model.from"
-            - opt.required = "true"
-            - opt.name = "to"
-            +datePicker(opt)
+        .col-1
+          +form-underlined("Objectif")
+            - opt = {}
+            - opt.required = true
+            - opt.ngModel = "model.objectif"
+            +input(opt)
 
-      .module-footer.form-actions
-        button.btn(type="button", ng-click="App.back()") Annuler
-        button.btn(type="submit") Valider
+        .col-1
+          +form-underlined("Contenu")
+            - opt = {}
+            - opt.required = true
+            - opt.ngModel = "model.contenu"
+            +input(opt)
+
+        .col-1
+          +form-underlined("Pré-requis")
+            - opt = {}
+            - opt.required = true
+            - opt.ngModel = "model.prerequis"
+            +input(opt)
+

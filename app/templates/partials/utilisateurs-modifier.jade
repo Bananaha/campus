@@ -2,7 +2,7 @@ include ../mixins/main
 
 .module-card
 
-  .details
+    .details
 
     form(name="usersModification",
       data-action="update",
@@ -23,18 +23,50 @@ include ../mixins/main
             +input(opt)
 
         .col-1
-          +form-underlined("Mot de passe")
-            - opt = {}
-            - opt.ngModel = "model.password"
-            +input(opt)
+            +form-underlined("Prénom")
+              - opt = {}
+              - opt.required = true
+              - opt.ngModel = "model.prenom"
+              +input(opt)
 
         .col-1
-          +form-underlined("Droits d'accès")
-            - opt = {}
-            - opt.ngModel = "model.permission"
-            - opt.ngOptions = "permission.value as permission.label for permission in permissions"
-            - opt.required = true
-            +select(opt)
+            +form-underlined("Adresse mail")
+              - opt = {}
+              - opt.type = "mail"
+              - opt.ngModel = "model.mail"
+              +input(opt)
+
+        .col-1
+            +form-underlined("Mot de passe")
+              - opt = {}
+              - opt.type = "password"
+              - opt.ngModel = "model.password"
+              - opt.required = true
+              +input(opt)
+
+        .col-1
+            +form-underlined("Entité")
+              - opt = {}
+              - opt.ngModel = "model.entite"
+              - opt.ngOptions = "entite as entite for entite in constants.entites"
+              - opt.required = true
+              +select(opt)
+
+        .col-1
+            +form-underlined("Service")
+              - opt = {}
+              - opt.ngModel = "model.service"
+              - opt.ngOptions = "service as service for service in constants.services"
+              - opt.required = true
+              +select(opt)
+
+        .col-1
+            +form-underlined("Droits d'accès")
+              - opt = {}
+              - opt.ngModel = "model.permission"
+              - opt.ngOptions = "permission.value as permission.label for permission in constants.permissions"
+              - opt.required = true
+              +select(opt)
 
       .module-footer.form-actions
         button.btn(type="button", ng-click="App.back()") Annuler

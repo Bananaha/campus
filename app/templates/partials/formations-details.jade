@@ -16,19 +16,34 @@ include ../mixins/main
             button(ng-if="formation.archive",
               ng-click="unarchive()").module-header-action.btnIcon.circle.big.desarchiver
 
-        ul.details-list
-          +details-list("Dispositif", "formation.type")
-          +details-list("Client", "formation.client")
-          +details-list("Durée", "formation.duree")
-          +details-list("Activité", "formation.activite")
-          +details-list("Produit", "formation.produit")
-          +details-list("Date de début", "formation.from")
-          +details-list("Date de fin", "formation.to")
-          +details-list("Organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
-          +details-list("Population", "formation.population")
-          +details-list("Objectif", "formation.objectif")
-          +details-list("Contenu", "formation.contenu")
-          +details-list("Prérequis", "formation.prerequis")
+      ul.details-list
+        .grid.pad
+          .col-1-2
+            +details-list("Entité", "formation.entite")
+          .col-1-2
+            +details-list("Dispositif", "formation.type")
+          .col-1-2
+            +details-list("Client", "formation.client")
+          .col-1-2
+            +details-list("Activité", "formation.activite")
+          .col-1-2
+            +details-list("Produit", "formation.produit")
+          .col-1-2
+            +details-list("Organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
+          .col-1
+            +details-list("Population", "formation.population")
+          .col-1
+            +details-list("Objectif", "formation.objectif")
+          .col-1
+            +details-list("Contenu", "formation.contenu")
+          .col-1
+            +details-list("Prérequis", "formation.prerequis")
+          .col-1-2
+            +details-list("Durée", "formation.duree")
+          .col-1-2
+            +details-list("Date de début", "formation.from")
+          .col-1-2
+            +details-list("Date de fin", "formation.to")
 
         .module-cta
           a.btn(ng-href="#/formations/{{formation.id}}/modifier"
