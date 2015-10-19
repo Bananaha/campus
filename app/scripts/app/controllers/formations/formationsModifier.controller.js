@@ -10,10 +10,13 @@
             notificationService,
             historyService,
             formatterService,
-            config
+            config,
+            FORMDATAS
         ) {
 
             var ID = $routeParams.id;
+
+            $scope.opts = FORMDATAS;
 
             $http({
                     method: 'GET',

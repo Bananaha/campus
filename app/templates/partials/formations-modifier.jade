@@ -10,17 +10,10 @@ include ../mixins/main
       ng-submit="submit()")
 
       .module-header
-        p.details-id \#{{model.action}} - {{model.auteur}}
+        p.details-id \#{{model.action}} - {{model.auteur}} - {{model.type}}
         h2 {{model.intitule}}
 
       .grid.pad
-        .col-1
-          +form-underlined("Dispositif")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.type"
-            - opt.ngOptions = "type.id as type.label for type in opts.type"
-            +select(opt)
 
         .col-1
           +form-underlined("Entité")
@@ -93,4 +86,3 @@ include ../mixins/main
             - opt.required = true
             - opt.ngModel = "model.prerequis"
             +input(opt)
-
