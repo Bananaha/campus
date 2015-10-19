@@ -11,18 +11,14 @@
             appStateService,
             notificationService,
             historyService,
+            formatterService,
             config,
             FORMDATAS
         ) {
 
             var ID = $routeParams.id;
 
-            $scope.permissions = FORMDATAS.permissions.map(function(permission) {
-                return {
-                    label: permission.label,
-                    value: permission.id
-                };
-            });
+            $scope.permissions = FORMDATAS.permissions;
 
             $http({
                     method: 'GET',
@@ -34,14 +30,9 @@
                 .then(onGetRequestSuccess, onGetRequestError);
 
             function onGetRequestSuccess(res) {
-                $scope.model = {
-                    nom: res.data.nom,
-                    password: res.data.password,
-                    permission: res.data.permission,
-                    id: res.data.id
-                };
-
-                $scope.prenom = res.data.prenom;
+                console.log(res.data.permission);
+                $scope.model = formatterService.format(res.data);
+                console.log($scope.model.permission);
             }
 
             function onGetRequestError() {

@@ -48,7 +48,7 @@ include ../mixins/main
             +form-underlined("Entité")
               - opt = {}
               - opt.ngModel = "model.entite"
-              - opt.ngOptions = "entite as entite for entite in constants.entites"
+              - opt.ngOptions = "entite for entite in constants.entites"
               - opt.required = true
               +select(opt)
 
@@ -56,7 +56,7 @@ include ../mixins/main
             +form-underlined("Service")
               - opt = {}
               - opt.ngModel = "model.service"
-              - opt.ngOptions = "service as service for service in constants.services"
+              - opt.ngOptions = "service for service in constants.services"
               - opt.required = true
               +select(opt)
 
@@ -64,7 +64,7 @@ include ../mixins/main
             +form-underlined("Droits d'accès")
               - opt = {}
               - opt.ngModel = "model.permission"
-              - opt.ngOptions = "permission.value as permission.label for permission in constants.permissions"
+              - opt.ngOptions = "opt.id as opt.label for opt in permissions"
               - opt.required = true
               +select(opt)
 

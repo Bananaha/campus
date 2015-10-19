@@ -85,4 +85,4 @@ gulp.task('scripts-app', function () {
         .pipe(gulp.dest(path.join(config.dist, 'scripts')));
 });
 
-gulp.task('scripts', ['scripts-vendors', 'scripts-templates', 'scripts-app', 'lint']);
+gulp.task('scripts', ['scripts-vendors', 'scripts-templates', 'scripts-app']);
