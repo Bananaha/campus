@@ -30,9 +30,7 @@
                 .then(onGetRequestSuccess, onGetRequestError);
 
             function onGetRequestSuccess(res) {
-                console.log(res.data.permission);
                 $scope.model = formatterService.format(res.data);
-                console.log($scope.model.permission);
             }
 
             function onGetRequestError() {
