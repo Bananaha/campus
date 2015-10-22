@@ -8,25 +8,36 @@ include ../mixins/main
       span.label Salarial
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.salarial"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.disabled = true
+      - opt.ngModel = "model.salarial"
       +input(opt)
 
     span.label Pédagogique
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.pedagogique"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.disabled = true
+      - opt.ngModel = "model.pedagogique"
       +input(opt)
 
     span.label Intérim
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.interim"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.disabled = true
+      - opt.ngModel = "model.interim"
       +input(opt)
 
     span.label Frais annexes
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.annexe"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.ngModel = "model.annexe"
       +input(opt)
 
   .col-1-2
@@ -37,7 +48,9 @@ include ../mixins/main
     span.label Coût direct
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.direct"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.ngModel = "model.direct"
       +input(opt)
 
     h4 Externe
@@ -45,35 +58,51 @@ include ../mixins/main
     span.label Plan de formation
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.planFormation"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.ngModel = "model.planFormation"
       +input(opt)
 
     span.label Professionnalisation
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.professionnalisation"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.ngModel = "model.professionnalisation"
       +input(opt)
 
     span.label CPF
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.CPF"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.ngModel = "model.CPF"
       +input(opt)
 
     span.label FPSPP
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.FPSPP"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.ngModel = "model.FPSPP"
       +input(opt)
 
     span.label CIF
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.CIF"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.ngModel = "model.CIF"
       +input(opt)
 
     span.label Autre
       - opt = {}
       - opt.required = true
-      - opt.ngModel = "model.cout.autre"
+      - opt.type = "number"
+      - opt.min = 0
+      - opt.ngModel = "model.autre"
       +input(opt)
+
+  .col-1
+    p Total - cout: {{cout}}€ - prise en charge: {{priseEnCharge}}€
+    p Somme restante à imputer: {{reste}}€

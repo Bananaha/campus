@@ -7,11 +7,45 @@
             return {
                 restrict: 'E',
                 scope: {
-                    settings: '='
+                    model: '=cout'
                 },
                 templateUrl: 'cost.html',
                 link: function ($scope, element) {
-                    console.log(element);
+                    var keys = {
+                        cost: [
+                            'salarial',
+                            'pedagogique',
+                            'interim',
+                            'annexe'
+                        ],
+                        priseEnCharge: [
+                            'direct',
+                            'planFormation',
+                            'professionnalisation',
+                            'CPF',
+                            'FPSPP',
+                            'CIF',
+                            'autre'
+                        ]
+                    };
+
+                    $scope.$watch('model', onModelChange, true);
+
+                    function onModelChange() {
+                        console.log('changed');
+                        updateModel();
+                    }
+
+                    function add(sum, key) {
+                        console.log(sum, key);
+                        return sum + $scope.model[key];
+                    }
+
+                    function updateModel() {
+                        $scope.cout = keys.cost.reduce(add, 0);
+                        $scope.priseEnCharge =  keys.priseEnCharge.reduce(add, 0);
+                        $scope.reste = $scope.cout - $scope.priseEnCharge;
+                    }
                 }
             };
         }

@@ -144,7 +144,7 @@ include ../mixins/main
 
       user-list(users="participants.formateurs", frozen="session.archive")
 
-  .col-1
+  .col-1(ng-if="initialized")
     .module-card
       .module-header
         h2 Coût de l'accompagnement

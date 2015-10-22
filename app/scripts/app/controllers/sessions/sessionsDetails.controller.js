@@ -17,9 +17,10 @@
         ) {
 
             var ID = $routeParams.id,
-                initialized,
                 changeTimeout,
                 populations = ['formateurs', 'stagiaires'];
+
+            $scope.initialized = false;
 
             $scope.participants = {
                 stagiaires: [],
@@ -54,7 +55,7 @@
             }
 
             function onParticipantsChange() {
-                if (initialized) {
+                if ($scope.initialized) {
                     $timeout.cancel(changeTimeout);
                     changeTimeout = $timeout(saveUsers, 200);
                 }
@@ -92,7 +93,7 @@
                 $scope.participants = res.data.participants;
                 $scope.hasUsers = true;
                 $timeout(function() {
-                    initialized = true;
+                    $scope.initialized = true;
                 });
             }
 
