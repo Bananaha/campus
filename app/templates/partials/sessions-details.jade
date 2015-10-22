@@ -37,14 +37,14 @@ include ../mixins/main
           // Employeur
           - opt = { ngIf: "session.activite" }
           +details-item("Activité", opt) {{session.activite}}
-          
+
           // Employeur
           - opt = { ngIf: "session.produit" }
           +details-item("Produit", opt) {{session.produit}}
 
           +details-item("Nature") {{session.categorie}}
 
-          +details-item("Type") {{session.nature}}          
+          +details-item("Type") {{session.nature}}
 
           - opt = { ngIf: "!session.organisme" }
           +details-item("Organisme", opt) Interne
@@ -66,7 +66,7 @@ include ../mixins/main
           +details-item("Préciser", opt) {{session.validationComment}}
 
           +details-item("Horaire souhaité") {{session.horaireSouhaite}}
-          
+
           - opt = { ngIf: "session.temps" }
           // CPF + CIF
           +details-item("Temps",opt) {{session.temps}}
@@ -148,3 +148,5 @@ include ../mixins/main
     .module-card
       .module-header
         h2 Coût de l'accompagnement
+      cost(cout="session.cout", ng-if="session.type !== 'CIF'")
+      cost-cif(cout="session.cout", ng-if="session.type === 'CIF'")
