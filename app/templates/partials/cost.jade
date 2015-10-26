@@ -117,6 +117,8 @@ include ../mixins/main
       - opt.ngModel = "model.autre"
       +input(opt)
 
-  .cost-reste(ng-if="reste")
+  p.cost-warning(ng-if="reste < 0") Attention, la somme prise en charge est supérieure au coût de la session.
+
+  .cost-reste(ng-if="reste > 0")
     p Somme restante à imputer:
       span.cost-reste-price {{reste}}€
