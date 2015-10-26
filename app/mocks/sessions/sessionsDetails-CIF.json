@@ -7,8 +7,8 @@
     "auteurId": "59fc02f66b4",
     "categorie": "initiale",
     "dateCreation": 1441749600000,
-    "dateDebut": 1441749600000,
-    "dateFin": 1442440800000,
+    "dateDebut": 1412114400000,
+    "dateFin": 1475272800000,
     "devis": 10000,
     "duree": 20,
     "entite": "B2S AIX",
@@ -40,5 +40,43 @@
     "participants": {
         "stagiaires" : ["156", "648", "654", "467"],
         "formateurs": ["156", "648", "654", "467"]
-    }
+    },
+
+    "cout": [{
+        "dateFormation": "012015",
+        "heures": 9.5,
+        "employeur": 120,
+        "fongecif": 74,
+        "datePaiement": 1441749600012
+    }, {
+        "dateFormation": "022015",
+        "heures": 9.5,
+        "employeur": 120,
+        "fongecif": 74,
+        "datePaiement": 1441749600012
+    }, {
+        "dateFormation": "032015",
+        "heures": 9.5,
+        "employeur": 120,
+        "fongecif": 74,
+        "datePaiement": 1441749600012
+    }, {
+        "dateFormation": "042015",
+        "heures": 9.5,
+        "employeur": 120,
+        "fongecif": 74,
+        "datePaiement": 1441749600012
+    }, {
+        "dateFormation": "052015",
+        "heures": 9.5,
+        "employeur": 120,
+        "fongecif": 74,
+        "datePaiement": 1441749600012
+    }, {
+        "dateFormation": "062015",
+        "heures": 9.5,
+        "employeur": 120,
+        "fongecif": 74,
+        "datePaiement": 1441749600012
+    }]
 }

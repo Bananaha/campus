@@ -1,1 +1,46 @@
-h1 CIF table
+include ../mixins/main
+.cost-cif
+  table
+    tr
+      th Mois de formation
+      th Année
+      th Nombre d'heures de présence
+      th Salaire brut versé par B2S
+      th Montant encaissé du Fongecif
+      th Date de paiement
+    tr(ng-repeat="entry in entries track by $index")
+      td {{entry.month}}
+      td {{entry.year}}
+      td
+        - var opt = {}
+        - opt.type = "number"
+        - opt.min = 0
+        - opt.ngModel = "entry.model.heures"
+        +input(opt)
+        span h
+
+      td
+        - opt = {}
+        - opt.type = "number"
+        - opt.min = 0
+        - opt.ngModel = "entry.model.employeur"
+        +input(opt)
+        span €
+
+      td
+        - opt = {}
+        - opt.type = "number"
+        - opt.min = 0
+        - opt.ngModel = "entry.model.fongecif"
+        +input(opt)
+        span €
+
+      td
+        input.datepicker.right(type="text"
+          datepicker-popup="dd/MM/yyyy"
+          ng-model="entry.model.datePaiement"
+          is-open="state.openDatepickers['datePaiement' + $index]"
+          ng-change="closeDatepicker('datePaiement' +$index)"
+          ng-focus="openDatepicker('datePaiement' +$index)"
+          ng-click="openDatepicker('datePaiement' +$index)"
+          ng-class="entry.model.datePaiement | emptyInputClassFilter")

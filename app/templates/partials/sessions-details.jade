@@ -147,6 +147,8 @@ include ../mixins/main
   .col-1(ng-if="initialized")
     .module-card
       .module-header
-        h2 Financement de la formation
+        h2 Financement de la formation {{session.type}}
       cost(cout="session.cout", ng-if="session.type !== 'CIF'")
-      cost-cif(cout="session.cout", ng-if="session.type === 'CIF'")
+      cost-CIF(cout="session.cout",
+               settings="coutSettings",
+               ng-if="session.type === 'CIF'")

@@ -111,6 +111,14 @@
                 $scope.session = formatDatas(res.data);
                 $scope.participants = res.data.participants;
                 $scope.hasUsers = true;
+
+                if ($scope.session.type === 'CIF') {
+                    $scope.coutSettings = {
+                        start: res.data.dateDebut,
+                        end: res.data.dateFin
+                    };
+                }
+
                 $timeout(function() {
                     $scope.initialized = true;
                 });
