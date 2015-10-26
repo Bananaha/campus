@@ -27,7 +27,11 @@
                 formateurs: []
             };
 
+            $scope.session = {};
+
             $scope.$watch('participants', onParticipantsChange, true);
+
+            $scope.$watch('session.cout', onCostChange, true);
 
             getDatas();
 
@@ -63,13 +67,31 @@
 
             function saveUsers() {
                 var params = {
-                    id: ID
+                    id: ID,
+                    participants: {}
                 };
                 populations.forEach(function(key) {
-                    params[key] = $scope.participants[key].map(function(user) {
+                    params.participants[key] = $scope.participants[key].map(function(user) {
                         return user.id;
                     });
                 });
+                dbActionsService
+                    .update(config.urls.sessionsModification, params)
+                    .then(onUpdateSuccess, onUpdateError);
+            }
+
+            function onCostChange() {
+                if ($scope.initialized) {
+                    $timeout.cancel(changeTimeout);
+                    changeTimeout = $timeout(saveCost, 200);
+                }
+            }
+
+            function saveCost() {
+                var params = {
+                    id: ID,
+                    cout: $scope.session.cout
+                };
                 dbActionsService
                     .update(config.urls.sessionsModification, params)
                     .then(onUpdateSuccess, onUpdateError);
@@ -82,10 +104,7 @@
             }
 
             function onUpdateError() {
-                $scope.session.cout = {
-                    pedagogique: '-',
-                    salarial: '-'
-                };
+                notificationService.warn('Erreur lors de la mise à jour de la session #' + ID);
             }
 
             function onGetDetailSuccess(res) {
