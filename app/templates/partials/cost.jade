@@ -118,4 +118,5 @@ include ../mixins/main
       +input(opt)
 
   .cost-reste(ng-if="reste")
-    p Somme restante à imputer: {{reste}}€
+    p Somme restante à imputer:
+      span.cost-reste-price {{reste}}€
