@@ -1,10 +1,12 @@
 include ../mixins/main
 
-.grid.pad
-  .col-1-2
-    h3 Coût
+.cost
 
-    label
+  h3 Coût: {{cout}}€
+
+  .grid.pad
+
+    .col-1-4: label
       span.label Salarial
       - opt = {}
       - opt.required = true
@@ -14,7 +16,8 @@ include ../mixins/main
       - opt.ngModel = "model.salarial"
       +input(opt)
 
-    span.label Pédagogique
+    .col-1-4: label
+      span.label Pédagogique
       - opt = {}
       - opt.required = true
       - opt.type = "number"
@@ -23,7 +26,8 @@ include ../mixins/main
       - opt.ngModel = "model.pedagogique"
       +input(opt)
 
-    span.label Intérim
+    .col-1-4: label
+      span.label Intérim
       - opt = {}
       - opt.required = true
       - opt.type = "number"
@@ -32,7 +36,8 @@ include ../mixins/main
       - opt.ngModel = "model.interim"
       +input(opt)
 
-    span.label Frais annexes
+    .col-1-4: label
+      span.label Frais annexes
       - opt = {}
       - opt.required = true
       - opt.type = "number"
@@ -40,22 +45,26 @@ include ../mixins/main
       - opt.ngModel = "model.annexe"
       +input(opt)
 
-  .col-1-2
-    h3 Prise en charge
 
-    h4 Interne
+  h3 Prise en charge: {{priseEnCharge}}€
 
+  h4 Interne
+
+  label
     span.label Coût direct
-      - opt = {}
-      - opt.required = true
-      - opt.type = "number"
-      - opt.min = 0
-      - opt.ngModel = "model.direct"
-      +input(opt)
+    - opt = {}
+    - opt.required = true
+    - opt.type = "number"
+    - opt.min = 0
+    - opt.ngModel = "model.direct"
+    +input(opt)
 
-    h4 Externe
+  h4 Externe
 
-    span.label Plan de formation
+  .grid.pad
+
+    .col-1-3: label
+      span.label Plan de formation
       - opt = {}
       - opt.required = true
       - opt.type = "number"
@@ -63,7 +72,8 @@ include ../mixins/main
       - opt.ngModel = "model.planFormation"
       +input(opt)
 
-    span.label Professionnalisation
+    .col-1-3: label
+      span.label Professionnalisation
       - opt = {}
       - opt.required = true
       - opt.type = "number"
@@ -71,7 +81,8 @@ include ../mixins/main
       - opt.ngModel = "model.professionnalisation"
       +input(opt)
 
-    span.label CPF
+    .col-1-3: label
+      span.label CPF
       - opt = {}
       - opt.required = true
       - opt.type = "number"
@@ -79,7 +90,8 @@ include ../mixins/main
       - opt.ngModel = "model.CPF"
       +input(opt)
 
-    span.label FPSPP
+    .col-1-3: label
+      span.label FPSPP
       - opt = {}
       - opt.required = true
       - opt.type = "number"
@@ -87,7 +99,8 @@ include ../mixins/main
       - opt.ngModel = "model.FPSPP"
       +input(opt)
 
-    span.label CIF
+    .col-1-3: label
+      span.label CIF
       - opt = {}
       - opt.required = true
       - opt.type = "number"
@@ -95,7 +108,8 @@ include ../mixins/main
       - opt.ngModel = "model.CIF"
       +input(opt)
 
-    span.label Autre
+    .col-1-3: label
+      span.label Autre
       - opt = {}
       - opt.required = true
       - opt.type = "number"
@@ -103,6 +117,5 @@ include ../mixins/main
       - opt.ngModel = "model.autre"
       +input(opt)
 
-  .col-1
-    p Total - cout: {{cout}}€ - prise en charge: {{priseEnCharge}}€
+  .cost-reste(ng-if="reste")
     p Somme restante à imputer: {{reste}}€

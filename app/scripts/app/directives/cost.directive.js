@@ -32,12 +32,10 @@
                     $scope.$watch('model', onModelChange, true);
 
                     function onModelChange() {
-                        console.log('changed');
                         updateModel();
                     }
 
                     function add(sum, key) {
-                        console.log(sum, key);
                         return sum + $scope.model[key];
                     }
 
