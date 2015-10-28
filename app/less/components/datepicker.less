@@ -6,13 +6,17 @@ input.datepicker + .dropdown-menu {
 	> li + li {
 		.mixin_clearfix;
 		padding-bottom: @u-base !important;
-		background-color: @color-gray-91; 
+		background-color: @color-gray-91;
 	}
 }
 
 input.datepicker.right + .dropdown-menu {
-	right: 0;
-	left: auto !important;
+    right: 0;
+    left: auto !important;
+}
+
+input.datepicker.bottom + .dropdown-menu {
+	margin-top: -310px;
 }
 
 [datepicker] {
@@ -73,7 +77,7 @@ input.datepicker.right + .dropdown-menu {
 			}
 		}
 
-		
+
 
 		button.pull-left,
 		button.pull-right {

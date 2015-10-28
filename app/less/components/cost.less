@@ -54,3 +54,84 @@
     padding: @u-medium;
     margin: 0 -@u-small -@u-small;
 }
+
+.costCif {
+
+    .table-cell {
+
+        &.mounth {
+            width: 100%;
+        }
+
+        &.hours {
+            width: 150px;
+        }
+
+        &.amountCompany {
+            width: 150px;
+        }
+
+        &.amountFongecif {
+            width: 150px;
+        }
+
+        &.date {
+            width: 150px;
+        }
+    }
+
+    input {
+        background: #FFF;
+    }
+
+    label {
+        display: block;
+        box-sizing: border-box;
+        position: relative;
+        padding-right: 20px;
+        text-align: center;
+
+        span {
+            margin-left: @u-base;
+        }
+
+        input {
+            width: 90px;
+            display: inline-block;
+            text-align: right;
+        }
+    }
+}
+
+.costCif-year {
+    text-align: center;
+    background: @color-main;
+    margin: 0 -@u-small @u-small;
+
+    button {
+        position: relative;
+        color: #FFF;
+        padding: @u-base @u-base 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 @u-small;
+        font-size: 1.4em;
+
+        &.active {
+            font-weight: 400;
+
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                margin-left: -8px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 8px 8px 8px;
+                border-color: transparent transparent #ffffff transparent;
+            }
+        }
+    }
+}

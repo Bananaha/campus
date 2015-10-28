@@ -13,8 +13,14 @@
 
                 $scope.entries = getEntries();
 
+                $scope.currentYear = Object.keys($scope.entries)[0];
+
                 $scope.state = {
                     openDatepickers: {}
+                };
+
+                $scope.show = function(year) {
+                    $scope.currentYear = year;
                 };
 
                 $scope.openDatepicker = function(datepickerName) {
@@ -51,22 +57,23 @@
 
                 function getEntries() {
                     var startDate = moment($scope.settings.start),
-                        endDate = moment($scope.settings.end),
-                        diff = endDate.diff(startDate, 'months', true),
+                        diff = moment($scope.settings.end).diff(startDate, 'months', true),
                         cDate = startDate,
-                        entries = [],
-                        data = {},
+                        entries = {},
+                        year,
                         i;
 
                     for (i = 0; i < diff; i++) {
+                        year = cDate.format('YYYY');
+                        if (!entries[year]) {
+                            entries[year] = [];
+                        }
                         cDate = cDate.add(1, 'month');
-                        data = {
+                        entries[year].push({
                             id: cDate.format('MMYYYY'),
                             month: cDate.format('MMMM'),
-                            year: cDate.format('YYYY'),
                             model: formatCost(cDate.format('MMYYYY'))
-                        };
-                        entries.push(data);
+                        });
                     }
 
                     return entries;

@@ -1,46 +1,58 @@
 include ../mixins/main
-.cost-cif
-  table
-    tr
-      th Mois de formation
-      th Année
-      th Nombre d'heures de présence
-      th Salaire brut versé par B2S
-      th Montant encaissé du Fongecif
-      th Date de paiement
-    tr(ng-repeat="entry in entries track by $index")
-      td {{entry.month}}
-      td {{entry.year}}
-      td
-        - var opt = {}
-        - opt.type = "number"
-        - opt.min = 0
-        - opt.ngModel = "entry.model.heures"
-        +input(opt)
-        span h
+.costCif
 
-      td
-        - opt = {}
-        - opt.type = "number"
-        - opt.min = 0
-        - opt.ngModel = "entry.model.employeur"
-        +input(opt)
-        span €
+  .costCif-year
+      button(type="button",
+        ng-click="show(key)",
+        ng-repeat="(key, year) in entries",
+        ng-class="{ 'active': currentYear === key }") {{key}}
 
-      td
-        - opt = {}
-        - opt.type = "number"
-        - opt.min = 0
-        - opt.ngModel = "entry.model.fongecif"
-        +input(opt)
-        span €
+  .costCif-container(ng-repeat="(key, year) in entries",
+    ng-show="currentYear === key")
 
-      td
-        input.datepicker.right(type="text"
-          datepicker-popup="dd/MM/yyyy"
-          ng-model="entry.model.datePaiement"
-          is-open="state.openDatepickers['datePaiement' + $index]"
-          ng-change="closeDatepicker('datePaiement' +$index)"
-          ng-focus="openDatepicker('datePaiement' +$index)"
-          ng-click="openDatepicker('datePaiement' +$index)"
-          ng-class="entry.model.datePaiement | emptyInputClassFilter")
+    .table.listed
+      .table-head
+        .table-cell.month Mois de formation
+        .table-cell.hours Heures de présence
+        .table-cell.amountCompany Salaire brut B2S
+        .table-cell.amountFongecif Montant Fongecif
+        .table-cell.date Date de paiement
+      .table-group
+        ul.table-row(ng-repeat="entry in year track by $index")
+          .table-cell.month{{entry.month}}
+          .table-cell.hours
+            label
+              - var opt = {}
+              - opt.type = "number"
+              - opt.min = 0
+              - opt.ngModel = "entry.model.heures"
+              +input(opt)
+              span h
+
+          .table-cell.amountCompany
+            label
+              - opt = {}
+              - opt.type = "number"
+              - opt.min = 0
+              - opt.ngModel = "entry.model.employeur"
+              +input(opt)
+              span €
+
+          .table-cell.amountFongecif
+            label
+              - opt = {}
+              - opt.type = "number"
+              - opt.min = 0
+              - opt.ngModel = "entry.model.fongecif"
+              +input(opt)
+              span €
+
+          .table-cell.date
+            input.datepicker.right.bottom(type="text"
+              datepicker-popup="dd/MM/yyyy"
+              ng-model="entry.model.datePaiement"
+              is-open="state.openDatepickers['datePaiement' + $index]"
+              ng-change="closeDatepicker('datePaiement' +$index)"
+              ng-focus="openDatepicker('datePaiement' +$index)"
+              ng-click="openDatepicker('datePaiement' +$index)"
+              ng-class="entry.model.datePaiement | emptyInputClassFilter")
