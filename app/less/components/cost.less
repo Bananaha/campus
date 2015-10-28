@@ -59,24 +59,25 @@
 
     .table-cell {
 
-        &.mounth {
+        &.month {
+            text-transform: capitalize;
             width: 100%;
         }
 
         &.hours {
-            width: 150px;
+            min-width: 150px;
         }
 
         &.amountCompany {
-            width: 150px;
+            min-width: 150px;
         }
 
         &.amountFongecif {
-            width: 150px;
+            min-width: 150px;
         }
 
         &.date {
-            width: 150px;
+            min-width: 150px;
         }
     }
 
@@ -103,10 +104,14 @@
     }
 }
 
+.costCif-header .table {
+    margin-top: @u-small;
+}
+
 .costCif-year {
     text-align: center;
     background: @color-main;
-    margin: 0 -@u-small @u-small;
+    margin: 0 -@u-small;
 
     button {
         position: relative;

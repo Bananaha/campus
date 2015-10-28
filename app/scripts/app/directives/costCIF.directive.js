@@ -64,11 +64,11 @@
                         i;
 
                     for (i = 0; i < diff; i++) {
+                        cDate = cDate.add(1, 'month');
                         year = cDate.format('YYYY');
                         if (!entries[year]) {
                             entries[year] = [];
                         }
-                        cDate = cDate.add(1, 'month');
                         entries[year].push({
                             id: cDate.format('MMYYYY'),
                             month: cDate.format('MMMM'),

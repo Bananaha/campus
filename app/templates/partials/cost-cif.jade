@@ -1,23 +1,24 @@
 include ../mixins/main
 .costCif
 
-  .costCif-year
+  .costCif-header
+    .costCif-year
       button(type="button",
-        ng-click="show(key)",
-        ng-repeat="(key, year) in entries",
-        ng-class="{ 'active': currentYear === key }") {{key}}
-
-  .costCif-container(ng-repeat="(key, year) in entries",
-    ng-show="currentYear === key")
-
-    .table.listed
-      .table-head
+          ng-click="show(key)",
+          ng-repeat="(key, year) in entries",
+          ng-class="{ 'active': currentYear === key }") {{key}}
+    .table.listed(affix, affix-offset=117)
+      .table-head.affix-target
         .table-cell.month Mois de formation
         .table-cell.hours Heures de présence
         .table-cell.amountCompany Salaire brut B2S
         .table-cell.amountFongecif Montant Fongecif
         .table-cell.date Date de paiement
-      .table-group
+
+  .costCif-container(ng-repeat="(key, year) in entries",
+    ng-show="currentYear === key")
+    .table.listed
+       .table-group
         ul.table-row(ng-repeat="entry in year track by $index")
           .table-cell.month{{entry.month}}
           .table-cell.hours
