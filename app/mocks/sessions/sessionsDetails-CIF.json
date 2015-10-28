@@ -42,41 +42,42 @@
         "formateurs": ["156", "648", "654", "467"]
     },
 
-    "cout": [{
-        "dateFormation": "012015",
-        "heures": 9.5,
-        "employeur": 120,
-        "fongecif": 74,
-        "datePaiement": 1441749600012
-    }, {
-        "dateFormation": "022015",
-        "heures": 9.5,
-        "employeur": 120,
-        "fongecif": 74,
-        "datePaiement": 1441749600012
-    }, {
-        "dateFormation": "032015",
-        "heures": 9.5,
-        "employeur": 120,
-        "fongecif": 74,
-        "datePaiement": 1441749600012
-    }, {
-        "dateFormation": "042015",
-        "heures": 9.5,
-        "employeur": 120,
-        "fongecif": 74,
-        "datePaiement": 1441749600012
-    }, {
-        "dateFormation": "052015",
-        "heures": 9.5,
-        "employeur": 120,
-        "fongecif": 74,
-        "datePaiement": 1441749600012
-    }, {
-        "dateFormation": "062015",
-        "heures": 9.5,
-        "employeur": 120,
-        "fongecif": 74,
-        "datePaiement": 1441749600012
-    }]
+    "cout": {
+        "012015" : {
+            "heures": 9.5,
+            "employeur": 120,
+            "fongecif": 74,
+            "datePaiement": 1441749600012
+        },
+        "022015": {
+            "heures": 9.5,
+            "employeur": 120,
+            "fongecif": 74,
+            "datePaiement": 1441749600012
+        },
+        "032015": {
+            "heures": 9.5,
+            "employeur": 120,
+            "fongecif": 74,
+            "datePaiement": 1441749600012
+        },
+        "042015": {
+            "heures": 9.5,
+            "employeur": 120,
+            "fongecif": 74,
+            "datePaiement": 1441749600012
+        },
+        "052015": {
+            "heures": 9.5,
+            "employeur": 120,
+            "fongecif": 74,
+            "datePaiement": 1441749600012
+        },
+        "062015": {
+            "heures": 9.5,
+            "employeur": 120,
+            "fongecif": 74,
+            "datePaiement": 1441749600012
+        }
+    }
 }

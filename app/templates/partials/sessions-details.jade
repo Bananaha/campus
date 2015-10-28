@@ -2,7 +2,7 @@ include ../mixins/main
 
 .grid.pad
 
-  .col-1
+  //-.col-1
     .module-card
 
       .details
@@ -130,14 +130,14 @@ include ../mixins/main
             // CIF
             +details-item("Duree") {{session.dureePriseEnCharge}}h
 
-  div(ng-if="hasUsers", ng-class="session.organisme ? 'col-1' : 'col-1-2'")
+  //-div(ng-if="hasUsers", ng-class="session.organisme ? 'col-1' : 'col-1-2'")
     .module-card
       .module-header
         h2 Stagiaires
 
       user-list(users="participants.stagiaires", frozen="session.archive")
 
-  .col-1-2(ng-if="!session.organisme && hasUsers")
+  //-.col-1-2(ng-if="!session.organisme && hasUsers")
     .module-card
       .module-header
         h2 Formateurs

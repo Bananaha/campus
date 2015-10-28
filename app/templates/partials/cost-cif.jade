@@ -27,6 +27,7 @@ include ../mixins/main
               - opt.type = "number"
               - opt.min = 0
               - opt.ngModel = "entry.model.heures"
+              - opt.ngChange = "onModelChange(entry)"
               +input(opt)
               span h
 
@@ -36,6 +37,7 @@ include ../mixins/main
               - opt.type = "number"
               - opt.min = 0
               - opt.ngModel = "entry.model.employeur"
+              - opt.ngChange = "onModelChange(entry)"
               +input(opt)
               span €
 
@@ -45,6 +47,7 @@ include ../mixins/main
               - opt.type = "number"
               - opt.min = 0
               - opt.ngModel = "entry.model.fongecif"
+              - opt.ngChange = "onModelChange(entry)"
               +input(opt)
               span €
 
@@ -53,7 +56,7 @@ include ../mixins/main
               datepicker-popup="dd/MM/yyyy"
               ng-model="entry.model.datePaiement"
               is-open="state.openDatepickers['datePaiement' + $index]"
-              ng-change="closeDatepicker('datePaiement' +$index)"
+              ng-change="closeDatepicker('datePaiement' +$index); onModelChange(entry)"
               ng-focus="openDatepicker('datePaiement' +$index)"
               ng-click="openDatepicker('datePaiement' +$index)"
               ng-class="entry.model.datePaiement | emptyInputClassFilter")

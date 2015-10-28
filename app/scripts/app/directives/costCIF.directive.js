@@ -11,6 +11,8 @@
             templateUrl: 'cost-cif.html',
             link: function ($scope) {
 
+                var initialized = false;
+
                 $scope.entries = getEntries();
 
                 $scope.currentYear = Object.keys($scope.entries)[0];
@@ -19,12 +21,13 @@
                     openDatepickers: {}
                 };
 
+                $timeout(init);
+
                 $scope.show = function(year) {
                     $scope.currentYear = year;
                 };
 
                 $scope.openDatepicker = function(datepickerName) {
-                    console.log(datepickerName, $scope.state.openDatepickers);
                     $scope.state.openDatepickers[datepickerName] = true;
                 };
 
@@ -34,10 +37,23 @@
                     });
                 };
 
+                $scope.onModelChange = function(entry) {
+                    var data = {};
+                    if (initialized) {
+                        data = entry.model;
+                        if (entry.model.datePaiement) {
+                            data.datePaiement = new Date(entry.model.datePaiement).getTime();
+                        }
+                        $scope.cout[entry.id] = data;
+                    }
+                };
+
+                function init() {
+                    initialized = true;
+                }
+
                 function formatCost(id) {
-                    var model = $scope.cout.filter(function(a) {
-                        return a.dateFormation === id;
-                    })[0];
+                    var model = $scope.cout[id];
 
                     if (model) {
                         return {
@@ -50,7 +66,8 @@
                         return {
                             heures: 0,
                             employeur: 0,
-                            fongecif: 0
+                            fongecif: 0,
+                            datePaiement: null
                         };
                     }
                 }
