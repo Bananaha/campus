@@ -36,7 +36,7 @@
     text-align: center;
     background: @color-purple-dark;
     color: #FFF;
-    margin: 0 -@u-small -@u-small;
+    margin: 0 -@u-small;
     padding: @u-medium;
     font-size: 1.8rem;
 }
@@ -53,6 +53,15 @@
     text-align: center;
     padding: @u-medium;
     margin: 0 -@u-small -@u-small;
+}
+
+.cost-actions {
+    text-align: right;
+    margin-top: @u-small;
+
+    .btn + .btn {
+        margin-left: @u-small;
+    }
 }
 
 .costCif {

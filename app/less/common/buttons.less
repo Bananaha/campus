@@ -26,6 +26,16 @@ button {
         background-color: @button-background-hover;
         text-decoration: none;
     }
+
+    &[disabled] {
+
+        &,
+        &:hover,
+        &:focus {
+            cursor: default;
+            background-color: @color-gray-73;
+        }
+    }
 }
 
 .btnIcon {

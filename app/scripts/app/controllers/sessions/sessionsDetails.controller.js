@@ -18,9 +18,12 @@
 
             var ID = $routeParams.id,
                 changeTimeout,
+                defaultCout,
                 populations = ['formateurs', 'stagiaires'];
 
             $scope.initialized = false;
+
+            $scope.costChanged = false;
 
             $scope.participants = {
                 stagiaires: [],
@@ -30,7 +33,6 @@
             $scope.session = {};
 
             $scope.$watch('participants', onParticipantsChange, true);
-
             $scope.$watch('session.cout', onCostChange, true);
 
             getDatas();
@@ -43,6 +45,22 @@
                 }
             };
 
+            $scope.saveCost = function() {
+                if ($scope.costChanged) {
+                    saveCost();
+                }
+            };
+
+            $scope.cancelCost = function() {
+                if ($scope.costChanged) {
+                    console.log('cancelCost');
+                    $scope.session.cout = JSON.parse(defaultCout);
+                    $timeout(function() {
+                        $scope.costChanged = false;
+                    });
+                }
+            };
+
             function getDatas() {
                 $http({
                     method: 'GET',
@@ -52,6 +70,13 @@
                     }
                 })
                 .then(onGetDetailSuccess, onGetDetailError);
+            }
+
+            function onCostChange() {
+                if ($scope.initialized) {
+                    console.log('onCostChange');
+                    $scope.costChanged = true;
+                }
             }
 
             function onUnarchive() {
@@ -80,13 +105,6 @@
                     .then(onUpdateSuccess, onUpdateError);
             }
 
-            function onCostChange() {
-                if ($scope.initialized) {
-                    $timeout.cancel(changeTimeout);
-                    changeTimeout = $timeout(saveCost, 200);
-                }
-            }
-
             function saveCost() {
                 var params = {
                     id: ID,
@@ -100,6 +118,10 @@
             function onUpdateSuccess(res) {
                 if (res.data && res.data.cout) {
                     $scope.session.cout = res.data.cout;
+                    defaultCout = JSON.stringify($scope.session.cout);
+                    $timeout(function() {
+                        $scope.costChanged = false;
+                    });
                 }
             }
 
@@ -111,6 +133,11 @@
                 $scope.session = formatDatas(res.data);
                 $scope.participants = res.data.participants;
                 $scope.hasUsers = true;
+
+                if ($scope.session.cout) {
+                    console.log('onGetDetailSuccess', $scope.session.cout);
+                    defaultCout = JSON.stringify($scope.session.cout);
+                }
 
                 if ($scope.session.type === 'CIF') {
                     $scope.coutSettings = {
