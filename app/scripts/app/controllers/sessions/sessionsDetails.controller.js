@@ -118,11 +118,11 @@
             function onUpdateSuccess(res) {
                 if (res.data && res.data.cout) {
                     $scope.session.cout = res.data.cout;
-                    defaultCout = JSON.stringify($scope.session.cout);
-                    $timeout(function() {
-                        $scope.costChanged = false;
-                    });
                 }
+                defaultCout = JSON.stringify($scope.session.cout);
+                $timeout(function() {
+                    $scope.costChanged = false;
+                });
             }
 
             function onUpdateError() {
