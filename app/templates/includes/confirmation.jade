@@ -1,0 +1,6 @@
+.confirmation(ng-if="App.confirmating")
+  p.confirmation-sentence {{confirmSentence}}
+
+  .confirmation-answers
+    button.btn(type="button", ng-click="confirm(true)") Oui
+    button.btn(type="button", ng-click="confirm(false)") Non

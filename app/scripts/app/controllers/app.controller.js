@@ -8,7 +8,8 @@
             $location,
             modalService,
             appStateService,
-            historyService
+            historyService,
+            confirmationService
         ) {
 
             var that = this;
@@ -59,6 +60,21 @@
             function onAppStateChange() {
                 that.loading = appStateService.isLoading();
                 that.frozen = appStateService.isFrozen();
+                that.confirmating = appStateService.isConfirmating();
+
+                if (that.confirmating) {
+                    initConfirmation();
+                }
+            }
+
+            // CONFIRMATION
+
+            $scope.confirm = function(res) {
+                confirmationService.answer(res)
+            }
+
+            function initConfirmation() {
+                $scope.confirmSentence = confirmationService.getSentence();
             }
         });
 

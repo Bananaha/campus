@@ -9,7 +9,8 @@
             var callbacks = [],
                 state = {
                     frozen: false,
-                    loading: false
+                    loading: false,
+                    confirmating: false
                 };
 
             this.isFrozen = function(value) {
@@ -25,6 +26,14 @@
                     changeState('loading', value);
                 } else {
                     return state.loading;
+                }
+            };
+
+            this.isConfirmating = function(value) {
+               if (typeof value !== 'undefined') {
+                    changeState('confirmating', value);
+                } else {
+                    return state.confirmating;
                 }
             };
 

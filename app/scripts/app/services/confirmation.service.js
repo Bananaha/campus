@@ -3,21 +3,32 @@
 
     angular.module('campus.app').factory('confirmationService',
         function(
-            $q
+            $q,
+            appStateService
         ) {
 
+            var sentence = '',
+                promise,
+                deferred;
+
+            this.answer = function(res) {
+                if (res) {
+                    deferred.resolve();
+                } else {
+                    deferred.reject();
+                }
+                appStateService.isConfirmating(false);
+            };
+
+            this.getSentence = function() {
+                return sentence;
+            };
+
             this.confirm = function(question) {
-                var confirm = global.confirm(question);
-
-                var promise = $q(function(res, rej) {
-                    if (confirm) {
-                        res();
-                    } else {
-                        rej();
-                    }
-                });
-
-                return promise;
+                deferred = $q.defer();
+                sentence = question;
+                appStateService.isConfirmating(true);
+                return deferred.promise;
             };
 
             return this;
