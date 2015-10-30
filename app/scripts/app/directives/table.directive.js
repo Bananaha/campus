@@ -10,6 +10,7 @@
             scrollEventService,
             dbActionsService,
             formatterService,
+            confirmationService,
             FORMDATAS,
             ACTIONS
         ) {
@@ -83,29 +84,65 @@
 
                     $scope.callAction = function(action, item) {
                         var currentLocation = $location.url(),
-                            request,
-                            callback;
+                            requestName,
+                            callback,
+                            confirmSentence;
+
+                        if (action !== 'modify') {
+                            confirmSentence = getSentence(action, item);
+                        }
+
                         switch (action) {
                             case 'modify':
                                 $location.url(currentLocation + '/' + item.id + '/modifier');
                             break;
                             case 'delete':
-                                request = dbActionsService.delete(config.url, item.id);
+                                requestName = 'delete';
                                 callback = removeItem.bind(this, item.id);
+
                             break;
                             case 'archive':
-                                request = dbActionsService.archive(config.url, item.id);
+                                requestName = 'archive';
                                 callback = archiveItem.bind(this, item);
                             break;
                             case 'desarchiver':
-                                request = dbActionsService.unarchive(config.url, item.id);
+                                requestName = 'unarchive';
                                 callback = unarchiveItem.bind(this, item);
                             break;
                         }
-                        if (request) {
-                            request.then(callback);
+                        if (confirmSentence && requestName) {
+                            confirmationService
+                                .confirm(confirmSentence)
+                                    .then(function() {
+                                        dbActionsService[requestName](config.url, item.id).then(callback);
+                                    });
                         }
                     };
+
+                    function getSentence(action, item) {
+                        var sentence = ['Voulez-vous vraiment'],
+                            type;
+
+                        if (item.action) {
+                            type = 'formation';
+                        } else if (item.nom) {
+                            type = 'user';
+                        }
+
+                        switch (action) {
+                            case 'delete': sentence.push('supprimer'); break;
+                            case 'archive': sentence.push('archiver'); break;
+                            case 'desarchiver': sentence.push('désarchiver'); break;
+                        }
+
+                        switch (type) {
+                            case 'user': sentence.push('l\'utilisateur ' + item.prenom + ' ' + item.nom); break;
+                            case 'session': sentence.push('la session ' + item.id); break;
+                            case 'formation': sentence.push('la formation ' + item.id); break;
+                        }
+                        sentence.push('?');
+                        return sentence.join(' ');
+                    }
 
                     function init() {
                         $scope.$watch('filters', filters, true);

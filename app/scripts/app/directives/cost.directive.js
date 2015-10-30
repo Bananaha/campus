@@ -1,7 +1,7 @@
 (function (global, angular) {
     'use strict';
 
-    angular.module('campus.app').directive('cost', function () {
+    angular.module('campus.app').directive('cost', function ($timeout) {
         return {
             restrict: 'E',
             scope: {
@@ -9,28 +9,35 @@
             },
             templateUrl: 'cost.html',
             link: function ($scope) {
-                var keys = {
-                    cost: [
-                        'salarial',
-                        'pedagogique',
-                        'interim',
-                        'annexe'
-                    ],
-                    priseEnCharge: [
-                        'direct',
-                        'planFormation',
-                        'professionnalisation',
-                        'CPF',
-                        'FPSPP',
-                        'CIF',
-                        'autre'
-                    ]
-                };
+                var initialized,
+                    keys = {
+                        cost: [
+                            'salarial',
+                            'pedagogique',
+                            'interim',
+                            'annexe'
+                        ],
+                        priseEnCharge: [
+                            'direct',
+                            'planFormation',
+                            'professionnalisation',
+                            'CPF',
+                            'FPSPP',
+                            'CIF',
+                            'autre'
+                        ]
+                    };
 
                 $scope.$watch('model', onModelChange, true);
 
+                $timeout(function() {
+                    initialized = true;
+                });
+
                 function onModelChange() {
-                    updateModel();
+                    if (initialized) {
+                        updateModel();
+                    }
                 }
 
                 function add(sum, key) {

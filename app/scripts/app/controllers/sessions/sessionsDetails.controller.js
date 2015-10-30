@@ -8,6 +8,7 @@
             $http,
             $timeout,
             $routeParams,
+            confirmationService,
             historyService,
             notificationService,
             dbActionsService,
@@ -39,9 +40,9 @@
 
             $scope.unarchive = function() {
                 if ($scope.session.archive) {
-                    dbActionsService
-                        .unarchive(config.urls.sessions, ID)
-                        .then(onUnarchive);
+                    confirmationService
+                        .confirm('Voulez-vous vraiment désarchiver la session ' + ID + '?')
+                            .then(unarchive);
                 }
             };
 
@@ -53,13 +54,18 @@
 
             $scope.cancelCost = function() {
                 if ($scope.costChanged) {
-                    console.log('cancelCost');
-                    $scope.session.cout = JSON.parse(defaultCout);
-                    $timeout(function() {
-                        $scope.costChanged = false;
-                    });
+                    confirmationService
+                        .confirm('Voulez-vous vraiment annuler les changements fait sur le financement de la session ' + ID + '?')
+                            .then(cancelCost);
                 }
             };
+
+            function cancelCost() {
+                $scope.session.cout = JSON.parse(defaultCout);
+                $timeout(function() {
+                    $scope.costChanged = false;
+                });
+            }
 
             function getDatas() {
                 $http({
@@ -74,9 +80,14 @@
 
             function onCostChange() {
                 if ($scope.initialized) {
-                    console.log('onCostChange');
                     $scope.costChanged = true;
                 }
+            }
+
+            function unarchive() {
+                dbActionsService
+                    .unarchive(config.urls.sessions, ID)
+                    .then(onUnarchive);
             }
 
             function onUnarchive() {
@@ -135,7 +146,6 @@
                 $scope.hasUsers = true;
 
                 if ($scope.session.cout) {
-                    console.log('onGetDetailSuccess', $scope.session.cout);
                     defaultCout = JSON.stringify($scope.session.cout);
                 }
 

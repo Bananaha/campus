@@ -53,23 +53,25 @@
                 }
 
                 function formatCost(id) {
-                    var model = $scope.cout[id];
+                    var model = $scope.cout[id],
+                        data;
 
                     if (model) {
-                        return {
+                        data = {
                             heures: model.heures,
                             employeur: model.employeur,
                             fongecif: model.fongecif,
                             datePaiement: model.datePaiement
                         };
                     } else {
-                        return {
+                        data = {
                             heures: 0,
                             employeur: 0,
                             fongecif: 0,
                             datePaiement: null
                         };
                     }
+                    return data;
                 }
 
                 function getEntries() {
