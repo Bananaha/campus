@@ -20,7 +20,7 @@ include ../mixins/main
     .table.listed
        .table-group
         ul.table-row(ng-repeat="entry in year track by $index")
-          .table-cell.month{{entry.month}}
+          .table-cell.month {{entry.month}}
           .table-cell.hours
             label
               - var opt = {}

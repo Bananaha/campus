@@ -32,6 +32,7 @@
 
                 $timeout(function() {
                     initialized = true;
+                    updateModel();
                 });
 
                 function onModelChange() {
