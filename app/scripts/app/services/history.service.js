@@ -11,6 +11,10 @@
                 currentRoute,
                 hasBack = false;
 
+            this.getBack = function() {
+                return prevRoute;
+            };
+
             this.hasBack = function() {
                 return hasBack;
             };
@@ -29,7 +33,9 @@
             this.onLocationChange = function() {
                 prevRoute = currentRoute;
                 currentRoute = $location.url();
-                hasBack = true;
+                if (prevRoute) {
+                    hasBack = true;
+                }
             };
 
             return this;

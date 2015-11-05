@@ -8,6 +8,7 @@
             $timeout,
             $location,
             config,
+            confirmationService,
             notificationService,
             appStateService,
             localStorageService,
@@ -27,7 +28,8 @@
                         $form = $scope[name],
                         storageName = 'form-' + name,
                         initialized = false,
-                        datesKeys = ['from', 'to'];
+                        datesKeys = ['from', 'to'],
+                        initialModel;
 
                     $scope.state = {
                         valid: false,
@@ -35,25 +37,24 @@
                         openDatepickers: {}
                     };
 
+                    $scope.modelChanged = false;
+
                     $scope.constants = {
                         entites: FORMDATAS.entites,
                         permissions: FORMDATAS.permissions,
                         services: FORMDATAS.services
                     };
 
-                    $scope.model = getModelFromStorage();
-
-                    element.find('input[type="hidden"]').each(function(idx, el) {
-                        if (el.name && el.value) {
-                            $scope.model[el.name] = el.value;
-                        }
-                    });
+                    initModel();
 
                     $scope.$watch('model', onModelChange, true);
+                    $scope.$watch('modelChanged', onModelChangedChange, true);
 
-                    $timeout(function() {
-                        initialized = true;
-                    });
+                    if (!historyService.getBack()) {
+                        $scope.model = getModelFromStorage();
+                    } else {
+                        localStorageService.remove(storageName);
+                    }
 
                     $scope.openDatepicker = function(datepickerName) {
                         $scope.state.openDatepickers[datepickerName] = true;
@@ -75,35 +76,74 @@
                     };
 
                     $scope.cancel = function() {
-                        flush();
-                        if (element.closest('.modal').length) {
-                            modalService.hideModals();
-                        } else {
-                            historyService.back();
+                        if ($scope.modelChanged) {
+                            confirmationService
+                                .confirm('Voulez-vous vraiment annuler les changements que vous avez fait sur ce formulaire?')
+                                    .then(cancelForm);
+
                         }
                     };
+
+                    function initModel() {
+                        initialized = false;
+
+                        if (!$scope.model) {
+                            $scope.model = {};
+                        }
+
+                        element.find('input[type="hidden"]').each(function(idx, el) {
+                            if (el.name && el.value) {
+                                $scope.model[el.name] = el.value;
+                            }
+                        });
+
+                        $timeout(function() {
+                            initialized = true;
+                        });
+                    }
+
+                    function cancelForm() {
+                        $scope.model = JSON.parse(initialModel);
+                    }
+
+                    function onModelChangedChange(value) {
+                        if (initialized) {
+                            appStateService.hasUnsavedData(value);
+                        }
+                    }
 
                     function getModelFromStorage() {
                         var datas = localStorageService.get(storageName);
                         if (!datas) {
-                            return {};
+                            return $scope.model;
                         }
                         datesKeys.forEach(function(key) {
                             if (datas[key]) {
                                 datas[key] = new Date(datas[key]);
                             }
                         });
+                        if (isDifferentModel()) {
+                            $scope.modelChanged = true;
+                        } else {
+                            datas = $scope.model;
+                        }
                         return datas;
                     }
 
-                    function flush() {
-                        appStateService.isFrozen(false);
-                        $scope.model = {};
+                    function isDifferentModel() {
+                        return initialModel !== JSON.stringify($scope.model);
                     }
 
                     function onModelChange() {
                         if (initialized) {
-                            localStorageService.set(storageName, $scope.model);
+                            $scope.modelChanged = isDifferentModel();
+                            if ($scope.modelChanged) {
+                                localStorageService.set(storageName, $scope.model);
+                            } else {
+                                localStorageService.remove(storageName);
+                            }
+                        } else {
+                            initialModel = $scope.model ? JSON.stringify($scope.model) : '{}';
                         }
                     }
 

@@ -7,6 +7,8 @@
             $scope,
             $http,
             $routeParams,
+            $timeout,
+            appStateService,
             notificationService,
             historyService,
             formatterService,
@@ -17,6 +19,8 @@
             var ID = $routeParams.id;
 
             $scope.opts = FORMDATAS;
+
+            $scope.initialized = false;
 
             $http({
                     method: 'GET',
@@ -29,6 +33,9 @@
 
             function onGetRequestSuccess(res) {
                 $scope.model = formatDatas(res.data);
+                $timeout(function() {
+                    $scope.initialized = true;
+                });
             }
 
             function onGetRequestError() {
@@ -39,7 +46,6 @@
             function formatDatas(datas) {
                 return formatterService.format(datas);
             }
-
         });
 
 }(window, window.angular));

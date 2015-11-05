@@ -17,24 +17,15 @@
                 },
                 link: function ($scope, element) {
 
-                    var changeTimeout,
+                    var internUpdate,
+                        changeTimeout,
                         blurTimeout,
                         blurDelay = 100,
                         changeDelay = 300;
 
-                    $scope.users = [];
+                    init();
 
-                    $scope.showSearchList = false;
-
-                    $scope.selectedUsers = $scope.selectedUsers || [];
-
-                    $scope.displayedUsers = [];
-
-                    if ($scope.selectedUsers.length) {
-                        getInitialUsers();
-                    } else {
-                        $scope.ready = true;
-                    }
+                    $scope.$watch('selectedUsers', onSelectedUsersChange, true);
 
                     $scope.onChange = function() {
                         $scope.users = [];
@@ -64,6 +55,7 @@
                         if (!$scope.selectedUsers.some(function(_user) {
                             return _user.id === user.id;
                         })) {
+                            internUpdate = true;
                             $scope.selectedUsers.push(user.id);
                             $scope.displayedUsers.push(user);
                             $scope.showSearchList = false;
@@ -73,6 +65,7 @@
 
                     $scope.removeUser = function(id) {
                         var i = 0;
+                        internUpdate = true;
                         for (i = 0; i < $scope.displayedUsers.length; i++) {
                             if ($scope.displayedUsers[i].id === id) {
                                 $scope.displayedUsers.splice(i, 1);
@@ -87,6 +80,41 @@
                         }
                     };
 
+                    function init() {
+                        $scope.ready = false;
+
+                        $scope.users = [];
+
+                        $scope.showSearchList = false;
+
+                        $scope.selectedUsers = $scope.selectedUsers || [];
+
+                        $scope.displayedUsers = [];
+
+                        if ($scope.selectedUsers.length) {
+                            getInitialUsers();
+                        } else {
+                            isReady();
+                        }
+                    }
+
+                    function updateDisplayedUsers() {
+                        init();
+                    }
+
+                    function isReady() {
+                        $timeout(function() {
+                            $scope.ready = true
+                        });
+                    }
+
+                    function onSelectedUsersChange() {
+                        if ($scope.ready && !internUpdate) {
+                            updateDisplayedUsers();
+                        }
+                        internUpdate = false;
+                    }
+
                     function reinitSearch() {
                         $scope.search = null;
                         $scope.users = [];
@@ -99,7 +127,7 @@
                         if (idOnly) {
                             getUsers($scope.selectedUsers);
                         } else {
-                            $scope.ready = true;
+                            isReady();
                         }
                     }
 

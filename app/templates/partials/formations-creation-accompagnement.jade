@@ -8,7 +8,7 @@ h2.module-title Création d'un accompagnement
     .module-card
       .module-header
         h3 Informations
-      form.grid.pad(name="formationsCreation",
+      form.grid.pad(name="formationsAccompagnementCreation",
         data-action="insert",
         data-target="formations"
         form,
@@ -84,4 +84,5 @@ h2.module-title Création d'un accompagnement
         h2 Formateurs
       user-list(users="model.formateurs")
 
-  include ../includes/modules/module-submit
+  .col-1
+    include ../includes/modules/module-submit

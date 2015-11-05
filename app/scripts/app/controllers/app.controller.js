@@ -6,13 +6,16 @@
         function(
             $scope,
             $location,
+            $timeout,
+            $window,
             modalService,
             appStateService,
             historyService,
             confirmationService
         ) {
 
-            var that = this;
+            var that = this,
+                redirecting = false;
 
             $scope.modal = false;
 
@@ -22,7 +25,7 @@
 
             onAppStateChange();
 
-            $scope.$on('$locationChangeSuccess', onLocationChange);
+            $scope.$on('$locationChangeStart', onLocationChange);
 
             this.showBack = false;
 
@@ -47,7 +50,27 @@
                 that.showBack = historyService.hasBack() && $location.url().split('/').length > 2;
             }
 
-            function onLocationChange() {
+            function onLocationChange(event, next) {
+                if (appStateService.hasUnsavedData() && !redirecting) {
+                    event.preventDefault();
+                    confirmationService.confirm('Si vous quittez cette page sans sauvegarder, vos changements seront perdus. Voulez-vous vraiment quitter cette page?')
+                        .then(onForgetUnsavedDataConfirm.bind(that, next));
+                } else {
+                    onLocationChangeComplete();
+                }
+            }
+
+            function onForgetUnsavedDataConfirm(next) {
+                redirecting = true;
+                appStateService.hasUnsavedData(false);
+                $window.location.href = next;
+                onLocationChangeComplete();
+                $timeout(function() {
+                    redirecting = false;
+                });
+            }
+
+            function onLocationChangeComplete() {
                 modalService.hideModals();
                 historyService.onLocationChange();
                 updateShowBack();

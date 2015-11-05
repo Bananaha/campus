@@ -7,7 +7,8 @@ include ../mixins/main
     form(name="formationsModification",
       data-action="update",
       form,
-      ng-submit="submit()")
+      ng-submit="submit()",
+      ng-if="initialized")
 
       .module-header
         p.details-id \#{{model.action}} - {{model.auteur}} - {{model.type}}
@@ -86,3 +87,5 @@ include ../mixins/main
             - opt.required = true
             - opt.ngModel = "model.prerequis"
             +input(opt)
+
+      include ../includes/modules/module-submit

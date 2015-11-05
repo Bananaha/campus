@@ -1,7 +1,7 @@
 include ../mixins/main
 
-.userList-container(ng-if="ready", ng-class="{frozen: frozen}")
-  .searchBox(ng-if="!frozen")
+.userList-container(ng-show="ready", ng-class="{frozen: frozen}")
+  .searchBox(ng-show="!frozen")
     +form-underlined()
       input.userList-input(type="search",
         ng-model="search",
@@ -11,7 +11,7 @@ include ../mixins/main
         placeholder="Rechercher",
         required)
     button(type="button").btnIcon.search
-  ul.userList-searchList(ng-if="showSearchList && !frozen")
+  ul.userList-searchList(ng-show="showSearchList && !frozen")
     li(ng-repeat="user in users")
       button(type="button",
         ng-click="selectUser(user.id)",
@@ -21,15 +21,15 @@ include ../mixins/main
         span.userList-searchList-departure {{user.sortie}}
         span.userList-searchList-job {{user.poste}}
 
-  p.userList-placeholder(ng-if="!displayedUsers.length && !frozen") Pour ajouter une personne, veuillez la rechercher ci-dessus.
-  p.userList-legend(ng-if="displayedUsers.length") {{displayedUsers.length}} personne(s) sélectionnée(s).
+  p.userList-placeholder(ng-show="!displayedUsers.length && !frozen") Pour ajouter une personne, veuillez la rechercher ci-dessus.
+  p.userList-legend(ng-show="displayedUsers.length") {{displayedUsers.length}} personne(s) sélectionnée(s).
 
-  ul.userList-users(ng-if="displayedUsers.length")
+  ul.userList-users(ng-show="displayedUsers.length")
     li.userList-user(ng-repeat="user in displayedUsers")
       a.userList-info(ng-href="#/utilisateurs/{{user.id}}")
         | {{user.prenom}} {{user.nom}}
       button.userList-remove(type="button",
-        ng-if="!frozen",
+        ng-show="!frozen",
         ng-click="removeUser(user.id)")
 
 

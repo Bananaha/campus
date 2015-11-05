@@ -13,29 +13,13 @@
                     confirmating: false
                 };
 
-            this.isFrozen = function(value) {
-                if (typeof value !== 'undefined') {
-                    changeState('frozen', value);
-                } else {
-                    return state.frozen;
-                }
-            };
+            this.isFrozen = bindedStateGetter('frozen');
 
-            this.isLoading = function(value) {
-                if (typeof value !== 'undefined') {
-                    changeState('loading', value);
-                } else {
-                    return state.loading;
-                }
-            };
+            this.isLoading = bindedStateGetter('loading');
 
-            this.isConfirmating = function(value) {
-               if (typeof value !== 'undefined') {
-                    changeState('confirmating', value);
-                } else {
-                    return state.confirmating;
-                }
-            };
+            this.isConfirmating = bindedStateGetter('confirmating');
+
+            this.hasUnsavedData = bindedStateGetter('unsavedData');
 
             this.get = function() {
                 return state;
@@ -44,6 +28,18 @@
             this.onChange = function(callback) {
                 callbacks.push(callback);
             };
+
+            function bindedStateGetter(stateName) {
+                return stateGetter.bind(this, stateName);
+            }
+
+            function stateGetter(stateName, value) {
+                if (typeof value !== 'undefined') {
+                    changeState(stateName, value);
+                } else {
+                    return state[stateName];
+                }
+            }
 
             function changeState(key, value) {
                 if (state[key] !== value) {

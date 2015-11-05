@@ -1,3 +1,6 @@
 .form-actions
-  button.btn(type="button", ng-click="cancel()") Annuler
-  button.btn(type="submit") Valider
+  button.btn(type="button",
+             ng-click="cancel()",
+             ng-disabled="!modelChanged") Annuler
+  button.btn(type="submit",
+             ng-disabled="!modelChanged") Valider

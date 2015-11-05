@@ -8,6 +8,8 @@
             $http,
             $timeout,
             $routeParams,
+            $location,
+            appStateService,
             confirmationService,
             historyService,
             notificationService,
@@ -20,6 +22,7 @@
             var ID = $routeParams.id,
                 changeTimeout,
                 defaultCout,
+                redirecting = false,
                 populations = ['formateurs', 'stagiaires'];
 
             $scope.initialized = false;
@@ -35,6 +38,7 @@
 
             $scope.$watch('participants', onParticipantsChange, true);
             $scope.$watch('session.cout', onCostChange, true);
+            $scope.$watch('costChanged', onCostChangeChange, true);
 
             getDatas();
 
@@ -59,6 +63,10 @@
                             .then(cancelCost);
                 }
             };
+
+            function onCostChangeChange(costChanged) {
+                appStateService.hasUnsavedData(costChanged);
+            }
 
             function cancelCost() {
                 $scope.session.cout = JSON.parse(defaultCout);
