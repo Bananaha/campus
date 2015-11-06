@@ -20,6 +20,8 @@
 
             $scope.permissions = FORMDATAS.permissions;
 
+            $scope.initialized = false;
+
             $http({
                     method: 'GET',
                     url: config.urls.utilisateursDetails,
@@ -31,6 +33,9 @@
 
             function onGetRequestSuccess(res) {
                 $scope.model = formatterService.format(res.data);
+                $timeout(function() {
+                    $scope.initialized = true;
+                });
             }
 
             function onGetRequestError() {

@@ -1,12 +1,13 @@
 include ../mixins/main
 
-.module-card
+h2.module-title Modification d'un utilisateur
 
-    .details
+.module-card
 
     form(name="usersModification",
       data-action="update",
       form,
+      ng-if="initialized",
       ng-submit="submit()")
 
       .module-header
@@ -68,6 +69,5 @@ include ../mixins/main
               - opt.required = true
               +select(opt)
 
-      .module-footer.form-actions
-        button.btn(type="button", ng-click="App.back()") Annuler
-        button.btn(type="submit") Valider
+      .module-footer
+        include ../includes/modules/module-submit

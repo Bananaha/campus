@@ -27,6 +27,7 @@
                         url = config.urls[name],
                         $form = $scope[name],
                         storageName = 'form-' + name,
+                        initialModelStorageName = 'form-' + name + 'init',
                         initialized = false,
                         datesKeys = ['from', 'to'],
                         initialModel;
@@ -52,6 +53,7 @@
 
                     if (!historyService.getBack()) {
                         $scope.model = getModelFromStorage();
+                        initialModel = localStorageService.get(initialModelStorageName);
                     } else {
                         localStorageService.remove(storageName);
                     }
@@ -142,8 +144,10 @@
                             } else {
                                 localStorageService.remove(storageName);
                             }
-                        } else {
+                        } else if (!initialModel) {
+                            // set initialModel and save it in local storage
                             initialModel = $scope.model ? JSON.stringify($scope.model) : '{}';
+                            localStorageService.set(initialModelStorageName, initialModel);
                         }
                     }
 
@@ -166,7 +170,8 @@
                     function onRequestSuccess(res) {
                         var _url;
 
-                        flush();
+                        $scope.modelChanged = false;
+
                         modalService.hideModals();
 
                         if (res.data.id) {

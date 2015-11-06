@@ -7,6 +7,7 @@
             $scope,
             $http,
             $routeParams,
+            $timeout,
             notificationService,
             formatterService,
             historyService,
@@ -16,6 +17,8 @@
         ) {
 
             var ID = $routeParams.id;
+
+            $scope.initialized = false;
 
             $scope.model = {};
 
@@ -45,6 +48,10 @@
                     notificationService.warn('Vous ne pouvez pas créer de session pour cette action.');
                     historyService.back();
                 }
+
+                $timeout(function() {
+                    $scope.initialized = true;
+                });
             }
 
             function onGetDetailError() {

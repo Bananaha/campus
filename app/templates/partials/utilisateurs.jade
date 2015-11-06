@@ -4,8 +4,7 @@ include ../mixins/main
   .module-header(affix, affix-offset=48)
     .affix-target
       .pull-right
-        button.btn.modal-opener(type="button",
-          ng-click="App.showModal('user-creation')") Créer un utilisateur
+        a.btn(ng-href="#/utilisateurs/creation") Créer un utilisateur
 
       .searchBox
         +form-underlined()

@@ -63,6 +63,10 @@
                     templateUrl: basePath + 'utilisateurs.html',
                     controller: 'utilisateursController'
                 }).
+                when('/utilisateurs/creation', {
+                    templateUrl: basePath + 'utilisateurs-creation.html',
+                    controller: 'utilisateursCreationController'
+                }).
                 when('/utilisateurs/:id', {
                     templateUrl: basePath + 'utilisateurs-details.html',
                     controller: 'utilisateursDetailsController'

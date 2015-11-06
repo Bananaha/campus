@@ -1,0 +1,69 @@
+include ../mixins/main
+
+h2.module-title Création d'un utilisateur
+
+.module-card
+
+  form(name="utilisateursCreation",
+    data-action="insert",
+    form,
+    data-target="utilisateurs",
+    ng-submit="submit()")
+
+    .grid.pad
+
+      .col-1
+          +form-underlined("Nom")
+            - opt = {}
+            - opt.required = true
+            - opt.ngModel = "model.nom"
+            +input(opt)
+
+      .col-1
+          +form-underlined("Prénom")
+            - opt = {}
+            - opt.required = true
+            - opt.ngModel = "model.prenom"
+            +input(opt)
+
+      .col-1
+          +form-underlined("Adresse mail")
+            - opt = {}
+            - opt.type = "mail"
+            - opt.ngModel = "model.mail"
+            +input(opt)
+
+      .col-1
+          +form-underlined("Mot de passe")
+            - opt = {}
+            - opt.type = "password"
+            - opt.ngModel = "model.password"
+            - opt.required = true
+            +input(opt)
+
+      .col-1
+          +form-underlined("Entité")
+            - opt = {}
+            - opt.ngModel = "model.entite"
+            - opt.ngOptions = "entite as entite for entite in constants.entites"
+            - opt.required = true
+            +select(opt)
+
+      .col-1
+          +form-underlined("Service")
+            - opt = {}
+            - opt.ngModel = "model.service"
+            - opt.ngOptions = "service as service for service in constants.services"
+            - opt.required = true
+            +select(opt)
+
+      .col-1
+          +form-underlined("Droits d'accès")
+            - opt = {}
+            - opt.ngModel = "model.permission"
+            - opt.ngOptions = "permission.id as permission.label for permission in constants.permissions"
+            - opt.required = true
+            +select(opt)
+
+    .module-footer
+      include ../includes/modules/module-submit

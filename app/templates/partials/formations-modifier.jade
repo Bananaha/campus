@@ -1,91 +1,92 @@
 include ../mixins/main
 
+h2.module-title Modification d'une action de formation
+
 .module-card
 
-  .details
+  form(name="formationsModification",
+    data-action="update",
+    form,
+    ng-submit="submit()",
+    ng-if="initialized")
 
-    form(name="formationsModification",
-      data-action="update",
-      form,
-      ng-submit="submit()",
-      ng-if="initialized")
+    .module-header
+      p.details-id \#{{model.action}} - {{model.auteur}} - {{model.type}}
+      h2 {{model.intitule}}
 
-      .module-header
-        p.details-id \#{{model.action}} - {{model.auteur}} - {{model.type}}
-        h2 {{model.intitule}}
+    .grid.pad
 
-      .grid.pad
+      .col-1
+        +form-underlined("Entité")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.entite"
+          - opt.ngOptions = "entite for entite in opts.entites"
+          +select(opt)
 
-        .col-1
-          +form-underlined("Entité")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.entite"
-            - opt.ngOptions = "entite for entite in opts.entites"
-            +select(opt)
+      .col-1-3
+        +form-underlined("Client")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.client"
+          +input(opt)
 
-        .col-1-3
-          +form-underlined("Client")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.client"
-            +input(opt)
+      .col-1-3
+        +form-underlined("Activité")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.activite"
+          +input(opt)
 
-        .col-1-3
-          +form-underlined("Activité")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.activite"
-            +input(opt)
+      .col-1-3
+        +form-underlined("Produit")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.produit"
+          +input(opt)
 
-        .col-1-3
-          +form-underlined("Produit")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.produit"
-            +input(opt)
+      .col-1-2
+        +form-underlined("Organisme")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.organisme"
+          - opt.ngOptions = "organisme.value as organisme.label for organisme in opts.organisme"
+          +select(opt)
 
-        .col-1-2
-          +form-underlined("Organisme")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.organisme"
-            - opt.ngOptions = "organisme.value as organisme.label for organisme in opts.organisme"
-            +select(opt)
+      .col-1-2(ng-if="model.organisme")
+        +form-underlined("Nom de l'organisme")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.nomOrganisme"
+          +input(opt)
 
-        .col-1-2(ng-if="model.organisme")
-          +form-underlined("Nom de l'organisme")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.nomOrganisme"
-            +input(opt)
+      .col-1
+        +form-underlined("Population")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.population"
+          +input(opt)
 
-        .col-1
-          +form-underlined("Population")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.population"
-            +input(opt)
+      .col-1
+        +form-underlined("Objectif")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.objectif"
+          +input(opt)
 
-        .col-1
-          +form-underlined("Objectif")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.objectif"
-            +input(opt)
+      .col-1
+        +form-underlined("Contenu")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.contenu"
+          +input(opt)
 
-        .col-1
-          +form-underlined("Contenu")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.contenu"
-            +input(opt)
+      .col-1
+        +form-underlined("Pré-requis")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.prerequis"
+          +input(opt)
 
-        .col-1
-          +form-underlined("Pré-requis")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.prerequis"
-            +input(opt)
-
+    .module-footer
       include ../includes/modules/module-submit
