@@ -35,6 +35,10 @@
                     templateUrl: basePath + 'home.html',
                     controller: 'homeController'
                 }).
+                when('/mon-compte', {
+                    templateUrl: basePath + 'profil.html',
+                    controller: 'profilController'
+                }).
                 when('/formations', {
                     templateUrl: basePath + 'formations.html',
                     controller: 'formationsController'

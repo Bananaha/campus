@@ -144,11 +144,11 @@ include ../mixins/main
 
       user-list(users="participants.formateurs", frozen="session.archive")
 
-  .col-1(ng-if="initialized")
+  .col-1(ng-if="initialized && session.type !== 'CPF'")
     .module-card
       .module-header
         h2 Financement de la formation {{session.type}}
-      cost(cout="session.cout", ng-if="session.type !== 'CIF'")
+      cost(cout="session.cout", ng-if="session.type === 'employeur'")
       cost-CIF(cout="session.cout",
                settings="coutSettings",
                ng-if="session.type === 'CIF'")

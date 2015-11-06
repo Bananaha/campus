@@ -19,7 +19,7 @@ header.header
 
         ul.header-menu-box(ng-class="{show: isOpen}")
           li.header-menu-item
-            a.menuLink.header-menu-link.account(href="#",
+            a.menuLink.header-menu-link.account(ng-click="App.goTo('mon-compte')",
               ng-focus="onFocus()",
               ng-blur="onBlur()") Mon compte
           li.header-menu-item

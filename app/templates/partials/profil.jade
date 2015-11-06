@@ -1,46 +1,54 @@
 include ../mixins/main
 
-.pop-in-container
-    form.grid.inside-block-module
-            h2.col-1 Vos informations
-            .col-1-3
-                label Nom :
-                    input(type='text', name='')
-            .col-1-3
-                label Prénom :
-                    input(type='text', name='')
-            .col-1-3
-                label Adresse mail :
-                    input(type='text', name='')
-            .col-1-3
-                label Entité :  
-                    select(name='type')
-                        option(value='value1')
-                        option(value='value2') B2S AIX
-                        option(value='value3') B2S CHALON SAS
-                        option(value='value3') B2S DEVELOPPEMENT SAS
-                        option(value='value3') B2S LE MANS SAS
-                        option(value='value3') B2S PARIS SASU
-                        option(value='value3') B2S ROANNE SAS
-                        option(value='value3') B2S SAS
-                        option(value='value3') B2S STRASBOURG SAS
-                        option(value='value3') B2S VALENCIENNES SAS
-                        option(value='value3') SYMPHONING SAS
-                        option(value='value3') SYNOPSYA SAS
-            .col-1-3
-                label Service :  
-                    select(name='type')
-                        option(value='value1')
-                        option(value='value2') Ressources Humaines
-                        option(value='value3') Qualité Formation
-                        option(value='value3') Direction
-            .col-1-3
-                label Mot de passe :
-                    input(type='text', name='')
-            .col-1-3
-                label Droit :  
-                    select(name='type')
-                        option(value='value1')
-                        option(value='value2') Standard
-                        option(value='value3') Administrateur
-            include ../includes/modules/module-submit
+h2.module-title Votre profil
+
+.module-card
+
+    .module-header
+      h2 {{user.prenom}} {{user.nom}}
+
+    form(name="profilPasswordModification",
+      data-action="update",
+      ng-submit="submit()",
+      ng-show="initialized")
+
+      button.btn(type="button",
+                 ng-show="!modifyingPassword",
+                 ng-click="modifyPassword()")
+        | Modifier mon mot de passe
+
+      div(ng-if="modifyingPassword")
+
+        .grid.pad
+
+          .col-1
+            +form-underlined("Votre mot de passe actuel")
+              - opt = {}
+              - opt.type = "password"
+              - opt.ngModel = "model.password"
+              - opt.required = true
+              +input(opt)
+
+          .col-1
+            +form-underlined("Votre nouveau mot de passe")
+              - opt = {}
+              - opt.type = "password"
+              - opt.ngModel = "model.newPassword"
+              - opt.required = true
+              +input(opt)
+
+          .col-1
+            +form-underlined("Confirmez votre nouveau mot de passe")
+              - opt = {}
+              - opt.type = "password"
+              - opt.ngModel = "model.newPassword2"
+              - opt.required = true
+              +input(opt)
+
+
+        .module-footer
+          .form-actions
+            button.btn(type="button",
+                       ng-click="cancel()") Annuler
+            button.btn(type="submit",
+                       ng-disabled="!isValid") Valider
