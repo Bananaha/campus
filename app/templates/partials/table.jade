@@ -23,5 +23,5 @@ ul.table-group
         type="button",
         class="{{action.id}}",
         title="{{action.title}}",
-        ng-if="(!data.archive && action.id !== 'desarchiver') || (data.archive && action.id === 'desarchiver')",
+        ng-if="shouldShowAction(data, action)",
         ng-click="callAction(action.id, data)")

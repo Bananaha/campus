@@ -6,7 +6,8 @@
     "auteurNom": "Landry",
     "sessions": 57,
     "action": 855,
-    "type": "CPF"
+    "type": "CPF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -15,7 +16,8 @@
     "auteurNom": "Rose",
     "sessions": 45,
     "action": 938,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["archive"]
   },
   {
     "id": "fakeidCIF",
@@ -24,7 +26,8 @@
     "auteurNom": "Carson",
     "sessions": 13,
     "action": 416,
-    "type": "CIF"
+    "type": "CIF",
+    "allow": ["delete"]
   },
   {
     "id": "fakeidEmployeur",
@@ -33,7 +36,8 @@
     "auteurNom": "Bentley",
     "sessions": 38,
     "action": 604,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -42,7 +46,8 @@
     "auteurNom": "Harvey",
     "sessions": 33,
     "action": 970,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidCIF",
@@ -51,7 +56,8 @@
     "auteurNom": "Whitaker",
     "sessions": 27,
     "action": 903,
-    "type": "CIF"
+    "type": "CIF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -60,7 +66,8 @@
     "auteurNom": "English",
     "sessions": 23,
     "action": 44,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidCIF",
@@ -69,7 +76,8 @@
     "auteurNom": "Townsend",
     "sessions": 64,
     "action": 276,
-    "type": "CIF"
+    "type": "CIF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -78,7 +86,8 @@
     "auteurNom": "Bridges",
     "sessions": 20,
     "action": 439,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidAccompagnement",
@@ -86,7 +95,8 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Kerr",
     "action": 463,
-    "type": "accompagnement"
+    "type": "accompagnement",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidCPF",
@@ -95,7 +105,8 @@
     "auteurNom": "Burns",
     "sessions": 17,
     "action": 185,
-    "type": "CPF"
+    "type": "CPF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidAccompagnement",
@@ -103,7 +114,8 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Weeks",
     "action": 523,
-    "type": "accompagnement"
+    "type": "accompagnement",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -112,7 +124,8 @@
     "auteurNom": "Chambers",
     "sessions": 16,
     "action": 216,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidCPF",
@@ -121,7 +134,8 @@
     "auteurNom": "Hebert",
     "sessions": 55,
     "action": 868,
-    "type": "CPF"
+    "type": "CPF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidAccompagnement",
@@ -129,7 +143,8 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Dunlap",
     "action": 755,
-    "type": "accompagnement"
+    "type": "accompagnement",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidCPF",
@@ -138,7 +153,8 @@
     "auteurNom": "Deleon",
     "sessions": 50,
     "action": 715,
-    "type": "CPF"
+    "type": "CPF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidCPF",
@@ -147,7 +163,8 @@
     "auteurNom": "Hudson",
     "sessions": 69,
     "action": 860,
-    "type": "CPF"
+    "type": "CPF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -156,7 +173,8 @@
     "auteurNom": "Montoya",
     "sessions": 7,
     "action": 344,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidCIF",
@@ -165,7 +183,8 @@
     "auteurNom": "Fisher",
     "sessions": 45,
     "action": 533,
-    "type": "CIF"
+    "type": "CIF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidAccompagnement",
@@ -173,7 +192,8 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Pruitt",
     "action": 406,
-    "type": "accompagnement"
+    "type": "accompagnement",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidAccompagnement",
@@ -182,7 +202,8 @@
     "auteurNom": "Page",
     "sessions": 43,
     "action": 23,
-    "type": "accompagnement"
+    "type": "accompagnement",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -191,7 +212,8 @@
     "auteurNom": "Henry",
     "sessions": 10,
     "action": 638,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -200,7 +222,8 @@
     "auteurNom": "Nixon",
     "sessions": 26,
     "action": 411,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -209,7 +232,8 @@
     "auteurNom": "Hartman",
     "sessions": 46,
     "action": 216,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidCIF",
@@ -218,7 +242,8 @@
     "auteurNom": "Christian",
     "sessions": 24,
     "action": 483,
-    "type": "CIF"
+    "type": "CIF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -227,7 +252,8 @@
     "auteurNom": "Le",
     "sessions": 53,
     "action": 963,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",
@@ -236,7 +262,8 @@
     "auteurNom": "Mckee",
     "sessions": 53,
     "action": 911,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidCIF",
@@ -245,7 +272,8 @@
     "auteurNom": "Terry",
     "sessions": 29,
     "action": 162,
-    "type": "CIF"
+    "type": "CIF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidCPF",
@@ -254,7 +282,8 @@
     "auteurNom": "Bruce",
     "sessions": 73,
     "action": 454,
-    "type": "CPF"
+    "type": "CPF",
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeidEmployeur",

@@ -7,7 +7,8 @@
     "sessions": 57,
     "archive": true,
     "action": 855,
-    "type": "CPF"
+    "type": "CPF",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -17,7 +18,8 @@
     "sessions": 45,
     "archive": true,
     "action": 938,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -37,7 +39,8 @@
     "sessions": 38,
     "archive": true,
     "action": 604,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -47,7 +50,8 @@
     "sessions": 33,
     "archive": true,
     "action": 970,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -57,7 +61,8 @@
     "sessions": 27,
     "archive": true,
     "action": 903,
-    "type": "CIF"
+    "type": "CIF",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -67,7 +72,8 @@
     "sessions": 23,
     "archive": true,
     "action": 44,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -77,7 +83,8 @@
     "sessions": 64,
     "archive": true,
     "action": 276,
-    "type": "CIF"
+    "type": "CIF",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -87,7 +94,8 @@
     "sessions": 20,
     "archive": true,
     "action": 439,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -115,7 +123,8 @@
     "auteurNom": "Weeks",
     "archive": true,
     "action": 523,
-    "type": "accompagnement"
+    "type": "accompagnement",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -125,7 +134,8 @@
     "sessions": 16,
     "archive": true,
     "action": 216,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -135,7 +145,8 @@
     "sessions": 55,
     "archive": true,
     "action": 868,
-    "type": "CPF"
+    "type": "CPF",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -144,7 +155,8 @@
     "auteurNom": "Dunlap",
     "archive": true,
     "action": 755,
-    "type": "accompagnement"
+    "type": "accompagnement",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -164,7 +176,8 @@
     "sessions": 69,
     "archive": true,
     "action": 860,
-    "type": "CPF"
+    "type": "CPF",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -174,7 +187,8 @@
     "sessions": 7,
     "archive": true,
     "action": 344,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -193,7 +207,8 @@
     "auteurNom": "Pruitt",
     "archive": true,
     "action": 406,
-    "type": "accompagnement"
+    "type": "accompagnement",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -212,7 +227,8 @@
     "sessions": 10,
     "archive": true,
     "action": 638,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -222,7 +238,8 @@
     "sessions": 26,
     "archive": true,
     "action": 411,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -232,7 +249,8 @@
     "sessions": 46,
     "archive": true,
     "action": 216,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -252,7 +270,8 @@
     "sessions": 53,
     "archive": true,
     "action": 963,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -272,7 +291,8 @@
     "sessions": 29,
     "archive": true,
     "action": 162,
-    "type": "CIF"
+    "type": "CIF",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -282,7 +302,8 @@
     "sessions": 73,
     "archive": true,
     "action": 454,
-    "type": "CPF"
+    "type": "CPF",
+    "allow": ["desarchiver"]
   },
   {
     "id": "fakeidCPF",
@@ -292,6 +313,7 @@
     "sessions": 29,
     "archive": true,
     "action": 627,
-    "type": "employeur"
+    "type": "employeur",
+    "allow": ["desarchiver"]
   }
 ]

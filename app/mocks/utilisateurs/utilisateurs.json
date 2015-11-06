@@ -11,201 +11,230 @@
     "nom": "Bates",
     "prenom": "Dyer",
     "entite": "B2S LE MANS SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d800c855d3973b14995",
     "nom": "Daugherty",
     "prenom": "Rosemarie",
     "entite": "B2S ROANNE SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d8032e2a5a80289a725",
     "nom": "Moody",
     "prenom": "Bruce",
     "entite": "B2S SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80a9d68713be7fc524",
     "nom": "Simmons",
     "prenom": "Knox",
     "entite": "B2S PARIS SASU",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80b0a04fd9933fa712",
     "nom": "Kim",
     "prenom": "Suzette",
     "entite": "B2S DEVELOPPEMENT SAS",
-    "permission": 2
+    "permission": 2,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80b56471595a41d9ca",
     "nom": "Taylor",
     "prenom": "Young",
     "entite": "B2S PARIS SASU",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d802cfee4fcf43658c8",
     "nom": "Merrill",
     "prenom": "Jeannine",
     "entite": "B2S PARIS SASU",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80c9910fab5f785672",
     "nom": "Rodriguez",
     "prenom": "Mason",
     "entite": "B2S DEVELOPPEMENT SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d802607fdb358d92dba",
     "nom": "Michael",
     "prenom": "Sonya",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80bf22c924d98ac86a",
     "nom": "Talley",
     "prenom": "Finley",
     "entite": "B2S LE MANS SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d8095a930c2b2cb39ee",
     "nom": "Chandler",
     "prenom": "Donna",
     "entite": "B2S PARIS SASU",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d8044df56e08b277741",
     "nom": "Curtis",
     "prenom": "James",
     "entite": "B2S ROANNE SAS",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d8077a686fe85432c34",
     "nom": "Mejia",
     "prenom": "Rodriquez",
     "entite": "B2S ROANNE SAS",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80c36958b41f950411",
     "nom": "Hartman",
     "prenom": "Pat",
     "entite": "B2S CHALONS SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d805865503cef77b7c4",
     "nom": "Bird",
     "prenom": "Burton",
     "entite": "B2S LE MANS SAS",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80f84cd311ef77519c",
     "nom": "Silva",
     "prenom": "Beverly",
     "entite": "B2S DEVELOPPEMENT SAS",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d805d1a4c6b8834aef4",
     "nom": "Washington",
     "prenom": "Mccray",
     "entite": "B2S PARIS SASU",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d809451f3031a865f31",
     "nom": "Wheeler",
     "prenom": "Mary",
     "entite": "B2S DEVELOPPEMENT SAS",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d8035395d433894e640",
     "nom": "Gentry",
     "prenom": "Greene",
     "entite": "B2S CHALONS SAS",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80db6fa9596ba724b7",
     "nom": "Fleming",
     "prenom": "Jerri",
     "entite": "B2S ROANNE SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d808b7679c512f5aff7",
     "nom": "Park",
     "prenom": "Faith",
     "entite": "B2S SAS",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80d0db28efb16dc977",
     "nom": "Boyd",
     "prenom": "Robyn",
     "entite": "B2S SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d802e1bea2602a6fe4f",
     "nom": "Houston",
     "prenom": "Lenore",
     "entite": "B2S LE MANS SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d8071d52e708b89e915",
     "nom": "Madden",
     "prenom": "Hines",
     "entite": "B2S SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80e68bb50d8514604d",
     "nom": "Hall",
     "prenom": "Henry",
     "entite": "B2S CHALONS SAS",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80011e3406fac4129d",
     "nom": "Reed",
     "prenom": "Valenzuela",
     "entite": "B2S SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80cc2cb10d831d16b4",
     "nom": "Gilbert",
     "prenom": "Lucinda",
     "entite": "B2S PARIS SASU",
-    "permission": 1
+    "permission": 1,
+    "allow": ["delete"]
   },
   {
     "id": "56000d80235f8d66ba2b6497",
     "nom": "Duran",
     "prenom": "Ramsey",
     "entite": "B2S SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   },
   {
     "id": "56000d806b953e81c3b867e5",
     "nom": "Holman",
     "prenom": "Teresa",
     "entite": "B2S SAS",
-    "permission": 0
+    "permission": 0,
+    "allow": ["delete"]
   }
 ]

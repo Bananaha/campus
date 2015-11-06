@@ -119,6 +119,31 @@
                         }
                     };
 
+                    $scope.shouldShowAction = function(data, action) {
+                        var show = true;
+                        switch (action.id) {
+                            case "desarchiver":
+                                show = data.archive && actionIsAllowed(action.id, data.allow);
+                            break;
+                            case "archive":
+                                show = !data.archive && actionIsAllowed(action.id, data.allow);
+                            break;
+                            case "delete":
+                                show = actionIsAllowed(action.id, data.allow);
+                            break;
+                        }
+                        return show;
+                    };
+
+                    function actionIsAllowed(actionId, allowedActions) {
+                        if (!allowedActions) {
+                            return false;
+                        }
+                        return allowedActions.some(function(action) {
+                            return action === actionId;
+                        });
+                    }
+
                     function getSentence(action, item) {
                         var sentence = ['Voulez-vous vraiment'],
                             type;
