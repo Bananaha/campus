@@ -4,11 +4,25 @@
         "query": {
             "id": "^$",
             "ids": "^$",
-            "search": "^$"
+            "search": "^$",
+            "archive": "^$"
         }
     },
     "response": {
         "file": "app/mocks/formations/formations.json"
+    }
+}, {
+    "request": {
+        "url": "/formations$",
+        "query": {
+            "id": "^$",
+            "ids": "^$",
+            "search": "^$",
+            "archive": "true"
+        }
+    },
+    "response": {
+        "file": "app/mocks/formations/formations-with-archives.json"
     }
 }, {
     "request": {
