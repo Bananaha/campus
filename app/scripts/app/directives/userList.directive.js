@@ -104,7 +104,7 @@
 
                     function isReady() {
                         $timeout(function() {
-                            $scope.ready = true
+                            $scope.ready = true;
                         });
                     }
 

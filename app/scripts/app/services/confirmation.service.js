@@ -8,7 +8,6 @@
         ) {
 
             var sentence = '',
-                promise,
                 deferred;
 
             this.answer = function(res) {

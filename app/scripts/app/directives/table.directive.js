@@ -122,13 +122,13 @@
                     $scope.shouldShowAction = function(data, action) {
                         var show = true;
                         switch (action.id) {
-                            case "desarchiver":
+                            case 'desarchiver':
                                 show = data.archive && actionIsAllowed(action.id, data.allow);
                             break;
-                            case "archive":
+                            case 'archive':
                                 show = !data.archive && actionIsAllowed(action.id, data.allow);
                             break;
-                            case "delete":
+                            case 'delete':
                                 show = actionIsAllowed(action.id, data.allow);
                             break;
                         }

@@ -22,7 +22,6 @@
             var ID = $routeParams.id,
                 changeTimeout,
                 defaultCout,
-                redirecting = false,
                 populations = ['formateurs', 'stagiaires'];
 
             $scope.initialized = false;

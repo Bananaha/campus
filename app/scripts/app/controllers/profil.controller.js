@@ -25,18 +25,18 @@
 
             $scope.modifyPassword = function() {
                 $scope.modifyingPassword = true;
-            }
+            };
 
             $scope.cancel = function() {
                 $scope.modifyingPassword = false;
                 $scope.model = {};
-            }
+            };
 
             $scope.submit = function() {
                 if (isValid() && !appStateService.isFrozen()) {
                     sendRequest();
                 }
-            }
+            };
 
             function sendRequest() {
                 var params = $scope.model;
@@ -74,7 +74,6 @@
             function onModelChange() {
                 if ($scope.initialized) {
                     $scope.isValid = isValid();
-                    console.log($scope.isValid);
                 }
             }
         });

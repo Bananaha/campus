@@ -10,8 +10,7 @@
             config
         ) {
 
-            var user,
-                deferred = $q.defer(),
+            var deferred = $q.defer(),
                 ID = '56000d80d0880b1a2ce0c620';
 
             appStateService.isLoading(false);
@@ -30,8 +29,7 @@
             };
 
             function onGetDetailSuccess(res) {
-               user = res.data;
-               deferred.resolve(res.data);
+                deferred.resolve(res.data);
             }
 
             function onGetDetailError() {

@@ -93,8 +93,8 @@
             // CONFIRMATION
 
             $scope.confirm = function(res) {
-                confirmationService.answer(res)
-            }
+                confirmationService.answer(res);
+            };
 
             function initConfirmation() {
                 $scope.confirmSentence = confirmationService.getSentence();
