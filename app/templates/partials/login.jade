@@ -1,7 +1,7 @@
 include ../mixins/main
 
 form.login-box(name="login",
-               ng-submit="submit()")
+               ng-submit="submit($event)")
 
     h1.login-header
         | b2s

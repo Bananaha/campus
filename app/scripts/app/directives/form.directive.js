@@ -68,7 +68,8 @@
                         });
                     };
 
-                    $scope.submit = function() {
+                    $scope.submit = function($event) {
+                        $event.preventDefault();
                         if ($form.$invalid) {
                             element.addClass('submitted');
                             notificationService.warn('erreur dans le formulaire');

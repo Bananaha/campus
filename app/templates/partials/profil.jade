@@ -9,7 +9,7 @@ h2.module-title Votre profil
 
     form(name="profilPasswordModification",
       data-action="update",
-      ng-submit="submit()",
+      ng-submit="submit($event)",
       ng-show="initialized")
 
       button.btn(type="button",

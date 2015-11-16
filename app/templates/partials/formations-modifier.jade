@@ -7,7 +7,7 @@ h2.module-title Modification d'une action de formation
   form(name="formationsModification",
     data-action="update",
     form,
-    ng-submit="submit()",
+    ng-submit="submit($event)",
     ng-if="initialized")
 
     .module-header
