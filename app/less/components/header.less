@@ -107,8 +107,13 @@
         left: 0;
     }
 
-    &:hover::before {
-        color: @color-link-hover;
+    &:hover,
+    &:focus {
+        cursor: pointer;
+
+        &::before {
+            color: @color-link-hover;
+        }
     }
 
     &.account {
