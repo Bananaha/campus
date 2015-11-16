@@ -1,0 +1,14 @@
+[
+  {
+    "id": "fakeIdCPF",
+    "reference": "FC_ORANGE_REGLES_DES_CLIENTS BNP PARIBAS"
+  },
+  {
+    "id": "fakeIdEmployeur",
+    "reference": "FC_SFR Business Team_temps fort Novembre 2014"
+  },
+  {
+    "id": "fakeIdCIF",
+    "reference": "RAN_SFR BT_Campagne THD"
+  }
+]

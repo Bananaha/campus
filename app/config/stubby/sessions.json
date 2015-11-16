@@ -17,6 +17,20 @@
         "query": {
             "id": "^$",
             "ids": "^$",
+            "archive": "^$",
+            "size": "^[0-9]",
+            "user": "^[0-9a-zA-Z]"
+        }
+    },
+    "response": {
+        "file": "app/mocks/sessions/sessions-user-last.json"
+    }
+}, {
+    "request": {
+        "url": "/sessions$",
+        "query": {
+            "id": "^$",
+            "ids": "^$",
             "archive": "true",
             "action": "fakeidEmployeur"
         }

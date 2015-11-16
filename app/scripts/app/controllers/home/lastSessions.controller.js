@@ -10,17 +10,20 @@
             config
         ) {
 
+            var ID = '1314654dsf';
+
             $http({
                     method: 'GET',
-                    url: config.urls.lastSessions,
+                    url: config.urls.sessions,
                     params: {
-                        from: 0,
+                        user: ID,
                         size: 3
                     }
                 })
                 .then(onGetSessionsSuccess, onGetSessionsError);
 
             function onGetSessionsSuccess(res) {
+                console.log(res.data);
                 $scope.lastSessions = res.data;
             }
 
