@@ -22,28 +22,26 @@ include ../mixins/main
             +details-list("Entité", "formation.entite")
           .col-1-2
             +details-list("Dispositif", "formation.type")
-          .col-1-2
+          .col-1-2(ng-if="formation.type === 'employeur'")
             +details-list("Client", "formation.client")
-          .col-1-2
+          .col-1-2(ng-if="formation.type === 'employeur'")
             +details-list("Activité", "formation.activite")
-          .col-1-2
+          .col-1-2(ng-if="formation.type === 'employeur'")
             +details-list("Produit", "formation.produit")
           .col-1-2
-            +details-list("Organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
+            +details-list("Organisme", "formation.organisme")
+          .col-1-2
+            +details-list("Nom de l'organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
           .col-1
             +details-list("Population", "formation.population")
+          .col-1
+            +details-list("Date de création", "formation.dateCreation")
           .col-1
             +details-list("Objectif", "formation.objectif")
           .col-1
             +details-list("Contenu", "formation.contenu")
           .col-1
             +details-list("Prérequis", "formation.prerequis")
-          .col-1-2
-            +details-list("Durée", "formation.duree")
-          .col-1-2
-            +details-list("Date de début", "formation.from")
-          .col-1-2
-            +details-list("Date de fin", "formation.to")
 
         .module-cta
           a.btn(ng-href="#/formations/{{formation.id}}/modifier"

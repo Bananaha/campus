@@ -26,8 +26,8 @@
                     localStorageService.set('user', USER);
                     appStateService.isLogged(true);
                 } else {
-                    localStorageService.remove('user', USER);
-                    appStateService.isLogged(false);
+                    //localStorageService.remove('user', USER);
+                    //appStateService.isLogged(false);
                 }
             };
 
@@ -35,7 +35,7 @@
                 if (savedUser && savedUser.id) {
                     that.set(savedUser);
                 } else {
-                    appStateService.isLogged(false);
+                    //appStateService.isLogged(false);
                 }
             }
 

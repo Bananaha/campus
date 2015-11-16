@@ -34,26 +34,30 @@ h2.module-title Création d'une action de formation
           - opt.ngOptions = "entite for entite in opts.entites"
           +select(opt)
 
-      .col-1-3
-        +form-underlined("Client")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.client"
-          +input(opt)
+      .col-1(ng-if="model.type === 'employeur'")
 
-      .col-1-3
-        +form-underlined("Activité")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.activite"
-          +input(opt)
+        .grid.pad
 
-      .col-1-3
-        +form-underlined("Produit")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.produit"
-          +input(opt)
+          .col-1-3
+              +form-underlined("Client")
+                - opt = {}
+                - opt.required = true
+                - opt.ngModel = "model.client"
+                +input(opt)
+
+            .col-1-3
+              +form-underlined("Activité")
+                - opt = {}
+                - opt.required = true
+                - opt.ngModel = "model.activite"
+                +input(opt)
+
+            .col-1-3
+              +form-underlined("Produit")
+                - opt = {}
+                - opt.required = true
+                - opt.ngModel = "model.produit"
+                +input(opt)
 
       .col-1-2
         +form-underlined("Organisme")
