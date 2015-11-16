@@ -91,7 +91,7 @@
                                 value = flattenObject(value);
                             }
                             if (value) {
-                                count++;
+                                count += value.length || 1;
                                 model[key] = value;
                             }
                         });
@@ -99,12 +99,13 @@
                     }
 
                     function flattenObject(obj) {
-                        return Object.keys(obj).map(function(key) {
+                        return Object.keys(obj).reduce(function(res, key) {
                             if (obj[key]) {
-                                count++;
-                                return key;
+                                res = res ? res : [];
+                                res.push(key);
                             }
-                        });
+                            return res;
+                        }, false);
                     }
                 }
             };

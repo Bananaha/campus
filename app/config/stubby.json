@@ -40,6 +40,34 @@
          "query": {
             "id": "^$",
             "ids": "^$",
+            "search": "^[0-9a-zA-Z]",
+            "archive": "^$"
+         }
+      },
+      "response": {
+         "file": "app/mocks/formations/formations.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/formations$",
+         "query": {
+            "id": "^$",
+            "ids": "^$",
+            "search": "^[0-9a-zA-Z]",
+            "archive": "true"
+         }
+      },
+      "response": {
+         "file": "app/mocks/formations/formations-with-archives.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/formations$",
+         "query": {
+            "id": "^$",
+            "ids": "^$",
             "search": "^$",
             "archive": "true"
          }

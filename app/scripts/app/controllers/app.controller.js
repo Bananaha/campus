@@ -17,7 +17,7 @@
             var that = this,
                 initialized = false,
                 redirecting = false;
-
+            this.logged = true;
             $scope.modal = false;
 
             $scope.page = $location.url().replace('/', '');
@@ -95,9 +95,11 @@
                 that.loading = appStateService.isLoading();
                 that.frozen = appStateService.isFrozen();
                 that.confirmating = appStateService.isConfirmating();
+                console.log('PUT BACK LOGGED')
+                that.logged = true;
 
                 if (!that.logged && $location.url() !== '/login') {
-                    $location.url('/login');
+                    //$location.url('/login');
                 }
 
                 if (that.confirmating) {
