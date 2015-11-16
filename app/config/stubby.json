@@ -247,6 +247,15 @@
    },
    {
       "request": {
+         "url": "/login",
+         "method": "POST"
+      },
+      "response": {
+         "file": "app/mocks/login.json"
+      }
+   },
+   {
+      "request": {
          "url": "/sessions$",
          "query": {
             "id": "^$",

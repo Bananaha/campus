@@ -2,6 +2,8 @@
     "dev": {
         "config": {
             "urls": {
+                "login": "http://localhost:8882/login",
+
                 "accompagnements": "http://localhost:8882/accompagnements",
                 "accompagnementsCreation": "http://localhost:8882/accompagnements/insert",
                 "accompagnementsDetails": "http://localhost:8882/accompagnements",

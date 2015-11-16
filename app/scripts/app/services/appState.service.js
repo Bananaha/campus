@@ -10,7 +10,9 @@
                 state = {
                     frozen: false,
                     loading: false,
-                    confirmating: false
+                    confirmating: false,
+                    unsavedData: false,
+                    logged: null
                 };
 
             this.isFrozen = bindedStateGetter('frozen');
@@ -20,6 +22,8 @@
             this.isConfirmating = bindedStateGetter('confirmating');
 
             this.hasUnsavedData = bindedStateGetter('unsavedData');
+
+            this.isLogged = bindedStateGetter('logged');
 
             this.get = function() {
                 return state;

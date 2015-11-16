@@ -2,6 +2,8 @@ extends layouts/head.jade
 
 block layoutContent
 
+  .ng-cloak(ng-if="App.logged")
+
     include includes/header
 
     include includes/nav
@@ -12,5 +14,5 @@ block layoutContent
 
     include includes/confirmation
 
-    .view.ng-cloak(ng-view,
-      ng-class="{'loading': App.loading}")
+  .view.ng-cloak(ng-view,
+    ng-class="{'loading': App.loading}")

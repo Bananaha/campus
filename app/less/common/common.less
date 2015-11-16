@@ -96,8 +96,12 @@ h3 {
 }
 
 .view {
-    margin-left: @size-nav;
-    padding: (@u-medium + @size-header) @u-medium @u-medium;
+    padding: @u-medium;
+
+    .logged & {
+        margin-left: @size-nav;
+        padding-top: (@u-medium + @size-header);
+    }
 
     &.ng-cloak {
         .loading;

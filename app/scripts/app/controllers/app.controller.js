@@ -15,6 +15,7 @@
         ) {
 
             var that = this,
+                initialized = false,
                 redirecting = false;
 
             $scope.modal = false;
@@ -23,11 +24,13 @@
 
             appStateService.onChange(onAppStateChange);
 
-            onAppStateChange();
-
             $scope.$on('$locationChangeStart', onLocationChange);
 
             this.showBack = false;
+
+            $timeout(function() {
+                initialized = true;
+            });
 
             this.goTo = function(url) {
                 if ($scope.modal) {
@@ -44,6 +47,10 @@
 
             this.back = function() {
                 historyService.back();
+            };
+
+            this.logout = function() {
+                $location.url('/login');
             };
 
             function updateShowBack() {
@@ -74,6 +81,9 @@
                 modalService.hideModals();
                 historyService.onLocationChange();
                 updateShowBack();
+                if (initialized) {
+                    onAppStateChange();
+                }
             }
 
             function onModalHide() {
@@ -81,9 +91,14 @@
             }
 
             function onAppStateChange() {
+                that.logged = appStateService.isLogged();
                 that.loading = appStateService.isLoading();
                 that.frozen = appStateService.isFrozen();
                 that.confirmating = appStateService.isConfirmating();
+
+                if (!that.logged && $location.url() !== '/login') {
+                    $location.url('/login');
+                }
 
                 if (that.confirmating) {
                     initConfirmation();

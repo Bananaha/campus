@@ -7,23 +7,21 @@
             $scope,
             $http,
             notificationService,
+            userService,
             config
         ) {
-
-            var ID = '1314654dsf';
 
             $http({
                     method: 'GET',
                     url: config.urls.sessions,
                     params: {
-                        user: ID,
+                        user: userService.ID,
                         size: 3
                     }
                 })
                 .then(onGetSessionsSuccess, onGetSessionsError);
 
             function onGetSessionsSuccess(res) {
-                console.log(res.data);
                 $scope.lastSessions = res.data;
             }
 

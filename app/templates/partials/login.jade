@@ -1,0 +1,32 @@
+include ../mixins/main
+
+form.login-box(name="login",
+               ng-submit="submit()")
+
+    h1.login-header
+        | b2s
+        span Campus
+
+    .grid.pad
+
+        .col-1
+            +form-underlined("Adresse mail")
+                - opt = {}
+                - opt.type = "mail"
+                - opt.ngModel = "model.mail"
+                - opt.required = true
+                +input(opt)
+
+        .col-1
+            +form-underlined("Mot de passe")
+                - opt = {}
+                - opt.type = "password"
+                - opt.ngModel = "model.password"
+                - opt.required = true
+                +input(opt)
+
+    .login-actions
+        a(ng-click="forgottenPassword()") Mot de passe oublié?
+        button.btn(type="submit") Connexion
+
+

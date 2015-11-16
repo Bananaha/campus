@@ -94,6 +94,10 @@
                     templateUrl: basePath + 'sessions-modifier.html',
                     controller: 'sessionsModifierController'
                 }).
+                when('/login', {
+                    templateUrl: basePath + 'login.html',
+                    controller: 'loginController'
+                }).
                 otherwise({
                     redirectTo: '/home'
                 });
