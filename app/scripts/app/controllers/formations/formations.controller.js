@@ -39,8 +39,8 @@
                         actions: ['modify', 'delete', 'archive'],
                         klass: 'w-70'
                     }, {
-                        label: 'Type',
-                        key: 'type',
+                        label: 'Dispositif',
+                        key: 'dispositif',
                         sort: true,
                         klass: 'w-70'
                     }]
@@ -48,7 +48,7 @@
             };
 
             $scope.filtersSettings = {
-                type: true,
+                dispositif: true,
                 archive: true
             };
 

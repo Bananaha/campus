@@ -1,6 +1,6 @@
 {
     "id": "fakeidCPF",
-    "type": "CPF",
+    "dispositif": "CPF",
     "archive": false,
     "action": 598,
     "intitule": "ad proident occaecat labore cillum sint",

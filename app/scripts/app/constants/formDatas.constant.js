@@ -63,7 +63,7 @@
                 value: 'reportee'
             }],
 
-            categorie: [{
+            nature: [{
                 label: 'Formation initiale',
                 value: 'initiale'
             }, {
@@ -106,7 +106,7 @@
                 value: 'diplome'
             }],
 
-            nature: [{
+            format: [{
                 label: 'Adaptation',
                 value: 'adaptation'
             }, {

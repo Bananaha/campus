@@ -40,7 +40,7 @@
         "url": "/formations/insert",
         "method": "POST",
         "query": {
-            "type": "employeur"
+            "dispositif": "employeur"
         }
     },
     "response": {
@@ -51,7 +51,7 @@
         "url": "/formations/insert",
         "method": "POST",
         "query": {
-            "type": "accompagnement"
+            "dispositif": "accompagnement"
         }
     },
     "response": {
@@ -62,7 +62,7 @@
         "url": "/formations/insert",
         "method": "POST",
         "query": {
-            "type": "CPF"
+            "dispositif": "CPF"
         }
     },
     "response": {
@@ -73,7 +73,7 @@
         "url": "/formations/insert",
         "method": "POST",
         "query": {
-            "type": "CIF"
+            "dispositif": "CIF"
         }
     },
     "response": {

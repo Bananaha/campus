@@ -35,14 +35,14 @@
 
             function onGetDetailSuccess(res) {
                 var allowSessionCreation = false,
-                    type = res.data.type;
+                    dispositif = res.data.dispositif;
 
                 allowSessionCreation = ACTIONS.some(function(action) {
-                    return action.id === type && !action.isSession;
+                    return action.id === dispositif && !action.isSession;
                 });
 
                 if (allowSessionCreation) {
-                    $scope.model.type = res.data.type;
+                    $scope.model.dispositif = res.data.dispositif;
                     fillInheritedData(res.data);
                 } else {
                     notificationService.warn('Vous ne pouvez pas créer de session pour cette action.');

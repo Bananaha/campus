@@ -28,8 +28,8 @@
                     $scope.constant = {}; // Label & value de chaque filtre
                     $scope.count = 0;
 
-                    if ($scope.settings.type) {
-                        $scope.constant.type = ACTIONS.map(function(action) {
+                    if ($scope.settings.dispositif) {
+                        $scope.constant.dispositif = ACTIONS.map(function(action) {
                             return {
                                 value: action.id,
                                 label: action.label

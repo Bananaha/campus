@@ -129,7 +129,7 @@
             }
 
             function onGetDetailSuccess(res) {
-                var actionConfig = actionsService.getConfig(res.data.type);
+                var actionConfig = actionsService.getConfig(res.data.dispositif);
                 $scope.formation = formatDatas(res.data);
 
                 $scope.hasSessions = !actionConfig.isSession;

@@ -7,12 +7,12 @@ button.filters-toggler.btn(type="button",
 
 .filters
   .filters-inner
-    .filters-group(ng-if="settings.type")
+    .filters-group(ng-if="settings.dispositif")
       h3.filters-title Type
-      .filter(ng-repeat="filter in constant.type")
+      .filter(ng-repeat="filter in constant.dispositif")
         - opt = {}
         - opt.label = "{{filter.label}}"
-        - opt.ngModel = "model.type[filter.value]"
+        - opt.ngModel = "model.dispositif[filter.value]"
         - value = "filter.value"
         +custom-checkbox(opt)
 

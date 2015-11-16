@@ -12,7 +12,7 @@
 
             $scope.opts = FORMDATAS;
 
-            $scope.opts.type = ACTIONS.filter(function(action) {
+            $scope.opts.dispositif = ACTIONS.filter(function(action) {
                 return !action.isSession;
             });
 

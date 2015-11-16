@@ -6,7 +6,7 @@
     "auteurNom": "Landry",
     "sessions": 57,
     "action": 855,
-    "type": "CPF",
+    "dispositif": "CPF",
     "allow": ["delete", "archive"]
   },
   {
@@ -16,7 +16,7 @@
     "auteurNom": "Rose",
     "sessions": 45,
     "action": 938,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["archive"]
   },
   {
@@ -26,7 +26,7 @@
     "auteurNom": "Carson",
     "sessions": 13,
     "action": 416,
-    "type": "CIF",
+    "dispositif": "CIF",
     "allow": ["delete"]
   },
   {
@@ -36,7 +36,7 @@
     "auteurNom": "Bentley",
     "sessions": 38,
     "action": 604,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -46,7 +46,7 @@
     "auteurNom": "Harvey",
     "sessions": 33,
     "action": 970,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -56,7 +56,7 @@
     "auteurNom": "Whitaker",
     "sessions": 27,
     "action": 903,
-    "type": "CIF",
+    "dispositif": "CIF",
     "allow": ["delete", "archive"]
   },
   {
@@ -66,7 +66,7 @@
     "auteurNom": "English",
     "sessions": 23,
     "action": 44,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -76,7 +76,7 @@
     "auteurNom": "Townsend",
     "sessions": 64,
     "action": 276,
-    "type": "CIF",
+    "dispositif": "CIF",
     "allow": ["delete", "archive"]
   },
   {
@@ -86,7 +86,7 @@
     "auteurNom": "Bridges",
     "sessions": 20,
     "action": 439,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -95,7 +95,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Kerr",
     "action": 463,
-    "type": "accompagnement",
+    "dispositif": "accompagnement",
     "allow": ["delete", "archive"]
   },
   {
@@ -105,7 +105,7 @@
     "auteurNom": "Burns",
     "sessions": 17,
     "action": 185,
-    "type": "CPF",
+    "dispositif": "CPF",
     "allow": ["delete", "archive"]
   },
   {
@@ -114,7 +114,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Weeks",
     "action": 523,
-    "type": "accompagnement",
+    "dispositif": "accompagnement",
     "allow": ["delete", "archive"]
   },
   {
@@ -124,7 +124,7 @@
     "auteurNom": "Chambers",
     "sessions": 16,
     "action": 216,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -134,7 +134,7 @@
     "auteurNom": "Hebert",
     "sessions": 55,
     "action": 868,
-    "type": "CPF",
+    "dispositif": "CPF",
     "allow": ["delete", "archive"]
   },
   {
@@ -143,7 +143,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Dunlap",
     "action": 755,
-    "type": "accompagnement",
+    "dispositif": "accompagnement",
     "allow": ["delete", "archive"]
   },
   {
@@ -153,7 +153,7 @@
     "auteurNom": "Deleon",
     "sessions": 50,
     "action": 715,
-    "type": "CPF",
+    "dispositif": "CPF",
     "allow": ["delete", "archive"]
   },
   {
@@ -163,7 +163,7 @@
     "auteurNom": "Hudson",
     "sessions": 69,
     "action": 860,
-    "type": "CPF",
+    "dispositif": "CPF",
     "allow": ["delete", "archive"]
   },
   {
@@ -173,7 +173,7 @@
     "auteurNom": "Montoya",
     "sessions": 7,
     "action": 344,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -183,7 +183,7 @@
     "auteurNom": "Fisher",
     "sessions": 45,
     "action": 533,
-    "type": "CIF",
+    "dispositif": "CIF",
     "allow": ["delete", "archive"]
   },
   {
@@ -192,7 +192,7 @@
     "auteurId": "55fc02f654asd68d0e423cb",
     "auteurNom": "Pruitt",
     "action": 406,
-    "type": "accompagnement",
+    "dispositif": "accompagnement",
     "allow": ["delete", "archive"]
   },
   {
@@ -202,7 +202,7 @@
     "auteurNom": "Page",
     "sessions": 43,
     "action": 23,
-    "type": "accompagnement",
+    "dispositif": "accompagnement",
     "allow": ["delete", "archive"]
   },
   {
@@ -212,7 +212,7 @@
     "auteurNom": "Henry",
     "sessions": 10,
     "action": 638,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -222,7 +222,7 @@
     "auteurNom": "Nixon",
     "sessions": 26,
     "action": 411,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -232,7 +232,7 @@
     "auteurNom": "Hartman",
     "sessions": 46,
     "action": 216,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -242,7 +242,7 @@
     "auteurNom": "Christian",
     "sessions": 24,
     "action": 483,
-    "type": "CIF",
+    "dispositif": "CIF",
     "allow": ["delete", "archive"]
   },
   {
@@ -252,7 +252,7 @@
     "auteurNom": "Le",
     "sessions": 53,
     "action": 963,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -262,7 +262,7 @@
     "auteurNom": "Mckee",
     "sessions": 53,
     "action": 911,
-    "type": "employeur",
+    "dispositif": "employeur",
     "allow": ["delete", "archive"]
   },
   {
@@ -272,7 +272,7 @@
     "auteurNom": "Terry",
     "sessions": 29,
     "action": 162,
-    "type": "CIF",
+    "dispositif": "CIF",
     "allow": ["delete", "archive"]
   },
   {
@@ -282,7 +282,7 @@
     "auteurNom": "Bruce",
     "sessions": 73,
     "action": 454,
-    "type": "CPF",
+    "dispositif": "CPF",
     "allow": ["delete", "archive"]
   },
   {
@@ -292,6 +292,6 @@
     "auteurNom": "Lamb",
     "sessions": 29,
     "action": 627,
-    "type": "employeur"
+    "dispositif": "employeur"
   }
 ]

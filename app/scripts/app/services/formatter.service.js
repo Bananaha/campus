@@ -7,8 +7,8 @@
         ) {
 
             var list = [{
-                    label: 'Type',
-                    key: 'type'
+                    label: 'Dispositif',
+                    key: 'dispositif'
                 }, {
                     label: 'Client',
                     key: 'client'

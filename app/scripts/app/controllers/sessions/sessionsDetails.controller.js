@@ -156,7 +156,7 @@
                     defaultCout = JSON.stringify($scope.session.cout);
                 }
 
-                if ($scope.session.type === 'CIF') {
+                if ($scope.session.dispositif === 'CIF') {
                     $scope.coutSettings = {
                         start: res.data.dateDebut,
                         end: res.data.dateFin

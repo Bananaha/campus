@@ -1,6 +1,6 @@
 {
     "id": "fakeidAccompagnement",
-    "type": "accompagnement",
+    "dispositif": "accompagnement",
     "archive": true,
     "action": 598,
     "intitule": "ad proident occaecat labore cillum sint",

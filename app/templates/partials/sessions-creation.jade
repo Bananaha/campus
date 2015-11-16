@@ -49,16 +49,16 @@ form(name="sessionsCreation",
         +form-underlined("Nature")
           - opt = {}
           - opt.required = true
-          - opt.ngModel = "model.categorie"
-          - opt.ngOptions = "opt.value as opt.label for opt in opts.categorie"
+          - opt.ngModel = "model.nature"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.nature"
           +select(opt)
 
       .col-1
-        +form-underlined("Type")
+        +form-underlined("Format")
           - opt = {}
           - opt.required = true
-          - opt.ngModel = "model.nature"
-          - opt.ngOptions = "opt.value as opt.label for opt in opts.nature"
+          - opt.ngModel = "model.format"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.format"
           +select(opt)
 
       .col-1
@@ -160,7 +160,7 @@ form(name="sessionsCreation",
           - opt.ngModel = "model.duree"
           +input(opt)
 
-  .module-card(ng-if="model.type === 'CIF' || model.type ==='CPF'")
+  .module-card(ng-if="model.dispositif === 'CIF' || model.dispositif ==='CPF'")
     .module-header
       h3 Acceptation de l'action de formation
 
@@ -192,7 +192,7 @@ form(name="sessionsCreation",
           - opt.ngModel = "model.motifEmployeur"
           +input(opt)
 
-    .grid.pad(ng-if="model.type === 'CIF'")
+    .grid.pad(ng-if="model.dispositif === 'CIF'")
       // CIF
       .col-1
         +form-underlined("Avis Fongecif")
@@ -221,7 +221,7 @@ form(name="sessionsCreation",
           +input(opt)
 
 
-  .module-card(ng-if="model.type === 'CIF'")
+  .module-card(ng-if="model.dispositif === 'CIF'")
     .module-header
       h3 Modalités de prise en charge par le Fongecif
 

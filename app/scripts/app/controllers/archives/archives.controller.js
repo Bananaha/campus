@@ -39,8 +39,8 @@
                         actions: ['desarchiver'],
                         klass: 'w-30'
                     }, {
-                        label: 'Type',
-                        key: 'type',
+                        label: 'Dispositif',
+                        key: 'dispositif',
                         sort: true,
                         klass: 'w-70'
                     }]
@@ -48,7 +48,7 @@
             };
 
             $scope.filtersSettings = {
-                type: true
+                dispositif: true
             };
 
             appStateService.isLoading(false);

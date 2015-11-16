@@ -22,8 +22,8 @@ h2.module-title Création d'une action de formation
         +form-underlined("Dispositif")
           - opt = {}
           - opt.required = true
-          - opt.ngModel = "model.type"
-          - opt.ngOptions = "type.id as type.label for type in opts.type"
+          - opt.ngModel = "model.dispositif"
+          - opt.ngOptions = "dispositif.id as dispositif.label for dispositif in opts.dispositif"
           +select(opt)
 
       .col-1
@@ -34,7 +34,7 @@ h2.module-title Création d'une action de formation
           - opt.ngOptions = "entite for entite in opts.entites"
           +select(opt)
 
-      .col-1(ng-if="model.type === 'employeur'")
+      .col-1(ng-if="model.dispositif === 'employeur'")
 
         .grid.pad
 

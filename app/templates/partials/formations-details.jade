@@ -21,12 +21,12 @@ include ../mixins/main
           .col-1-2
             +details-list("Entité", "formation.entite")
           .col-1-2
-            +details-list("Dispositif", "formation.type")
-          .col-1-2(ng-if="formation.type === 'employeur'")
+            +details-list("Dispositif", "formation.dispositif")
+          .col-1-2(ng-if="formation.dispositif === 'employeur'")
             +details-list("Client", "formation.client")
-          .col-1-2(ng-if="formation.type === 'employeur'")
+          .col-1-2(ng-if="formation.dispositif === 'employeur'")
             +details-list("Activité", "formation.activite")
-          .col-1-2(ng-if="formation.type === 'employeur'")
+          .col-1-2(ng-if="formation.dispositif === 'employeur'")
             +details-list("Produit", "formation.produit")
           .col-1-2
             +details-list("Organisme", "formation.organisme")

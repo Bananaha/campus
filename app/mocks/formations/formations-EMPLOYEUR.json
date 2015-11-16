@@ -1,6 +1,6 @@
 {
     "id": "fakeidEmployeur",
-    "type": "employeur",
+    "dispositif": "employeur",
     "archive": false,
     "action": 598,
     "intitule": "ad proident occaecat labore cillum sint",

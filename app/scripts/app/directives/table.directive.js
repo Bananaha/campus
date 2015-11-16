@@ -304,9 +304,9 @@
                                     return perm.id === d.permission;
                                 })[0].label;
                             }
-                            if (d.type) {
-                                d.type = ACTIONS.filter(function(action) {
-                                    return action.id === d.type;
+                            if (d.dispositif) {
+                                d.dispositif = ACTIONS.filter(function(action) {
+                                    return action.id === d.dispositif;
                                 })[0].abbr;
                             }
                             return formatterService.format(d);
