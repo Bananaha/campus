@@ -21,29 +21,33 @@ form(name="sessionsCreation",
           - opt.ngModel = "model.reference"
           +input(opt)
 
-      // Employeur
-      .col-1
-        +form-underlined("Client")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.client"
-          +input(opt)
+      .col-1(ng-if="model.dispositif === 'employeur'")
 
-      // Employeur
-      .col-1
-        +form-underlined("Activité")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.activite"
-          +input(opt)
+        .grid.pad
 
-      // Employeur
-      .col-1
-        +form-underlined("Produit")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.produit"
-          +input(opt)
+          // Employeur
+          .col-1
+            +form-underlined("Client")
+              - opt = {}
+              - opt.required = true
+              - opt.ngModel = "model.client"
+              +input(opt)
+
+          // Employeur
+          .col-1
+            +form-underlined("Activité")
+              - opt = {}
+              - opt.required = true
+              - opt.ngModel = "model.activite"
+              +input(opt)
+
+          // Employeur
+          .col-1
+            +form-underlined("Produit")
+              - opt = {}
+              - opt.required = true
+              - opt.ngModel = "model.produit"
+              +input(opt)
 
       .col-1
         +form-underlined("Nature")
@@ -67,6 +71,7 @@ form(name="sessionsCreation",
           - opt.required = true
           - opt.ngModel = "model.organisme"
           - opt.ngOptions = "opt.value as opt.label for opt in opts.organisme"
+          - opt.ngDisabled = "model.dispositif === 'CPF' || model.dispositif === 'CIF'"
           +select(opt)
 
       .col-1
@@ -91,11 +96,12 @@ form(name="sessionsCreation",
     .grid.pad
       .col-1
         // CPF + CIF
-        +form-underlined("Formation (DROPDOWN)")
+        +form-underlined("Validation")
           - opt = {}
           - opt.required = true
           - opt.ngModel = "model.validation"
-          +input(opt)
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.validation"
+          +select(opt)
 
       .col-1
         // CPF + CIF
@@ -175,7 +181,7 @@ form(name="sessionsCreation",
           +select(opt)
 
       // CPF + CIF
-      .col-1
+      .col-1(ng-if="model.avisEmployeur !== 'enCours'")
         +form-underlined("Date avis employeur")
           - var opt = {}
           - opt.ngModel = "model.dateAvisEmployeur"
@@ -185,7 +191,7 @@ form(name="sessionsCreation",
           +datePicker(opt)
 
       // CPF + CIF
-      .col-1(ng-if="model.avisEmployeur === 'acceptee'")
+      .col-1(ng-if="model.avisEmployeur === 'refusee' || model.avisEmployeur === 'reportee'")
         +form-underlined("Motif employeur")
           - opt = {}
           - opt.required = true
@@ -203,7 +209,7 @@ form(name="sessionsCreation",
           +select(opt)
 
       // CIF
-      .col-1
+      .col-1(ng-if="model.avisFongecif !== 'enCours'")
         +form-underlined("Date avis Fongecif")
           - var opt = {}
           - opt.ngModel = "model.dateAvisFongecif"
@@ -213,7 +219,7 @@ form(name="sessionsCreation",
           +datePicker(opt)
 
       // CIF
-      .col-1(ng-if="model.avisEmployeur === 'acceptee'")
+      .col-1(ng-if="model.motifFongecif === 'refusee' || model.motifFongecif === 'reportee'")
         +form-underlined("Motif Fongecif")
           - opt = {}
           - opt.required = true

@@ -32,5 +32,19 @@
     "participants": {
         "stagiaires" : ["156", "648", "654", "467"],
         "formateurs": ["156", "648", "654", "467"]
+    },
+
+    "cout": {
+        "salarial": 20,
+        "pedagogique": 30,
+        "interim": 10,
+        "annexe": 0,
+        "direct": 0,
+        "planFormation": 0,
+        "professionnalisation": 0,
+        "CPF": 0,
+        "FPSPP": 0,
+        "CIF": 0,
+        "autre": 0
     }
 }

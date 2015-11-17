@@ -2,87 +2,90 @@ include ../mixins/main
 
 h2.module-title Création d'un accompagnement
 
-.grid.pad
+form(name="formationsCreation",
+      data-action="insert",
+      data-target="formations"
+      form,
+      ng-submit="submit($event)")
 
-  .col-1
-    .module-card
-      .module-header
-        h3 Informations
-      form.grid.pad(name="formationsAccompagnementCreation",
-        data-action="insert",
-        data-target="formations"
-        form,
-        ng-submit="submit($event)")
+  input(type="hidden",
+        name="dispositif",
+        value="accompagnement")
 
-        input(type="hidden",
-          name="dispositif",
-          value="accompagnement")
+  .grid.pad
 
-        .col-1
-          +form-underlined("Intitulé")
-            - opt = {}
-            - opt.required = true
-            - opt.ngModel = "model.intitule"
-            +input(opt)
+    .col-1
+      .module-card
+        .module-header
+          h3 Informations
 
-        .col-1
-          +form-underlined("Client")
-            - opt = {}
-            - opt.ngModel = "model.client"
-            +input(opt)
+        .grid.pad
 
-        .col-1
-          +form-underlined("Activité")
-            - opt = {}
-            - opt.ngModel = "model.activite"
-            +input(opt)
+          .col-1
+            +form-underlined("Intitulé")
+              - opt = {}
+              - opt.required = true
+              - opt.ngModel = "model.intitule"
+              +input(opt)
 
-        .col-1
-          +form-underlined("Produit")
-            - opt = {}
-            - opt.ngModel = "model.produit"
-            +input(opt)
+          .col-1
+            +form-underlined("Client")
+              - opt = {}
+              - opt.ngModel = "model.client"
+              +input(opt)
 
-        .col-1
-          +form-underlined("Durée (heures)")
-            - opt = {}
-            - opt.ngModel = "model.duree"
-            - opt.type = "number"
-            - opt.min = "0"
-            - opt.required = true
-            +input(opt)
+          .col-1
+            +form-underlined("Activité")
+              - opt = {}
+              - opt.ngModel = "model.activite"
+              +input(opt)
 
-        .col-1-2
-          +form-underlined("Date de début")
-            - var opt = {}
-            - opt.ngModel = "model.from"
-            - opt.isOpen = "state.openDatepickers.from"
-            - opt.maxDate = "model.to"
-            - opt.required = "true"
-            - opt.name = "from"
-            +datePicker(opt)
+          .col-1
+            +form-underlined("Produit")
+              - opt = {}
+              - opt.ngModel = "model.produit"
+              +input(opt)
 
-        .col-1-2
-          +form-underlined("Date de fin")
-            - var opt = {}
-            - opt.ngModel = "model.to"
-            - opt.isOpen = "state.openDatepickers.to"
-            - opt.minDate = "model.from"
-            - opt.required = "true"
-            - opt.name = "to"
-            +datePicker(opt)
+          .col-1
+            +form-underlined("Durée (heures)")
+              - opt = {}
+              - opt.ngModel = "model.duree"
+              - opt.type = "number"
+              - opt.min = "0"
+              - opt.required = true
+              +input(opt)
 
-  .col-1-2
-    .module-card
-      .module-header
-        h2 Participants
-      user-list(users="model.participants")
+          .col-1-2
+            +form-underlined("Date de début")
+              - var opt = {}
+              - opt.ngModel = "model.from"
+              - opt.isOpen = "state.openDatepickers.from"
+              - opt.maxDate = "model.to"
+              - opt.required = "true"
+              - opt.name = "from"
+              +datePicker(opt)
 
-  .col-1-2
-    .module-card
-      .module-header
-        h2 Formateurs
-      user-list(users="model.formateurs")
+          .col-1-2
+            +form-underlined("Date de fin")
+              - var opt = {}
+              - opt.ngModel = "model.to"
+              - opt.isOpen = "state.openDatepickers.to"
+              - opt.minDate = "model.from"
+              - opt.required = "true"
+              - opt.name = "to"
+              +datePicker(opt)
 
-  .col-1
-    include ../includes/modules/module-submit
+    .col-1-2
+      .module-card
+        .module-header
+          h2 Participants
+        user-list(users="model.participants")
+
+    .col-1-2
+      .module-card
+        .module-header
+          h2 Formateurs
+        user-list(users="model.formateurs")
+
+    .col-1
+      include ../includes/modules/module-submit

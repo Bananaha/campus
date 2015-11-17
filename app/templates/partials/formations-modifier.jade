@@ -66,6 +66,14 @@ h2.module-title Modification d'une action de formation
           +input(opt)
 
       .col-1
+        +form-underlined("Validation")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.validation"
+          - opt.ngOptions = "validation.value as validation.label for validation in opts.validation"
+          +select(opt)
+
+      .col-1
         +form-underlined("Population")
           - opt = {}
           - opt.required = true

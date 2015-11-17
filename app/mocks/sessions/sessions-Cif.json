@@ -7,7 +7,8 @@
     "auteurId": "560ba86c66eee580389d3d5f",
     "session": 365,
     "from": 1441749600000,
-    "to": 1442440800000
+    "to": 1442440800000,
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeIdCIF",
@@ -17,7 +18,8 @@
     "auteurId": "560ba86cfd1ca1a27e891f53",
     "session": 6052,
     "from": 1441749600000,
-    "to": 1442440800000
+    "to": 1442440800000,
+    "allow": ["delete"]
   },
   {
     "id": "fakeIdCIF",
@@ -27,7 +29,8 @@
     "auteurId": "560ba86cf383689f4d5299d8",
     "session": 7470,
     "from": 1441749600000,
-    "to": 1442440800000
+    "to": 1442440800000,
+    "allow": ["archive"]
   },
   {
     "id": "fakeIdCIF",
@@ -37,7 +40,8 @@
     "auteurId": "560ba86c5ea01f269d31eefb",
     "session": 1965,
     "from": 1441749600000,
-    "to": 1442440800000
+    "to": 1442440800000,
+    "allow": ["delete", "archive"]
   },
   {
     "id": "fakeIdCIF",
@@ -47,6 +51,7 @@
     "auteurId": "560ba86cbb4e0ef2cfcb2a4c",
     "session": 4380,
     "from": 1441749600000,
-    "to": 1442440800000
+    "to": 1442440800000,
+    "allow": ["delete", "archive"]
   }
 ]

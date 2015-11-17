@@ -12,5 +12,6 @@
     "population": "Téléconseillers",
     "objectif": "Faire des glaces à l'italienne",
     "contenu": "Connaitre les ingrédients, la recette",
-    "prerequis": "Aimer les glaces"
+    "prerequis": "Aimer les glaces",
+    "validation": "diplome"
 }

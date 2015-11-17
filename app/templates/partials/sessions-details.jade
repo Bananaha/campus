@@ -143,11 +143,11 @@ include ../mixins/main
 
       user-list(users="participants.formateurs", frozen="session.archive")
 
-  .col-1(ng-if="initialized && session.dispositif !== 'CPF'")
+  .col-1(ng-if="initialized")
     .module-card
       .module-header
         h2 Financement de la formation {{session.dispositif}}
-      cost(cout="session.cout", ng-if="session.dispositif === 'employeur'")
+      cost(cout="session.cout", ng-if="session.dispositif === 'employeur' || session.dispositif === 'CPF'")
       cost-CIF(cout="session.cout",
                settings="coutSettings",
                ng-if="session.dispositif === 'CIF'")
@@ -157,7 +157,7 @@ include ../mixins/main
 
   .col-1
     .module-card
-      .module-header 
+      .module-header
           h2 Temps de formation
       p Salariés  Statut  Temps de présence Entrée en production
       p Michel  Stagiaire 7h  checkbox

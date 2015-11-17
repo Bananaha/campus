@@ -33,6 +33,8 @@ include ../mixins/main
           .col-1-2
             +details-list("Nom de l'organisme", "formation.nomOrganisme", "formation.organisme && formation.nomOrganisme")
           .col-1
+            +details-list("Validation", "formation.validation")
+          .col-1
             +details-list("Population", "formation.population")
           .col-1
             +details-list("Date de création", "formation.dateCreation")

@@ -8,8 +8,7 @@ include ../mixins/main
         ng-blur="onBlur()",
         ng-focus="onFocus()",
         ng-change="onChange()",
-        placeholder="Rechercher",
-        required)
+        placeholder="Rechercher")
     button(type="button").btnIcon.search
   ul.userList-searchList(ng-show="showSearchList && !frozen")
     li(ng-repeat="user in users")
