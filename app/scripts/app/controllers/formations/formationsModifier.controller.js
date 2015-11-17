@@ -35,6 +35,7 @@
                 $scope.model = formatDatas(res.data);
                 $timeout(function() {
                     $scope.initialized = true;
+                    $scope.$watch('model.dispositif', onDispositifChange);
                 });
             }
 
@@ -45,6 +46,12 @@
 
             function formatDatas(datas) {
                 return formatterService.format(datas);
+            }
+
+            function onDispositifChange(dispositif) {
+                if (dispositif === 'CPF' || dispositif === 'CIF') {
+                    $scope.model.organisme = true;
+                }
             }
         });
 

@@ -7,7 +7,7 @@
     "auteur": "Stark",
     "entite": "B2S AIX",
     "dateCreation": 1410357819,
-    "organisme": "Interne",
+    "organisme": true,
     "nomOrganisme": "Forma Company",
     "population": "Téléconseillers",
     "objectif": "Faire des glaces à l'italienne",

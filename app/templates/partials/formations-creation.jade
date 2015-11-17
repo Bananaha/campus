@@ -63,6 +63,7 @@ h2.module-title Création d'une action de formation
         +form-underlined("Organisme")
           - opt = {}
           - opt.required = true
+          - opt.ngDisabled = "model.dispositif === 'CPF' || model.dispositif === 'CIF'"
           - opt.ngModel = "model.organisme"
           - opt.ngOptions = "organisme.value as organisme.label for organisme in opts.organisme"
           +select(opt)

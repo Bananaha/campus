@@ -69,6 +69,16 @@ input {
 select {
     border-width: 0 0 1px 0;
     height: 26px;
+
+    &[disabled] {
+        border: none;
+        padding: 0;
+        -webkit-appearance: none;
+
+        &::-ms-expand {
+            display: none;
+        }
+    }
 }
 
 .form-underlined {
