@@ -12,7 +12,7 @@ form.login-box(name="login",
         .col-1
             +form-underlined("Adresse mail")
                 - opt = {}
-                - opt.type = "mail"
+                - opt.type = "email"
                 - opt.ngModel = "model.mail"
                 - opt.required = true
                 +input(opt)

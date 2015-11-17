@@ -11,6 +11,8 @@
             config
         ) {
 
+            $scope.model = {};
+
             userService.set(null);
 
             $scope.forgottenPassword = function() {

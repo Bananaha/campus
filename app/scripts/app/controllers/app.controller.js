@@ -11,13 +11,13 @@
             modalService,
             appStateService,
             historyService,
+            userService,
             confirmationService
         ) {
 
             var that = this,
-                initialized = false,
                 redirecting = false;
-            this.logged = true;
+
             $scope.modal = false;
 
             $scope.page = $location.url().replace('/', '');
@@ -27,10 +27,6 @@
             $scope.$on('$locationChangeStart', onLocationChange);
 
             this.showBack = false;
-
-            $timeout(function() {
-                initialized = true;
-            });
 
             this.goTo = function(url) {
                 if ($scope.modal) {
@@ -81,9 +77,7 @@
                 modalService.hideModals();
                 historyService.onLocationChange();
                 updateShowBack();
-                if (initialized) {
-                    onAppStateChange();
-                }
+                onAppStateChange();
             }
 
             function onModalHide() {
@@ -95,11 +89,9 @@
                 that.loading = appStateService.isLoading();
                 that.frozen = appStateService.isFrozen();
                 that.confirmating = appStateService.isConfirmating();
-                console.log('PUT BACK LOGGED')
-                that.logged = true;
 
                 if (!that.logged && $location.url() !== '/login') {
-                    //$location.url('/login');
+                    $location.url('/login');
                 }
 
                 if (that.confirmating) {

@@ -99,7 +99,8 @@ select {
     select {
 
         &:focus ~ .form-underlined-label,
-        &.filled ~ .form-underlined-label {
+        &.filled ~ .form-underlined-label,
+        &.ng-invalid-email ~ .form-underlined-label {
             top: @u-base;
             font-size: 1.2rem;
             color: @color-text;
