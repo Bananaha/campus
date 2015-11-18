@@ -44,10 +44,10 @@ include ../mixins/main
 
           +details-item("Organisme") {{session.organisme}}
 
-          - opt = { ngIf: "session.organisme && session.nomOrganisme" }
+          - opt = { ngIf: "session.organisme" }
           +details-item("Nom de l'organisme", opt) {{session.nomOrganisme}}
 
-          +details-item("Devis") {{session.devis}}€
+          +details-item("Devis", opt) {{session.devis}}€
 
         h4.details-title Modalités de l'action de formation
         ul.details-list.grid.pad

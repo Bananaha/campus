@@ -74,7 +74,8 @@ form.details(name="sessionsModification",
           - opt.ngOptions = "opt.value as opt.label for opt in opts.organisme"
           +select(opt)
 
-      .col-1(ng-if="model.organisme")
+    .grid.pad(ng-if="model.organisme")
+      .col-1
         +form-underlined("Nom de l'organisme")
           - opt = {}
           - opt.required = true

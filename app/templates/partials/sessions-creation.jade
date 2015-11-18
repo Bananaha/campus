@@ -17,7 +17,6 @@ form(name="sessionsCreation",
       .col-1
         +form-underlined("Référence")
           - opt = {}
-          - opt.required = true
           - opt.ngModel = "model.reference"
           +input(opt)
 
@@ -35,7 +34,6 @@ form(name="sessionsCreation",
       .col-1
         +form-underlined("Client")
           - opt = {}
-          - opt.required = true
           - opt.ngModel = "model.client"
           +input(opt)
 
@@ -44,14 +42,12 @@ form(name="sessionsCreation",
         +form-underlined("Activité")
           - opt = {}
           - opt.required = true
-          - opt.ngModel = "model.activite"
           +input(opt)
 
       // Employeur
       .col-1
         +form-underlined("Produit")
           - opt = {}
-          - opt.required = true
           - opt.ngModel = "model.produit"
           +input(opt)
 
@@ -82,7 +78,8 @@ form(name="sessionsCreation",
           - opt.ngDisabled = "model.dispositif === 'CPF' || model.dispositif === 'CIF'"
           +select(opt)
 
-      .col-1(ng-if="model.organisme")
+    .grid.pad(ng-if="model.organisme")
+      .col-1
         +form-underlined("Nom de l'organisme")
           - opt = {}
           - opt.required = true
