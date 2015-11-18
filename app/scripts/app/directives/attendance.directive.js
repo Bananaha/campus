@@ -19,7 +19,11 @@
                 link: function ($scope, element) {
 
                     $scope.$watch('participantsDetails', onParticipantsChange, true);
-    
+                    $scope.$watch('attendance', function() {
+                        console.log('attendance changed in directive');
+                        console.log($scope.attendance);
+                    }, true);
+
                     function onParticipantsChange(participants) {
                         ['formateurs', 'stagiaires'].forEach(function(key, index) {
                             participants[key] = participants[key].map(function(participant) {
