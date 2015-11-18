@@ -5,7 +5,7 @@
             "id": "^$",
             "ids": "^$",
             "archive": "^$",
-            "action": "fakeidEmployeur"
+            "action": "fakeIdEmployeur"
         }
     },
     "response": {
@@ -32,7 +32,7 @@
             "id": "^$",
             "ids": "^$",
             "archive": "true",
-            "action": "fakeidEmployeur"
+            "action": "fakeIdEmployeur"
         }
     },
     "response": {
@@ -54,7 +54,7 @@
         "query": {
             "id": "^$",
             "ids": "^$",
-            "action": "fakeidCPF"
+            "action": "fakeIdCPF"
         }
     },
     "response": {
@@ -76,7 +76,7 @@
         "query": {
             "id": "^$",
             "ids": "^$",
-            "action": "fakeidCIF"
+            "action": "fakeIdCIF"
         }
     },
     "response": {

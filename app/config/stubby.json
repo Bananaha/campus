@@ -80,7 +80,7 @@
       "request": {
          "url": "/formations/update",
          "query": {
-            "id": "fakeidAccompagnement"
+            "id": "fakeIdAccompagnement"
          },
          "method": "POST"
       },
@@ -188,7 +188,7 @@
       "request": {
          "url": "/formations$",
          "query": {
-            "id": "fakeidCIF"
+            "id": "fakeIdCIF"
          }
       },
       "response": {
@@ -199,7 +199,7 @@
       "request": {
          "url": "/formations$",
          "query": {
-            "id": "fakeidCPF"
+            "id": "fakeIdCPF"
          }
       },
       "response": {
@@ -210,7 +210,7 @@
       "request": {
          "url": "/formations$",
          "query": {
-            "id": "fakeidEmployeur"
+            "id": "fakeIdEmployeur"
          }
       },
       "response": {
@@ -221,7 +221,7 @@
       "request": {
          "url": "/formations$",
          "query": {
-            "id": "fakeidAccompagnement"
+            "id": "fakeIdAccompagnement"
          }
       },
       "response": {
@@ -289,7 +289,7 @@
             "id": "^$",
             "ids": "^$",
             "archive": "^$",
-            "action": "fakeidEmployeur"
+            "action": "fakeIdEmployeur"
          }
       },
       "response": {
@@ -318,7 +318,7 @@
             "id": "^$",
             "ids": "^$",
             "archive": "true",
-            "action": "fakeidEmployeur"
+            "action": "fakeIdEmployeur"
          }
       },
       "response": {
@@ -342,7 +342,7 @@
          "query": {
             "id": "^$",
             "ids": "^$",
-            "action": "fakeidCPF"
+            "action": "fakeIdCPF"
          }
       },
       "response": {
@@ -366,7 +366,7 @@
          "query": {
             "id": "^$",
             "ids": "^$",
-            "action": "fakeidCIF"
+            "action": "fakeIdCIF"
          }
       },
       "response": {

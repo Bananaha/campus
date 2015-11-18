@@ -54,7 +54,7 @@
     "request": {
         "url": "/formations/update",
         "query": {
-            "id": "fakeidAccompagnement"
+            "id": "fakeIdAccompagnement"
         },
         "method": "POST"
     },
@@ -153,7 +153,7 @@
     "request": {
         "url": "/formations$",
         "query": {
-            "id": "fakeidCIF"
+            "id": "fakeIdCIF"
         }
     },
     "response": {
@@ -163,7 +163,7 @@
     "request": {
         "url": "/formations$",
         "query": {
-            "id": "fakeidCPF"
+            "id": "fakeIdCPF"
         }
     },
     "response": {
@@ -173,7 +173,7 @@
     "request": {
         "url": "/formations$",
         "query": {
-            "id": "fakeidEmployeur"
+            "id": "fakeIdEmployeur"
         }
     },
     "response": {
@@ -183,7 +183,7 @@
     "request": {
         "url": "/formations$",
         "query": {
-            "id": "fakeidAccompagnement"
+            "id": "fakeIdAccompagnement"
         }
     },
     "response": {

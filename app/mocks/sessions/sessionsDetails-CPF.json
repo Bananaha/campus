@@ -1,7 +1,7 @@
 {
     "id": "fakeIdCPF",
 
-    "action": "fakeidCPF",
+    "action": "fakeIdCPF",
     "archive": false,
     "auteurNom": "Stark",
     "auteurId": "59fc02f66b4",
