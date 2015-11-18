@@ -79,23 +79,22 @@
 
                     if (newValue === 'enCours') {
                         delete $scope.model['dateAvis' + avisTarget];
-                    } else {
-                        if (!$scope.model['dateAvis' + avisTarget]) {
-                            $scope.model['dateAvis' + avisTarget] = new Date();
-                        }
+                    } else if (!$scope.model['dateAvis' + avisTarget]) {
+                        $scope.model['dateAvis' + avisTarget] = new Date();
                     }
                 }
             }
 
             function fillInheritedData(data) {
                 var inheritedKeys = [
+                    'entite',
                     'categorie',
                     'nature',
                     'nomOrganisme',
                     'organisme',
                     'validation'];
 
-                if ($scope.model.dispositif === 'CIF') {
+                if ($scope.model.dispositif === 'employeur') {
                     inheritedKeys.push('client', 'activite', 'produit');
                 }
 

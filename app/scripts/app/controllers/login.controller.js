@@ -13,7 +13,7 @@
 
             $scope.model = {};
 
-            userService.set(null);
+            //userService.set(null);
 
             $scope.forgottenPassword = function() {
                 console.log('forgottenPassword');

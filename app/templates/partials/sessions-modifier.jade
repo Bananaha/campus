@@ -23,29 +23,31 @@ form.details(name="sessionsModification",
           - opt.ngModel = "model.reference"
           +input(opt)
 
-      // Employeur
-      .col-1(ng-if="model.dispositif === 'employeur'")
+    // Employeur
+    .grid.pad(ng-if="model.dispositif === 'employeur'")
+
+      .col-1
         +form-underlined("Client")
           - opt = {}
           - opt.required = true
           - opt.ngModel = "model.client"
           +input(opt)
 
-      // Employeur
-      .col-1(ng-if="model.dispositif === 'employeur'")
+      .col-1
         +form-underlined("Activité")
           - opt = {}
           - opt.required = true
           - opt.ngModel = "model.activite"
           +input(opt)
 
-      // Employeur
-      .col-1(ng-if="model.dispositif === 'employeur'")
+      .col-1
         +form-underlined("Produit")
           - opt = {}
           - opt.required = true
           - opt.ngModel = "model.produit"
           +input(opt)
+
+    .grid.pad
 
       .col-1
         +form-underlined("Nature")
@@ -66,12 +68,13 @@ form.details(name="sessionsModification",
       .col-1
         +form-underlined("Organisme")
           - opt = {}
+          - opt.ngDisabled = "model.dispositif === 'CIF' || model.dispositif === 'CPF'"
           - opt.required = true
           - opt.ngModel = "model.organisme"
           - opt.ngOptions = "opt.value as opt.label for opt in opts.organisme"
           +select(opt)
 
-      .col-1
+      .col-1(ng-if="model.organisme")
         +form-underlined("Nom de l'organisme")
           - opt = {}
           - opt.required = true
@@ -91,21 +94,6 @@ form.details(name="sessionsModification",
       h3 Modalités de l'action de formation
 
     .grid.pad
-      .col-1
-        // CPF + CIF
-        +form-underlined("Formation")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.validation"
-          +input(opt)
-
-      .col-1
-        // CPF + CIF
-        +form-underlined("Préciser")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.validationComment"
-          +input(opt)
 
       .col-1
         +form-underlined("Horaire souhaité")
@@ -114,25 +102,6 @@ form.details(name="sessionsModification",
           - opt.ngModel = "model.horaireSouhaite"
           - opt.ngOptions = "opt.value as opt.label for opt in opts.horaireSouhaite"
           +select(opt)
-
-      // CPF + CIF
-      .col-1
-        +form-underlined("Temps")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.temps"
-          - opt.ngOptions = "opt.value as opt.label for opt in opts.temps"
-          +select(opt)
-
-      // CPF + CIF
-      .col-1
-        +form-underlined("Date de demande")
-          - var opt = {}
-          - opt.ngModel = "model.dateDemande"
-          - opt.isOpen = "state.openDatepickers.dateDemande"
-          - opt.required = "true"
-          - opt.name = "dateDemande"
-          +datePicker(opt)
 
       .col-1-2
         +form-underlined("Date de début")
@@ -162,6 +131,44 @@ form.details(name="sessionsModification",
           - opt.ngModel = "model.duree"
           +input(opt)
 
+    // CPF + CIF
+    .grid.pad(ng-if="model.dispositif === 'CPF' || model.dispositif === 'CIF'")
+
+      .col-1
+        // CPF + CIF
+        +form-underlined("Validation")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.validation"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.validation"
+          +select(opt)
+
+      .col-1
+        // CPF + CIF
+        +form-underlined("Préciser")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.validationComment"
+          +input(opt)
+
+      .col-1
+        +form-underlined("Temps")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.temps"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.temps"
+          +select(opt)
+
+      .col-1
+        +form-underlined("Date de demande")
+          - var opt = {}
+          - opt.ngModel = "model.dateDemande"
+          - opt.isOpen = "state.openDatepickers.dateDemande"
+          - opt.required = "true"
+          - opt.name = "dateDemande"
+          +datePicker(opt)
+
+
   .module-card(ng-if="model.dispositif === 'CIF' || model.dispositif ==='CPF'")
     .module-header
       h3 Acceptation de l'action de formation
@@ -177,7 +184,7 @@ form.details(name="sessionsModification",
           +select(opt)
 
       // CPF + CIF
-      .col-1
+      .col-1(ng-if="model.avisEmployeur !== 'enCours'")
         +form-underlined("Date avis employeur")
           - var opt = {}
           - opt.ngModel = "model.dateAvisEmployeur"
@@ -187,7 +194,7 @@ form.details(name="sessionsModification",
           +datePicker(opt)
 
       // CPF + CIF
-      .col-1(ng-if="model.avisEmployeur === 'acceptee'")
+      .col-1(ng-if="model.avisEmployeur === 'refusee' || model.avisEmployeur === 'reportee'")
         +form-underlined("Motif employeur")
           - opt = {}
           - opt.required = true
@@ -205,7 +212,7 @@ form.details(name="sessionsModification",
           +select(opt)
 
       // CIF
-      .col-1
+      .col-1(ng-if="model.avisFongecif !== 'enCours'")
         +form-underlined("Date avis Fongecif")
           - var opt = {}
           - opt.ngModel = "model.dateAvisFongecif"
@@ -215,7 +222,7 @@ form.details(name="sessionsModification",
           +datePicker(opt)
 
       // CIF
-      .col-1(ng-if="model.avisEmployeur === 'acceptee'")
+      .col-1(ng-if="model.avisFongecif === 'refusee' || model.avisFongecif === 'reportee'")
         +form-underlined("Motif Fongecif")
           - opt = {}
           - opt.required = true

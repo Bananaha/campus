@@ -21,33 +21,41 @@ form(name="sessionsCreation",
           - opt.ngModel = "model.reference"
           +input(opt)
 
-      .col-1(ng-if="model.dispositif === 'employeur'")
+      .col-1
+        +form-underlined("Entité")
+          - opt = {}
+          - opt.ngModel = "model.entite"
+          - opt.ngOptions = "entite as entite for entite in opts.entites"
+          - opt.required = true
+          +select(opt)
 
-        .grid.pad
+    .grid.pad(ng-if="model.dispositif === 'employeur'")
 
-          // Employeur
-          .col-1
-            +form-underlined("Client")
-              - opt = {}
-              - opt.required = true
-              - opt.ngModel = "model.client"
-              +input(opt)
+      // Employeur
+      .col-1
+        +form-underlined("Client")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.client"
+          +input(opt)
 
-          // Employeur
-          .col-1
-            +form-underlined("Activité")
-              - opt = {}
-              - opt.required = true
-              - opt.ngModel = "model.activite"
-              +input(opt)
+      // Employeur
+      .col-1
+        +form-underlined("Activité")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.activite"
+          +input(opt)
 
-          // Employeur
-          .col-1
-            +form-underlined("Produit")
-              - opt = {}
-              - opt.required = true
-              - opt.ngModel = "model.produit"
-              +input(opt)
+      // Employeur
+      .col-1
+        +form-underlined("Produit")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.produit"
+          +input(opt)
+
+    .grid.pad
 
       .col-1
         +form-underlined("Nature")
@@ -74,7 +82,7 @@ form(name="sessionsCreation",
           - opt.ngDisabled = "model.dispositif === 'CPF' || model.dispositif === 'CIF'"
           +select(opt)
 
-      .col-1
+      .col-1(ng-if="model.organisme")
         +form-underlined("Nom de l'organisme")
           - opt = {}
           - opt.required = true
@@ -94,22 +102,6 @@ form(name="sessionsCreation",
       h3 Modalités de l'action de formation
 
     .grid.pad
-      .col-1
-        // CPF + CIF
-        +form-underlined("Validation")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.validation"
-          - opt.ngOptions = "opt.value as opt.label for opt in opts.validation"
-          +select(opt)
-
-      .col-1
-        // CPF + CIF
-        +form-underlined("Préciser")
-          - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.validationComment"
-          +input(opt)
 
       .col-1
         +form-underlined("Horaire souhaité")
@@ -119,24 +111,13 @@ form(name="sessionsCreation",
           - opt.ngOptions = "opt.value as opt.label for opt in opts.horaireSouhaite"
           +select(opt)
 
-      // CPF + CIF
       .col-1
-        +form-underlined("Temps")
+        +form-underlined("Duree (h)")
           - opt = {}
+          - opt.type = "number"
           - opt.required = true
-          - opt.ngModel = "model.temps"
-          - opt.ngOptions = "opt.value as opt.label for opt in opts.temps"
-          +select(opt)
-
-      // CPF + CIF
-      .col-1
-        +form-underlined("Date de demande")
-          - var opt = {}
-          - opt.ngModel = "model.dateDemande"
-          - opt.isOpen = "state.openDatepickers.dateDemande"
-          - opt.required = "true"
-          - opt.name = "dateDemande"
-          +datePicker(opt)
+          - opt.ngModel = "model.duree"
+          +input(opt)
 
       .col-1-2
         +form-underlined("Date de début")
@@ -158,13 +139,43 @@ form(name="sessionsCreation",
           - opt.name = "dateFin"
           +datePicker(opt)
 
+    .grid.pad(ng-if="model.dispositif === 'CIF' || model.dispositif === 'CPF'")
+
       .col-1
-        +form-underlined("Duree (h)")
+        // CPF + CIF
+        +form-underlined("Validation")
           - opt = {}
-          - opt.type = "number"
           - opt.required = true
-          - opt.ngModel = "model.duree"
+          - opt.ngModel = "model.validation"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.validation"
+          +select(opt)
+
+      .col-1
+        // CPF + CIF
+        +form-underlined("Préciser")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.validationComment"
           +input(opt)
+
+      // CPF + CIF
+      .col-1
+        +form-underlined("Temps")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.temps"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.temps"
+          +select(opt)
+
+      // CPF + CIF
+      .col-1
+        +form-underlined("Date de demande")
+          - var opt = {}
+          - opt.ngModel = "model.dateDemande"
+          - opt.isOpen = "state.openDatepickers.dateDemande"
+          - opt.required = "true"
+          - opt.name = "dateDemande"
+          +datePicker(opt)
 
   .module-card(ng-if="model.dispositif === 'CIF' || model.dispositif ==='CPF'")
     .module-header

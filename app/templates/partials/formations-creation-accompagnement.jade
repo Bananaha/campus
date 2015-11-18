@@ -29,6 +29,14 @@ form(name="formationsCreation",
               +input(opt)
 
           .col-1
+            +form-underlined("Entité")
+              - opt = {}
+              - opt.required = true
+              - opt.ngModel = "model.entite"
+              - opt.ngOptions = "entite for entite in opts.entites"
+              +select(opt)
+
+          .col-1
             +form-underlined("Client")
               - opt = {}
               - opt.ngModel = "model.client"
@@ -58,21 +66,21 @@ form(name="formationsCreation",
           .col-1-2
             +form-underlined("Date de début")
               - var opt = {}
-              - opt.ngModel = "model.from"
-              - opt.isOpen = "state.openDatepickers.from"
-              - opt.maxDate = "model.to"
+              - opt.ngModel = "model.dateDebut"
+              - opt.isOpen = "state.openDatepickers.dateDebut"
+              - opt.maxDate = "model.dateFin"
               - opt.required = "true"
-              - opt.name = "from"
+              - opt.name = "dateDebut"
               +datePicker(opt)
 
           .col-1-2
             +form-underlined("Date de fin")
               - var opt = {}
-              - opt.ngModel = "model.to"
-              - opt.isOpen = "state.openDatepickers.to"
-              - opt.minDate = "model.from"
+              - opt.ngModel = "model.dateFin"
+              - opt.isOpen = "state.openDatepickers.dateFin"
+              - opt.minDate = "model.dateDebut"
               - opt.required = "true"
-              - opt.name = "to"
+              - opt.name = "dateFin"
               +datePicker(opt)
 
     .col-1-2

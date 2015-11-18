@@ -6,8 +6,8 @@
     "auteurNom": "Green",
     "auteurId": "560ba86c66eee580389d3d5f",
     "session": 365,
-    "from": 1441749600000,
-    "to": 1442440800000,
+    "dateDebut": 1441749600000,
+    "dateFin": 1442440800000,
     "allow": ["delete", "archive"]
   },
   {
@@ -17,8 +17,8 @@
     "auteurNom": "Farley",
     "auteurId": "560ba86cfd1ca1a27e891f53",
     "session": 6052,
-    "from": 1441749600000,
-    "to": 1442440800000,
+    "dateDebut": 1441749600000,
+    "dateFin": 1442440800000,
     "allow": ["archive"]
   },
   {
@@ -28,8 +28,8 @@
     "auteurNom": "Perez",
     "auteurId": "560ba86cf383689f4d5299d8",
     "session": 7470,
-    "from": 1441749600000,
-    "to": 1442440800000,
+    "dateDebut": 1441749600000,
+    "dateFin": 1442440800000,
     "allow": ["delete"]
   },
   {
@@ -39,8 +39,8 @@
     "auteurNom": "Weiss",
     "auteurId": "560ba86c5ea01f269d31eefb",
     "session": 1965,
-    "from": 1441749600000,
-    "to": 1442440800000,
+    "dateDebut": 1441749600000,
+    "dateFin": 1442440800000,
     "allow": ["delete", "archive"]
   },
   {
@@ -50,8 +50,8 @@
     "auteurNom": "Becker",
     "auteurId": "560ba86cbb4e0ef2cfcb2a4c",
     "session": 4380,
-    "from": 1441749600000,
-    "to": 1442440800000,
+    "dateDebut": 1441749600000,
+    "dateFin": 1442440800000,
     "allow": ["delete", "archive"]
   }
 ]

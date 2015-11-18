@@ -51,7 +51,7 @@
                         link: 'session'
                     }, {
                         label: 'Date de début',
-                        key: 'from',
+                        key: 'dateDebut',
                         sort: true,
                         klass: 'w-90'
                     }, {

@@ -26,26 +26,34 @@
                     localStorageService.set('user', USER);
                     appStateService.isLogged(true);
                 } else {
-                    localStorageService.remove('user', USER);
-                    appStateService.isLogged(false);
+                    logout();
                 }
             };
 
+            function logout() {
+                localStorageService.remove('user', USER);
+                appStateService.isLogged(false);
+            }
+
             function init() {
                 if (savedUser && savedUser.id) {
-                    that.set(savedUser);
+                    validAuth(savedUser.id)
+                        .then(function() {
+                            that.set(savedUser);
+                        });
                 } else {
-                    appStateService.isLogged(false);
+                    logout();
                 }
             }
 
-            function onGetDetailSuccess(res) {
-                deferred.resolve(res.data);
-            }
-
-            function onGetDetailError() {
-                notificationService.warn('Erreur lors de la récupération de vos données.');
-                deferred.reject();
+            function validAuth(userId) {
+                return $http({
+                    method: 'POST',
+                    url: config.urls.checkAuth,
+                    params: {
+                        id: userId
+                    }
+                });
             }
 
             init();

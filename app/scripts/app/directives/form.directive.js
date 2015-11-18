@@ -29,7 +29,7 @@
                         storageName = 'form-' + name,
                         initialModelStorageName = 'form-' + name + 'init',
                         initialized = false,
-                        datesKeys = ['from', 'to'],
+                        datesKeys = ['dateDebut', 'dateFin'],
                         initialModel;
 
                     $scope.state = {

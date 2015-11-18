@@ -15,4 +15,5 @@ block layoutContent
     include includes/confirmation
 
   .view.ng-cloak(ng-view,
+    ng-if="App.showView",
     ng-class="{'loading': App.loading}")

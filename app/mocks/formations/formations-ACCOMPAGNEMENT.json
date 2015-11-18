@@ -1,5 +1,6 @@
 {
     "id": "fakeidAccompagnement",
+    "entite": "B2S AIX",
     "dispositif": "accompagnement",
     "archive": true,
     "action": 598,
@@ -9,8 +10,8 @@
     "duree": 20,
     "activite": "AE",
     "produit": "FTN",
-    "from": 1441749600000,
-    "to": 1442440800000,
+    "dateDebut": 1441749600000,
+    "dateFin": 1442440800000,
     "participants": {
         "stagiaires" : ["156", "648", "654", "467"],
         "formateurs": ["156", "648", "654", "467"]

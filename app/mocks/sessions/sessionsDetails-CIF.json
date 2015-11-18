@@ -16,7 +16,7 @@
     "intitule": "ad proident occaecat labore cillum sint",
     "format": "adaptation",
     "nomOrganisme": "Forma Company",
-    "organisme": false,
+    "organisme": true,
     "reference": "lorem S21",
     "session":6584,
     "dispositif": "CIF",

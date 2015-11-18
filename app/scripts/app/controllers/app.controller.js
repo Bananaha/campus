@@ -28,6 +28,8 @@
 
             this.showBack = false;
 
+            this.showView = false;
+
             this.goTo = function(url) {
                 if ($scope.modal) {
                     modalService.hideModals();
@@ -90,13 +92,15 @@
                 that.frozen = appStateService.isFrozen();
                 that.confirmating = appStateService.isConfirmating();
 
-                if (!that.logged && $location.url() !== '/login') {
-                    $location.url('/login');
+                if (that.logged === false && $location.url() !== '/login') {
+                    that.logout();
                 }
 
                 if (that.confirmating) {
                     initConfirmation();
                 }
+
+                that.showView = $location.url() === '/login' || that.logged;
             }
 
             // CONFIRMATION
