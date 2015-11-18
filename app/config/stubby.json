@@ -410,6 +410,17 @@
       "request": {
          "url": "/utilisateurs$",
          "query": {
+            "ids": "^315"
+         }
+      },
+      "response": {
+         "file": "app/mocks/utilisateurs/getUtilisateurs-2.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/utilisateurs$",
+         "query": {
             "ids": "^[a-zA-Z0-9]"
          }
       },

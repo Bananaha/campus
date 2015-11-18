@@ -13,6 +13,7 @@
                 templateUrl: 'utilisateurs-list.html',
                 scope: {
                     selectedUsers: '=users',
+                    displayedUsers: '=',
                     frozen: '=frozen'
                 },
                 link: function ($scope, element) {

@@ -1,0 +1,27 @@
+include ../mixins/main
+
+.table.listed
+    .table-head
+        .table-cell Salariés
+        .table-cell Statut
+        .table-cell Temps de présence (h)
+        .table-cell Entrée en production
+
+    ul.table-group
+
+        li.table-row(ng-repeat="participant in displayedParticipants")
+            .table-cell {{participant.prenom}} {{participant.nom}}
+            .table-cell {{participant.statut}}
+            .table-cell
+                +form-underlined()
+                    - opt = {}
+                    - opt.type = "number"
+                    - opt.step = "0.1"
+                    - opt.min = 0
+                    - opt.ngModel = "attendance[participant.id].temps"
+                    +input(opt)
+            .table-cell
+                - opt = {}
+                - opt.name = "attendance-{{participant.id}}-production"
+                - opt.ngModel = "attendance[participant.id].production"
+                +custom-checkbox(opt)

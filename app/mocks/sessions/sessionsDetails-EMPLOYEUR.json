@@ -27,8 +27,23 @@
     "produit": "IceCream factory",
 
     "participants": {
-        "stagiaires" : ["156", "648", "654", "467"],
-        "formateurs": ["156", "648", "654", "467"]
+        "stagiaires" : ["156", "648", "654", "468"],
+        "formateurs": ["315", "451", "237", "958"]
+    },
+
+    "attendance": {
+        "156": {
+            "temps": 14.5,
+            "production": false
+        },
+        "451": {
+            "temps": 18.4,
+            "production": true
+        },
+        "237": {
+            "temps": 20,
+            "production": false
+        }
     },
 
     "cout": {

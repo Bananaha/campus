@@ -127,14 +127,26 @@ include ../mixins/main
       .module-header
         h2 Stagiaires
 
-      user-list(users="participants.stagiaires", frozen="session.archive")
+      user-list(users="participants.stagiaires", 
+                displayed-users="participantsDetails.stagiaires",
+                frozen="session.archive")
 
   .col-1-2(ng-if="session.dispositif === 'employeur' && hasUsers")
     .module-card
       .module-header
         h2 Formateurs
 
-      user-list(users="participants.formateurs", frozen="session.archive")
+      user-list(users="participants.formateurs", 
+                displayed-users="participantsDetails.formateurs",
+                frozen="session.archive")
+
+  .col-1(ng-if="session.dispositif === 'employeur' && showAttendance")
+    .module-card
+      .module-header
+        h2 Temps de formation
+      attendance(participants-details="participantsDetails",
+                 settings="attendanceSettings",
+                 attendance="attendance")
 
   .col-1(ng-if="initialized")
     .module-card
@@ -148,9 +160,3 @@ include ../mixins/main
         button.btn(type="button", ng-click="cancelCost()", ng-disabled="!costChanged") Annuler
         button.btn(type="button", ng-click="saveCost()", ng-disabled="!costChanged") Valider
 
-  .col-1
-    .module-card
-      .module-header
-          h2 Temps de formation
-      p Salariés  Statut  Temps de présence Entrée en production
-      p Michel  Stagiaire 7h  checkbox

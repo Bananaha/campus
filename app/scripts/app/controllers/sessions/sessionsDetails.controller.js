@@ -33,8 +33,18 @@
                 formateurs: []
             };
 
+            $scope.participantsDetails = {
+                stagiaires: [],
+                formateurs: []
+            };
+
+            $scope.attendance = {};
+
+            $scope.attendanceSettings = {};
+
             $scope.session = {};
 
+            $scope.$watch('participantsDetails', onParticipantsDetailsChange, true);
             $scope.$watch('participants', onParticipantsChange, true);
             $scope.$watch('session.cout', onCostChange, true);
             $scope.$watch('costChanged', onCostChangeChange, true);
@@ -108,6 +118,22 @@
                 }
             }
 
+            function onParticipantsDetailsChange() {
+                
+                if ($scope.initialized && participantsDetailsReady()) {
+                    $scope.showAttendance = true;
+                }
+            }
+
+            function participantsDetailsReady() {
+                return ['formateurs', 'stagiaires'].reduce(function(bool, population) {
+                    if ($scope.participants[population].length && !$scope.participantsDetails[population].length) {
+                        return false;
+                    }
+                    return bool;
+                }, true);
+            }
+
             function saveUsers() {
                 var params = {
                     id: ID,
@@ -161,6 +187,11 @@
                         start: res.data.dateDebut,
                         end: res.data.dateFin
                     };
+                }
+
+                if ($scope.session.dispositif === 'employeur') {
+                    $scope.attendance = res.data.attendance;
+                    $scope.attendanceSettings.defaultDuree = $scope.session.duree || 0;
                 }
 
                 $timeout(function() {
