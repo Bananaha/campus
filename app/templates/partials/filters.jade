@@ -13,7 +13,6 @@ button.filters-toggler.btn(type="button",
         - opt = {}
         - opt.label = "{{filter.label}}"
         - opt.ngModel = "model.dispositif[filter.value]"
-        - value = "filter.value"
         +custom-checkbox(opt)
 
     .filters-group(ng-if="settings.archive")
@@ -22,5 +21,12 @@ button.filters-toggler.btn(type="button",
         - opt = {}
         - opt.label = "afficher"
         - opt.ngModel = "model.archive"
-        - value = "true"
+        +custom-checkbox(opt)
+
+    .filters-group(ng-if="settings.entite")
+      h3.filters-title Entités
+      .filter(ng-repeat="filter in settings.entite")
+        - opt = {}
+        - opt.label = "{{filter}}"
+        - opt.ngModel = "model.entite[filter]"
         +custom-checkbox(opt)

@@ -6,7 +6,8 @@
         function (
             $scope,
             config,
-            appStateService
+            appStateService,
+            userService
         ) {
 
             $scope.table = {
@@ -48,7 +49,8 @@
             };
 
             $scope.filtersSettings = {
-                dispositif: true
+                dispositif: true,
+                entite: userService.get().entite
             };
 
             appStateService.isLoading(false);

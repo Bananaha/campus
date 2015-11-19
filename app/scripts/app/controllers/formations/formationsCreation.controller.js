@@ -7,9 +7,12 @@
             $scope,
             $timeout,
             appStateService,
+            userService,
             ACTIONS,
             FORMDATAS
         ) {
+
+            var opts = FORMDATAS;
 
             $scope.model = {
                 dispositif: null
@@ -17,7 +20,8 @@
 
             $timeout(init);
 
-            $scope.opts = FORMDATAS;
+            opts.entites = userService.get().entite;
+            $scope.opts = opts;
 
             $scope.opts.dispositif = ACTIONS.filter(function(action) {
                 return !action.isSession;
