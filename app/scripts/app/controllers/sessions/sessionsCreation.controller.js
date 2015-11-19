@@ -11,9 +11,9 @@
             notificationService,
             formatterService,
             historyService,
+            formDatasService,
             config,
-            ACTIONS,
-            FORMDATAS
+            ACTIONS
         ) {
 
             var ID = $routeParams.id;
@@ -22,7 +22,7 @@
 
             $scope.model = {};
 
-            $scope.opts = FORMDATAS;
+            $scope.opts = formDatasService.get();
 
             $http({
                     method: 'GET',

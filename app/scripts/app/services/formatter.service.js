@@ -3,7 +3,7 @@
 
     angular.module('campus.app').factory('formatterService',
         function(
-            FORMDATAS
+            formDatasService
         ) {
 
             var LIST = [{
@@ -69,8 +69,8 @@
             this.toDisplay = function(datas) {
                 datas = this.format(datas);
                 return Object.keys(datas).reduce(function(obj, key) {
-                    if (FORMDATAS[key]) {
-                        obj[key] = getListObject(FORMDATAS[key], datas[key]).label;
+                    if (formDatasService.get()[key]) {
+                        obj[key] = getListObject(formDatasService.get()[key], datas[key]).label;
                     }
                     return obj;
                 }, datas);

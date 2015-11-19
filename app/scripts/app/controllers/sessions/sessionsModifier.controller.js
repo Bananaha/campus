@@ -9,8 +9,8 @@
             $routeParams,
             notificationService,
             historyService,
-            config,
-            FORMDATAS
+            formDatasService,
+            config
         ) {
 
             var ID = $routeParams.id;
@@ -24,7 +24,7 @@
                 })
                 .then(onGetRequestSuccess, onGetRequestError);
 
-            $scope.opts = FORMDATAS;
+            $scope.opts = formDatasService.get();
 
             function onGetRequestSuccess(res) {
                 if (res.data.archive) {

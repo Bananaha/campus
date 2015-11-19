@@ -14,8 +14,8 @@
             localStorageService,
             modalService,
             historyService,
-            dbActionsService,
-            FORMDATAS
+            formDatasService,
+            dbActionsService
         ) {
             return {
                 restrict: 'A',
@@ -30,7 +30,8 @@
                         initialModelStorageName = 'form-' + name + 'init',
                         initialized = false,
                         datesKeys = ['dateDebut', 'dateFin'],
-                        initialModel;
+                        initialModel,
+                        formDatas = formDatasService.get();
 
                     $scope.state = {
                         valid: false,
@@ -41,9 +42,9 @@
                     $scope.modelChanged = false;
 
                     $scope.constants = {
-                        entites: FORMDATAS.entites,
-                        permissions: FORMDATAS.permissions,
-                        services: FORMDATAS.services
+                        entites: formDatas.entites,
+                        permissions: formDatas.permissions,
+                        services: formDatas.services
                     };
 
                     initModel();

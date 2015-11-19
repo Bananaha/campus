@@ -12,13 +12,13 @@
             notificationService,
             historyService,
             formatterService,
-            config,
-            FORMDATAS
+            formDatasService,
+            config
         ) {
 
             var ID = $routeParams.id;
 
-            $scope.opts = FORMDATAS;
+            $scope.opts = formDatasService.get();
 
             $scope.initialized = false;
 

@@ -12,7 +12,7 @@
             formatterService,
             confirmationService,
             notificationService,
-            FORMDATAS,
+            formDatasService,
             ACTIONS
         ) {
 
@@ -306,7 +306,7 @@
                     function format(data) {
                         return data.map(function(d) {
                             if (angular.isNumber(d.permission)) {
-                                d.permission = FORMDATAS.permissions.filter(function(perm) {
+                                d.permission = formDatasService.get().permissions.filter(function(perm) {
                                     return perm.id === d.permission;
                                 })[0].label;
                             }

@@ -8,11 +8,11 @@
             $timeout,
             appStateService,
             userService,
-            ACTIONS,
-            FORMDATAS
+            formDatasService,
+            ACTIONS
         ) {
 
-            var opts = FORMDATAS;
+            var opts = formDatasService.get();
 
             $scope.model = {
                 dispositif: null

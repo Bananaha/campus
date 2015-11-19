@@ -12,13 +12,13 @@
             notificationService,
             historyService,
             formatterService,
-            config,
-            FORMDATAS
+            formDatasService,
+            config
         ) {
 
             var ID = $routeParams.id;
 
-            $scope.permissions = FORMDATAS.permissions;
+            $scope.permissions = formDatasService.get().permissions;
 
             $scope.initialized = false;
 
