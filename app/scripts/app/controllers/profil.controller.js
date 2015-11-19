@@ -19,7 +19,11 @@
             $scope.model = {};
             $scope.isValid = false;
 
-            userService.get().then(init);
+            $scope.user = userService.get();
+
+            $timeout(function() {
+                $scope.initialized = true;
+            });
 
             $scope.$watch('model', onModelChange, true);
 
@@ -62,13 +66,6 @@
 
             function isValid() {
                 return $scope.profilPasswordModification.$valid && $scope.model.newPassword === $scope.model.newPassword2;
-            }
-
-            function init(userData) {
-                $scope.user = userData;
-                $timeout(function() {
-                    $scope.initialized = true;
-                });
             }
 
             function onModelChange() {
