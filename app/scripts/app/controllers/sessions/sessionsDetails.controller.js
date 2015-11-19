@@ -22,7 +22,6 @@
             var ID = $routeParams.id,
                 changeTimeout,
                 defaultCout,
-                attendanceInitialized,
                 populations = ['formateurs', 'stagiaires'];
 
             $scope.initialized = false;
@@ -44,7 +43,7 @@
             $scope.attendanceSettings = {};
 
             $scope.session = {};
-            
+
             $scope.$watch('participantsDetails', onParticipantsDetailsChange, true);
             $scope.$watch('participants', onParticipantsChange, true);
             $scope.$watch('session.cout', onCostChange, true);
@@ -112,29 +111,6 @@
                 $scope.session.archive = false;
             }
 
-            function onAttendanceChange() {
-                console.log('attendanceInitialized', attendanceInitialized);
-                if (attendanceInitialized) {
-                    console.log('onAttendanceChange');
-                    console.log('here');
-                    $timeout.cancel(changeTimeout);
-                    changeTimeout = $timeout(saveAttendance, 200);
-                }
-            }
-
-            function saveAttendance() {
-                console.log('save attendance');
-                var params = {
-                    id: ID,
-                    attendance: $scope.attendance
-                };
-
-                dbActionsService
-                    .update(config.urls.sessionsModification, params)
-                    .then(onUpdateSuccess, onUpdateError);
-            }
-
-
             function onParticipantsChange() {
                 if ($scope.initialized) {
                     $timeout.cancel(changeTimeout);
@@ -144,13 +120,8 @@
 
             function onParticipantsDetailsChange() {
                 if ($scope.initialized && participantsDetailsReady()) {
-
                     if(!$scope.showAttendance) {
                         $scope.showAttendance = true;
-                        $scope.$watch('attendance', onAttendanceChange);
-                        $timeout(function() {
-                            attendanceInitialized = true;
-                        });
                     }
                 }
             }

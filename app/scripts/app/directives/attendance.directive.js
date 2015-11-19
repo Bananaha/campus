@@ -3,10 +3,9 @@
 
     angular.module('campus.app').directive('attendance', function (
             $timeout,
-            $window,
-            $http,
             config,
-            utilisateursService
+            utilisateursService,
+            localStorageService
         ) {
             return {
                 restrict: 'E',
@@ -14,36 +13,54 @@
                 scope: {
                     participantsDetails: '=',
                     settings: '=',
-                    attendance: '='
+                    attendance: '=attendance'
                 },
                 link: function ($scope, element) {
 
-                    $scope.$watch('participantsDetails', onParticipantsChange, true);
-                    $scope.$watch('attendance', function() {
-                        console.log('attendance changed in directive');
-                        console.log($scope.attendance);
-                    }, true);
+                    var initialModelStorageName = 'form-attendanceinit',
+                        initialized;
 
-                    function onParticipantsChange(participants) {
+                    $scope.model = {
+                        attendance: $scope.attendance
+                    };
+
+                    $timeout(init);
+
+                    function init() {
+                        $scope.$watch('participantsDetails', onParticipantsChange, true);
+                    }
+
+                    function onParticipantsChange() {
+                        var participants = formatParticipants();
+                        sortParticipants(participants);
+                        updateAttendance();
+                        $scope.showTable = true;
+                    }
+
+                    function formatParticipants() {
+                        var _participants = angular.copy($scope.participantsDetails);
+
                         ['formateurs', 'stagiaires'].forEach(function(key, index) {
-                            participants[key] = participants[key].map(function(participant) {
+                            _participants[key] = _participants[key].map(function(participant) {
                                 participant.statut = index ? 'Stagiaire' : 'Formateur';
                                 return participant;
                             });
                         });
 
+                        return _participants;
+                    }
+
+                    function sortParticipants(participants) {
                         $scope.displayedParticipants = participants.formateurs
                             .concat(participants.stagiaires)
                             .sort(function(a, b) {
                                 return a.id - b.id;
                             });
-
-                        updateAttendance();
                     }
 
                     function updateAttendance() {
                         var newAttendance = $scope.displayedParticipants.reduce(function(globalAttendance, participant) {
-                            var attendance = $scope.attendance[participant.id];
+                            var attendance = $scope.model.attendance[participant.id];
                             globalAttendance[participant.id] = {
                                 temps: attendance ? attendance.temps || $scope.settings.defaultDuree : $scope.settings.defaultDuree,
                                 production: attendance ? attendance.production : true
@@ -51,9 +68,24 @@
                             return globalAttendance;
                         }, {});
 
-                        $scope.attendance = newAttendance;
+                        updateInitialModel(newAttendance);
+                        $scope.model.attendance = newAttendance;
                     }
-                }              
+
+                    // freeze the new initial model when a user is deleted
+                    function updateInitialModel(participants) {
+                        var initialModel = localStorageService.get(initialModelStorageName);
+                        if (initialModel) {
+                            initialModel = JSON.parse(initialModel);
+                            Object.keys(initialModel.attendance).forEach(function(userId) {
+                                if (!participants[userId]) {
+                                    delete initialModel.attendance[userId];
+                                }
+                            });
+                            localStorageService.set(initialModelStorageName, JSON.stringify(initialModel));
+                        }
+                    }
+                }
             };
         }
     );

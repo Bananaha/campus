@@ -134,6 +134,7 @@
                     }
 
                     function isDifferentModel() {
+                        initialModel = localStorageService.get(initialModelStorageName);
                         return initialModel !== JSON.stringify($scope.model);
                     }
 
@@ -182,7 +183,7 @@
                                 _url = $location.url() + '/' + res.data.id;
                             }
                             $location.url(_url);
-                        } else {
+                        } else if (target !== '#') {
                             historyService.back();
                         }
                     }

@@ -5,29 +5,5 @@
     "prenom": "James",
     "poste": "sunt deserunt",
     "sortie": "17/09/2011"
-  },
-  {
-    "id": "451",
-    "nom": "Mejia",
-    "prenom": "Rodriquez",
-    "poste": "aliqua non",
-    "contrat": "CDI",
-    "sortie": "04/04/2011"
-  },
-  {
-    "id": "237",
-    "nom": "Hartman",
-    "prenom": "Pat",
-    "poste": "reprehenderit consequat",
-    "contrat": "CTI",
-    "sortie": "03/01/2013"
-  },
-  {
-    "id": "958",
-    "nom": "Bird",
-    "prenom": "Burton",
-    "poste": "est dolor",
-    "contrat": "CAP",
-    "sortie": "31/07/2013"
   }
 ]
