@@ -101,6 +101,11 @@
                 }
 
                 that.showView = $location.url() === '/login' || that.logged;
+
+                if (that.showView) {
+                    that.user = userService.get();
+                    console.log(that.user);
+                }
             }
 
             // CONFIRMATION

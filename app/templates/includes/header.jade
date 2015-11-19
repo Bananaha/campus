@@ -9,6 +9,8 @@ header.header
         ng-if="App.showBack",
         ng-click="App.back()")
 
+      span.header-user {{App.user.prenom}} {{App.user.nom}}
+
       .header-menu(ng-controller="headerMenuController")
 
         button.header-menu-button.btnIcon.big.menu(type="button",
