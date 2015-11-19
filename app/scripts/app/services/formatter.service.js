@@ -3,10 +3,10 @@
 
     angular.module('campus.app').factory('formatterService',
         function(
-
+            FORMDATAS
         ) {
 
-            var list = [{
+            var LIST = [{
                     label: 'Dispositif',
                     key: 'dispositif'
                 }, {
@@ -59,22 +59,28 @@
                     date: true
                 }];
 
-            this.formatAsList = function(datas) {
-                return Object.keys(datas).map(function(key) {
-                    var listItem = getItem(key);
-                    return {
-                        label: listItem.label,
-                        value: getFormattedValue(key, datas[key])
-                    };
-                });
-            };
-
             this.format = function(datas) {
                 return Object.keys(datas).reduce(function(obj, key) {
                     obj[key] = getFormattedValue(key, datas[key]);
                     return obj;
                 }, {});
             };
+
+            this.toDisplay = function(datas) {
+                datas = this.format(datas);
+                return Object.keys(datas).reduce(function(obj, key) {
+                    if (FORMDATAS[key]) {
+                        obj[key] = getListObject(FORMDATAS[key], datas[key]).label;
+                    }
+                    return obj;
+                }, datas);
+            };
+
+            function getListObject(list, value) {
+                return list.filter(function(obj) {
+                    return obj.value === value || obj.id === value;
+                })[0];
+            }
 
             function getFormattedValue(key, value) {
                 var listItem = getItem(key);
@@ -87,7 +93,7 @@
             }
 
             function getItem(key) {
-                return list.filter(function(item) {
+                return LIST.filter(function(item) {
                     return item.key === key;
                 })[0];
             }

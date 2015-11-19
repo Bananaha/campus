@@ -204,7 +204,7 @@
             }
 
             function formatDatas(datas) {
-                return formatterService.format(datas);
+                return formatterService.toDisplay(datas);
             }
 
         });
