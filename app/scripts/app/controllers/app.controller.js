@@ -104,7 +104,6 @@
 
                 if (that.showView) {
                     that.user = userService.get();
-                    console.log(that.user);
                 }
             }
 

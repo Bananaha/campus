@@ -41,13 +41,21 @@ h2.module-title Création d'un utilisateur
             - opt.required = true
             +input(opt)
 
-      .col-1
+      //-.col-1
           +form-underlined("Entité")
             - opt = {}
             - opt.ngModel = "model.entite"
             - opt.ngOptions = "entite as entite for entite in constants.entites"
             - opt.required = true
             +select(opt)
+
+      .col-1
+        p.form-underlined-label Entité
+        div(ng-repeat="entite in constants.entites")
+          - opt = {}
+          - opt.label = "{{entite}}"
+          - opt.ngModel = "model.entite[entite]"
+          +custom-checkbox(opt)
 
       .col-1
           +form-underlined("Service")
