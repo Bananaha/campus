@@ -15,10 +15,9 @@
                     settings: '=',
                     attendance: '=attendance'
                 },
-                link: function ($scope, element) {
+                link: function ($scope) {
 
-                    var initialModelStorageName = 'form-attendanceinit',
-                        initialized;
+                    var initialModelStorageName = 'form-attendanceinit';
 
                     $scope.model = {
                         attendance: $scope.attendance
@@ -41,13 +40,15 @@
                         var _participants = angular.copy($scope.participantsDetails);
 
                         ['formateurs', 'stagiaires'].forEach(function(key, index) {
-                            _participants[key] = _participants[key].map(function(participant) {
-                                participant.statut = index ? 'Stagiaire' : 'Formateur';
-                                return participant;
-                            });
+                            _participants[key] = _participants[key].map(setStatut.bind(this, index));
                         });
 
                         return _participants;
+                    }
+
+                    function setStatut(index, participant) {
+                        participant.statut = index ? 'Stagiaire' : 'Formateur';
+                        return participant;
                     }
 
                     function sortParticipants(participants) {

@@ -119,10 +119,8 @@
             }
 
             function onParticipantsDetailsChange() {
-                if ($scope.initialized && participantsDetailsReady()) {
-                    if(!$scope.showAttendance) {
-                        $scope.showAttendance = true;
-                    }
+                if (!$scope.showAttendance && $scope.initialized && participantsDetailsReady()) {
+                    $scope.showAttendance = true;
                 }
             }
 

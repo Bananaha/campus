@@ -2,16 +2,12 @@ extends layouts/head.jade
 
 block layoutContent
 
+  include includes/notification
+
   .ng-cloak(ng-if="App.logged")
-
     include includes/header
-
     include includes/nav
-
     iframe#downloader
-
-    include includes/notification
-
     include includes/confirmation
 
   .view.ng-cloak(ng-view,

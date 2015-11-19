@@ -7,16 +7,17 @@
             $scope,
             $http,
             $location,
+            notificationService,
             userService,
             config
         ) {
 
             $scope.model = {};
 
-            //userService.set(null);
+            userService.set(null);
 
             $scope.forgottenPassword = function() {
-                console.log('forgottenPassword');
+                notificationService.warn('Veuillez contacter votre administrateur de site.');
             };
 
             $scope.submit = function() {
@@ -38,7 +39,7 @@
             }
 
             function onSubmitError() {
-                console.log('onSubmitError');
+                notificationService.warn('Identifiants invalides.');
             }
 
         });
