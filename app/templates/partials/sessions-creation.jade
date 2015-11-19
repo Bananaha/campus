@@ -69,6 +69,14 @@ form(name="sessionsCreation",
           - opt.ngOptions = "opt.value as opt.label for opt in opts.format"
           +select(opt)
 
+      .col-1(ng-if="model.format === 'VAE'")
+        +form-underlined("Obtention")
+          - opt = {}
+          - opt.required = true
+          - opt.ngModel = "model.obtention"
+          - opt.ngOptions = "opt.value as opt.label for opt in opts.obtention"
+          +select(opt)
+
       .col-1
         +form-underlined("Organisme")
           - opt = {}

@@ -123,6 +123,14 @@
                 value: 'professionnalisation'
             }],
 
+            obtention: [{
+                label: 'Partielle',
+                value: false
+            }, {
+                label: 'Complète',
+                value: true
+            }],
+
             reprisePoste: [{
                 label: 'Oui',
                 value: true

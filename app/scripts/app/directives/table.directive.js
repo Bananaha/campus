@@ -11,6 +11,7 @@
             dbActionsService,
             formatterService,
             confirmationService,
+            notificationService,
             FORMDATAS,
             ACTIONS
         ) {
@@ -270,12 +271,7 @@
                                 url: config.url,
                                 params: params,
                                 timeout: requestPromise
-                            })
-                            .success(function(res) {
-                                if (res) {
-                                    onResponse(res);
-                                }
-                            });
+                            }).then(onGetDatasSuccess, onGetDatasError);
                     }
 
                     function filters() {
@@ -290,10 +286,20 @@
                         getDatas();
                     }
 
-                    function onResponse(data) {
-                        $scope.hasNext = data.length >= config.itemPerPage;
-                        data = format(data.slice(0, config.itemPerPage));
-                        Array.prototype.push.apply($scope.datas, data);
+                    function onGetDatasSuccess(res) {
+                        var data = res.data;
+                        if (!res.data.length) {
+                            notificationService.say('Aucun résultat pour votre recherche');
+                        } else {
+                            $scope.hasNext = data.length >= config.itemPerPage;
+                            data = format(data.slice(0, config.itemPerPage));
+                            Array.prototype.push.apply($scope.datas, data);
+                        }
+                        loading(false);
+                    }
+
+                    function onGetDatasError() {
+                        notificationService.warn('Erreur lors de la récupération des données.');
                         loading(false);
                     }
 
