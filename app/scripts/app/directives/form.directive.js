@@ -197,6 +197,7 @@
                     function formatParams() {
                         var params = {};
                         formatterService.toParams($scope.model);
+                        console.log(formatterService.toParams($scope.model));
                         Object.keys($scope.model).forEach(function(key) {
                             if (String($scope.model[key]).length) {
                                 params[key] = $scope.model[key];

@@ -77,10 +77,10 @@
                     if (formDatas[key]) {
                         if (angular.isArray(obj[key])) {
                             obj[key] = obj[key].map(function(_obj) {
-                                return getListObject(formDatas[key], _obj);
+                                return getValue(formDatas[key], _obj);
                             }).join(', ');
                         } else {
-                            obj[key] = getListObject(formDatas[key], datas[key]);
+                            obj[key] = getValue(formDatas[key], datas[key])
                         }
                     }
                     return obj;
@@ -100,17 +100,34 @@
             };
 
             this.toParams = function(datas) {
-                Object.keys(datas).reduce(function(obj, key) {
-                    console.log(key);
-                });
-                return datas;
+                return Object.keys(datas).reduce(function(res, key) {
+                    var objSettings = getListObject(LIST, key);
+                    if (objSettings && objSettings.multipleChoice) {
+                        res[key] = formatMultipleChoice(datas[key]);
+                        console.log(key, res[key]);
+                    }
+                    return res;
+                }, datas);
             };
 
+            function formatMultipleChoice(obj) {
+                return Object.keys(obj).reduce(function(res, key) {
+                    if (obj[key]) {
+                        res.push(key);
+                    }
+                    return res;
+                }, []);
+            }
+
+            function getValue(list, obj) {
+                var listObj = getListObject(list, obj);
+                return listObj ? listObj.label: obj;
+            }
+
             function getListObject(list, value) {
-                var obj = list.filter(function(_obj) {
-                    return _obj.value === value || _obj.id === value;
+                return list.filter(function(obj) {
+                    return obj.key === value || obj.value === value || obj.id === value;
                 })[0];
-                return obj ? obj.label : value;
             }
 
             function getFormattedValue(key, value) {
