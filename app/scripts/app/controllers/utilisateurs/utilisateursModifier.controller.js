@@ -18,7 +18,7 @@
 
             var ID = $routeParams.id;
 
-            $scope.permissions = formDatasService.get().permissions;
+            $scope.permission = formDatasService.get().permission;
 
             $scope.initialized = false;
 

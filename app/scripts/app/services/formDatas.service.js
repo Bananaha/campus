@@ -9,7 +9,7 @@
 
             this.get = function() {
                 var datas = FORMDATAS;
-                datas.entites = userService.get().entite;
+                datas.entites = userService.get().entites;
                 return datas;
             };
 

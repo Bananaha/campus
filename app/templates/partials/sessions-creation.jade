@@ -21,10 +21,10 @@ form(name="sessionsCreation",
           +input(opt)
 
       .col-1
-        +form-underlined("Entité")
+        +form-underlined("Entités")
           - opt = {}
-          - opt.ngModel = "model.entite"
-          - opt.ngOptions = "entite as entite for entite in opts.entites"
+          - opt.ngModel = "model.entites"
+          - opt.ngOptions = "entites as entites for entites in opts.entites"
           - opt.required = true
           +select(opt)
 

@@ -41,20 +41,12 @@ h2.module-title Création d'un utilisateur
             - opt.required = true
             +input(opt)
 
-      //-.col-1
-          +form-underlined("Entité")
-            - opt = {}
-            - opt.ngModel = "model.entite"
-            - opt.ngOptions = "entite as entite for entite in constants.entites"
-            - opt.required = true
-            +select(opt)
-
       .col-1
-        p.form-underlined-label Entité
-        div(ng-repeat="entite in constants.entites")
+        p.form-underlined-label Entités
+        div(ng-repeat="entites in constants.entites")
           - opt = {}
-          - opt.label = "{{entite}}"
-          - opt.ngModel = "model.entite[entite]"
+          - opt.label = "{{entites}}"
+          - opt.ngModel = "model.entites[entites]"
           +custom-checkbox(opt)
 
       .col-1
@@ -69,7 +61,7 @@ h2.module-title Création d'un utilisateur
           +form-underlined("Droits d'accès")
             - opt = {}
             - opt.ngModel = "model.permission"
-            - opt.ngOptions = "permission.id as permission.label for permission in constants.permissions"
+            - opt.ngOptions = "permission.id as permission.label for permission in constants.permission"
             - opt.required = true
             +select(opt)
 

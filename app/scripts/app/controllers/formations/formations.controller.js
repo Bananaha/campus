@@ -51,7 +51,7 @@
             $scope.filtersSettings = {
                 dispositif: true,
                 archive: true,
-                entite: userService.get().entite
+                entites: userService.get().entites
             };
 
             appStateService.isLoading(false);

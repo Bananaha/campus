@@ -1,6 +1,6 @@
 {
     "id": "fakeIdAccompagnement",
-    "entite": "B2S AIX",
+    "entites": "B2S AIX",
     "dispositif": "accompagnement",
     "archive": true,
     "action": 598,

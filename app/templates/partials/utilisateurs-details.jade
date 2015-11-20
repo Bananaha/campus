@@ -14,9 +14,11 @@ include ../mixins/main
             a(ng-href="#/utilisateurs/{{userDetail.id}}/modifier").module-header-action.btnIcon.circle.big.modify
 
         ul.details-list
-          li(ng-repeat="item in userDetail.list")
-            span.details-label {{item.label}}
-            span.details-value {{item.value}}
+          +details-list("Adresse mail", "userDetail.mail")
+          +details-list("Mot de passe", "userDetail.password")
+          +details-list("Entités", "userDetail.entites")
+          +details-list("Service", "userDetail.service")
+          +details-list("Droits d'accès", "userDetail.permission")
 
   .col-1-2(ng-if="userDetail.actions.participant")
       h2.module-title Participant sur

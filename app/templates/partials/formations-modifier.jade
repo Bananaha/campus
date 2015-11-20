@@ -17,11 +17,11 @@ h2.module-title Modification d'une action de formation
     .grid.pad
 
       .col-1
-        +form-underlined("Entité")
+        +form-underlined("Entités")
           - opt = {}
           - opt.required = true
-          - opt.ngModel = "model.entite"
-          - opt.ngOptions = "entite for entite in opts.entites"
+          - opt.ngModel = "model.entites"
+          - opt.ngOptions = "entites for entites in opts.entites"
           +select(opt)
 
     .grid.pad(ng-if="model.dispositif === 'employeur' || model.dispositif === 'accompagnement'")

@@ -26,8 +26,8 @@
                         klass: 'w-100',
                         link: 'utilisateur'
                     }, {
-                        label: 'Entité',
-                        key: 'entite',
+                        label: 'Entités',
+                        key: 'entites',
                         sort: true,
                         klass: 'col-1'
                     }, {

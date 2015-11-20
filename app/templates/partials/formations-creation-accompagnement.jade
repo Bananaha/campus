@@ -29,11 +29,11 @@ form(name="formationsCreation",
               +input(opt)
 
           .col-1
-            +form-underlined("Entité")
+            +form-underlined("Entités")
               - opt = {}
               - opt.required = true
-              - opt.ngModel = "model.entite"
-              - opt.ngOptions = "entite for entite in opts.entites"
+              - opt.ngModel = "model.entites"
+              - opt.ngOptions = "entites for entites in opts.entites"
               +select(opt)
 
           .col-1

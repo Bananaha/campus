@@ -20,7 +20,7 @@
 
             $timeout(init);
 
-            opts.entites = userService.get().entite;
+            opts.entites = userService.get().entites;
             $scope.opts = opts;
 
             $scope.opts.dispositif = ACTIONS.filter(function(action) {

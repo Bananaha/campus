@@ -306,7 +306,7 @@
                     function format(data) {
                         return data.map(function(d) {
                             if (angular.isNumber(d.permission)) {
-                                d.permission = formDatasService.get().permissions.filter(function(perm) {
+                                d.permission = formDatasService.get().permission.filter(function(perm) {
                                     return perm.id === d.permission;
                                 })[0].label;
                             }
@@ -315,7 +315,7 @@
                                     return action.id === d.dispositif;
                                 })[0].abbr;
                             }
-                            return formatterService.format(d);
+                            return formatterService.toDisplay(d);
                         });
                     }
 

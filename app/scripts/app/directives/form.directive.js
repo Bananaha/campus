@@ -43,7 +43,7 @@
 
                     $scope.constants = {
                         entites: formDatas.entites,
-                        permissions: formDatas.permissions,
+                        permission: formDatas.permission,
                         services: formDatas.services
                     };
 

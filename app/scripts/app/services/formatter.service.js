@@ -67,19 +67,27 @@
             };
 
             this.toDisplay = function(datas) {
+                var formDatas = formDatasService.get();
                 datas = this.format(datas);
                 return Object.keys(datas).reduce(function(obj, key) {
-                    if (formDatasService.get()[key]) {
-                        obj[key] = getListObject(formDatasService.get()[key], datas[key]).label;
+                    if (formDatas[key]) {
+                        if (angular.isArray(obj[key])) {
+                            obj[key] = obj[key].map(function(_obj) {
+                                return getListObject(formDatas[key], _obj);
+                            }).join(', ');
+                        } else {
+                            obj[key] = getListObject(formDatas[key], datas[key]);
+                        }
                     }
                     return obj;
                 }, datas);
             };
 
             function getListObject(list, value) {
-                return list.filter(function(obj) {
-                    return obj.value === value || obj.id === value;
+                var obj = list.filter(function(_obj) {
+                    return _obj.value === value || _obj.id === value;
                 })[0];
+                return obj ? obj.label : value;
             }
 
             function getFormattedValue(key, value) {

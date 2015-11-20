@@ -4,8 +4,8 @@
     "prenom": "Benjamin",
     "service": "Direction",
     "permission": 1,
-    "mail": "benjamin.compton@gmail.com",
-    "entite": [
+    "mail": "benjamin.compton@fakemail.com",
+    "entites": [
         "B2S AIX",
         "B2S SAS"
     ]

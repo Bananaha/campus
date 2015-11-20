@@ -87,7 +87,7 @@
 
             function fillInheritedData(data) {
                 var inheritedKeys = [
-                    'entite',
+                    'entites',
                     'categorie',
                     'nature',
                     'nomOrganisme',

@@ -24,7 +24,7 @@
                 'Autres fonctions'
             ],
 
-            permissions: [{
+            permission: [{
                 label: 'Standard',
                 id: 0
             }, {

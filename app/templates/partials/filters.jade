@@ -23,10 +23,10 @@ button.filters-toggler.btn(type="button",
         - opt.ngModel = "model.archive"
         +custom-checkbox(opt)
 
-    .filters-group(ng-if="settings.entite")
+    .filters-group(ng-if="settings.entites")
       h3.filters-title Entités
-      .filter(ng-repeat="filter in settings.entite")
+      .filter(ng-repeat="filter in settings.entites")
         - opt = {}
         - opt.label = "{{filter}}"
-        - opt.ngModel = "model.entite[filter]"
+        - opt.ngModel = "model.entites[filter]"
         +custom-checkbox(opt)
