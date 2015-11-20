@@ -42,11 +42,11 @@ h2.module-title Création d'un utilisateur
             +input(opt)
 
       .col-1
-        p.form-underlined-label Entités
-        div(ng-repeat="entites in constants.entites")
+        .form-underlined-label.fixed Entités
+        .checbox-container(ng-repeat="entite in constants.entites")
           - opt = {}
-          - opt.label = "{{entites}}"
-          - opt.ngModel = "model.entites[entites]"
+          - opt.label = "{{entite}}"
+          - opt.ngModel = "model.entites[entite]"
           +custom-checkbox(opt)
 
       .col-1

@@ -2,7 +2,7 @@
     "id": "56000d80d0880b1a2ce0c620",
     "nom": "Compton",
     "prenom": "Benjamin",
-    "entites": ["B2S SAS", "B2S ROANNE"],
+    "entites": ["B2S SAS", "B2S AIX"],
     "service": "Direction",
     "permission": 1,
     "mail": "benjamin.compton@gmail.com",

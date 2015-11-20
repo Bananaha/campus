@@ -22,6 +22,10 @@
                     label: 'Produit',
                     key: 'produit'
                 }, {
+                    label: 'Entités',
+                    key: 'entites',
+                    multipleChoice: true
+                }, {
                     label: 'Date de début',
                     key: 'from',
                     date: true
@@ -81,6 +85,25 @@
                     }
                     return obj;
                 }, datas);
+            };
+
+            this.toForm = function(datas) {
+                angular.forEach(datas, function(value, key) {
+                    if (angular.isArray(value)) {
+                        datas[key] = value.reduce(function(obj, val) {
+                            obj[val] = true;
+                            return obj;
+                        }, {});
+                    }
+                });
+                return datas;
+            };
+
+            this.toParams = function(datas) {
+                Object.keys(datas).reduce(function(obj, key) {
+                    console.log(key);
+                });
+                return datas;
             };
 
             function getListObject(list, value) {

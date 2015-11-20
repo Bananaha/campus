@@ -15,7 +15,8 @@
             modalService,
             historyService,
             formDatasService,
-            dbActionsService
+            dbActionsService,
+            formatterService
         ) {
             return {
                 restrict: 'A',
@@ -140,6 +141,10 @@
                     }
 
                     function onModelChange() {
+                        if (!initialized) {
+                            $scope.model = formatterService.toForm($scope.model);
+                        }
+
                         if (initialized) {
                             $scope.modelChanged = isDifferentModel();
                             if ($scope.modelChanged) {
@@ -165,7 +170,7 @@
                                 request = dbActionsService.update(url, params);
                             break;
                         }
-
+                        return;
                         request
                             .then(onRequestSuccess);
                     }
@@ -191,6 +196,7 @@
 
                     function formatParams() {
                         var params = {};
+                        formatterService.toParams($scope.model);
                         Object.keys($scope.model).forEach(function(key) {
                             if (String($scope.model[key]).length) {
                                 params[key] = $scope.model[key];

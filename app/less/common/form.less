@@ -81,6 +81,12 @@ select {
     }
 }
 
+.mixin_activeLabel {
+    top: @u-base;
+    font-size: 1.2rem;
+    color: @color-text;
+}
+
 .form-underlined {
     position: relative;
     display: block;
@@ -111,9 +117,7 @@ select {
         &:focus ~ .form-underlined-label,
         &.filled ~ .form-underlined-label,
         &.ng-invalid-email ~ .form-underlined-label {
-            top: @u-base;
-            font-size: 1.2rem;
-            color: @color-text;
+            .mixin_activeLabel;
         }
 
         &:focus {
@@ -145,6 +149,13 @@ select {
     pointer-events: none;
     left: 0;
     top: @u-base + @size-labelledInput;
+
+    &.fixed {
+        .mixin_activeLabel;
+        position: static;
+        line-height: @size-labelledInput;
+        margin-bottom: @u-base;
+    }
 }
 
 .searchBox {
@@ -198,6 +209,14 @@ form.ng-submitted {
 // CHECKBOX
 @checkbox-size: 8px;
 
+.checbox-container {
+    display: inline-block;
+
+    + .checbox-container {
+        margin-left: @u-medium;
+    }
+}
+
 .checkbox {
     cursor: pointer;
     position: relative;
@@ -225,6 +244,7 @@ form.ng-submitted {
     vertical-align: middle;
     width: @checkbox-size;
     height: @checkbox-size;
+    margin-left: 3px;
 
     &::before,
     &::after {
@@ -278,11 +298,16 @@ form.ng-submitted {
 }
 
 .checkbox-label {
-    font-size: 1.2rem;
+    color: @color-gray-04;
     margin-left: 8px;
     vertical-align: middle;
+    line-height: 0.8;
 
     input:checked ~ & {
         color: @color-main;
+    }
+
+    .filters & {
+        font-size: 1.2rem;
     }
 }
