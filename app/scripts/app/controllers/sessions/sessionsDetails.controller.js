@@ -173,7 +173,7 @@
             }
 
             function onGetDetailSuccess(res) {
-                $scope.session = formatDatas(res.data);
+                $scope.session = formatterService.toDisplay(res.data);
                 $scope.participants = res.data.participants;
                 $scope.hasUsers = true;
 
@@ -202,11 +202,6 @@
                 notificationService.warn('Erreur lors de la récupération des données de la session ' + ID + '.');
                 historyService.back();
             }
-
-            function formatDatas(datas) {
-                return formatterService.toDisplay(datas);
-            }
-
         });
 
 }(window, window.angular));

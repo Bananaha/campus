@@ -195,10 +195,7 @@
                     }
 
                     function formatParams() {
-                        console.log('formatParams');
-                        console.log($scope.model);
                         var params = formatterService.toParams($scope.model);
-                        console.log(params);
                         return params;
                     }
                 }

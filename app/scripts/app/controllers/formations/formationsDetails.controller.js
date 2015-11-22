@@ -130,7 +130,7 @@
 
             function onGetDetailSuccess(res) {
                 var actionConfig = actionsService.getConfig(res.data.dispositif);
-                $scope.formation = formatDatas(res.data);
+                $scope.formation = formatterService.toDisplay(res.data);
 
                 $scope.hasSessions = !actionConfig.isSession;
 
@@ -155,11 +155,6 @@
                 notificationService.warn('Erreur lors de la récupération des données de l\'action ' + ID + '.');
                 historyService.back();
             }
-
-            function formatDatas(datas) {
-                return formatterService.toDisplay(datas);
-            }
-
         });
 
 }(window, window.angular));

@@ -63,18 +63,14 @@
                     date: true
                 }];
 
-            this.format = function(datas, filters) {
-                applyFilters(datas, filters);
-                return Object.keys(datas).reduce(function(obj, key) {
-                    obj[key] = getFormattedValueToDisplay(key, datas[key]);
-                    return obj;
-                }, {});
-            };
-
             this.toDisplay = function(datas) {
                 var formDatas = formDatasService.get();
-                datas = this.format(datas);
+                
                 return Object.keys(datas).reduce(function(obj, key) {
+                    // format from LIST
+                    obj[key] = getFormattedValueToDisplay(key, datas[key]);
+
+                    // format from FORMDATAS constant
                     if (formDatas[key]) {
                         if (angular.isArray(obj[key])) {
                             obj[key] = obj[key].map(function(_obj) {
@@ -91,7 +87,6 @@
             this.toForm = function(datas) {
                 angular.forEach(datas, function(value, key) {
                     if (angular.isArray(value)) {
-                        console.log('toForm', key);
                         datas[key] = value.reduce(function(obj, val) {
                             obj[val] = true;
                             return obj;
@@ -123,14 +118,19 @@
                 return params;
             };
 
-            function applyFilters(datas, filters) {
-                return filters.reduce(function(obj, key) {
-                        if (angular.isDefined(res.data[key])) {
-                            obj[key] = res.data[key];
+            // return datas filtered by filters keys
+            this.filters = function(datas, filters) {
+                if (filters) {
+                    return filters.reduce(function(obj, key) {
+                        if (angular.isDefined(datas[key])) {
+                            obj[key] = datas[key];
                         }
                         return obj;
                     }, {});
-            }
+                } else {
+                    return datas;
+                }  
+            };
 
             function getFormattedValueToParams(value, settings) {
                 if (settings.multipleChoice) {
@@ -151,19 +151,8 @@
                 }, []);
             }
 
-            function getValue(list, obj) {
-                var listObj = getListObject(list, obj);
-                return listObj ? listObj.label: obj;
-            }
-
-            function getListObject(list, value) {
-                return list.filter(function(obj) {
-                    return obj.key === value || obj.value === value || obj.id === value;
-                })[0];
-            }
-
             function getFormattedValueToDisplay(key, value) {
-                var listItem = getItem(key);
+                var listItem = getListObject(LIST, key);
                 if (listItem) {
                     if (listItem.date) {
                         value = moment(value).format('DD/MM/YYYY');
@@ -172,9 +161,14 @@
                 return value;
             }
 
-            function getItem(key) {
-                return LIST.filter(function(item) {
-                    return item.key === key;
+            function getValue(list, obj) {
+                var listObj = getListObject(list, obj);
+                return listObj ? listObj.label: obj;
+            }
+
+            function getListObject(list, value) {
+                return list.filter(function(obj) {
+                    return obj.key === value || obj.value === value || obj.id === value;
                 })[0];
             }
 

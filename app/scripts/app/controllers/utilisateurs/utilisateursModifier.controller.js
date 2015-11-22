@@ -32,15 +32,17 @@
                 .then(onGetRequestSuccess, onGetRequestError);
 
             function onGetRequestSuccess(res) {
-                var data = ['entites', 'id', 'mail', 'nom', 'password', 'permission', 'prenom', 'service']
-                    .reduce(function(obj, key) {
-                        if (res.data[key]) {
-                            obj[key] = res.data[key];
-                        }
-                        return obj;
-                    }, {});
-                console.log(data);
-                $scope.model = formatterService.format(data);
+                var allowedKeys = [
+                    'entites', 
+                    'id', 
+                    'mail', 
+                    'nom', 
+                    'password', 
+                    'permission', 
+                    'prenom', 
+                    'service'
+                ];
+                $scope.model = formatterService.filters(res.data, allowedKeys);
                 $timeout(function() {
                     $scope.initialized = true;
                 });

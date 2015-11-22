@@ -32,7 +32,8 @@
                 .then(onGetRequestSuccess, onGetRequestError);
 
             function onGetRequestSuccess(res) {
-                $scope.model = formatDatas(res.data);
+                $scope.model = res.data;
+
                 $timeout(function() {
                     $scope.initialized = true;
                     $scope.$watch('model.dispositif', onDispositifChange);
@@ -42,10 +43,6 @@
             function onGetRequestError() {
                 notificationService.warn('Erreur lors de la récupération des données de l\'action ' + ID + '.');
                 historyService.back();
-            }
-
-            function formatDatas(datas) {
-                return formatterService.format(datas);
             }
 
             function onDispositifChange(dispositif) {
