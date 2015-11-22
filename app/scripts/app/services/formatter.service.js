@@ -63,9 +63,10 @@
                     date: true
                 }];
 
-            this.format = function(datas) {
+            this.format = function(datas, filters) {
+                applyFilters(datas, filters);
                 return Object.keys(datas).reduce(function(obj, key) {
-                    obj[key] = getFormattedValue(key, datas[key]);
+                    obj[key] = getFormattedValueToDisplay(key, datas[key]);
                     return obj;
                 }, {});
             };
@@ -90,6 +91,7 @@
             this.toForm = function(datas) {
                 angular.forEach(datas, function(value, key) {
                     if (angular.isArray(value)) {
+                        console.log('toForm', key);
                         datas[key] = value.reduce(function(obj, val) {
                             obj[val] = true;
                             return obj;
@@ -100,17 +102,47 @@
             };
 
             this.toParams = function(datas) {
-                return Object.keys(datas).reduce(function(res, key) {
-                    var objSettings = getListObject(LIST, key);
-                    if (objSettings && objSettings.multipleChoice) {
-                        res[key] = formatMultipleChoice(datas[key]);
-                        console.log(key, res[key]);
+                var params = {},
+                    keys = Object.keys(datas);
+
+                keys.forEach(function(key) {
+                    var value = datas[key],
+                        objSettings = getListObject(LIST, key);
+
+                    // keep not empty params only
+                    if (String(value).length) {
+
+                        if (objSettings) {
+                            params[key] = getFormattedValueToParams(value, objSettings);
+                        } else {
+                            params[key] = datas[key];
+                        }
                     }
-                    return res;
-                }, datas);
+
+                });
+                return params;
             };
 
-            function formatMultipleChoice(obj) {
+            function applyFilters(datas, filters) {
+                return filters.reduce(function(obj, key) {
+                        if (angular.isDefined(res.data[key])) {
+                            obj[key] = res.data[key];
+                        }
+                        return obj;
+                    }, {});
+            }
+
+            function getFormattedValueToParams(value, settings) {
+                if (settings.multipleChoice) {
+                    value = multipleChoiceToParams(value);
+                }
+                if (settings.date) {
+                    value = new Date(value).getTime();
+                }
+                return value;
+            }
+
+            function multipleChoiceToParams(obj) {
                 return Object.keys(obj).reduce(function(res, key) {
                     if (obj[key]) {
                         res.push(key);
@@ -130,7 +162,7 @@
                 })[0];
             }
 
-            function getFormattedValue(key, value) {
+            function getFormattedValueToDisplay(key, value) {
                 var listItem = getItem(key);
                 if (listItem) {
                     if (listItem.date) {

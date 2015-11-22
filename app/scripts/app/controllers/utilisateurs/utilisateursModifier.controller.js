@@ -32,7 +32,15 @@
                 .then(onGetRequestSuccess, onGetRequestError);
 
             function onGetRequestSuccess(res) {
-                $scope.model = formatterService.format(res.data);
+                var data = ['entites', 'id', 'mail', 'nom', 'password', 'permission', 'prenom', 'service']
+                    .reduce(function(obj, key) {
+                        if (res.data[key]) {
+                            obj[key] = res.data[key];
+                        }
+                        return obj;
+                    }, {});
+                console.log(data);
+                $scope.model = formatterService.format(data);
                 $timeout(function() {
                     $scope.initialized = true;
                 });

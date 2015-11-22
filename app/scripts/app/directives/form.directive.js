@@ -195,19 +195,10 @@
                     }
 
                     function formatParams() {
-                        var params = {};
-                        formatterService.toParams($scope.model);
-                        console.log(formatterService.toParams($scope.model));
-                        Object.keys($scope.model).forEach(function(key) {
-                            if (String($scope.model[key]).length) {
-                                params[key] = $scope.model[key];
-                            }
-                        });
-                        datesKeys.forEach(function(key) {
-                            if (params[key]) {
-                                params[key] = new Date(params[key]).getTime();
-                            }
-                        });
+                        console.log('formatParams');
+                        console.log($scope.model);
+                        var params = formatterService.toParams($scope.model);
+                        console.log(params);
                         return params;
                     }
                 }
