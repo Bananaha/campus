@@ -53,6 +53,12 @@ form(name="formationsCreation",
               - opt = {}
               - opt.ngModel = "model.produit"
               +input(opt)
+          
+          .col-1
+            +form-underlined("Type")
+              - opt = {}
+              - opt.ngModel = "model.type"
+              +select(opt)
 
           .col-1
             +form-underlined("Durée (heures)")

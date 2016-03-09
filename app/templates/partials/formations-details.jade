@@ -35,6 +35,9 @@ include ../mixins/main
           .col-1-2
             +details-list("Produit", "formation.produit")
 
+          .col-1-2
+            +details-list("Type", "formation.type")
+
         .grid.pad(ng-if="formation.dispositif !== 'accompagnement'")
 
           .col-1-2
@@ -48,7 +51,7 @@ include ../mixins/main
 
           .col-1
             +details-list("Population", "formation.population")
-
+          
           .col-1
             +details-list("Date de création", "formation.dateCreation")
 
@@ -60,6 +63,9 @@ include ../mixins/main
 
           .col-1
             +details-list("Prérequis", "formation.prerequis")
+          
+          .col-1
+            +details-list("Compétences associées", "formation.competencesassociees")
 
         .grid.pad(ng-if="formation.dispositif === 'accompagnement'")
 

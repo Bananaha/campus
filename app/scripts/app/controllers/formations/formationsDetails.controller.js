@@ -60,7 +60,7 @@
                         sort: true,
                         klass: 'w-90'
                     }, {
-                        label: 'auteur',
+                        label: 'Auteur',
                         key: 'auteurNom',
                         sort: true,
                         klass: 'w-100',

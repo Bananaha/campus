@@ -9,12 +9,12 @@ var path = require('path'),
 
 gulp.task('server', function () {
     browserSync({
-        files: path.join(config.dist, '**'),
-        watchOptions: {
-            interval: 250
-        },
+        //files: path.join(config.dist, '**'),
+        //watchOptions: {
+        //    interval: 250
+        //},
         port: 8080,
-        reloadDebounce: 500,
+        //reloadDebounce: 500,
         ghostMode: false,
         server: {
             baseDir: config.dist
@@ -25,6 +25,7 @@ gulp.task('server', function () {
 });
 
 gulp.task('watch', function () {
+	/*
     var frequentChangesOpts = { interval: 500 },
         infrequentChangesOpts = { interval: 2000 };
 
@@ -37,6 +38,7 @@ gulp.task('watch', function () {
     gulp.watch(path.join(config.src, 'less', '**', '*.less'), infrequentChangesOpts, ['styles']);
     gulp.watch(path.join(config.src, 'assets', '**'), ['assets']);
     gulp.watch(path.join(config.stubbyConfPath, '*.json'), ['stubbyConf']);
+    */
 });
 
 function concatArrays(datas) {
@@ -58,8 +60,8 @@ gulp.task('stubby', ['stubbyConf'], function (cb) {
         stubs: 8882,
         admin: 8889,
         data: config.stubbyConf,
-        mute: true,
-        watch: 'app/config/stubby.json'
+        //watch: 'app/config/stubby.json'
+        mute: true
     }, cb);
 });
 
