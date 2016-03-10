@@ -12,13 +12,18 @@
 		"value": 600,
 		"color": "yellow"
 	}, {
-		"label": "profess°",
+		"label": "Profess°",
 		"value": 200,
 		"color": "blue"
 	}, {
 		"label": "FPSPP",
 		"value": 500,
 		"color": "purple"
+	},
+		{
+			"label": "Autre",
+			"value": 210,
+			"color": "green"
 	}],
 	"coutDirect": 1260
 }
