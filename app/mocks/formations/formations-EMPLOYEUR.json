@@ -10,6 +10,7 @@
     "client": "Banana company",
     "activite": "AE",
     "produit": "IceCream factory",
+    "type": "Métier",
     "organisme": false,
     "population": "Téléconseillers",
     "objectif": "Faire des glaces à l'italienne",

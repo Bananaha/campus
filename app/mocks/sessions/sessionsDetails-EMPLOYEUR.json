@@ -25,6 +25,7 @@
     "activite": "AE",
     "client": "Banana company",
     "produit": "IceCream factory",
+    "type": "Métier",
 
     "participants": {
         "stagiaires" : ["156", "648", "654", "468"],

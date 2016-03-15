@@ -64,6 +64,7 @@ h2.module-title Création d'une action de formation
                 - opt = {}
                 - opt.required = true
                 - opt.ngModel = "model.type"
+                - opt.ngOptions = "type.value as type.label for type in opts.type"
                 +select(opt)
 
       .col-1-2

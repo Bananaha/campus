@@ -6,13 +6,13 @@ form.login-box(name="login",
     h1.login-header
         | b2s
         span Campus
-
+        
     .grid.pad
 
         .col-1
-            +form-underlined("Adresse mail")
+            +form-underlined("Nom d'utilisateur")
                 - opt = {}
-                - opt.type = "email"
+                - opt.type = "text"
                 - opt.ngModel = "model.mail"
                 - opt.required = true
                 +input(opt)

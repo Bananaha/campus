@@ -96,6 +96,9 @@
             }],
 
             validation: [{
+                label: 'Aucune',
+                value: 'aucune'
+            }, {
                 label: 'Formation certifiante',
                 value: 'certificat'
             }, {
@@ -137,6 +140,14 @@
             }, {
                 label: 'Non',
                 value: false
+            }],
+
+            type: [{
+                label: 'Métier',
+                value: 'metier'
+            }, {
+                label: 'Produit',
+                value: 'produit'
             }]
 
         }
