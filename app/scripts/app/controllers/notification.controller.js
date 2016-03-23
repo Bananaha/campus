@@ -1,31 +1,24 @@
-(function (global, angular) {
-    'use strict';
+angular.module('campus.app').controller('notificationController', function (
+    notificationService,
+    $scope,
+    $timeout
+) {
 
-    angular.module('campus.app')
-    .controller('notificationController',
-        function (
-            notificationService,
-            $scope,
-            $timeout
-        ) {
+    var livingTime = 4000;
 
-            var livingTime = 4000;
+    $scope.notifications = [];
 
-            $scope.notifications = [];
+    notificationService.onTalk(onTalk);
 
-            notificationService.onTalk(onTalk);
-
-            function onTalk(message, type) {
-                $scope.notifications.push({
-                    message: message,
-                    type: type
-                });
-                $timeout(shift, livingTime);
-            }
-
-            function shift() {
-                $scope.notifications.shift();
-            }
+    function onTalk(message, type) {
+        $scope.notifications.push({
+            message: message,
+            type: type
         });
+        $timeout(shift, livingTime);
+    }
 
-}(window, window.angular));
+    function shift() {
+        $scope.notifications.shift();
+    }
+});

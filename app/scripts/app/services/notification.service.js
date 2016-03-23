@@ -1,38 +1,29 @@
-(function (global, angular) {
-    'use strict';
+angular.module('campus.app').factory('notificationService', function(
+) {
 
-    angular.module('campus.app').factory('notificationService',
-        function(
+    var callbacks = [];
 
-        ) {
+    this.onTalk = function(callback) {
+        callbacks.push(callback);
+    };
 
-            var callbacks = [];
+    this.say = function(message) {
+        trigger(message);
+    };
 
-            this.onTalk = function(callback) {
-                callbacks.push(callback);
-            };
+    this.warn = function(message) {
+        trigger(message, 'warn');
+    };
 
-            this.say = function(message) {
-                trigger(message);
-            };
+    this.confirm = function(message) {
+        trigger(message, 'confirm');
+    };
 
-            this.warn = function(message) {
-                trigger(message, 'warn');
-            };
+    function trigger(message, type) {
+        callbacks.forEach(function(callback) {
+            callback(message, type);
+        });
+    }
 
-            this.confirm = function(message) {
-                trigger(message, 'confirm');
-            };
-
-            function trigger(message, type) {
-                callbacks.forEach(function(callback) {
-                    callback(message, type);
-                });
-            }
-
-            return this;
-        }
-    );
-
-}(window, window.angular));
-
+    return this;
+});

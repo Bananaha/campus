@@ -1,22 +1,15 @@
-(function (global, angular) {
-    'use strict';
+angular.module('campus.app').controller('utilisateursCreationController', function (
+    $scope,
+    appStateService,
+    ACTIONS,
+    FORMDATAS
+) {
 
-    angular.module('campus.app')
-    .controller('utilisateursCreationController',
-        function (
-            $scope,
-            appStateService,
-            ACTIONS,
-            FORMDATAS
-        ) {
+    $scope.opts = FORMDATAS;
 
-            $scope.opts = FORMDATAS;
+    $scope.opts.dispositif = ACTIONS.filter(function(action) {
+        return !action.isSession;
+    });
 
-            $scope.opts.dispositif = ACTIONS.filter(function(action) {
-                return !action.isSession;
-            });
-
-            appStateService.isLoading(false);
-        });
-
-}(window, window.angular));
+    appStateService.isLoading(false);
+});

@@ -1,43 +1,35 @@
-(function (global, angular) {
-    'use strict';
+angular.module('campus.app').controller('formationsCreationController', function (
+    $scope,
+    $timeout,
+    appStateService,
+    userService,
+    formDatasService,
+    ACTIONS
+) {
+    var opts = formDatasService.get();
 
-    angular.module('campus.app')
-    .controller('formationsCreationController',
-        function (
-            $scope,
-            $timeout,
-            appStateService,
-            userService,
-            formDatasService,
-            ACTIONS
-        ) {
+    $scope.model = {
+        dispositif: null
+    };
 
-            var opts = formDatasService.get();
+    $timeout(init);
 
-            $scope.model = {
-                dispositif: null
-            };
+    opts.entites = userService.get().entites;
+    $scope.opts = opts;
 
-            $timeout(init);
+    $scope.opts.dispositif = ACTIONS.filter(function(action) {
+        return !action.isSession;
+    });
 
-            opts.entites = userService.get().entites;
-            $scope.opts = opts;
+    appStateService.isLoading(false);
 
-            $scope.opts.dispositif = ACTIONS.filter(function(action) {
-                return !action.isSession;
-            });
+    function init() {
+        $scope.$watch('model.dispositif', onDispositifChange);
+    }
 
-            appStateService.isLoading(false);
-
-            function init() {
-                $scope.$watch('model.dispositif', onDispositifChange);
-            }
-
-            function onDispositifChange(dispositif) {
-                if (dispositif === 'CPF' || dispositif === 'CIF') {
-                    $scope.model.organisme = true;
-                }
-            }
-        });
-
-}(window, window.angular));
+    function onDispositifChange(dispositif) {
+        if (dispositif === 'CPF' || dispositif === 'CIF') {
+            $scope.model.organisme = true;
+        }
+    }
+});

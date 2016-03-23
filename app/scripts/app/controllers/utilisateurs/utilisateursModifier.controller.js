@@ -1,60 +1,52 @@
-(function (global, angular) {
-    'use strict';
+angular.module('campus.app').controller('utilisateursModifierController', function (
+    $scope,
+    $http,
+    $timeout,
+    $routeParams,
+    appStateService,
+    notificationService,
+    historyService,
+    formatterService,
+    formDatasService,
+    config
+) {
 
-    angular.module('campus.app')
-    .controller('utilisateursModifierController',
-        function (
-            $scope,
-            $http,
-            $timeout,
-            $routeParams,
-            appStateService,
-            notificationService,
-            historyService,
-            formatterService,
-            formDatasService,
-            config
-        ) {
+    var ID = $routeParams.id;
 
-            var ID = $routeParams.id;
+    $scope.permission = formDatasService.get().permission;
 
-            $scope.permission = formDatasService.get().permission;
+    $scope.initialized = false;
 
-            $scope.initialized = false;
-
-            $http({
-                    method: 'GET',
-                    url: config.urls.utilisateursDetails,
-                    params: {
-                        id: ID
-                    }
-                })
-                .then(onGetRequestSuccess, onGetRequestError);
-
-            function onGetRequestSuccess(res) {
-                var allowedKeys = [
-                    'entites', 
-                    'id', 
-                    'mail', 
-                    'nom', 
-                    'password', 
-                    'permission', 
-                    'prenom', 
-                    'service'
-                ];
-                $scope.model = formatterService.filters(res.data, allowedKeys);
-                $timeout(function() {
-                    $scope.initialized = true;
-                });
+    $http({
+            method: 'GET',
+            url: config.urls.utilisateursDetails,
+            params: {
+                id: ID
             }
+        })
+        .then(onGetRequestSuccess, onGetRequestError);
 
-            function onGetRequestError() {
-                notificationService.warn('Erreur lors de la récupération de l\'utilisateur ' + ID + '.');
-                historyService.back();
-            }
-
-            appStateService.isLoading(false);
-
+    function onGetRequestSuccess(res) {
+        var allowedKeys = [
+            'entites',
+            'id',
+            'mail',
+            'nom',
+            'password',
+            'permission',
+            'prenom',
+            'service'
+        ];
+        $scope.model = formatterService.filters(res.data, allowedKeys);
+        $timeout(function() {
+            $scope.initialized = true;
         });
+    }
 
-}(window, window.angular));
+    function onGetRequestError() {
+        notificationService.warn('Erreur lors de la récupération de l\'utilisateur ' + ID + '.');
+        historyService.back();
+    }
+
+    appStateService.isLoading(false);
+});

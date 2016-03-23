@@ -1,32 +1,25 @@
-(function (global, angular) {
-    'use strict';
+angular.module('campus.app').controller('documentationController', function (
+    $scope,
+    $http,
+    notificationService,
+    config
+) {
 
-    angular.module('campus.app')
-    .controller('documentationController',
-        function (
-            $scope,
-            $http,
-            notificationService,
-            config
-        ) {
-
-            $http({
-                    method: 'GET',
-                    url: config.urls.documentation,
-                    params: {
-                        from: 0,
-                        size: 6
-                    }
-                })
-                .then(onGetDocumentationSuccess, onGetDocumentationError);
-
-            function onGetDocumentationError() {
-                notificationService.warn('Erreur lors de la récupération de la documentation.');
+    $http({
+            method: 'GET',
+            url: config.urls.documentation,
+            params: {
+                from: 0,
+                size: 6
             }
+        })
+        .then(onGetDocumentationSuccess, onGetDocumentationError);
 
-            function onGetDocumentationSuccess(res) {
-                $scope.docs = res.data;
-            }
-        });
+    function onGetDocumentationError() {
+        notificationService.warn('Erreur lors de la récupération de la documentation.');
+    }
 
-}(window, window.angular));
+    function onGetDocumentationSuccess(res) {
+        $scope.docs = res.data;
+    }
+});

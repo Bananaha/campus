@@ -1,40 +1,33 @@
-(function (global, angular) {
-    'use strict';
+angular.module('campus.app').controller('utilisateursDetailsController', function (
+    $scope,
+    $http,
+    $routeParams,
+    appStateService,
+    notificationService,
+    formatterService,
+    historyService,
+    config
+) {
 
-    angular.module('campus.app')
-    .controller('utilisateursDetailsController',
-        function (
-            $scope,
-            $http,
-            $routeParams,
-            appStateService,
-            notificationService,
-            formatterService,
-            historyService,
-            config
-        ) {
+    var ID = $routeParams.id;
 
-            var ID = $routeParams.id;
+    appStateService.isLoading(false);
 
-            appStateService.isLoading(false);
-
-            $http({
-                    method: 'GET',
-                    url: config.urls.utilisateursDetails,
-                    params: {
-                        id: ID
-                    }
-                })
-                .then(onGetDetailSuccess, onGetDetailError);
-
-            function onGetDetailSuccess(res) {
-                $scope.userDetail = formatterService.toDisplay(res.data);
+    $http({
+            method: 'GET',
+            url: config.urls.utilisateursDetails,
+            params: {
+                id: ID
             }
+        })
+        .then(onGetDetailSuccess, onGetDetailError);
 
-            function onGetDetailError() {
-                notificationService.warn('Erreur lors de la récupération de l\'utilisateur ' + ID + '.');
-                historyService.back();
-            }
-        });
+    function onGetDetailSuccess(res) {
+        $scope.userDetail = formatterService.toDisplay(res.data);
+    }
 
-}(window, window.angular));
+    function onGetDetailError() {
+        notificationService.warn('Erreur lors de la récupération de l\'utilisateur ' + ID + '.');
+        historyService.back();
+    }
+});

@@ -1,5 +1,5 @@
-(function (global, angular) {
-    'use strict';
+
+
 
     angular.module('campus.app').factory('historyService',
         function(
@@ -42,5 +42,5 @@
         }
     );
 
-}(window, window.angular));
+
 

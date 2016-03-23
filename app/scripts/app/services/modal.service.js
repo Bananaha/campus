@@ -1,62 +1,58 @@
-(function (global, angular) {
-    'use strict';
+angular.module('campus.app').factory('modalService', function(
+    ModalService
+) {
 
-    angular.module('campus.app').factory('modalService', function(ModalService) {
+    var that = this,
+        modals = {};
 
-        var that = this,
-            modals = {};
-
-        this.show = function(partialName, callback) {
-            if (!modals[partialName]) {
-                addModal(partialName);
-            }
-
-            if (!modals[partialName].showed) {
-                hideModals();
-
-                modals[partialName].showed = true;
-
-                ModalService.showModal({
-                    templateUrl: partialName + '.html',
-                    controller: 'modalController'
-                }).then(function(modal) {
-                    modals[partialName].modal = modal;
-                    modal.close.then(onClose.bind(that, callback, partialName));
-                });
-            }
-            return that;
-        };
-
-        this.hideModals = hideModals;
-
-        function onClose(callback, partialName) {
-            if (callback) {
-                callback();
-            }
-            hideModal(partialName);
+    this.show = function(partialName, callback) {
+        if (!modals[partialName]) {
+            addModal(partialName);
         }
 
-        function addModal(name) {
-            modals[name] = {
-                showed: false
-            };
-        }
+        if (!modals[partialName].showed) {
+            hideModals();
 
-        function hideModal(name) {
-            modals[name].showed = false;
-        }
+            modals[partialName].showed = true;
 
-        function hideModals() {
-            angular.forEach(modals, function(modal) {
-                if (modal.modal && modal.showed) {
-                    modal.modal.scope.close();
-                }
+            ModalService.showModal({
+                templateUrl: partialName + '.html',
+                controller: 'modalController'
+            }).then(function(modal) {
+                modals[partialName].modal = modal;
+                modal.close.then(onClose.bind(that, callback, partialName));
             });
-            return that;
         }
+        return that;
+    };
 
-        return this;
-    });
+    this.hideModals = hideModals;
 
-}(window, window.angular));
+    function onClose(callback, partialName) {
+        if (callback) {
+            callback();
+        }
+        hideModal(partialName);
+    }
 
+    function addModal(name) {
+        modals[name] = {
+            showed: false
+        };
+    }
+
+    function hideModal(name) {
+        modals[name].showed = false;
+    }
+
+    function hideModals() {
+        angular.forEach(modals, function(modal) {
+            if (modal.modal && modal.showed) {
+                modal.modal.scope.close();
+            }
+        });
+        return that;
+    }
+
+    return this;
+});
