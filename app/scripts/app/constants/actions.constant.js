@@ -18,4 +18,4 @@ angular.module('campus.app').constant('ACTIONS', [
         isSession: true,
         showCost: true
     }
-];
+]);
