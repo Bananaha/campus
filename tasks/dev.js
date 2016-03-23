@@ -5,27 +5,37 @@ var path = require('path'),
     browserSync = require('browser-sync'),
     config = require('./config.js'),
     serve = require('gulp-serve'),
+    objectAssign = require('object-assign'),
     jsoncombine = require("gulp-jsoncombine");
 
 gulp.task('server', function () {
-    browserSync({
-        //files: path.join(config.dist, '**'),
-        //watchOptions: {
-        //    interval: 250
-        //},
+    var settings = {
         port: 8080,
-        //reloadDebounce: 500,
         ghostMode: false,
         server: {
             baseDir: config.dist
         },
         online: false,
         notify: false
-    });
+    };
+
+    if (config.enableWatch) {
+        objectAssign(settings, {
+            files: path.join(config.dist, '**'),
+            watchOptions: {
+                interval: 250
+            },
+            reloadDebounce: 500
+        })
+    }
+
+    browserSync(settings);
 });
 
 gulp.task('watch', function () {
-	/*
+    if (!config.enableWatch) {
+        return;
+    }
     var frequentChangesOpts = { interval: 500 },
         infrequentChangesOpts = { interval: 2000 };
 
@@ -38,7 +48,6 @@ gulp.task('watch', function () {
     gulp.watch(path.join(config.src, 'less', '**', '*.less'), infrequentChangesOpts, ['styles']);
     gulp.watch(path.join(config.src, 'assets', '**'), ['assets']);
     gulp.watch(path.join(config.stubbyConfPath, '*.json'), ['stubbyConf']);
-    */
 });
 
 function concatArrays(datas) {
@@ -60,7 +69,7 @@ gulp.task('stubby', ['stubbyConf'], function (cb) {
         stubs: 8882,
         admin: 8889,
         data: config.stubbyConf,
-        //watch: 'app/config/stubby.json'
+        watch: config.enableWatch ? 'app/config/stubby.json' : false,
         mute: true
     }, cb);
 });

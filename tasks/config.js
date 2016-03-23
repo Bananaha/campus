@@ -1,9 +1,12 @@
-var path = require('path'),
+var args = yargs = require('yargs'),
+    path = require('path'),
     pkg = require('../package.json');
+
+var args = yargs.argv;
 
 module.exports = {
     pkg: pkg,
-    prod: false,
+    enableWatch: !!args.watch,
     scriptName: 'app.js',
     vendorName: 'vendors.js',
     templatesName: 'tps.js',
