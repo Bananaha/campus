@@ -5,7 +5,7 @@ angular.module('campus.app').factory('resizeEventService', function(
     var callbacks = {},
         throttleTimeout;
 
-    global.addEventListener('resize', throttle(onResize, 40));
+    window.addEventListener('resize', throttle(onResize, 40));
 
     function throttle(callback, limit) {
         var wait = false;

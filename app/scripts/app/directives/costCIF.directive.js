@@ -1,5 +1,6 @@
 angular.module('campus.app').directive('costCif', function (
-    $timeout
+    $timeout,
+    moment
 ) {
     return {
         restrict: 'E',

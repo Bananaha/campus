@@ -166,7 +166,7 @@ angular.module('campus.app').directive('form', function (
                         request = dbActionsService.update(url, params);
                     break;
                 }
-                return;
+
                 request
                     .then(onRequestSuccess);
             }

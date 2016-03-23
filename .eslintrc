@@ -2,7 +2,9 @@
     "env": {
         "browser": true
     },
-    "globals": {},
+    "globals": {
+        "angular": true
+    },
     "rules": {
         "no-comma-dangle": 2,
         "no-cond-assign": [2, "except-parens"],
@@ -80,7 +82,7 @@
         "wrap-iife": 2,
         "yoda": [2, "never"],
 
-        "strict": [2, "function"],
+        "strict": 0,
 
         "no-catch-shadow": 2,
         "no-delete-var": 2,

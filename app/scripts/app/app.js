@@ -13,10 +13,6 @@ angular.module('campus.app', [
 ) {
     var basePath = '';
 
-    moment.locale('fr', {
-        months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_')
-    });
-
     localStorageServiceProvider.setPrefix('campusApp');
 
     datepickerPopupConfig.clearText = 'Annuler';

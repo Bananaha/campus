@@ -1,5 +1,6 @@
 angular.module('campus.app').factory('formatterService', function(
-    formDatasService
+    formDatasService,
+    moment
 ) {
     var LIST = [{
             label: 'Dispositif',
@@ -72,7 +73,7 @@ angular.module('campus.app').factory('formatterService', function(
                         return getValue(formDatas[key], _obj);
                     }).join(', ');
                 } else {
-                    obj[key] = getValue(formDatas[key], datas[key])
+                    obj[key] = getValue(formDatas[key], datas[key]);
                 }
             }
             return obj;
@@ -115,16 +116,15 @@ angular.module('campus.app').factory('formatterService', function(
 
     // return datas filtered by filters keys
     this.filters = function(datas, filters) {
-        if (filters) {
-            return filters.reduce(function(obj, key) {
-                if (angular.isDefined(datas[key])) {
-                    obj[key] = datas[key];
-                }
-                return obj;
-            }, {});
-        } else {
+        if (!filters) {
             return datas;
         }
+        return filters.reduce(function(obj, key) {
+            if (angular.isDefined(datas[key])) {
+                obj[key] = datas[key];
+            }
+            return obj;
+        }, {});
     };
 
     function getFormattedValueToParams(value, settings) {
@@ -158,7 +158,7 @@ angular.module('campus.app').factory('formatterService', function(
 
     function getValue(list, obj) {
         var listObj = getListObject(list, obj);
-        return listObj ? listObj.label: obj;
+        return listObj ? listObj.label : obj;
     }
 
     function getListObject(list, value) {
