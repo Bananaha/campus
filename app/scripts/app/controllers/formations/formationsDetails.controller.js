@@ -1,13 +1,11 @@
 angular.module('campus.app').controller('formationsDetailsController', function (
     $scope,
-    $http,
     $timeout,
     $routeParams,
     config,
     historyService,
     notificationService,
-    dbActionsService,
-    actionsService,
+    formationService,
     formatterService
 ) {
     var ID = $routeParams.id,
@@ -20,13 +18,7 @@ angular.module('campus.app').controller('formationsDetailsController', function 
         formateurs: []
     };
 
-    $http({
-            method: 'GET',
-            url: config.urls.formationsDetails,
-            params: {
-                id: ID
-            }
-        })
+    formationService.getById(ID)
         .then(onGetDetailSuccess, onGetDetailError);
 
     $scope.table = {
@@ -78,7 +70,7 @@ angular.module('campus.app').controller('formationsDetailsController', function 
 
     $scope.unarchive = function() {
         if ($scope.formation.archive) {
-            dbActionsService
+            formationService
                 .unarchive(config.urls.formations, ID)
                 .then(onUnarchive);
         }
@@ -104,14 +96,13 @@ angular.module('campus.app').controller('formationsDetailsController', function 
                 return user.id;
             });
         });
-        dbActionsService
-            .update(config.urls.formationsModification, params)
+        formationService.update(params)
             .then(onUpdateSuccess, onUpdateError);
     }
 
-    function onUpdateSuccess(res) {
-        if (res.data && res.data.cout) {
-            $scope.formation.cout = res.data.cout;
+    function onUpdateSuccess(data) {
+        if (data && data.cout) {
+            $scope.formation.cout = data.cout;
         }
     }
 
@@ -122,15 +113,15 @@ angular.module('campus.app').controller('formationsDetailsController', function 
         };
     }
 
-    function onGetDetailSuccess(res) {
-        var actionConfig = actionsService.getConfig(res.data.dispositif);
-        $scope.formation = formatterService.toDisplay(res.data);
+    function onGetDetailSuccess(data) {
+        var actionConfig = formationService.getConfig(data.dispositif);
+        $scope.formation = formatterService.toDisplay(data);
 
         $scope.hasSessions = !actionConfig.isSession;
 
         if (actionConfig.isSession) {
             $scope.hasUsers = true;
-            $scope.participants = res.data.participants;
+            $scope.participants = data.participants;
         }
 
         if (actionConfig.showCost) {

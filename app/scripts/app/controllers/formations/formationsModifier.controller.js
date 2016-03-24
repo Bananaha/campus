@@ -8,6 +8,7 @@ angular.module('campus.app').controller('formationsModifierController', function
     historyService,
     formatterService,
     formDatasService,
+    formationService,
     config
 ) {
     var ID = $routeParams.id;
@@ -16,17 +17,10 @@ angular.module('campus.app').controller('formationsModifierController', function
 
     $scope.initialized = false;
 
-    $http({
-            method: 'GET',
-            url: config.urls.formationsDetails,
-            params: {
-                id: ID
-            }
-        })
-        .then(onGetRequestSuccess, onGetRequestError);
+    formationService.getById(ID).then(onGetRequestSuccess, onGetRequestError);
 
-    function onGetRequestSuccess(res) {
-        $scope.model = res.data;
+    function onGetRequestSuccess(data) {
+        $scope.model = data;
 
         $timeout(function() {
             $scope.initialized = true;

@@ -5,28 +5,22 @@ angular.module('campus.app').controller('sessionsModifierController', function (
     notificationService,
     historyService,
     formDatasService,
+    sessionService,
     config
 ) {
 
     var ID = $routeParams.id;
 
-    $http({
-            method: 'GET',
-            url: config.urls.sessionsDetails,
-            params: {
-                id: ID
-            }
-        })
-        .then(onGetRequestSuccess, onGetRequestError);
+    sessionService.getById(ID).then(onGetRequestSuccess, onGetRequestError);
 
     $scope.opts = formDatasService.get();
 
-    function onGetRequestSuccess(res) {
-        if (res.data.archive) {
+    function onGetRequestSuccess(data) {
+        if (data.archive) {
             notificationService.warn('La session ' + ID + ' est archivée. Vous ne pouvez pas la modifier.');
             historyService.back();
         }
-        $scope.model = res.data;
+        $scope.model = data;
     }
 
     function onGetRequestError() {

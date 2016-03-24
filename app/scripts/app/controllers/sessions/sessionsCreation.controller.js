@@ -7,6 +7,7 @@ angular.module('campus.app').controller('sessionsCreationController', function (
     formatterService,
     historyService,
     formDatasService,
+    formationService,
     config,
     ACTIONS
 ) {
@@ -19,29 +20,23 @@ angular.module('campus.app').controller('sessionsCreationController', function (
 
     $scope.opts = formDatasService.get();
 
-    $http({
-            method: 'GET',
-            url: config.urls.formationsDetails,
-            params: {
-                id: ID
-            }
-        })
+    formationService.getById(ID)
         .then(onGetDetailSuccess, onGetDetailError);
 
     $scope.$watch('model.avisEmployeur', onAvisChange.bind(this, 'Employeur'));
     $scope.$watch('model.avisFongecif', onAvisChange.bind(this, 'Fongecif'));
 
-    function onGetDetailSuccess(res) {
+    function onGetDetailSuccess(data) {
         var allowSessionCreation = false,
-            dispositif = res.data.dispositif;
+            dispositif = data.dispositif;
 
         allowSessionCreation = ACTIONS.some(function(action) {
             return action.id === dispositif && !action.isSession;
         });
 
         if (allowSessionCreation) {
-            $scope.model.dispositif = res.data.dispositif;
-            fillInheritedData(res.data);
+            $scope.model.dispositif = data.dispositif;
+            fillInheritedData(data);
             updateForm();
         } else {
             notificationService.warn('Vous ne pouvez pas créer de session pour cette action.');

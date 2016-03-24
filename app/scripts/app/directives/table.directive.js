@@ -4,7 +4,7 @@ angular.module('campus.app').directive('table', function (
     $http,
     $q,
     scrollEventService,
-    dbActionsService,
+    dbService,
     formatterService,
     confirmationService,
     notificationService,
@@ -43,7 +43,7 @@ angular.module('campus.app').directive('table', function (
                 if ($scope.hasNext && !isLoading) {
                     loading(true);
                     config.currentPage++;
-                    getDatas();
+                    loadDatas();
                 }
             };
 
@@ -51,7 +51,7 @@ angular.module('campus.app').directive('table', function (
                 if ($scope.hasPrev) {
                     loading(true);
                     config.currentPage--;
-                    getDatas();
+                    loadDatas();
                 }
             };
 
@@ -62,7 +62,7 @@ angular.module('campus.app').directive('table', function (
                     $scope.sortBy = key;
                 }
                 reinitDatas();
-                getDatas();
+                loadDatas();
             };
 
             $scope.goTo = function(type, item) {
@@ -83,37 +83,29 @@ angular.module('campus.app').directive('table', function (
                 var currentLocation = $location.url(),
                     requestName,
                     callback,
-                    confirmSentence;
-
-                if (action !== 'modify') {
-                    confirmSentence = getSentence(action, item);
-                }
+                    dbAction;
 
                 switch (action) {
                     case 'modify':
-                        $location.url(currentLocation + '/' + item.id + '/modifier');
-                    break;
+                        $location.url([currentLocation, item.id, 'modifier'].join('/'));
+                        return;
                     case 'delete':
-                        requestName = 'delete';
+                        dbAction = dbService.delete.bind(this, config.url, item.id);
                         callback = removeItem.bind(this, item.id);
-
-                    break;
+                        break;
                     case 'archive':
-                        requestName = 'archive';
-                        callback = archiveItem.bind(this, item);
-                    break;
                     case 'desarchiver':
-                        requestName = 'unarchive';
-                        callback = unarchiveItem.bind(this, item);
-                    break;
+                        dbAction = dbService.edit.bind(this, config.url, {
+                            id: item.id,
+                            archive: action === 'archive'
+                        });
+                        callback = action === 'archive' ? archiveItem.bind(this, item) : unarchiveItem.bind(this, item);
                 }
-                if (confirmSentence && requestName) {
-                    confirmationService
-                        .confirm(confirmSentence)
-                            .then(function() {
-                                dbActionsService[requestName](config.url, item.id).then(callback);
-                            });
-                }
+                confirmationService
+                    .confirm(getSentence(action, item))
+                        .then(function() {
+                            dbAction().then(callback);
+                        });
             };
 
             $scope.shouldShowAction = function(data, action) {
@@ -178,11 +170,12 @@ angular.module('campus.app').directive('table', function (
                 $scope.hasPrev = config.currentPage > 0;
                 $timeout(function() {
                     initialized = true;
-                    getDatas();
+                    loadDatas();
                 });
             }
 
             function removeItem(id) {
+                console.log('removeItem', id);
                 var i;
                 for (i = 0; i < $scope.datas.length; i++) {
                     if ($scope.datas[i].id === id) {
@@ -246,7 +239,7 @@ angular.module('campus.app').directive('table', function (
                 return params;
             }
 
-            function getDatas() {
+            function loadDatas() {
                 var params = $scope.config.params ? angular.copy($scope.config.params) : {},
                     configParams = {
                         from: config.currentPage,
@@ -256,18 +249,19 @@ angular.module('campus.app').directive('table', function (
                 if (isLoading && requestPromise) {
                     requestPromise.resolve();
                 }
+
                 loading(true);
 
                 angular.extend(params, getFiltersParams(configParams));
 
                 requestPromise = $q.defer();
 
-                $http({
-                        method: 'GET',
-                        url: config.url,
+                dbService.get(config.url, {
                         params: params,
                         timeout: requestPromise
-                    }).then(onGetDatasSuccess, onGetDatasError);
+                    })
+                    .then(onLoadDataSuccess, onLoadDataError)
+                    .finally(loading.bind(null, false));
             }
 
             function filters() {
@@ -279,24 +273,21 @@ angular.module('campus.app').directive('table', function (
 
             function computeFilters() {
                 reinitDatas();
-                getDatas();
+                loadDatas();
             }
 
-            function onGetDatasSuccess(res) {
-                var data = res.data;
-                if (!res.data.length) {
+            function onLoadDataSuccess(data) {
+                if (!data.length) {
                     notificationService.say('Aucun résultat pour votre recherche');
-                } else {
-                    $scope.hasNext = data.length >= config.itemPerPage;
-                    data = format(data.slice(0, config.itemPerPage));
-                    Array.prototype.push.apply($scope.datas, data);
+                    return;
                 }
-                loading(false);
+                $scope.hasNext = data.length >= config.itemPerPage;
+                data = format(data.slice(0, config.itemPerPage));
+                Array.prototype.push.apply($scope.datas, data);
             }
 
-            function onGetDatasError() {
+            function onLoadDataError() {
                 notificationService.warn('Erreur lors de la récupération des données.');
-                loading(false);
             }
 
             function format(data) {

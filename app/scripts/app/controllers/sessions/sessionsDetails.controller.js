@@ -1,16 +1,13 @@
 angular.module('campus.app').controller('sessionsDetailsController', function (
     $scope,
-    $http,
     $timeout,
     $routeParams,
-    $location,
     appStateService,
     confirmationService,
     historyService,
     notificationService,
-    dbActionsService,
-    actionsService,
     formatterService,
+    sessionService,
     config
 ) {
 
@@ -80,14 +77,7 @@ angular.module('campus.app').controller('sessionsDetailsController', function (
     }
 
     function getDatas() {
-        $http({
-            method: 'GET',
-            url: config.urls.sessionsDetails,
-            params: {
-                id: ID
-            }
-        })
-        .then(onGetDetailSuccess, onGetDetailError);
+        return sessionService.getById(ID).then(onGetDetailSuccess, onGetDetailError);
     }
 
     function onCostChange() {
@@ -97,8 +87,8 @@ angular.module('campus.app').controller('sessionsDetailsController', function (
     }
 
     function unarchive() {
-        dbActionsService
-            .unarchive(config.urls.sessions, ID)
+        sessionService
+            .unarchive(ID)
             .then(onUnarchive);
     }
 
@@ -138,8 +128,8 @@ angular.module('campus.app').controller('sessionsDetailsController', function (
                 return user.id;
             });
         });
-        dbActionsService
-            .update(config.urls.sessionsModification, params)
+        sessionService
+            .edit(params)
             .then(onUpdateSuccess, onUpdateError);
     }
 
@@ -148,28 +138,25 @@ angular.module('campus.app').controller('sessionsDetailsController', function (
             id: ID,
             cout: $scope.session.cout
         };
-        dbActionsService
-            .update(config.urls.sessionsModification, params)
+        sessionService
+            .edit(params)
             .then(onUpdateSuccess, onUpdateError);
     }
 
-    function onUpdateSuccess(res) {
-        if (res.data && res.data.cout) {
-            $scope.session.cout = res.data.cout;
-        }
-        defaultCout = JSON.stringify($scope.session.cout);
-        $timeout(function() {
-            $scope.costChanged = false;
-        });
+    function onUpdateSuccess(data) {
+        getDatas()
+            .then(function() {
+                $scope.costChanged = false;
+            });
     }
 
     function onUpdateError() {
         notificationService.warn('Erreur lors de la mise à jour de la session #' + ID);
     }
 
-    function onGetDetailSuccess(res) {
-        $scope.session = formatterService.toDisplay(res.data);
-        $scope.participants = res.data.participants;
+    function onGetDetailSuccess(data) {
+        $scope.session = formatterService.toDisplay(data);
+        $scope.participants = data.participants;
         $scope.hasUsers = true;
 
         if ($scope.session.cout) {
@@ -178,13 +165,13 @@ angular.module('campus.app').controller('sessionsDetailsController', function (
 
         if ($scope.session.dispositif === 'CIF') {
             $scope.coutSettings = {
-                start: res.data.dateDebut,
-                end: res.data.dateFin
+                start: data.dateDebut,
+                end: data.dateFin
             };
         }
 
         if ($scope.session.dispositif === 'employeur') {
-            $scope.attendance = res.data.attendance;
+            $scope.attendance = data.attendance;
             $scope.attendanceSettings.defaultDuree = $scope.session.duree || 0;
         }
 

@@ -3,7 +3,7 @@ include ../mixins/main
 h2.module-title Création d'une action de formation
 
 .module-card
-  form(name="formationsCreation",
+  form(name="formations",
     data-target="formations",
     data-action="insert",
     form,
@@ -118,12 +118,12 @@ h2.module-title Création d'une action de formation
           - opt.required = true
           - opt.ngModel = "model.prerequis"
           +input(opt)
+          
       .col-1
         +form-underlined("Compétences associées")
           - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.competencesassociees"
-          +select(opt)
+          - opt.ngModel = "model.competences"
+          +input(opt)
 
     .module-footer
       include ../includes/modules/module-submit

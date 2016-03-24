@@ -40,10 +40,8 @@
     }
 }, {
     "request": {
-        "url": "/sessions$",
-        "query": {
-            "id": "fakeIdEmployeur"
-        }
+        "url": "/sessions/fakeIdEmployeur$",
+        "method": ["GET", "POST"]
     },
     "response": {
         "file": "app/mocks/sessions/sessionsDetails-EMPLOYEUR.json"
@@ -62,10 +60,8 @@
     }
 }, {
     "request": {
-        "url": "/sessions$",
-        "query": {
-            "id": "fakeIdCPF"
-        }
+        "url": "/sessions/fakeIdCPF$",
+        "method": ["GET", "POST"]
     },
     "response": {
         "file": "app/mocks/sessions/sessionsDetails-CPF.json"
@@ -84,17 +80,15 @@
     }
 }, {
     "request": {
-        "url": "/sessions$",
-        "query": {
-            "id": "fakeIdCIF"
-        }
+        "url": "/sessions/fakeIdCIF$",
+        "method": ["GET", "POST"]
     },
     "response": {
         "file": "app/mocks/sessions/sessionsDetails-CIF.json"
     }
 }, {
     "request": {
-        "url": "/sessions/update",
+        "url": "/sessions$",
         "method": "POST"
     },
     "response": {

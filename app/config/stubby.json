@@ -23,74 +23,6 @@
    {
       "request": {
          "url": "/formations$",
-         "query": {
-            "id": "^$",
-            "ids": "^$",
-            "search": "^$",
-            "archive": "^$"
-         }
-      },
-      "response": {
-         "file": "app/mocks/formations/formations.json"
-      }
-   },
-   {
-      "request": {
-         "url": "/formations$",
-         "query": {
-            "id": "^$",
-            "ids": "^$",
-            "search": "^[0-9a-zA-Z]",
-            "archive": "^$"
-         }
-      },
-      "response": {
-         "file": "app/mocks/formations/formations.json"
-      }
-   },
-   {
-      "request": {
-         "url": "/formations$",
-         "query": {
-            "id": "^$",
-            "ids": "^$",
-            "search": "^[0-9a-zA-Z]",
-            "archive": "true"
-         }
-      },
-      "response": {
-         "file": "app/mocks/formations/formations-with-archives.json"
-      }
-   },
-   {
-      "request": {
-         "url": "/formations$",
-         "query": {
-            "id": "^$",
-            "ids": "^$",
-            "search": "^$",
-            "archive": "true"
-         }
-      },
-      "response": {
-         "file": "app/mocks/formations/formations-with-archives.json"
-      }
-   },
-   {
-      "request": {
-         "url": "/formations/update",
-         "query": {
-            "id": "fakeIdAccompagnement"
-         },
-         "method": "POST"
-      },
-      "response": {
-         "file": "app/mocks/formations/formationsUpdate-ACCOMPAGNEMENT.json"
-      }
-   },
-   {
-      "request": {
-         "url": "/formations/insert",
          "method": "POST",
          "query": {
             "dispositif": "employeur"
@@ -102,7 +34,7 @@
    },
    {
       "request": {
-         "url": "/formations/insert",
+         "url": "/formations$",
          "method": "POST",
          "query": {
             "dispositif": "accompagnement"
@@ -114,7 +46,7 @@
    },
    {
       "request": {
-         "url": "/formations/insert",
+         "url": "/formations$",
          "method": "POST",
          "query": {
             "dispositif": "CPF"
@@ -126,7 +58,7 @@
    },
    {
       "request": {
-         "url": "/formations/insert",
+         "url": "/formations$",
          "method": "POST",
          "query": {
             "dispositif": "CIF"
@@ -138,58 +70,94 @@
    },
    {
       "request": {
-         "url": "/formations/update",
+         "url": "/formations$",
          "query": {
-            "id": "^[0-9a-zA-Z]"
-         },
-         "method": "POST"
+            "id": "^$",
+            "ids": "^$",
+            "search": "^$",
+            "archive": "^$"
+         }
       },
       "response": {
-         "file": "app/mocks/noop.json"
-      }
-   },
-   {
-      "request": {
-         "url": "/formations/desarchiver",
-         "query": {
-            "id": "^[0-9a-zA-Z]"
-         },
-         "method": "POST"
-      },
-      "response": {
-         "file": "app/mocks/noop.json"
-      }
-   },
-   {
-      "request": {
-         "url": "/formations/supprimer",
-         "query": {
-            "id": "^[0-9a-zA-Z]"
-         },
-         "method": "POST"
-      },
-      "response": {
-         "file": "app/mocks/noop.json"
-      }
-   },
-   {
-      "request": {
-         "url": "/formations/archiver",
-         "query": {
-            "id": "^[0-9a-zA-Z]"
-         },
-         "method": "POST"
-      },
-      "response": {
-         "file": "app/mocks/noop.json"
+         "file": "app/mocks/formations/formations.json"
       }
    },
    {
       "request": {
          "url": "/formations$",
          "query": {
-            "id": "fakeIdCIF"
+            "id": "^$",
+            "ids": "^$",
+            "search": "^[0-9a-zA-Z]",
+            "archive": "^$"
          }
+      },
+      "response": {
+         "file": "app/mocks/formations/formations.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/formations$",
+         "query": {
+            "id": "^$",
+            "ids": "^$",
+            "search": "^[0-9a-zA-Z]",
+            "archive": "true"
+         }
+      },
+      "response": {
+         "file": "app/mocks/formations/formations-with-archives.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/formations$",
+         "query": {
+            "id": "^$",
+            "ids": "^$",
+            "search": "^$",
+            "archive": "true"
+         }
+      },
+      "response": {
+         "file": "app/mocks/formations/formations-with-archives.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/formations/fakeIdAccompagnement$",
+         "method": "POST"
+      },
+      "response": {
+         "file": "app/mocks/formations/formationsUpdate-ACCOMPAGNEMENT.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/formations/^[0-9a-zA-Z]",
+         "method": "POST"
+      },
+      "response": {
+         "file": "app/mocks/noop.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/formations/.*/delete$",
+         "method": "POST"
+      },
+      "response": {
+         "file": "app/mocks/noop.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/formations/fakeIdCIF$",
+         "method": [
+            "POST",
+            "GET"
+         ]
       },
       "response": {
          "file": "app/mocks/formations/formations-CIF.json"
@@ -197,10 +165,11 @@
    },
    {
       "request": {
-         "url": "/formations$",
-         "query": {
-            "id": "fakeIdCPF"
-         }
+         "url": "/formations/fakeIdCPF$",
+         "method": [
+            "POST",
+            "GET"
+         ]
       },
       "response": {
          "file": "app/mocks/formations/formations-CPF.json"
@@ -208,10 +177,11 @@
    },
    {
       "request": {
-         "url": "/formations$",
-         "query": {
-            "id": "fakeIdEmployeur"
-         }
+         "url": "/formations/fakeIdEmployeur$",
+         "method": [
+            "POST",
+            "GET"
+         ]
       },
       "response": {
          "file": "app/mocks/formations/formations-EMPLOYEUR.json"
@@ -219,10 +189,11 @@
    },
    {
       "request": {
-         "url": "/formations$",
-         "query": {
-            "id": "fakeIdAccompagnement"
-         }
+         "url": "/formations/fakeIdAccompagnement$",
+         "method": [
+            "POST",
+            "GET"
+         ]
       },
       "response": {
          "file": "app/mocks/formations/formations-ACCOMPAGNEMENT.json"
@@ -327,10 +298,11 @@
    },
    {
       "request": {
-         "url": "/sessions$",
-         "query": {
-            "id": "fakeIdEmployeur"
-         }
+         "url": "/sessions/fakeIdEmployeur$",
+         "method": [
+            "GET",
+            "POST"
+         ]
       },
       "response": {
          "file": "app/mocks/sessions/sessionsDetails-EMPLOYEUR.json"
@@ -351,10 +323,11 @@
    },
    {
       "request": {
-         "url": "/sessions$",
-         "query": {
-            "id": "fakeIdCPF"
-         }
+         "url": "/sessions/fakeIdCPF$",
+         "method": [
+            "GET",
+            "POST"
+         ]
       },
       "response": {
          "file": "app/mocks/sessions/sessionsDetails-CPF.json"
@@ -375,10 +348,11 @@
    },
    {
       "request": {
-         "url": "/sessions$",
-         "query": {
-            "id": "fakeIdCIF"
-         }
+         "url": "/sessions/fakeIdCIF$",
+         "method": [
+            "GET",
+            "POST"
+         ]
       },
       "response": {
          "file": "app/mocks/sessions/sessionsDetails-CIF.json"
@@ -386,7 +360,7 @@
    },
    {
       "request": {
-         "url": "/sessions/update",
+         "url": "/sessions$",
          "method": "POST"
       },
       "response": {

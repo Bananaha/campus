@@ -4,7 +4,7 @@ h2.module-title Modification d'une action de formation
 
 .module-card
 
-  form(name="formationsModification",
+  form(name="formations",
     data-action="update",
     form,
     ng-submit="submit($event)",
@@ -112,9 +112,8 @@ h2.module-title Modification d'une action de formation
       .col-1
         +form-underlined("Compétences associées")
           - opt = {}
-          - opt.required = true
-          - opt.ngModel = "model.competencesassociees"
-          +select(opt)
+          - opt.ngModel = "model.competences"
+          +input(opt)
 
     .grid.pad(ng-if="model.dispositif === 'accompagnement'")
 

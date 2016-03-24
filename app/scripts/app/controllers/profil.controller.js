@@ -3,7 +3,7 @@ angular.module('campus.app').controller('profilController', function (
     $timeout,
     userService,
     appStateService,
-    dbActionsService,
+    dbService,
     notificationService,
     config
 ) {
@@ -40,7 +40,7 @@ angular.module('campus.app').controller('profilController', function (
     function sendRequest() {
         var params = $scope.model;
         params.id = $scope.user.id;
-        dbActionsService
+        dbService
             .update(config.urls.utilisateursModificationPassword, params)
             .then(onRequestSuccess, onRequestError);
     }

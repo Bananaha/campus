@@ -1,0 +1,43 @@
+angular.module('campus.app').factory('sessionService', function(
+    ACTIONS,
+    dbService,
+    config
+) {
+
+    var actions = ACTIONS,
+        url = config.urls.sessions,
+
+        api = {};
+
+    api.get = function(params) {
+        return dbService.get(url, {params: params})
+    };
+
+    api.getById = function(id) {
+        return dbService.getById(url, id);
+    };
+
+    api.edit = function(params) {
+        return dbService.edit(url, params);
+    };
+
+    api.delete = function(id) {
+        return dbService.delete(url, id);
+    };
+
+    api.archive = function(id) {
+        return dbService.update(url, {
+            id: id,
+            archive: true
+        });
+    };
+
+    api.unarchive = function(id) {
+        return dbService.update(url, {
+            id: id,
+            archive: false
+        });
+    };
+
+    return api;
+});

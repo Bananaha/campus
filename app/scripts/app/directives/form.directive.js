@@ -11,7 +11,7 @@ angular.module('campus.app').directive('form', function (
     modalService,
     historyService,
     formDatasService,
-    dbActionsService,
+    dbService,
     formatterService
 ) {
     return {
@@ -68,12 +68,12 @@ angular.module('campus.app').directive('form', function (
 
             $scope.submit = function($event) {
                 $event.preventDefault();
-                if ($form.$invalid) {
-                    element.addClass('submitted');
-                    notificationService.warn('erreur dans le formulaire');
-                } else if (!appStateService.isFrozen()) {
+                if (!$form.$invalid && !appStateService.isFrozen()) {
                     sendRequest();
+                    return;
                 }
+                element.addClass('submitted');
+                notificationService.warn('erreur dans le formulaire');
             };
 
             $scope.cancel = function() {
@@ -156,19 +156,7 @@ angular.module('campus.app').directive('form', function (
             }
 
             function sendRequest() {
-                var params = formatParams(),
-                    request;
-                switch (action) {
-                    case 'insert':
-                        request = dbActionsService.insert(url, params);
-                    break;
-                    case 'update':
-                        request = dbActionsService.update(url, params);
-                    break;
-                }
-
-                request
-                    .then(onRequestSuccess);
+                dbService.edit(url, formatParams()).then(onRequestSuccess);
             }
 
             function onRequestSuccess(res) {
@@ -191,8 +179,7 @@ angular.module('campus.app').directive('form', function (
             }
 
             function formatParams() {
-                var params = formatterService.toParams($scope.model);
-                return params;
+                return formatterService.toParams($scope.model);
             }
         }
     };
