@@ -42,28 +42,6 @@
     }
 }, {
     "request": {
-        "url": "/utilisateurs/update$",
-        "query": {
-            "id": "^[0-9a-zA-Z]"
-        },
-        "method": "POST"
-    },
-    "response": {
-        "file": "app/mocks/noop.json"
-    }
-}, {
-    "request": {
-        "url": "/utilisateurs/updatePassword$",
-        "query": {
-            "id": "^[0-9a-zA-Z]"
-        },
-        "method": "POST"
-    },
-    "response": {
-        "file": "app/mocks/noop.json"
-    }
-}, {
-    "request": {
         "url": "/utilisateurs/insert",
         "method": "POST"
     },
@@ -76,6 +54,14 @@
         "query": {
             "id": "^[0-9a-zA-Z]"
         },
+        "method": "POST"
+    },
+    "response": {
+        "file": "app/mocks/noop.json"
+    }
+}, {
+    "request": {
+        "url": "/utilisateurs/*[a-zA-Z0-9]",
         "method": "POST"
     },
     "response": {

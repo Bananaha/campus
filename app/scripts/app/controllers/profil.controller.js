@@ -2,10 +2,10 @@ angular.module('campus.app').controller('profilController', function (
     $scope,
     $timeout,
     userService,
+    usersService,
     appStateService,
     dbService,
-    notificationService,
-    config
+    notificationService
 ) {
 
     $scope.initialized = false;
@@ -39,9 +39,9 @@ angular.module('campus.app').controller('profilController', function (
 
     function sendRequest() {
         var params = $scope.model;
-        params.id = $scope.user.id;
-        dbService
-            .update(config.urls.utilisateursModificationPassword, params)
+        params.id = userService.ID;
+        usersService
+            .edit(params)
             .then(onRequestSuccess, onRequestError);
     }
 
