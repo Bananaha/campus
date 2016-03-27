@@ -2,8 +2,7 @@ angular.module('campus.app').controller('loginController', function (
     $scope,
     $location,
     notificationService,
-    userService,
-    config
+    userService
 ) {
 
     $scope.model = {};
@@ -19,7 +18,7 @@ angular.module('campus.app').controller('loginController', function (
             .then(onSubmitSuccess, onSubmitError);
     };
 
-    function onSubmitSuccess(res) {
+    function onSubmitSuccess() {
         $location.url('/home');
     }
 

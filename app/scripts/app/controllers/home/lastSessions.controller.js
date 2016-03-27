@@ -1,9 +1,7 @@
 angular.module('campus.app').controller('lastSessionsController', function (
     $scope,
     sessionService,
-    notificationService,
-    userService,
-    config
+    notificationService
 ) {
 
     sessionService.getForUser({size: 3})

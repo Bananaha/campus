@@ -5,19 +5,18 @@ angular.module('campus.app').factory('sessionService', function(
     config
 ) {
 
-    var actions = ACTIONS,
-        url = config.urls.sessions,
+    var url = config.urls.sessions,
 
         api = {};
 
     api.getForUser = function(params) {
         params = params || {};
         params.user = userService.ID;
-        return dbService.get(url, {params: params})
+        return dbService.get(url, {params: params});
     };
 
     api.get = function(params) {
-        return dbService.get(url, {params: params})
+        return dbService.get(url, {params: params});
     };
 
     api.getById = function(id) {

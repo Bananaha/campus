@@ -4,8 +4,7 @@ angular.module('campus.app').controller('sessionsModifierController', function (
     notificationService,
     historyService,
     formDatasService,
-    sessionService,
-    config
+    sessionService
 ) {
 
     var ID = $routeParams.id;

@@ -18,7 +18,6 @@ angular.module('campus.app').directive('form', function (
         link: function ($scope, element) {
 
             var name = element.attr('name'),
-                action = element.data('action'),
                 target = element.data('target'),
                 url = config.urls[name],
                 $form = $scope[name],

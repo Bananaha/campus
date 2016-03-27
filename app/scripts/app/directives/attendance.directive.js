@@ -1,6 +1,5 @@
 angular.module('campus.app').directive('attendance', function (
     $timeout,
-    config,
     usersService,
     localStorageService
 ) {

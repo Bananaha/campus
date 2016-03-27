@@ -50,7 +50,7 @@ angular.module('campus.app').factory('userService', function(
     }
 
     function validAuth(userId) {
-        return dbService.get(url, {id: userId})
+        return dbService.get(url, {id: userId});
     }
 
     init();

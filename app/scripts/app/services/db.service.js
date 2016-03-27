@@ -32,8 +32,7 @@ angular.module('campus.app').factory('dbService', function(
     };
 
     api.get = function(url, options) {
-        options = options || {}
-        console.log('get', url, options);
+        options = options || {};
         return $http.get(url, options).then(onGetSuccess, onGetError);
     };
 
@@ -56,7 +55,6 @@ angular.module('campus.app').factory('dbService', function(
         if (appStateService.isFrozen()) {
             return $q.reject();
         }
-        console.log('post', url, params);
         appStateService.isFrozen(true);
         return $http.post(url, params)
             .then(onPostSuccess.bind(null, action))

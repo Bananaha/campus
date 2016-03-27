@@ -12,7 +12,7 @@ angular.module('campus.app').factory('usersService', function(
     };
 
     api.get = function(params) {
-        return dbService.get(url, {params: params})
+        return dbService.get(url, {params: params});
     };
 
     api.getById = function(id) {
@@ -20,7 +20,7 @@ angular.module('campus.app').factory('usersService', function(
     };
 
     api.search = function(search) {
-        return dbService.get(url, { params: { search: search }});
+        return dbService.get(url, {params: {search: search}});
     };
 
     api.edit = function(params) {
@@ -30,10 +30,6 @@ angular.module('campus.app').factory('usersService', function(
     api.delete = function(id) {
         return dbService.delete(url, id);
     };
-
-    function onGetUsersError() {
-        $window.alert('Erreur lors de la récupération des utilisateurs');
-    }
 
     return api;
 });

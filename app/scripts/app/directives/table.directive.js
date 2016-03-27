@@ -80,7 +80,6 @@ angular.module('campus.app').directive('table', function (
 
             $scope.callAction = function(action, item) {
                 var currentLocation = $location.url(),
-                    requestName,
                     callback,
                     dbAction;
 
@@ -174,7 +173,6 @@ angular.module('campus.app').directive('table', function (
             }
 
             function removeItem(id) {
-                console.log('removeItem', id);
                 var i;
                 for (i = 0; i < $scope.datas.length; i++) {
                     if ($scope.datas[i].id === id) {

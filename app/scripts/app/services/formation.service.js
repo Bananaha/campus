@@ -10,7 +10,7 @@ angular.module('campus.app').factory('formationService', function(
         api = {};
 
     api.get = function(params) {
-        return dbService.get(url, {params: params})
+        return dbService.get(url, {params: params});
     };
 
     api.getById = function(id) {

@@ -8,7 +8,6 @@ h2.module-title Votre profil
       h2 {{user.prenom}} {{user.nom}}
 
     form(name="profilPasswordModification",
-      data-action="update",
       ng-submit="submit($event)",
       ng-show="initialized")
 

@@ -5,8 +5,7 @@ angular.module('campus.app').controller('utilisateursDetailsController', functio
     notificationService,
     formatterService,
     historyService,
-    usersService,
-    config
+    usersService
 ) {
 
     var ID = $routeParams.id;

@@ -7,8 +7,7 @@ angular.module('campus.app').controller('sessionsDetailsController', function (
     historyService,
     notificationService,
     formatterService,
-    sessionService,
-    config
+    sessionService
 ) {
 
     var ID = $routeParams.id,
@@ -143,7 +142,7 @@ angular.module('campus.app').controller('sessionsDetailsController', function (
             .then(onUpdateSuccess, onUpdateError);
     }
 
-    function onUpdateSuccess(data) {
+    function onUpdateSuccess() {
         getDatas()
             .then(function() {
                 $scope.costChanged = false;

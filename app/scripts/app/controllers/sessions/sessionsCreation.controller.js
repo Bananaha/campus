@@ -7,7 +7,6 @@ angular.module('campus.app').controller('sessionsCreationController', function (
     historyService,
     formDatasService,
     formationService,
-    config,
     ACTIONS
 ) {
 
