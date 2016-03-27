@@ -1,29 +1,36 @@
 angular.module('campus.app').factory('userService', function(
-    $http,
-    $q,
     appStateService,
     localStorageService,
-    notificationService,
+    dbService,
     config
 ) {
 
-    var that = this,
-        savedUser = localStorageService.get('user'),
-        USER;
+    var savedUser = localStorageService.get('user'),
+        USER,
+        url = config.urls.login,
 
-    this.get = function() {
+        api = {};
+
+    api.get = function() {
         return USER;
     };
 
-    this.set = function(data) {
+    api.set = function(data) {
         if (data && data.id) {
             USER = data;
-            this.ID = data.id;
+            api.ID = data.id;
             localStorageService.set('user', USER);
             appStateService.isLogged(true);
         } else {
             logout();
         }
+    };
+
+    api.login = function(credentials) {
+        return dbService.login(url, credentials)
+            .then(function(res) {
+                api.set(res.data);
+            });
     };
 
     function logout() {
@@ -35,7 +42,7 @@ angular.module('campus.app').factory('userService', function(
         if (savedUser && savedUser.id) {
             validAuth(savedUser.id)
                 .then(function() {
-                    that.set(savedUser);
+                    api.set(savedUser);
                 });
         } else {
             logout();
@@ -43,16 +50,10 @@ angular.module('campus.app').factory('userService', function(
     }
 
     function validAuth(userId) {
-        return $http({
-            method: 'POST',
-            url: config.urls.checkAuth,
-            params: {
-                id: userId
-            }
-        });
+        return dbService.get(url, {id: userId})
     }
 
     init();
 
-    return this;
+    return api;
 });

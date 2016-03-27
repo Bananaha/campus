@@ -1,18 +1,18 @@
 angular.module('campus.app').controller('indicateursController', function (
     $scope,
-    $http,
+    dbService,
     notificationService,
     config
 ) {
 
-    $http.get(config.urls.indicateurs)
+    dbService.get(config.urls.indicateurs)
         .then(onGetIndicateursSuccess, onGetIndicateursError);
 
     function onGetIndicateursError() {
         notificationService.warn('Erreur lors de la récupération des indicateurs.');
     }
 
-    function onGetIndicateursSuccess(res) {
-        $scope.indicateurs = res.data;
+    function onGetIndicateursSuccess(data) {
+        $scope.indicateurs = data;
     }
 });

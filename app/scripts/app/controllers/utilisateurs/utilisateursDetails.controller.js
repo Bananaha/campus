@@ -1,11 +1,11 @@
 angular.module('campus.app').controller('utilisateursDetailsController', function (
     $scope,
-    $http,
     $routeParams,
     appStateService,
     notificationService,
     formatterService,
     historyService,
+    usersService,
     config
 ) {
 
@@ -13,17 +13,11 @@ angular.module('campus.app').controller('utilisateursDetailsController', functio
 
     appStateService.isLoading(false);
 
-    $http({
-            method: 'GET',
-            url: config.urls.utilisateursDetails,
-            params: {
-                id: ID
-            }
-        })
+    usersService.getById(ID)
         .then(onGetDetailSuccess, onGetDetailError);
 
-    function onGetDetailSuccess(res) {
-        $scope.userDetail = formatterService.toDisplay(res.data);
+    function onGetDetailSuccess(data) {
+        $scope.userDetail = formatterService.toDisplay(data);
     }
 
     function onGetDetailError() {

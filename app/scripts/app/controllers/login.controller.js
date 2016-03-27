@@ -1,6 +1,5 @@
 angular.module('campus.app').controller('loginController', function (
     $scope,
-    $http,
     $location,
     notificationService,
     userService,
@@ -16,20 +15,11 @@ angular.module('campus.app').controller('loginController', function (
     };
 
     $scope.submit = function() {
-        sendRequest();
+        userService.login($scope.model)
+            .then(onSubmitSuccess, onSubmitError);
     };
 
-    function sendRequest() {
-        $http({
-            method: 'POST',
-            url: config.urls.login,
-            params: $scope.model
-        })
-        .then(onSubmitSuccess, onSubmitError);
-    }
-
     function onSubmitSuccess(res) {
-        userService.set(res.data);
         $location.url('/home');
     }
 

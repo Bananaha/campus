@@ -1,6 +1,5 @@
 angular.module('campus.app').controller('utilisateursModifierController', function (
     $scope,
-    $http,
     $timeout,
     $routeParams,
     appStateService,
@@ -8,6 +7,7 @@ angular.module('campus.app').controller('utilisateursModifierController', functi
     historyService,
     formatterService,
     formDatasService,
+    usersService,
     config
 ) {
 
@@ -17,16 +17,10 @@ angular.module('campus.app').controller('utilisateursModifierController', functi
 
     $scope.initialized = false;
 
-    $http({
-            method: 'GET',
-            url: config.urls.utilisateursDetails,
-            params: {
-                id: ID
-            }
-        })
+    usersService.getById(ID)
         .then(onGetRequestSuccess, onGetRequestError);
 
-    function onGetRequestSuccess(res) {
+    function onGetRequestSuccess(data) {
         var allowedKeys = [
             'entites',
             'id',
@@ -37,7 +31,7 @@ angular.module('campus.app').controller('utilisateursModifierController', functi
             'prenom',
             'service'
         ];
-        $scope.model = formatterService.filters(res.data, allowedKeys);
+        $scope.model = formatterService.filters(data, allowedKeys);
         $timeout(function() {
             $scope.initialized = true;
         });

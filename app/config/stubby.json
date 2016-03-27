@@ -247,7 +247,10 @@
    {
       "request": {
          "url": "/login",
-         "method": "POST"
+         "method": [
+            "POST",
+            "GET"
+         ]
       },
       "response": {
          "file": "app/mocks/login.json"
@@ -415,17 +418,6 @@
    },
    {
       "request": {
-         "url": "/utilisateurs$",
-         "query": {
-            "id": "^[a-zA-Z0-9]"
-         }
-      },
-      "response": {
-         "file": "app/mocks/utilisateurs/utilisateursDetails.json"
-      }
-   },
-   {
-      "request": {
          "url": "/utilisateurs/update$",
          "query": {
             "id": "^[0-9a-zA-Z]"
@@ -467,6 +459,14 @@
       },
       "response": {
          "file": "app/mocks/noop.json"
+      }
+   },
+   {
+      "request": {
+         "url": "/utilisateurs/*[a-zA-Z0-9]"
+      },
+      "response": {
+         "file": "app/mocks/utilisateurs/utilisateursDetails.json"
       }
    }
 ]

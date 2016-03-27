@@ -1,6 +1,5 @@
 angular.module('campus.app').directive('form', function (
     $window,
-    $http,
     $timeout,
     $location,
     config,

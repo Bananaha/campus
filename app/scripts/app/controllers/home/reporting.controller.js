@@ -1,7 +1,7 @@
 angular.module('campus.app').controller('reportingController', function (
     $scope,
-    $http,
     $timeout,
+    dbService,
     downloaderService,
     notificationService,
     config
@@ -36,26 +36,22 @@ angular.module('campus.app').controller('reportingController', function (
     };
 
     $scope.submit = function() {
-        var data;
+        var params;
         if ($scope.reportingForm.$invalid && false) {
             notificationService.warn('Erreur dans le formulaire reporting');
         } else {
-            data = {
+            params = {
                 from: new Date($scope.model.from).getTime(),
                 to: new Date($scope.model.to).getTime(),
                 type: $scope.model.type.id
             };
-            $http({
-                    method: 'GET',
-                    url: config.urls.reporting,
-                    params: data
-                })
+            dbService.get(config.urls.reporting, params)
                 .then(onGetReportSuccess, onGetReportError);
         }
     };
 
-    function onGetReportSuccess(res) {
-        downloaderService.download(res.data.url);
+    function onGetReportSuccess(fileData) {
+        downloaderService.download(fileData.url);
     }
 
     function onGetReportError() {

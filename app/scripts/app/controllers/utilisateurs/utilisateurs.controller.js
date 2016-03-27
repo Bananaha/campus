@@ -38,5 +38,4 @@ angular.module('campus.app').controller('utilisateursController', function (
     };
 
     appStateService.isLoading(false);
-
 });

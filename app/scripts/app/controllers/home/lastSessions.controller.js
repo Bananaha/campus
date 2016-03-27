@@ -1,23 +1,16 @@
 angular.module('campus.app').controller('lastSessionsController', function (
     $scope,
-    $http,
+    sessionService,
     notificationService,
     userService,
     config
 ) {
 
-    $http({
-            method: 'GET',
-            url: config.urls.sessions,
-            params: {
-                user: userService.ID,
-                size: 3
-            }
-        })
+    sessionService.getForUser({size: 3})
         .then(onGetSessionsSuccess, onGetSessionsError);
 
-    function onGetSessionsSuccess(res) {
-        $scope.lastSessions = res.data;
+    function onGetSessionsSuccess(sessions) {
+        $scope.lastSessions = sessions;
     }
 
     function onGetSessionsError() {

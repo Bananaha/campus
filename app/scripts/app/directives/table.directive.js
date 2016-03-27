@@ -1,7 +1,6 @@
 angular.module('campus.app').directive('table', function (
     $location,
     $timeout,
-    $http,
     $q,
     scrollEventService,
     dbService,

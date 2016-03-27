@@ -11,14 +11,16 @@ angular.module('campus.app').factory('dbService', function(
                 modifier: 'Modification effectuée avec succès.',
                 ajouter: 'Ajout effectué avec succès.',
                 archiver: 'Archivage effectué avec succès.',
-                desarchiver: 'Désarchivage effectué avec succès.'
+                desarchiver: 'Désarchivage effectué avec succès.',
+                login: 'Bienvenue'
             },
             error: {
                 supprimer: 'Erreur lors de la suppression.',
                 ajouter: 'Erreur lors de l\'ajout',
                 modifier: 'Erreur lors de la modification.',
                 archiver: 'Erreur lors de l\'archivage.',
-                desarchiver: 'Erreur lors du désarchivage.'
+                desarchiver: 'Erreur lors du désarchivage.',
+                login: 'Erreur lors de l\'identification.'
             }
         },
 
@@ -30,6 +32,8 @@ angular.module('campus.app').factory('dbService', function(
     };
 
     api.get = function(url, options) {
+        options = options || {}
+        console.log('get', url, options);
         return $http.get(url, options).then(onGetSuccess, onGetError);
     };
 
@@ -44,10 +48,15 @@ angular.module('campus.app').factory('dbService', function(
         return post('supprimer', [url, id, 'delete'].join('/'));
     };
 
+    api.login = function(url, params) {
+        return post('login', url, params);
+    };
+
     function post(action, url, params) {
         if (appStateService.isFrozen()) {
             return $q.reject();
         }
+        console.log('post', url, params);
         appStateService.isFrozen(true);
         return $http.post(url, params)
             .then(onPostSuccess.bind(null, action))

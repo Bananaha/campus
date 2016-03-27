@@ -1,25 +1,18 @@
 angular.module('campus.app').controller('documentationController', function (
     $scope,
-    $http,
     notificationService,
-    config
+    config,
+    dbService
 ) {
 
-    $http({
-            method: 'GET',
-            url: config.urls.documentation,
-            params: {
-                from: 0,
-                size: 6
-            }
-        })
+    dbService.get(config.urls.documentation, { from: 0, size: 6 })
         .then(onGetDocumentationSuccess, onGetDocumentationError);
 
     function onGetDocumentationError() {
         notificationService.warn('Erreur lors de la récupération de la documentation.');
     }
 
-    function onGetDocumentationSuccess(res) {
-        $scope.docs = res.data;
+    function onGetDocumentationSuccess(data) {
+        $scope.docs = data;
     }
 });

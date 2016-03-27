@@ -1,6 +1,5 @@
 angular.module('campus.app').controller('sessionsCreationController', function (
     $scope,
-    $http,
     $routeParams,
     $timeout,
     notificationService,

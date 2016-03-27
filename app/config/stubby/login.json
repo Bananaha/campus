@@ -1,7 +1,7 @@
 [{
     "request": {
         "url": "/login",
-        "method": "POST"
+        "method": ["POST", "GET"]
     },
     "response": {
         "file": "app/mocks/login.json"

@@ -1,9 +1,8 @@
 angular.module('campus.app').directive('userList', function (
     $timeout,
-    $window,
-    $http,
     config,
-    utilisateursService
+    notificationService,
+    usersService
 ) {
     return {
         restrict: 'E',
@@ -130,37 +129,34 @@ angular.module('campus.app').directive('userList', function (
             }
 
             function getUsers(ids) {
-                utilisateursService
-                    .getUsers(ids)
+                usersService
+                    .getByIds(ids)
                     .then(onGetUsers);
             }
 
-            function onGetUsers(res) {
-                $scope.displayedUsers = res.data;
+            function onGetUsers(data) {
+                $scope.displayedUsers = data;
                 $scope.ready = true;
             }
 
             function search() {
                 loading(true);
-                $http({
-                        method: 'GET',
-                        url: config.urls.utilisateursSearch,
-                        params: { search: $scope.search }
-                    })
+                usersService
+                    .search($scope.search)
                     .then(onSearchRequestSuccess, onSearchRequestError);
             }
 
-            function onSearchRequestSuccess(res) {
-                if (res.data && res.data.length) {
+            function onSearchRequestSuccess(data) {
+                if (data && data.length) {
                     $scope.showSearchList = true;
-                    $scope.users = res.data.splice(0, 20);
+                    $scope.users = data.splice(0, 20);
                 }
                 loading(false);
             }
 
             function onSearchRequestError() {
                 loading(false);
-                $window.alert('error lors de la recherche des utilisateurs');
+                notificationService.warn('Erreur lors de la recherche des utilisateurs');
             }
 
             function loading(state) {

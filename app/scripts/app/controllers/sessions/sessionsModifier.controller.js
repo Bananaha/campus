@@ -1,6 +1,5 @@
 angular.module('campus.app').controller('sessionsModifierController', function (
     $scope,
-    $http,
     $routeParams,
     notificationService,
     historyService,

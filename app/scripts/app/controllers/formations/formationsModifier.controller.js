@@ -1,6 +1,5 @@
 angular.module('campus.app').controller('formationsModifierController', function (
     $scope,
-    $http,
     $routeParams,
     $timeout,
     appStateService,
