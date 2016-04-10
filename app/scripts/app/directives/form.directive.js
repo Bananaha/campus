@@ -75,12 +75,7 @@ angular.module('campus.app').directive('form', function (
             };
 
             $scope.cancel = function() {
-                if ($scope.modelChanged) {
-                    confirmationService
-                        .confirm('Voulez-vous vraiment annuler les changements que vous avez fait sur ce formulaire?')
-                            .then(cancelForm);
-
-                }
+                historyService.back()
             };
 
             function initModel() {
@@ -99,10 +94,6 @@ angular.module('campus.app').directive('form', function (
                 $timeout(function() {
                     initialized = true;
                 });
-            }
-
-            function cancelForm() {
-                $scope.model = JSON.parse(initialModel);
             }
 
             function onModelChangedChange(value) {

@@ -52,7 +52,7 @@ angular.module('campus.app', [
         }).
         when('/creation/accompagnement', {
             templateUrl: basePath + 'formations-creation-accompagnement.html',
-            controller: 'formationsCreationController'
+            controller: 'formationsAccompagnementCreationController'
         }).
         when('/utilisateurs', {
             templateUrl: basePath + 'utilisateurs.html',

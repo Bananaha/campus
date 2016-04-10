@@ -2,10 +2,10 @@ include ../mixins/main
 
 h2.module-title Création d'un accompagnement
 
-form(name="formationsCreation",
-      data-target="formations"
-      form,
-      ng-submit="submit($event)")
+form(name="formations",
+  data-target="formations",
+  form,
+  ng-submit="submit($event)")
 
   input(type="hidden",
         name="dispositif",
@@ -92,13 +92,15 @@ form(name="formationsCreation",
       .module-card
         .module-header
           h2 Participants
-        user-list(users="model.participants")
+        user-list(users="model.participants.stagiaires",
+                  displayed-users="participantsDetails.stagiaires")
 
     .col-1-2
       .module-card
         .module-header
           h2 Formateurs
-        user-list(users="model.formateurs")
+        user-list(users="model.participants.formateurs",
+                  displayed-users="participantsDetails.formateurs")
 
     .col-1
       include ../includes/modules/module-submit
