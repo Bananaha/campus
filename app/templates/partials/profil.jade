@@ -21,7 +21,7 @@ h2.module-title Votre profil
         .grid.pad
 
           .col-1
-            +form-underlined("Votre mot de passe actuel")
+            +form-underlined("Mot de passe actuel")
               - opt = {}
               - opt.type = "password"
               - opt.ngModel = "model.password"
@@ -29,7 +29,7 @@ h2.module-title Votre profil
               +input(opt)
 
           .col-1
-            +form-underlined("Votre nouveau mot de passe")
+            +form-underlined("Nouveau mot de passe")
               - opt = {}
               - opt.type = "password"
               - opt.ngModel = "model.newPassword"
