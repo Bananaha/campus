@@ -18,7 +18,7 @@
     "gulp-debug": "^1.0.1",
     "gulp-eslint": "^0.15.0",
     "gulp-html-replace": "^1.4.5",
-    "gulp-if": "^1.2.5",
+    "gulp-if": "^2.0.2",
     "gulp-ignore": "^1.2.1",
     "gulp-jade": "^1.0.1",
     "gulp-jsoncombine": "^1.0.3",
@@ -36,6 +36,6 @@
     "object-assign": "^4.0.1",
     "require-dir": "^0.1.0",
     "run-sequence": "^1.0.2",
-    "stubby": "git://github.com/kombucha/stubby4node.git#handle-query-arrays"
+    "stubby": "^4.0.0"
   }
 }
